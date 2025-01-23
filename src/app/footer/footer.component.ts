@@ -3,13 +3,13 @@ import { SOCIAL_MEDIA } from "../data/social-media.model";
 import { CONTACT } from "../data/contact-info.model";
 
 @Component({
-  selector: "app-header",
+  selector: "app-footer",
   standalone: true,
   imports: [],
-  templateUrl: "./header.component.html",
-  styleUrl: "./header.component.scss",
+  templateUrl: "./footer.component.html",
+  styleUrl: "./footer.component.scss",
 })
-export class HeaderComponent {
+export class FooterComponent {
   public socials = SOCIAL_MEDIA;
   public contact = CONTACT;
 }

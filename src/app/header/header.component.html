@@ -52,7 +52,7 @@
           <div class="offcanvas__logo">
             <!--<a href="index.html">-->
             <a href="#">
-              <img src="/img/logo/logo.svg" alt="logo-img" />
+              <img src="/img/old/logo.png" class="logo-img" alt="logo-img" />
             </a>
           </div>
           <div class="offcanvas__close">
@@ -115,8 +115,8 @@
                 <i class="fal fa-map-marker-alt"></i>
               </div>
               <div class="offcanvas__contact-text">
-                <a target="_blank" href="#"
-                  >Main Street, Melbourne, Australia</a
+                <a target="_blank" [href]="socials.GOOGLE"
+                  >{{contact.ADDRESS}}</a
                 >
               </div>
             </li>
@@ -125,9 +125,9 @@
                 <i class="fal fa-envelope"></i>
               </div>
               <div class="offcanvas__contact-text">
-                <a href="tel:+013-003-003-9993"
+                <a [href]="contact.PHONE_LINK"
                   ><span class="mailto:info@enofik.com"
-                    >info&#64;fresheat.com</span
+                    >{{contact.EMAIL}}</span
                   ></a
                 >
               </div>
@@ -137,7 +137,7 @@
                 <i class="fal fa-clock"></i>
               </div>
               <div class="offcanvas__contact-text">
-                <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                <a target="_blank" href="#">Mon-Sat, 09am - 10pm</a>
               </div>
             </li>
             <li class="d-flex align-items-center">
@@ -145,23 +145,23 @@
                 <i class="far fa-phone"></i>
               </div>
               <div class="offcanvas__contact-text">
-                <a href="tel:+11002345909">+11002345909</a>
+                <a [href]="contact.PHONE_LINK">{{contact.PHONE}}</a>
               </div>
             </li>
           </ul>
           <div class="header-button mt-4">
-            <a href="#" class="theme-btn">
-              <span
-                class="button-content-wrapper d-flex align-items-center justify-content-center"
-              >
-                <span class="button-icon"
-                  ><i
-                    class="fa-sharp fa-regular fa-cart-shopping bg-transparent text-white me-2"
-                  ></i
-                ></span>
-                <span class="button-text">ORDER NOW</span>
-              </span>
-            </a>
+            <!--<a href="#" class="theme-btn">-->
+            <!--  <span-->
+            <!--    class="button-content-wrapper d-flex align-items-center justify-content-center"-->
+            <!--  >-->
+            <!--    <span class="button-icon"-->
+            <!--      ><i-->
+            <!--        class="fa-sharp fa-regular fa-cart-shopping bg-transparent text-white me-2"-->
+            <!--      ></i-->
+            <!--    ></span>-->
+            <!--    <span class="button-text">ORDER NOW</span>-->
+            <!--  </span>-->
+            <!--</a>-->
             <!--<a href="shop.html" class="theme-btn">-->
             <!--  <span-->
             <!--    class="button-content-wrapper d-flex align-items-center justify-content-center"-->
@@ -176,10 +176,18 @@
             <!--</a>-->
           </div>
           <div class="social-icon d-flex align-items-center">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a target="_blank" [href]="socials.FACEBOOK"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a target="_blank" [href]="socials.YELP"
+              ><i class="fab fa-yelp"></i
+            ></a>
+            <a target="_blank" [href]="socials.GOOGLE"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a target="_blank" [href]="socials.INSTAGRAM"
+              ><i class="fab fa-instagram"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -194,7 +202,7 @@
     <div class="main-header-wrapper">
       <div class="logo-image">
         <a href="#">
-          <img src="/img/logo/logo.svg" alt="img" />
+          <img src="/img/old/logo.png" class="logo-img" alt="logo-img" />
         </a>
         <!--<a href="index.html">-->
         <!--  <img src="/img/logo/logo.svg" alt="img" />-->
@@ -202,13 +210,21 @@
       </div>
       <div class="main-header-items">
         <div class="header-top-wrapper">
-          <span><i class="fa-regular fa-clock"></i> 09:00 am - 06:00 pm</span>
+          <span><i class="fa-regular fa-clock"></i> 09:00 am - 10:00 pm</span>
           <div class="social-icon d-flex align-items-center">
             <span>Follow Us:</span>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a target="_blank" [href]="socials.FACEBOOK"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a target="_blank" [href]="socials.YELP"
+              ><i class="fab fa-yelp"></i
+            ></a>
+            <a target="_blank" [href]="socials.GOOGLE"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a target="_blank" [href]="socials.INSTAGRAM"
+              ><i class="fab fa-instagram"></i
+            ></a>
           </div>
         </div>
         <div id="header-sticky" class="header-1">
@@ -216,7 +232,11 @@
             <div class="header-main">
               <div class="logo">
                 <a href="#" class="header-logo">
-                  <img src="/img/logo/logo.svg" alt="logo-img" />
+                  <img
+                    src="/img/old/logo.png"
+                    class="logo-img"
+                    alt="logo-img"
+                  />
                 </a>
                 <!--<a href="index.html" class="header-logo">-->
                 <!--  <img src="/img/logo/logo.svg" alt="logo-img" />-->
@@ -538,83 +558,83 @@
               <div
                 class="header-right d-flex justify-content-end align-items-center"
               >
-                <a href="#0" class="search-trigger search-icon"
-                  ><i class="fal fa-search"></i
-                ></a>
+                <!--<a href="#0" class="search-trigger search-icon"-->
+                <!--  ><i class="fal fa-search"></i-->
+                <!--></a>-->
 
-                <div class="header__cart">
-                  <a href="#">
-                    <i class="fa-sharp fa-regular fa-cart-shopping"></i>
-                  </a>
-                  <div class="header__right__dropdown__wrapper">
-                    <div class="header__right__dropdown__inner">
-                      <div class="single__header__right__dropdown">
-                        <div class="header__right__dropdown__img">
-                          <a href="#">
-                            <img
-                              loading="lazy"
-                              src="/img/blog/blogRecentThumb3_1.png"
-                              alt="photo"
-                            />
-                          </a>
-                        </div>
-                        <div class="header__right__dropdown__content">
-                          <a href="shop.html">Fried Chicken</a>
-                          <p>1 x <span class="price">$ 80.00</span></p>
-                        </div>
-                        <div class="header__right__dropdown__close">
-                          <a href="#"><i class="icofont-close-line"></i></a>
-                        </div>
-                      </div>
-
-                      <div class="single__header__right__dropdown">
-                        <div class="header__right__dropdown__img">
-                          <a href="#">
-                            <img
-                              loading="lazy"
-                              src="/img/blog/blogRecentThumb3_2.png"
-                              alt="photo"
-                            />
-                          </a>
-                        </div>
-                        <div class="header__right__dropdown__content">
-                          <a href="shop.html">Fried Noodles</a>
-                          <p>1 x <span class="price">$ 60.00</span></p>
-                        </div>
-                        <div class="header__right__dropdown__close">
-                          <a href="#"><i class="icofont-close-line"></i></a>
-                        </div>
-                      </div>
-
-                      <div class="single__header__right__dropdown">
-                        <div class="header__right__dropdown__img">
-                          <a href="#">
-                            <img
-                              loading="lazy"
-                              src="/img/blog/blogRecentThumb3_3.png"
-                              alt="photo"
-                            />
-                          </a>
-                        </div>
-                        <div class="header__right__dropdown__content">
-                          <a href="shop.html">Special Pasta</a>
-                          <p>1 x <span class="price">$ 70.00</span></p>
-                        </div>
-                        <div class="header__right__dropdown__close">
-                          <a href="#"><i class="icofont-close-line"></i></a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p class="dropdown__price">Total: <span>$1,100.00</span></p>
-                    <div class="header__right__dropdown__button">
-                      <a href="cart.html" class="theme-btn mb-2">View Cart</a>
-                      <a href="checkout.html" class="theme-btn style3"
-                        >Checkout</a
-                      >
-                    </div>
-                  </div>
-                </div>
+                <!--<div class="header__cart">-->
+                <!--  <a href="#">-->
+                <!--    <i class="fa-sharp fa-regular fa-cart-shopping"></i>-->
+                <!--  </a>-->
+                <!--  <div class="header__right__dropdown__wrapper">-->
+                <!--    <div class="header__right__dropdown__inner">-->
+                <!--      <div class="single__header__right__dropdown">-->
+                <!--        <div class="header__right__dropdown__img">-->
+                <!--          <a href="#">-->
+                <!--            <img-->
+                <!--              loading="lazy"-->
+                <!--              src="/img/blog/blogRecentThumb3_1.png"-->
+                <!--              alt="photo"-->
+                <!--            />-->
+                <!--          </a>-->
+                <!--        </div>-->
+                <!--        <div class="header__right__dropdown__content">-->
+                <!--          <a href="shop.html">Fried Chicken</a>-->
+                <!--          <p>1 x <span class="price">$ 80.00</span></p>-->
+                <!--        </div>-->
+                <!--        <div class="header__right__dropdown__close">-->
+                <!--          <a href="#"><i class="icofont-close-line"></i></a>-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!---->
+                <!--      <div class="single__header__right__dropdown">-->
+                <!--        <div class="header__right__dropdown__img">-->
+                <!--          <a href="#">-->
+                <!--            <img-->
+                <!--              loading="lazy"-->
+                <!--              src="/img/blog/blogRecentThumb3_2.png"-->
+                <!--              alt="photo"-->
+                <!--            />-->
+                <!--          </a>-->
+                <!--        </div>-->
+                <!--        <div class="header__right__dropdown__content">-->
+                <!--          <a href="shop.html">Fried Noodles</a>-->
+                <!--          <p>1 x <span class="price">$ 60.00</span></p>-->
+                <!--        </div>-->
+                <!--        <div class="header__right__dropdown__close">-->
+                <!--          <a href="#"><i class="icofont-close-line"></i></a>-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!---->
+                <!--      <div class="single__header__right__dropdown">-->
+                <!--        <div class="header__right__dropdown__img">-->
+                <!--          <a href="#">-->
+                <!--            <img-->
+                <!--              loading="lazy"-->
+                <!--              src="/img/blog/blogRecentThumb3_3.png"-->
+                <!--              alt="photo"-->
+                <!--            />-->
+                <!--          </a>-->
+                <!--        </div>-->
+                <!--        <div class="header__right__dropdown__content">-->
+                <!--          <a href="shop.html">Special Pasta</a>-->
+                <!--          <p>1 x <span class="price">$ 70.00</span></p>-->
+                <!--        </div>-->
+                <!--        <div class="header__right__dropdown__close">-->
+                <!--          <a href="#"><i class="icofont-close-line"></i></a>-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!---->
+                <!--    <p class="dropdown__price">Total: <span>$1,100.00</span></p>-->
+                <!--    <div class="header__right__dropdown__button">-->
+                <!--      <a href="cart.html" class="theme-btn mb-2">View Cart</a>-->
+                <!--      <a href="checkout.html" class="theme-btn style3"-->
+                <!--        >Checkout</a-->
+                <!--      >-->
+                <!--    </div>-->
+                <!--  </div>-->
+                <!--</div>-->
 
                 <a class="theme-btn" href="menu.html"
                   >ORDER NOW <i class="fa-sharp fa-regular fa-arrow-right"></i
