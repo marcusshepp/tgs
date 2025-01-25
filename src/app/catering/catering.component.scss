@@ -1,0 +1,16 @@
+.background-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .background-image {
+    height: 300px !important;
+  }
+}
+
+.service-details-thumb img {
+  width: 100%;
+  height: auto;
+}
