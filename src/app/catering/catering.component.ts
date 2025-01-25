@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { ContactUsComponent } from "../contact-us/contact-us.component";
 
 @Component({
-  selector: 'app-catering',
+  selector: "app-catering",
   standalone: true,
-  imports: [],
-  templateUrl: './catering.component.html',
-  styleUrl: './catering.component.scss'
+  imports: [ContactUsComponent],
+  templateUrl: "./catering.component.html",
+  styleUrl: "./catering.component.scss",
 })
-export class CateringComponent {
-
-}
+export class CateringComponent {}
