@@ -1,7 +1,7 @@
 <app-preloader></app-preloader>
-<div class="mouse-cursor cursor-outer"></div>
-<div class="mouse-cursor cursor-inner"></div>
-
+<!--<div class="mouse-cursor cursor-outer"></div>-->
+<!--<div class="mouse-cursor cursor-inner"></div>-->
+<!---->
 <button id="back-top" class="back-to-top">
   <i class="fa-regular fa-arrow-up"></i>
 </button>
@@ -14,7 +14,7 @@
   <div class="container-fluid">
     <div class="main-header-wrapper">
       <div class="logo-image">
-        <a href="#">
+        <a routerLink="/">
           <img src="/img/old/logo.png" class="logo-img" alt="logo-img" />
         </a>
       </div>
@@ -52,7 +52,8 @@
               <div class="header-left">
                 <div class="mean__menu-wrapper">
                   <div class="main-menu">
-                    <nav id="mobile-menu">
+                    <!--<nav id="mobile-menu">-->
+                    <nav>
                       <ul>
                         <li>
                           <a routerLink="/"> Home </a>
@@ -63,16 +64,14 @@
                         <li>
                           <a routerLink="menu"> Menu </a>
                         </li>
-                        <li class="has-dropdown">
-                          <a href="#">
-                            Contact
-                            <i class="fa-regular fa-plus"></i>
-                          </a>
-                          <ul class="submenu">
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Feedback</a></li>
-                            <li><a routerLink="reviews">Reviews</a></li>
-                          </ul>
+                        <li>
+                          <a routerLink="/"> Feedback </a>
+                        </li>
+                        <li>
+                          <a routerLink="/"> Reviews </a>
+                        </li>
+                        <li>
+                          <a routerLink="/"> Contact Us </a>
                         </li>
                       </ul>
                     </nav>

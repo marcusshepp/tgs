@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 export interface Dish {
   id: number;
@@ -89,19 +90,19 @@ export const DUMMY_DISHES: Dish[] = [
 @Component({
   selector: "app-popular-food-items",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: "./popular-food-items.component.html",
   styleUrl: "./popular-food-items.component.scss",
 })
 export class PopularFoodItemsComponent {
   public dishes: Dish[] = DUMMY_DISHES;
-  selectedDish: Dish | null = null;
+  public selectedDish: Dish | null = null;
 
-  openModal(dish: Dish): void {
+  public openModal(dish: Dish): void {
     this.selectedDish = dish;
   }
 
-  get displayedDishes(): Dish[] {
+  public get displayedDishes(): Dish[] {
     return this.dishes.slice(0, 3);
   }
 }
