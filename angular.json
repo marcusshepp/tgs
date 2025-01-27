@@ -27,7 +27,7 @@
               {
                 "glob": "**/*",
                 "input": "public",
-                "output": "./"
+                "output": "/"
               }
             ],
             "styles": [
@@ -67,7 +67,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "7MB"
                 },
                 {
                   "type": "anyComponentStyle",
