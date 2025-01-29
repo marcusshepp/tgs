@@ -103,6 +103,6 @@ export class PopularFoodItemsComponent {
   }
 
   public get displayedDishes(): Dish[] {
-    return this.dishes.slice(0, 3);
+    return this.dishes.slice(0, 4);
   }
 }
