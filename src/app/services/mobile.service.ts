@@ -4,15 +4,14 @@ import {
   BreakpointState,
 } from "@angular/cdk/layout";
 import { Injectable } from "@angular/core";
-import { map, Observable } from "rxjs";
+import { map, Observable, Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class MobileService {
-  /*
-    Luke is a little slut
-    */
+  public isMobileNavOpen: Subject<boolean> = new Subject<boolean>();
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   public isHandset(): Observable<boolean> {
