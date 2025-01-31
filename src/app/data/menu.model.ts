@@ -8,6 +8,7 @@ export interface MenuItem {
   isVegetarianOption?: boolean;
   price?: number;
   active?: boolean;
+  featured?: boolean;
 }
 
 export const MENU_ITEMS: MenuItem[] = [

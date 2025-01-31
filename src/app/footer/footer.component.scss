@@ -1,0 +1,19 @@
+.fancy-box .item2 p {
+  word-break: break-word;
+  max-width: 250px;
+}
+
+.fancy-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.fancy-box .item1 {
+  flex-shrink: 0;
+}
+
+.fancy-box .item2 {
+  flex: 1;
+  min-width: 0;
+}
