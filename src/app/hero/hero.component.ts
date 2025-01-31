@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { CONTACT } from "../data/contact-info.model";
+import { SOCIAL_MEDIA } from "../data/social-media.model";
 
 @Component({
   selector: "app-hero",
@@ -7,4 +9,7 @@ import { Component } from "@angular/core";
   templateUrl: "./hero.component.html",
   styleUrl: "./hero.component.scss",
 })
-export class HeroComponent {}
+export class HeroComponent {
+  public contact = CONTACT;
+  public socials = SOCIAL_MEDIA;
+}

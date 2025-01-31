@@ -4,6 +4,7 @@ import { ReviewsComponent } from "./reviews/reviews.component";
 import { CateringComponent } from "./catering/catering.component";
 import { FullMenuComponent } from "./full-menu/full-menu.component";
 import { ContactUsComponent } from "./contact/contact-us/contact-us.component";
+import { MenuItemDetailsComponent } from "./menu-item-details/menu-item-details.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -11,4 +12,6 @@ export const routes: Routes = [
   { path: "catering", component: CateringComponent },
   { path: "menu", component: FullMenuComponent },
   { path: "contact-us", component: ContactUsComponent },
+  // this should probably be the name-of-the-item
+  { path: "menu-item/:id", component: MenuItemDetailsComponent },
 ];

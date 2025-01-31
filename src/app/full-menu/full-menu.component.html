@@ -22,18 +22,11 @@
               class="sub-title text-center wow fadeInUp"
               data-wow-delay="0.5s"
             >
-              <img
-                class="me-1"
-                src="/img/icon/titleIcon.svg"
-                alt="icon"
-              />POPULAR DISHES<img
-                class="ms-1"
-                src="/img/icon/titleIcon.svg"
-                alt="icon"
-              />
+              <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon" />MENU
+              ITEMS<img class="ms-1" src="/img/icon/titleIcon.svg" alt="icon" />
             </div>
             <h2 class="title wow fadeInUp" data-wow-delay="0.7s">
-              Our Most Popular Deals
+              Our Menu Selection
             </h2>
           </div>
           <div class="food-menu-tab-wrapper style2">
@@ -43,143 +36,34 @@
               >
                 <div class="tab-left">
                   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
+                    <li
+                      class="nav-item"
+                      role="presentation"
+                      *ngFor="let item of menu.slice(0, 5); let i = index"
+                    >
                       <div
-                        class="nav-link active"
-                        id="pills-chinesePasta-tab"
+                        [class]="'nav-link ' + (i === 0 ? 'active' : '')"
+                        [id]="'pills-' + item.id + '-tab'"
                         data-bs-toggle="pill"
-                        data-bs-target="#pills-chinesePasta"
+                        [attr.data-bs-target]="'#pills-' + item.id"
                         role="tab"
-                        aria-controls="pills-chinesePasta"
-                        aria-selected="true"
+                        [attr.aria-controls]="'pills-' + item.id"
+                        [attr.aria-selected]="i === 0"
                       >
                         <div class="single-menu-items">
                           <div class="details">
                             <div class="menu-item-thumb">
                               <img
-                                src="/img/menu/menuThumb2_1.png"
-                                alt="thumb"
+                                [src]="item.imageUrl || '/img/menu/default.png'"
+                                [alt]="item.title"
                               />
                             </div>
                             <div class="menu-content">
-                              <h3>Chinese Pasta</h3>
-                              <p>It's a testament to our.</p>
+                              <h3>{{item.title}}</h3>
+                              <p>{{item.description}}</p>
                             </div>
                           </div>
-
-                          <h6>$15.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-chickenFriedRice-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-chickenFriedRice"
-                        role="tab"
-                        aria-controls="pills-chickenFriedRice"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_2.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Chicken Fried Rice</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$25.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-chickenPizza-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-chickenPizza"
-                        role="tab"
-                        aria-controls="pills-chickenPizza"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_3.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Chicken Pizza</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$35.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-chickenNoodles-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-chickenNoodles"
-                        role="tab"
-                        aria-controls="pills-chickenNoodles"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_4.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Chicken Noodles</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$45.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-grilledChicken-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-grilledChicken"
-                        role="tab"
-                        aria-controls="pills-grilledChicken"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_5.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Grilled Chicken</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$55.99</h6>
+                          <h6>${{item.price || '15.99'}}</h6>
                         </div>
                       </div>
                     </li>
@@ -193,113 +77,18 @@
                 <div class="middle-tab-content">
                   <div class="tab-content" id="pills-tabContent">
                     <div
-                      class="tab-pane fade show active"
-                      id="pills-chinesePasta"
+                      *ngFor="let item of menu; let i = index"
+                      [class]="'tab-pane fade ' + (i === 0 ? 'show active' : '')"
+                      [id]="'pills-' + item.id"
                       role="tabpanel"
-                      aria-labelledby="pills-chinesePasta-tab"
+                      [attr.aria-labelledby]="'pills-' + item.id + '-tab'"
                       tabindex="0"
                     >
                       <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-chickenFriedRice"
-                      role="tabpanel"
-                      aria-labelledby="pills-chickenFriedRice-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-chickenPizza"
-                      role="tabpanel"
-                      aria-labelledby="pills-chickenPizza-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-chickenNoodles"
-                      role="tabpanel"
-                      aria-labelledby="pills-chickenNoodles-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-grilledChicken"
-                      role="tabpanel"
-                      aria-labelledby="pills-grilledChicken-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-EggCucumber"
-                      role="tabpanel"
-                      aria-labelledby="pills-EggCucumber-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-chickenWhiteRice"
-                      role="tabpanel"
-                      aria-labelledby="pills-chickenWhiteRice-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-specialBurger"
-                      role="tabpanel"
-                      aria-labelledby="pills-specialBurger-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-vegetablesBurger"
-                      role="tabpanel"
-                      aria-labelledby="pills-vegetablesBurger-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
-                      </div>
-                    </div>
-                    <div
-                      class="tab-pane fade"
-                      id="pills-briefChicken"
-                      role="tabpanel"
-                      aria-labelledby="pills-briefChicken-tab"
-                      tabindex="0"
-                    >
-                      <div class="menuthumb">
-                        <img src="/img/menu/menuThumb3_1.png" alt="thumb" />
+                        <img
+                          [src]="item.imageUrl || '/img/menu/menuThumb3_1.png'"
+                          [alt]="item.title"
+                        />
                       </div>
                     </div>
                   </div>
@@ -311,143 +100,34 @@
               >
                 <div class="tab-right">
                   <ul class="nav nav-pills mb-3" id="pills-tab2" role="tablist">
-                    <li class="nav-item" role="presentation">
+                    <li
+                      class="nav-item"
+                      role="presentation"
+                      *ngFor="let item of menu.slice(5, 10); let i = index"
+                    >
                       <div
-                        class="nav-link"
-                        id="pills-EggCucumber-tab"
+                        [class]="'nav-link ' + (i === 0 && !menu[0].active ? 'active' : '')"
+                        [id]="'pills-' + item.id + '-tab'"
                         data-bs-toggle="pill"
-                        data-bs-target="#pills-EggCucumber"
+                        [attr.data-bs-target]="'#pills-' + item.id"
                         role="tab"
-                        aria-controls="pills-EggCucumber"
-                        aria-selected="true"
+                        [attr.aria-controls]="'pills-' + item.id"
+                        [attr.aria-selected]="i === 0 && !menu[0].active"
                       >
                         <div class="single-menu-items">
                           <div class="details">
                             <div class="menu-item-thumb">
                               <img
-                                src="/img/menu/menuThumb2_6.png"
-                                alt="thumb"
+                                [src]="item.imageUrl || '/img/menu/default.png'"
+                                [alt]="item.title"
                               />
                             </div>
                             <div class="menu-content">
-                              <h3>Egg and Cucumber</h3>
-                              <p>It's a testament to our.</p>
+                              <h3>{{item.title}}</h3>
+                              <p>{{item.description}}</p>
                             </div>
                           </div>
-
-                          <h6>$75.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-chickenWhiteRice-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-chickenWhiteRice"
-                        role="tab"
-                        aria-controls="pills-chickenWhiteRice"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_7.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Chicken Whit Rice</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$85.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-specialBurger-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-specialBurger"
-                        role="tab"
-                        aria-controls="pills-specialBurger"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_8.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Special Barger</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$95.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-vegetablesBurger-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-vegetablesBurger"
-                        role="tab"
-                        aria-controls="pills-vegetablesBurger"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_9.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Vegetables Burger</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$25.99</h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <div
-                        class="nav-link"
-                        id="pills-briefChicken-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-briefChicken"
-                        role="tab"
-                        aria-controls="pills-briefChicken"
-                        aria-selected="false"
-                      >
-                        <div class="single-menu-items">
-                          <div class="details">
-                            <div class="menu-item-thumb">
-                              <img
-                                src="/img/menu/menuThumb2_10.png"
-                                alt="thumb"
-                              />
-                            </div>
-                            <div class="menu-content">
-                              <h3>Brief Chicken</h3>
-                              <p>It's a testament to our.</p>
-                            </div>
-                          </div>
-
-                          <h6>$252.99</h6>
+                          <h6>${{item.price || '15.99'}}</h6>
                         </div>
                       </div>
                     </li>
@@ -464,39 +144,16 @@
     <div class="marquee-inner to-left">
       <ul class="marqee-list d-flex">
         <li class="marquee-item style1">
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">chicken pizza</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">GRILLED CHICKEN</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">BURGER</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">CHICKEN PIZZA</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">FRESH PASTA</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">ITALIANO FRENCH FRY</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">CHICKEN FRY</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">chicken pizza</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">GRILLED CHICKEN</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">BURGER</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">CHICKEN PIZZA</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">FRESH PASTA</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">ITALIANO FRENCH FRY</span>
-          <span class="text-slider"></span
-          ><span class="text-slider text-style">CHICKEN FRY</span>
+          <ng-container *ngFor="let item of menu">
+            <span class="text-slider"></span>
+            <span class="text-slider text-style">{{item.title}}</span>
+          </ng-container>
         </li>
       </ul>
     </div>
   </div>
 </section>
+
 <div class="timer-section section-padding pt-0 fix">
   <div class="timer-wrapper style1">
     <div class="container">
