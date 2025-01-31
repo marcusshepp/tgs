@@ -1,34 +1,49 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr/node';
-import express from 'express';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import { APP_BASE_HREF } from "@angular/common";
+import { CommonEngine } from "@angular/ssr/node";
+import express, { Request, Response, NextFunction } from "express";
+import { fileURLToPath } from "node:url";
+import { dirname, join, resolve } from "node:path";
+import bootstrap from "./src/main.server";
+import { render } from "@netlify/angular-runtime/common-engine";
 
-// The Express app is exported so that it can be used by serverless Functions.
-export function app(): express.Express {
-  const server = express();
+// Export the handler for Netlify serverless function
+export default async function handler(req: Request, res: Response) {
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+  const browserDistFolder = resolve(serverDistFolder, "../browser");
+  const indexHtml = join(serverDistFolder, "index.server.html");
 
+  try {
+    const response = await render(bootstrap);
+    res.send(response);
+  } catch (error) {
+    console.error("Rendering error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+// Keep the Express server for local development
+if (process.env["NODE_ENV"] === "development") {
+  const server = express();
+  const port = process.env["PORT"] || 4000;
+
+  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+  const browserDistFolder = resolve(serverDistFolder, "../browser");
+  const indexHtml = join(serverDistFolder, "index.server.html");
   const commonEngine = new CommonEngine();
 
-  server.set('view engine', 'html');
-  server.set('views', browserDistFolder);
+  server.set("view engine", "html");
+  server.set("views", browserDistFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
-  server.get('**', express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: 'index.html',
-  }));
+  server.get(
+    "**",
+    express.static(browserDistFolder, {
+      maxAge: "1y",
+      index: "index.html",
+    }),
+  );
 
-  // All regular routes use the Angular engine
-  server.get('**', (req, res, next) => {
+  server.get("**", (req: Request, res: Response, next: NextFunction) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
-
     commonEngine
       .render({
         bootstrap,
@@ -41,17 +56,7 @@ export function app(): express.Express {
       .catch((err) => next(err));
   });
 
-  return server;
-}
-
-function run(): void {
-  const port = process.env['PORT'] || 4000;
-
-  // Start up the Node server
-  const server = app();
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
-
-run();
