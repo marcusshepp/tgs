@@ -1,0 +1,107 @@
+<div class="fix-area">
+  <div class="offcanvas__info">
+    <div class="offcanvas__wrapper">
+      <div class="offcanvas__content">
+        <div
+          class="offcanvas__top d-flex justify-content-between mb-5 align-items-center"
+        >
+          <div class="offcanvas__logo">
+            <a routerLink="/">
+              <img src="/img/old/logo.png" class="logo-img" alt="logo-img" />
+            </a>
+          </div>
+          <div class="offcanvas__close">
+            <button (click)="closeMobileNav()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="mobile-menu fix mb-3">
+          <nav>
+            <ul>
+              <li>
+                <a routerLink="/"> Home </a>
+              </li>
+              <li>
+                <a routerLink="catering"> Catering </a>
+              </li>
+              <li>
+                <a routerLink="menu"> Menu </a>
+              </li>
+              <li>
+                <a routerLink="/"> Feedback </a>
+              </li>
+              <li>
+                <a routerLink="/"> Reviews </a>
+              </li>
+              <li>
+                <a routerLink="contact-us"> Contact Us </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="offcanvas__contact">
+          <!--<h4>Contact Info</h4>-->
+          <!--<ul>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon">-->
+          <!--      <i class="fal fa-map-marker-alt"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a target="_blank" [href]="socials.GOOGLE"-->
+          <!--        >{{contact.ADDRESS}}</a-->
+          <!--      >-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon mr-15">-->
+          <!--      <i class="fal fa-envelope"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a [href]="contact.PHONE_LINK"-->
+          <!--        ><span class="mailto:info@enofik.com"-->
+          <!--          >{{contact.EMAIL}}</span-->
+          <!--        ></a-->
+          <!--      >-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon mr-15">-->
+          <!--      <i class="fal fa-clock"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a target="_blank" href="#">Mon-Sat, 09am - 10pm</a>-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon mr-15">-->
+          <!--      <i class="far fa-phone"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a [href]="contact.PHONE_LINK">{{contact.PHONE}}</a>-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--</ul>-->
+          <!--<div class="header-button mt-4"></div>-->
+          <div
+            class="social-icon d-flex align-items-center justify-content-center"
+          >
+            <a target="_blank" [href]="socials.FACEBOOK"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a target="_blank" [href]="socials.YELP"
+              ><i class="fab fa-yelp"></i
+            ></a>
+            <a target="_blank" [href]="socials.GOOGLE"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a target="_blank" [href]="socials.INSTAGRAM"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="offcanvas__overlay"></div>

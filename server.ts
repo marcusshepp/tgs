@@ -36,7 +36,7 @@ if (process.env["NODE_ENV"] === "development") {
     }),
   );
 
-  server.get("**", (req: any, res: any, next: any) => {
+  server.get("**", (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
     commonEngine
       .render({

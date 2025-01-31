@@ -1,0 +1,22 @@
+.form-control:focus,
+.form-select:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.25);
+}
+
+.btn-primary {
+  background-color: #ff6b35;
+  border-color: #ff6b35;
+}
+
+.btn-primary:hover {
+  background-color: #e85a2c;
+  border-color: #e85a2c;
+}
+
+@media (max-width: 1200px) {
+  .contact-form-thumb img {
+    max-width: 100%;
+    height: auto;
+  }
+}
