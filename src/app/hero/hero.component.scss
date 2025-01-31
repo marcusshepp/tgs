@@ -1,4 +1,39 @@
-.hero-slider-image {
-  width: 700px;
-  height: 500px;
+.banner-style3 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-wrapper.style3 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #010f1ccf 0%, rgba(1, 15, 28, 0.75) 100%);
+  z-index: 1;
+}
+
+.banner-style3 p,
+.banner-style3 * {
+  word-break: break-word;
+  max-width: 100%;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.banner-wrapper.style3 {
+}
+
+@media (max-width: 768px) {
+  .banner-style3 p {
+    padding: 0 15px;
+  }
+
+  .banner-wrapper.style3 {
+  }
+}
+@media (max-width: 767px) {
+  .banner-style3 {
+    padding: 0 15px;
+  }
 }

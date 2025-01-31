@@ -1,6 +1,4 @@
 <app-preloader></app-preloader>
-<div class="mouse-cursor cursor-outer"></div>
-<div class="mouse-cursor cursor-inner"></div>
 
 <button id="back-top" class="back-to-top">
   <i class="fa-regular fa-arrow-up"></i>
@@ -8,71 +6,50 @@
 
 <app-offcanvas></app-offcanvas>
 
-<header class="header-section">
-  <div class="black-bg"></div>
-  <div class="red-bg"></div>
+<header class="header-section-3">
   <div class="container-fluid">
     <div class="main-header-wrapper">
-      <div class="logo-image">
-        <a href="#">
-          <img src="/img/old/logo.png" class="logo-img" alt="logo-img" />
-        </a>
-      </div>
       <div class="main-header-items">
-        <div class="header-top-wrapper">
-          <span><i class="fa-regular fa-clock"></i> 09:00 am - 10:00 pm</span>
-          <div class="social-icon d-flex align-items-center">
-            <span>Follow Us:</span>
-            <a target="_blank" [href]="socials.FACEBOOK"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a target="_blank" [href]="socials.YELP"
-              ><i class="fab fa-yelp"></i
-            ></a>
-            <a target="_blank" [href]="socials.GOOGLE"
-              ><i class="fab fa-google"></i
-            ></a>
-            <a target="_blank" [href]="socials.INSTAGRAM"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </div>
-        </div>
-        <div id="header-sticky" class="header-1">
+        <div id="header-sticky" class="header-3">
           <div class="mega-menu-wrapper">
             <div class="header-main">
-              <div class="logo">
-                <a href="#" class="header-logo">
-                  <img
-                    src="/img/old/logo.png"
-                    class="logo-img"
-                    alt="logo-img"
-                  />
-                </a>
-              </div>
               <div class="header-left">
+                <div class="header__hamburger d-xl-block my-auto">
+                  <div class="sidebar__toggle">
+                    <i class="fas fa-bars"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="header-middle">
                 <div class="mean__menu-wrapper">
                   <div class="main-menu">
                     <nav id="mobile-menu">
                       <ul>
-                        <li>
+                        <li class="active menu-thumb">
                           <a routerLink="/"> Home </a>
                         </li>
                         <li>
                           <a routerLink="catering"> Catering </a>
                         </li>
                         <li>
-                          <a routerLink="menu"> Menu </a>
+                          <a routerLink="catering"> About Us </a>
                         </li>
-                        <li class="has-dropdown">
-                          <a href="#">
-                            Contact
-                            <i class="fa-regular fa-plus"></i>
-                          </a>
-                          <ul class="submenu">
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Feedback</a></li>
-                            <li><a routerLink="reviews">Reviews</a></li>
-                          </ul>
+                        <li>
+                          <div class="logo-image d-none d-xl-block">
+                            <a routerLink="/">
+                              <img src="/img/old/logo-no-bg.png" alt="img" />
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <a routerLink="/"> Feedback </a>
+                        </li>
+                        <li>
+                          <a routerLink="/"> Reviews </a>
+                        </li>
+                        <li>
+                          <a routerLink="contact-us"> Contact Us </a>
                         </li>
                       </ul>
                     </nav>
@@ -82,11 +59,12 @@
               <div
                 class="header-right d-flex justify-content-end align-items-center"
               >
-                <div class="header__hamburger d-xl-block my-auto">
-                  <div class="sidebar__toggle">
-                    <i class="fas fa-bars"></i>
-                  </div>
-                </div>
+                <a
+                  class="theme-btn style4 pe-2 ps-0 rounded-5"
+                  href="menu.html"
+                >
+                  <i class="fa-sharp fa-regular fa-arrow-right"></i
+                ></a>
               </div>
             </div>
           </div>

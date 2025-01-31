@@ -3,135 +3,89 @@
     <div class="offcanvas__wrapper">
       <div class="offcanvas__content">
         <div
-          class="offcanvas__top mb-5 d-flex justify-content-between align-items-center"
+          class="offcanvas__top d-flex justify-content-between mb-5 align-items-center"
         >
           <div class="offcanvas__logo">
-            <!--<a href="index.html">-->
             <a routerLink="/">
               <img src="/img/old/logo.png" class="logo-img" alt="logo-img" />
             </a>
           </div>
           <div class="offcanvas__close">
-            <button>
+            <button (click)="closeMobileNav()">
               <i class="fas fa-times"></i>
             </button>
           </div>
         </div>
-        <p class="text d-none d-lg-block">
-          This involves interactions between a business and its customers. It's
-          about meeting customers' needs and resolving their problems. Effective
-          customer service is crucial.
-        </p>
-        <div class="offcanvas-gallery-area d-none d-xl-block">
-          <div class="offcanvas-gallery-items">
-            <!--<a href="/img/header/01.jpg" class="offcanvas-image img-popup">-->
-            <a href="#">
-              <img src="/img/header/01.jpg" alt="gallery-img" />
-            </a>
-            <a href="#" class="offcanvas-image img-popup">
-              <img src="/img/header/02.jpg" alt="gallery-img" />
-            </a>
-            <!--<a href="/img/header/02.jpg" class="offcanvas-image img-popup">-->
-            <!--  <img src="/img/header/02.jpg" alt="gallery-img" />-->
-            <!--</a>-->
-            <a href="#" class="offcanvas-image img-popup">
-              <img src="/img/header/03.jpg" alt="gallery-img" />
-            </a>
-            <!--<a href="/img/header/03.jpg" class="offcanvas-image img-popup">-->
-            <!--  <img src="/img/header/03.jpg" alt="gallery-img" />-->
-            <!--</a>-->
-          </div>
-          <div class="offcanvas-gallery-items">
-            <a href="#" class="offcanvas-image img-popup">
-              <img src="/img/header/04.jpg" alt="gallery-img" />
-            </a>
-            <!--<a href="/img/header/04.jpg" class="offcanvas-image img-popup">-->
-            <!--  <img src="/img/header/04.jpg" alt="gallery-img" />-->
-            <!--</a>-->
-            <a href="#" class="offcanvas-image img-popup">
-              <img src="/img/header/05.jpg" alt="gallery-img" />
-            </a>
-            <!--<a href="/img/header/05.jpg" class="offcanvas-image img-popup">-->
-            <!--  <img src="/img/header/05.jpg" alt="gallery-img" />-->
-            <!--</a>-->
-            <a href="#" class="offcanvas-image img-popup">
-              <img src="/img/header/06.jpg" alt="gallery-img" />
-            </a>
-            <!--<a href="/img/header/06.jpg" class="offcanvas-image img-popup">-->
-            <!--  <img src="/img/header/06.jpg" alt="gallery-img" />-->
-            <!--</a>-->
-          </div>
+        <div class="mobile-menu fix mb-3">
+          <nav>
+            <ul>
+              <li>
+                <a routerLink="/"> Home </a>
+              </li>
+              <li>
+                <a routerLink="catering"> Catering </a>
+              </li>
+              <li>
+                <a routerLink="menu"> Menu </a>
+              </li>
+              <li>
+                <a routerLink="/"> Feedback </a>
+              </li>
+              <li>
+                <a routerLink="/"> Reviews </a>
+              </li>
+              <li>
+                <a routerLink="contact-us"> Contact Us </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div class="mobile-menu fix mb-3"></div>
         <div class="offcanvas__contact">
-          <h4>Contact Info</h4>
-          <ul>
-            <li class="d-flex align-items-center">
-              <div class="offcanvas__contact-icon">
-                <i class="fal fa-map-marker-alt"></i>
-              </div>
-              <div class="offcanvas__contact-text">
-                <a target="_blank" [href]="socials.GOOGLE"
-                  >{{contact.ADDRESS}}</a
-                >
-              </div>
-            </li>
-            <li class="d-flex align-items-center">
-              <div class="offcanvas__contact-icon mr-15">
-                <i class="fal fa-envelope"></i>
-              </div>
-              <div class="offcanvas__contact-text">
-                <a [href]="contact.PHONE_LINK"
-                  ><span class="mailto:info@enofik.com"
-                    >{{contact.EMAIL}}</span
-                  ></a
-                >
-              </div>
-            </li>
-            <li class="d-flex align-items-center">
-              <div class="offcanvas__contact-icon mr-15">
-                <i class="fal fa-clock"></i>
-              </div>
-              <div class="offcanvas__contact-text">
-                <a target="_blank" href="#">Mon-Sat, 09am - 10pm</a>
-              </div>
-            </li>
-            <li class="d-flex align-items-center">
-              <div class="offcanvas__contact-icon mr-15">
-                <i class="far fa-phone"></i>
-              </div>
-              <div class="offcanvas__contact-text">
-                <a [href]="contact.PHONE_LINK">{{contact.PHONE}}</a>
-              </div>
-            </li>
-          </ul>
-          <div class="header-button mt-4">
-            <!--<a href="#" class="theme-btn">-->
-            <!--  <span-->
-            <!--    class="button-content-wrapper d-flex align-items-center justify-content-center"-->
-            <!--  >-->
-            <!--    <span class="button-icon"-->
-            <!--      ><i-->
-            <!--        class="fa-sharp fa-regular fa-cart-shopping bg-transparent text-white me-2"-->
-            <!--      ></i-->
-            <!--    ></span>-->
-            <!--    <span class="button-text">ORDER NOW</span>-->
-            <!--  </span>-->
-            <!--</a>-->
-            <!--<a href="shop.html" class="theme-btn">-->
-            <!--  <span-->
-            <!--    class="button-content-wrapper d-flex align-items-center justify-content-center"-->
-            <!--  >-->
-            <!--    <span class="button-icon"-->
-            <!--      ><i-->
-            <!--        class="fa-sharp fa-regular fa-cart-shopping bg-transparent text-white me-2"-->
-            <!--      ></i-->
-            <!--    ></span>-->
-            <!--    <span class="button-text">ORDER NOW</span>-->
-            <!--  </span>-->
-            <!--</a>-->
-          </div>
-          <div class="social-icon d-flex align-items-center">
+          <!--<h4>Contact Info</h4>-->
+          <!--<ul>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon">-->
+          <!--      <i class="fal fa-map-marker-alt"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a target="_blank" [href]="socials.GOOGLE"-->
+          <!--        >{{contact.ADDRESS}}</a-->
+          <!--      >-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon mr-15">-->
+          <!--      <i class="fal fa-envelope"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a [href]="contact.PHONE_LINK"-->
+          <!--        ><span class="mailto:info@enofik.com"-->
+          <!--          >{{contact.EMAIL}}</span-->
+          <!--        ></a-->
+          <!--      >-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon mr-15">-->
+          <!--      <i class="fal fa-clock"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a target="_blank" href="#">Mon-Sat, 09am - 10pm</a>-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--  <li class="d-flex align-items-center">-->
+          <!--    <div class="offcanvas__contact-icon mr-15">-->
+          <!--      <i class="far fa-phone"></i>-->
+          <!--    </div>-->
+          <!--    <div class="offcanvas__contact-text">-->
+          <!--      <a [href]="contact.PHONE_LINK">{{contact.PHONE}}</a>-->
+          <!--    </div>-->
+          <!--  </li>-->
+          <!--</ul>-->
+          <!--<div class="header-button mt-4"></div>-->
+          <div
+            class="social-icon d-flex align-items-center justify-content-center"
+          >
             <a target="_blank" [href]="socials.FACEBOOK"
               ><i class="fab fa-facebook-f"></i
             ></a>
