@@ -1,138 +1,147 @@
 <section class="banner-section fix">
-  <div class="slider-area">
-    <div class="swiper banner3-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="banner-wrapper style3 bg-img">
-            <div
-              class="shape1 d-none d-xxl-block"
-              data-animation="slideInLeft"
-              data-duration="2s"
-              data-delay=".3s"
-            >
-              <img
-                class="float-bob-y"
-                src="/img/shape/burger-shape.png"
-                alt="shape"
-              />
-            </div>
-            <div
-              class="shape2 d-none d-xxl-block"
-              data-animation="slideInLeft"
-              data-duration="2s"
-              data-delay=".5s"
-            >
-              <img
-                class="float-bob-x"
-                src="/img/shape/burger-shape.png"
-                alt="shape"
-              />
-            </div>
-            <!--<div-->
-            <!--  class="shape3"-->
-            <!--  data-tilt-->
-            <!--  data-tilt-max="4"-->
-            <!--  data-animation="slideInLeft"-->
-            <!--  data-duration="2s"-->
-            <!--  data-delay=".8s"-->
-            <!-->-->
-            <!--  <img src="/img/shape/bannerShape3_3.png" alt="shape" />-->
-            <!--</div>-->
-            <!--<div-->
-            <!--  class="shape4 d-none d-xxl-block"-->
-            <!--  data-animation="slideInLeft"-->
-            <!--  data-duration="2s"-->
-            <!--  data-delay="1s"-->
-            <!-->-->
-            <!--  <img src="/img/shape/bannerShape3_4.svg" alt="shape" />-->
-            <!--</div>-->
-            <div class="shape2"></div>
-            <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <div class="banner-style3">
-                    <div
-                      class="subtitle"
-                      data-animation="slideInRight"
-                      data-duration="2s"
-                      data-delay=".3s"
-                    >
-                      signature
+    <div class="slider-area">
+        <div class="swiper banner3-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="banner-wrapper style3 bg-img">
+                        <div
+                            class="shape1 d-none d-xxl-block"
+                            data-animation="slideInLeft"
+                            data-duration="2s"
+                            data-delay=".3s"
+                        >
+                            <img
+                                class="float-bob-y"
+                                src="/img/shape/burger-shape.png"
+                                alt="shape"
+                            />
+                        </div>
+                        <div
+                            class="shape2 d-none d-xxl-block"
+                            data-animation="slideInLeft"
+                            data-duration="2s"
+                            data-delay=".5s"
+                        >
+                            <img
+                                class="float-bob-x"
+                                src="/img/shape/burger-shape.png"
+                                alt="shape"
+                            />
+                        </div>
+                        <div class="shape2"></div>
+                        <div class="overlay"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="banner-style3">
+                                        <div
+                                            class="subtitle"
+                                            data-animation="slideInRight"
+                                            data-duration="2s"
+                                            data-delay=".3s"
+                                        >
+                                            signature
+                                        </div>
+                                        <ng-container *ngIf="!(isHandset$ | async)">
+                                            <div
+                                                class="subtitle"
+                                                data-animation="slideInLeft"
+                                                data-duration="2s"
+                                                data-delay=".3s"
+                                            >
+                                                Gourmet
+                                            </div>
+                                            <div
+                                                class="subtitle"
+                                                data-animation="slideInRight"
+                                                data-duration="2s"
+                                                data-delay=".3s"
+                                            >
+                                                sliders
+                                            </div>
+                                        </ng-container>
+                                        <ng-container *ngIf="(isHandset$ | async)">
+                                            <div
+                                                class="mobile-subtitle"
+                                                data-animation="slideInLeft"
+                                                data-duration="2s"
+                                                data-delay=".3s"
+                                            >
+                                                Gourmet
+                                            </div>
+                                            <div
+                                                class="mobile-subtitle"
+                                                data-animation="slideInRight"
+                                                data-duration="2s"
+                                                data-delay=".3s"
+                                            >
+                                                sliders
+                                            </div>
+                                        </ng-container>
+                                        <p
+                                            class="hero-text"
+                                            data-animation="slideInLeft"
+                                            data-duration="2s"
+                                            data-delay=".9s"
+                                        >
+                                            Tims Gourmet Sliders, formerly Tim’s Good Food Grill,
+                                            rebranded to specialize in gourmet sliders. Focusing on
+                                            bold flavors and high-quality ingredients, they elevate
+                                            comfort food with innovative creations. Their new
+                                            direction enhances expertise, delivering a unique dining
+                                            experience that redefines the classic slider with every
+                                            bite.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-bottom z-3 position-relative">
+                            <div
+                                class="container-fluid d-flex align-items-center justify-content-between"
+                            >
+                                <div class="fancy-item">
+                                    <div>
+                                        <i class="fa-solid fa-location-dot text-theme-color2"></i>
+                                        <span class="text-white">{{ contact.ADDRESS }}</span>
+                                    </div>
+                                    <div itemscope itemtype="http://schema.org/LocalBusiness">
+                                        <p>
+                                            <a
+                                                [href]="contact.PHONE_LINK"
+                                                itemprop="telephone"
+                                                aria-label="Call our business at 555-555-5555"
+                                                class="text-white"
+                                            >
+                                                {{ contact.PHONE }}
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="social-meta d-flex flex-column flex-md-row align-items-center gap-2"
+                                >
+                                    <p class="text-white">Follow Us:</p>
+                                    <ul class="d-flex align-items-center gap-2">
+                                        <a target="_blank" [href]="socials.FACEBOOK"
+                                            ><i class="fab fa-facebook-f"></i
+                                        ></a>
+                                        <a target="_blank" [href]="socials.YELP"
+                                            ><i class="fab fa-yelp"></i
+                                        ></a>
+                                        <a target="_blank" [href]="socials.GOOGLE"
+                                            ><i class="fab fa-google"></i
+                                        ></a>
+                                        <a target="_blank" [href]="socials.INSTAGRAM"
+                                            ><i class="fab fa-instagram"></i
+                                        ></a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                      class="subtitle"
-                      data-animation="slideInLeft"
-                      data-duration="2s"
-                      data-delay=".3s"
-                    >
-                      Gourmet
-                    </div>
-                    <div
-                      class="subtitle"
-                      data-animation="slideInRight"
-                      data-duration="2s"
-                      data-delay=".3s"
-                    >
-                      sliders
-                    </div>
-                    <!--<h1-->
-                    <!--  class="title"-->
-                    <!--  data-animation="slideInRight"-->
-                    <!--  data-duration="2s"-->
-                    <!--  data-delay=".7s"-->
-                    <!-->-->
-                    <!--  <span>Gourmet</span> Sliders-->
-                    <!--</h1>-->
-                    <p
-                      data-animation="slideInRight"
-                      data-duration="2s"
-                      data-delay="2s"
-                    >
-                      Tims Gourmet Sliders, formerly Tim’s Good Food Grill,
-                      rebranded to specialize in gourmet sliders. Focusing on
-                      bold flavors and high-quality ingredients, they elevate
-                      comfort food with innovative creations. Their new
-                      direction enhances expertise, delivering a unique dining
-                      experience that redefines the classic slider with every
-                      bite.
-                    </p>
-                  </div>
                 </div>
-              </div>
             </div>
-            <div class="banner-bottom z-3 position-relative">
-              <div
-                class="container-fluid d-flex align-items-center justify-content-between"
-              >
-                <div class="fancy-item">
-                  <i class="fa-solid fa-location-dot text-theme-color2"></i>
-                  <span class="text-white">{{ contact.ADDRESS }}</span>
-                </div>
-                <div
-                  class="social-meta d-flex flex-column flex-md-row align-items-center gap-2"
-                >
-                  <p class="text-white">Follow Us:</p>
-                  <ul class="d-flex align-items-center gap-2">
-                    <a target="_blank" [href]="socials.FACEBOOK"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a target="_blank" [href]="socials.YELP"
-                      ><i class="fab fa-yelp"></i
-                    ></a>
-                    <a target="_blank" [href]="socials.GOOGLE"
-                      ><i class="fab fa-google"></i
-                    ></a>
-                    <a target="_blank" [href]="socials.INSTAGRAM"
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

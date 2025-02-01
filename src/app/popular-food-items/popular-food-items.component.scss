@@ -1,9 +1,15 @@
 .dishes-card-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .dishes-card.style1 {
-  width: 300px;
+    width: 300px;
+}
+
+.dishes-thumb > img {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
