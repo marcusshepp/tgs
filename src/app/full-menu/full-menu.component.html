@@ -1,44 +1,56 @@
-<!-- Menu Section -->
-<section class="menu-showcase section-padding">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-12 text-center">
-        <div class="sub-title wow fadeInUp" data-wow-delay="0.3s">
-          <img src="/img/icon/titleIcon.svg" alt="icon" class="me-2" />
-          <span>OUR MENU</span>
-          <img src="/img/icon/titleIcon.svg" alt="icon" class="ms-2" />
-        </div>
-      </div>
-    </div>
-
-    <div class="row g-4">
-      <div
-        *ngFor="let item of menu; let $index = index"
-        class="col-md-6 col-lg-4 wow fadeInUp"
-        [attr.data-wow-delay]="'0.' + ($index + 3) + 's'"
-      >
-        <div class="card border-0 shadow-sm h-100">
-          <div class="menu-image-wrapper">
-            <img
-              [src]="item.imageUrl || '/img/menu/default.png'"
-              [alt]="item.title"
-              class="card-img-top menu-image"
-            />
-            <div class="price-tag">${{item.price || '15.99'}}</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title h4">{{item.title}}</h3>
-            <p class="card-text">{{item.description}}</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <div class="btn-wrapper">
-              <a class="theme-btn" [routerLink]="['/menu-item', item.id]"
-                >View Details<i class="fa-sharp fa-regular fa-arrow-right"></i
-              ></a>
+<div class="breadcumb-section">
+    <div class="breadcumb-wrapper truck-name">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Menu</h1>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+<section class="menu-showcase section-padding">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <div class="sub-title wow fadeInUp" data-wow-delay="0.3s">
+                    <img src="/img/icon/titleIcon.svg" alt="icon" class="me-2" />
+                    <span>OUR MENU</span>
+                    <img src="/img/icon/titleIcon.svg" alt="icon" class="ms-2" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div
+                *ngFor="let item of menu; let $index = index"
+                class="col-md-6 col-lg-4 wow fadeInUp"
+                [attr.data-wow-delay]="'0.' + ($index + 3) + 's'"
+            >
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="menu-image-wrapper">
+                        <img
+                            [src]="item.imageUrl || '/img/menu/default.png'"
+                            [alt]="item.title"
+                            class="card-img-top menu-image"
+                        />
+                        <div class="price-tag">${{item.price || '15.99'}}</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title h4">{{item.title}}</h3>
+                        <p class="card-text">{{item.description}}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <div class="btn-wrapper">
+                            <a class="theme-btn" [routerLink]="['/menu-item', item.id]"
+                                >View Details<i class="fa-sharp fa-regular fa-arrow-right"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

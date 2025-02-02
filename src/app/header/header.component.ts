@@ -18,11 +18,11 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
     public socials = SOCIAL_MEDIA;
     public contact = CONTACT;
-    public isHandset$: Observable<boolean>;
+    public showMobileMenu$: Observable<boolean>;
     public mobileNavOpen: boolean = false;
 
     constructor(private mobileService: MobileService) {
-        this.isHandset$ = this.mobileService.isHandset();
+        this.showMobileMenu$ = this.mobileService.showMobileMenu$();
     }
 
     public toggleMobileNav(): void {

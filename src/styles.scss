@@ -1,8 +1,37 @@
-.logo-img {
-  width: 200px;
-  height: 56px;
+* {
+    font-family: 'Amaranth', sans-serif !important;
 }
 
 .breadcumb-wrapper {
-  background-image: url("/img/old/truck2.jpg");
+    position: relative;
+    background-image: url('/img/old/truck2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.breadcumb-wrapper.truck-name {
+    background-image: url('/img/old/Name.jpg');
+}
+
+.breadcumb-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.breadcumb-content {
+    position: relative;
+    z-index: 1;
+}
+
+h1.breadcumb-title {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0;
 }
