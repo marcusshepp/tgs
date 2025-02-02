@@ -1,16 +1,29 @@
+<div class="breadcumb-section">
+    <div class="breadcumb-wrapper truck-name">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Menu</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<
+
+<app-full-menu (menuClosedEvent)="menuClosed($event)" [showMenu]="true"></app-full-menu>
+
 <div class="container">
-  <div class="row gx-4 gy-5">
-    <div class="col-xl-6">
-      <div class="contact-form-thumb">
-        <img
-          src="/img/contact/contactThumb2_1.png"
-          alt="thumb"
-          class="img-fluid rounded"
-        />
-      </div>
+    <div class="row gx-4 gy-5">
+        <div class="col-xl-6">
+            <div class="contact-form-thumb">
+                <img src="/img/contact/contactThumb2_1.png" alt="thumb" class="img-fluid rounded" />
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <app-contact-form></app-contact-form>
+        </div>
     </div>
-    <div class="col-xl-6">
-      <app-contact-form></app-contact-form>
-    </div>
-  </div>
 </div>
