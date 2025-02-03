@@ -1,16 +1,61 @@
 .background-image {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-@media (max-width: 768px) {
-  .background-image {
-    height: 300px !important;
-  }
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .service-details-thumb img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
+}
+
+.contact-container,
+.single-service-post,
+.post-content {
+    width: 100%;
+    margin: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-container > app-contact-form {
+    width: 60%;
+}
+
+.title1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.title2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .background-image {
+        height: 300px !important;
+    }
+
+    .contact-container > app-contact-form {
+        width: 90%;
+    }
+
+    .contact-container,
+    .single-service-post,
+    .post-content {
+        margin: 0rem;
+        text-align: center;
+    }
+
+    .contact-container {
+        margin-top: 50px;
+        margin-bottom: 0.5rem;
+    }
 }

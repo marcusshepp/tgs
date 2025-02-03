@@ -1,10 +1,10 @@
-import { Component } from "@angular/core";
-import { ContactUsComponent } from "../contact/contact-us/contact-us.component";
+import { Component } from '@angular/core';
+import { ContactFormComponent } from '../contact/contact-form/contact-form.component';
 
 @Component({
-    selector: "app-catering",
-    imports: [ContactUsComponent],
-    templateUrl: "./catering.component.html",
-    styleUrl: "./catering.component.scss"
+    selector: 'app-catering',
+    imports: [ContactFormComponent],
+    templateUrl: './catering.component.html',
+    styleUrl: './catering.component.scss',
 })
 export class CateringComponent {}

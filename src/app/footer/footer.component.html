@@ -17,7 +17,9 @@
                 <div class="row gy-4">
                     <div class="col-lg-4">
                         <div class="fancy-box">
-                            <div class="item1"><i class="fa-solid fa-location-dot"></i></div>
+                            <div *ngIf="!(isMobile$ | async)" class="item1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
                             <div class="item2">
                                 <h6>address</h6>
                                 <p>{{contact.ADDRESS}}</p>
@@ -26,7 +28,9 @@
                     </div>
                     <div class="col-lg-4 d-flex justify-content-start justify-content-lg-end">
                         <div class="fancy-box">
-                            <div class="item1"><i class="fa-solid fa-envelope"></i></div>
+                            <div *ngIf="!(isMobile$ | async)" class="item1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
                             <div class="item2">
                                 <h6>send email</h6>
                                 <p>{{ contact.EMAIL }}</p>
@@ -35,7 +39,7 @@
                     </div>
                     <div class="col-lg-4 d-flex justify-content-start justify-content-lg-end">
                         <div class="fancy-box">
-                            <div class="item1">
+                            <div *ngIf="!(isMobile$ | async)" class="item1">
                                 <i class="fa-regular fa-phone-volume"></i>
                             </div>
                             <div class="item2">

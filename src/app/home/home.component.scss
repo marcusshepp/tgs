@@ -1,0 +1,28 @@
+.contact-container {
+    width: 100%;
+    margin: 4rem;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-container > app-contact-form {
+    width: 60%;
+}
+@media (max-width: 768px) {
+    .contact-container > app-contact-form {
+        width: 90%;
+    }
+
+    .contact-container {
+        margin: 0rem;
+        text-align: center;
+    }
+
+    .contact-container {
+        margin-top: 50px;
+        margin-bottom: 2.5rem;
+    }
+}
