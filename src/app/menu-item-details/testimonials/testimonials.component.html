@@ -1,0 +1,55 @@
+<div class="testimonial-section section-padding pb-0 fix">
+    <div class="testi-shape">
+        <img src="/img/testimonial/testi-shape.png" alt="img" />
+    </div>
+    <div class="testimonial-wrapper style3">
+        <div class="container">
+            <div class="title-area">
+                <div class="sub-title text-center">
+                    <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon" />
+                    Testimonials
+                    <img class="ms-1" src="/img/icon/titleIcon.svg" alt="icon" />
+                </div>
+                <h2 class="title">What Clients Say About The: {{ menuItem?.title }}</h2>
+            </div>
+
+            <div class="slider-area">
+                <div class="testimonial-slider">
+                    <div class="testimonial-wrapper">
+                        <div
+                            class="testimonial-card style3"
+                            *ngFor="let testimonial of testimonials; let i = index"
+                            [style.display]="i === currentIndex ? 'block' : 'none'"
+                        >
+                            <div class="testimonial-body">
+                                <div class="icon">
+                                    <img src="/img/icon/star2.svg" alt="icon" />
+                                </div>
+
+                                <p>{{ testimonial.content }}</p>
+
+                                <div class="fancy-box">
+                                    <div class="item2">
+                                        <h6>{{ testimonial.name }}</h6>
+                                    </div>
+                                    <div class="quote">
+                                        <img src="/img/icon/quote.svg" alt="icon" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-wrap">
+                <div class="arrow-prev" (click)="previousSlide()">
+                    <i class="fa-regular fa-arrow-left"></i>
+                </div>
+                <div class="arrow-next" (click)="nextSlide()">
+                    <i class="fa-regular fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

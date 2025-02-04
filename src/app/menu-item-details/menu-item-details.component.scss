@@ -12,3 +12,15 @@
 .circle-shape {
     top: 20px !important;
 }
+
+@media (max-width: 1200px) {
+    .about-thumb-img {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-thumb-img {
+        width: 100%;
+    }
+}

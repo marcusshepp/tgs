@@ -10,6 +10,11 @@
     height: 42px;
 }
 
+.logo-image > a > img {
+    height: 46px;
+    width: 100px;
+}
+
 @media (max-width: 1500px) {
     .header-left {
         display: flex;

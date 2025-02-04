@@ -3,6 +3,10 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MENU_ITEMS, MenuItem } from '../data/menu.model';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { MobileService } from '../services/mobile.service';
+import { Observable } from 'rxjs';
+import { FeedbackFormComponent } from '../feedback-form/feedback-form/feedback-form.component';
 
 interface Review {
     id: string;
@@ -16,7 +20,14 @@ interface Review {
 @Component({
     selector: 'app-menu-item-details',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        RouterModule,
+        FormsModule,
+        TestimonialsComponent,
+        FeedbackFormComponent,
+    ],
     templateUrl: './menu-item-details.component.html',
     styleUrl: './menu-item-details.component.scss',
 })
@@ -24,13 +35,19 @@ export class MenuItemDetailsComponent implements OnInit {
     public menu: MenuItem[] = MENU_ITEMS;
     public menuItemId!: string;
     public menuItem!: MenuItem | undefined;
+    public isMobile$: Observable<boolean>;
     quantity: number = 1;
     reviews: Review[] = [];
     averageRating: number = 0;
     reviewForm!: FormGroup;
     isSubmitting: boolean = false;
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(
+        private route: ActivatedRoute,
+        private mobileService: MobileService
+    ) {
+        this.isMobile$ = this.mobileService.showMobileMenu$();
+    }
 
     public ngOnInit(): void {
         this.route.params.subscribe((params) => {
