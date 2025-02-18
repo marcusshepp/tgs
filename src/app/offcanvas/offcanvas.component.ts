@@ -1,23 +1,40 @@
-import { Component } from "@angular/core";
-import { SOCIAL_MEDIA } from "../data/social-media.model";
-import { CONTACT } from "../data/contact-info.model";
-import { RouterModule } from "@angular/router";
-import { MobileService } from "../services/mobile.service";
+import { Component } from '@angular/core';
+import { SOCIAL_MEDIA } from '../data/social-media.model';
+import { CONTACT } from '../data/contact-info.model';
+import { NavigationEnd, RouterModule, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: "app-offcanvas",
-  standalone: true,
-  imports: [RouterModule],
-  templateUrl: "./offcanvas.component.html",
-  styleUrl: "./offcanvas.component.scss",
+    selector: 'app-offcanvas',
+    standalone: true,
+    imports: [RouterModule],
+    templateUrl: './offcanvas.component.html',
+    styleUrl: './offcanvas.component.scss',
 })
 export class OffcanvasComponent {
-  public socials = SOCIAL_MEDIA;
-  public contact = CONTACT;
+    public socials = SOCIAL_MEDIA;
+    public contact = CONTACT;
+    constructor(private router: Router) {}
 
-  constructor(private mobileService: MobileService) {}
+    ngOnInit() {
+        this.router.events
+            .pipe(filter((event) => event instanceof NavigationEnd))
+            .subscribe(() => {
+                this.closeMobileNav();
+            });
+    }
 
-  public closeMobileNav(): void {
-    this.mobileService.isMobileNavOpen.next(false);
-  }
+    closeMobileNav() {
+        const overlay = document.querySelector(
+            '.offcanvas__overlay'
+        ) as HTMLElement;
+        const fixArea = document.querySelector(
+            '.offcanvas__info'
+        ) as HTMLElement;
+
+        if (overlay && fixArea) {
+            overlay.style.display = 'none';
+            fixArea.classList.remove('info-open');
+        }
+    }
 }
