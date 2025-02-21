@@ -34,3 +34,28 @@ textarea.form-control {
         height: auto;
     }
 }
+
+.date-input-container {
+    position: relative;
+}
+
+.date-label {
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Hide label when date is selected */
+input[type='date']:not(:placeholder-shown) + .date-label,
+input[type='date']:focus + .date-label {
+    display: none;
+}
+
+/* Hide label when calendar is open */
+input[type='date']::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+    cursor: pointer;
+}
