@@ -35,7 +35,6 @@
                             "public/css/all.min.css",
                             "public/css/animate.css",
                             "public/css/bootstrap.min.css",
-                            "public/css/magnific-popup.css",
                             "public/css/main.css",
                             "public/css/meanmenu.css",
                             "public/css/nice-select.css",
@@ -44,10 +43,8 @@
                         "scripts": [
                             "public/js/bootstrap.bundle.min.js",
                             "public/js/jquery-3.7.1.min.js",
-                            "public/js/jquery.counterup.min.js",
                             "public/js/jquery.meanmenu.min.js",
                             "public/js/jquery.waypoints.js",
-                            "public/js/magnific-popup.min.js",
                             "public/js/main.js",
                             "public/js/nice-select.min.js",
                             "public/js/swiper-bundle.min.js",
