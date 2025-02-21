@@ -9,14 +9,20 @@
         </div>
         <div class="container">
             <div class="title-area">
-                <div class="sub-title text-center wow fadeInUp" data-wow-delay="0.5s">
-                    <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon" />POPULAR DISHES<img
+                <div
+                    class="sub-title text-center wow fadeInUp"
+                    data-wow-delay="0.5s"
+                >
+                    <img
+                        class="me-1"
+                        src="/img/icon/titleIcon.svg"
+                        alt="icon"
+                    />POPULAR DISHES<img
                         class="ms-1"
                         src="/img/icon/titleIcon.svg"
                         alt="icon"
                     />
                 </div>
-                <h2 class="title wow fadeInUp" data-wow-delay="0.7s">Best selling Dishes</h2>
             </div>
             <div class="dishes-card-wrap style1">
                 <div
@@ -38,7 +44,10 @@
                             </li>
                         </ul>
                     </div>
-                    <a class="dishes-thumb" [routerLink]='["menu-item", dish.id]'>
+                    <a
+                        class="dishes-thumb"
+                        [routerLink]='["menu-item", dish.id]'
+                    >
                         <img [src]="dish.imageUrl" alt="dish" />
                     </a>
                     <a [routerLink]='["menu-item", dish.id]'>
@@ -49,7 +58,8 @@
             </div>
             <div class="btn-wrapper wow fadeInUp" data-wow-delay="0.9s">
                 <a class="theme-btn" routerLink="/menu"
-                    >View All Items <i class="fa-sharp fa-regular fa-arrow-right"></i
+                    >View All Items
+                    <i class="fa-sharp fa-regular fa-arrow-right"></i
                 ></a>
             </div>
         </div>
@@ -94,9 +104,13 @@
                                 <div class="modal-details">
                                     <div class="product-about">
                                         <div class="title-wrapper">
-                                            <h2 class="product-title">{{ selectedDish?.title }}</h2>
+                                            <h2 class="product-title">
+                                                {{ selectedDish?.title }}
+                                            </h2>
                                             <div class="price">
-                                                ${{ selectedDish?.price?.toFixed(2) }}
+                                                ${{
+                                                selectedDish?.price?.toFixed(2)
+                                                }}
                                             </div>
                                         </div>
 
@@ -107,25 +121,39 @@
                                                 aria-label="Rated 5.00 out of 5"
                                             >
                                                 <span style="width: 100%"
-                                                    >Rated <strong class="rating">5.00</strong> out
-                                                    of 5 based on
-                                                    <span class="rating">1</span> customer
-                                                    rating</span
+                                                    >Rated
+                                                    <strong class="rating"
+                                                        >5.00</strong
+                                                    >
+                                                    out of 5 based on
+                                                    <span class="rating"
+                                                        >1</span
+                                                    >
+                                                    customer rating</span
                                                 >
                                             </div>
-                                            <a href="#" class="woocommerce-review-link"
-                                                >(<span class="count">2</span> customer reviews)</a
+                                            <a
+                                                href="#"
+                                                class="woocommerce-review-link"
+                                                >(<span class="count">2</span>
+                                                customer reviews)</a
                                             >
                                         </div>
-                                        <p class="text">{{ selectedDish?.description }}</p>
+                                        <p class="text">
+                                            {{ selectedDish?.description }}
+                                        </p>
 
                                         <div class="actions">
                                             <div class="quantity">
                                                 <p>Quantity</p>
 
                                                 <div class="qty-wrapper">
-                                                    <button class="quantity-plus qty-btn">
-                                                        <i class="fa-solid fa-plus"></i>
+                                                    <button
+                                                        class="quantity-plus qty-btn"
+                                                    >
+                                                        <i
+                                                            class="fa-solid fa-plus"
+                                                        ></i>
                                                     </button>
                                                     <input
                                                         type="number"
@@ -137,8 +165,12 @@
                                                         value="1"
                                                         title="Qty"
                                                     />
-                                                    <button class="quantity-minus qty-btn">
-                                                        <i class="fa-solid fa-minus"></i>
+                                                    <button
+                                                        class="quantity-minus qty-btn"
+                                                    >
+                                                        <i
+                                                            class="fa-solid fa-minus"
+                                                        ></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -147,7 +179,9 @@
                                                     class="fa-regular fa-cart-shopping bg-transparent text-white"
                                                 ></i
                                             ></a>
-                                            <a href="#" class="theme-btn style5 border-0"
+                                            <a
+                                                href="#"
+                                                class="theme-btn style5 border-0"
                                                 >ADD TO wishlist<i
                                                     class="fa-sharp fa-solid fa-heart"
                                                 ></i
@@ -158,22 +192,30 @@
                                             <ul class="social-media">
                                                 <li>
                                                     <a href="#">
-                                                        <i class="fa-brands fa-facebook-f"></i>
+                                                        <i
+                                                            class="fa-brands fa-facebook-f"
+                                                        ></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <i class="fa-brands fa-youtube"></i>
+                                                        <i
+                                                            class="fa-brands fa-youtube"
+                                                        ></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <i class="fa-brands fa-twitter"></i>
+                                                        <i
+                                                            class="fa-brands fa-twitter"
+                                                        ></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <i class="fa-brands fa-instagram"></i>
+                                                        <i
+                                                            class="fa-brands fa-instagram"
+                                                        ></i>
                                                     </a>
                                                 </li>
                                             </ul>

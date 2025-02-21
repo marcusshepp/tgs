@@ -26,25 +26,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 d-flex justify-content-start justify-content-lg-end">
+
+                    <div
+                        class="col-lg-4 d-flex justify-content-start justify-content-lg-end"
+                    >
                         <div class="fancy-box">
                             <div *ngIf="!(isMobile$ | async)" class="item1">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="item2">
                                 <h6>send email</h6>
-                                <p>{{ contact.EMAIL }}</p>
+                                <a href="mailto:{{ contact.EMAIL }}">
+                                    <p>{{ contact.EMAIL }}</p>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 d-flex justify-content-start justify-content-lg-end">
+
+                    <div
+                        class="col-lg-4 d-flex justify-content-start justify-content-lg-end"
+                    >
                         <div class="fancy-box">
                             <div *ngIf="!(isMobile$ | async)" class="item1">
                                 <i class="fa-regular fa-phone-volume"></i>
                             </div>
                             <div class="item2">
                                 <h6>Phone Number</h6>
-                                <p>{{contact.PHONE}}</p>
+                                <p>
+                                    <a
+                                        [href]="contact.PHONE_LINK"
+                                        itemprop="telephone"
+                                        aria-label="Call our business at 555-555-5555"
+                                        class="text-white"
+                                    >
+                                        {{ contact.PHONE }}
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -52,11 +69,18 @@
             </div>
 
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                <div
+                    class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
+                    data-wow-delay=".2s"
+                >
                     <div class="single-footer-widget">
                         <div class="widget-head">
                             <a href="#" class="footer-logo">
-                                <img src="/img/old/logo2.png" class="logo-img" alt="logo-img" />
+                                <img
+                                    src="/img/old/logo2.png"
+                                    class="logo-img"
+                                    alt="logo-img"
+                                />
                             </a>
                         </div>
                         <div class="footer-content">
@@ -77,7 +101,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp" data-wow-delay=".4s">
+                <div
+                    class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp"
+                    data-wow-delay=".4s"
+                >
                     <div class="single-footer-widget">
                         <div class="widget-head">
                             <h3>Quick Links</h3>
@@ -122,7 +149,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp" data-wow-delay=".4s">
+                <div
+                    class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp"
+                    data-wow-delay=".4s"
+                >
                     <div class="single-footer-widget">
                         <div class="widget-head">
                             <h3>Our Menu</h3>
@@ -137,7 +167,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp" data-wow-delay=".4s">
+                <div
+                    class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp"
+                    data-wow-delay=".4s"
+                >
                     <div class="single-footer-widget">
                         <div class="widget-head">
                             <h3>Hours</h3>
@@ -145,7 +178,9 @@
                         <ul class="list-area">
                             <li class="mb-2">
                                 Monday – Saturday:
-                                <span class="text-theme-color2"> 10am – 9pm </span>
+                                <span class="text-theme-color2">
+                                    10am – 9pm
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -155,7 +190,9 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <div class="footer-wrapper d-flex align-items-center justify-content-between">
+            <div
+                class="footer-wrapper d-flex align-items-center justify-content-between"
+            >
                 <p class="wow fadeInLeft" data-wow-delay=".3s">
                     © All Copyright 2025 by Guru Development LLC
                 </p>

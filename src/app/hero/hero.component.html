@@ -63,9 +63,7 @@
                                             data-animation="slideInLeft"
                                             data-duration="2s"
                                             data-delay=".9s"
-                                        >
-                                            Serving Detroit's best sliders since 1757
-                                        </p>
+                                        ></p>
                                     </div>
                                 </div>
                             </div>
@@ -76,10 +74,17 @@
                             >
                                 <div class="fancy-item">
                                     <div>
-                                        <i class="fa-solid fa-location-dot text-theme-color2"></i>
-                                        <span class="text-white">{{ contact.ADDRESS }}</span>
+                                        <i
+                                            class="fa-solid fa-location-dot text-theme-color2"
+                                        ></i>
+                                        <span class="text-white"
+                                            >{{ contact.ADDRESS }}</span
+                                        >
                                     </div>
-                                    <div itemscope itemtype="http://schema.org/LocalBusiness">
+                                    <div
+                                        itemscope
+                                        itemtype="http://schema.org/LocalBusiness"
+                                    >
                                         <p>
                                             <a
                                                 [href]="contact.PHONE_LINK"
@@ -97,16 +102,22 @@
                                 >
                                     <p class="text-white">Follow Us:</p>
                                     <ul class="d-flex align-items-center gap-2">
-                                        <a target="_blank" [href]="socials.FACEBOOK"
+                                        <a
+                                            target="_blank"
+                                            [href]="socials.FACEBOOK"
                                             ><i class="fab fa-facebook-f"></i
                                         ></a>
                                         <a target="_blank" [href]="socials.YELP"
                                             ><i class="fab fa-yelp"></i
                                         ></a>
-                                        <a target="_blank" [href]="socials.GOOGLE"
+                                        <a
+                                            target="_blank"
+                                            [href]="socials.GOOGLE"
                                             ><i class="fab fa-google"></i
                                         ></a>
-                                        <a target="_blank" [href]="socials.INSTAGRAM"
+                                        <a
+                                            target="_blank"
+                                            [href]="socials.INSTAGRAM"
                                             ><i class="fab fa-instagram"></i
                                         ></a>
                                     </ul>

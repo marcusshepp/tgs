@@ -3,9 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="breadcumb-content">
-                        <h1 class="breadcumb-title">Feedback</h1>
-                    </div>
+                    <div class="breadcumb-content"></div>
                 </div>
             </div>
         </div>
@@ -18,7 +16,11 @@
             <input type="text" placeholder="Full Name" class="form-control" />
         </div>
         <div class="col-md-6">
-            <input type="email" placeholder="Email Address" class="form-control" />
+            <input
+                type="email"
+                placeholder="Email Address"
+                class="form-control"
+            />
         </div>
         <app-stars (ratingChange)="onRatingChange($event)"></app-stars>
         <div class="col-12">
