@@ -4,6 +4,9 @@ import {
     OnDestroy,
     Inject,
     PLATFORM_ID,
+    ElementRef,
+    ViewChild,
+    AfterViewInit,
 } from '@angular/core';
 import { CONTACT } from '../data/contact-info.model';
 import { SOCIAL_MEDIA } from '../data/social-media.model';
@@ -19,7 +22,10 @@ import { RouterModule } from '@angular/router';
     templateUrl: './hero.component.html',
     styleUrl: './hero.component.scss',
 })
-export class HeroComponent implements OnInit, OnDestroy {
+export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
+    @ViewChild('heroSection') heroSection: ElementRef;
+    @ViewChild('heroBottom') heroBottom: ElementRef;
+
     public contact = CONTACT;
     public socials = SOCIAL_MEDIA;
     public isHandset$: Observable<boolean>;
@@ -33,30 +39,50 @@ export class HeroComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         if (isPlatformBrowser(this.platformId)) {
-            this.setMinHeight();
-            window.addEventListener('resize', this.setMinHeight);
+            window.addEventListener('resize', this.adjustHeights);
         }
+    }
+
+    ngAfterViewInit(): void {
+        // Adjust after view is initialized and then on resize
+        setTimeout(() => {
+            this.adjustHeights();
+        }, 100);
     }
 
     ngOnDestroy(): void {
         if (isPlatformBrowser(this.platformId)) {
-            window.removeEventListener('resize', this.setMinHeight);
+            window.removeEventListener('resize', this.adjustHeights);
         }
     }
 
-    private setMinHeight = (): void => {
+    private adjustHeights = (): void => {
         if (isPlatformBrowser(this.platformId)) {
-            const bottomBar = document.querySelector('.banner-bottom');
-            const bannerSection = document.querySelector('.banner-section');
+            const heroSection = this.heroSection?.nativeElement;
+            const heroBottom = this.heroBottom?.nativeElement;
 
-            if (bottomBar && bannerSection) {
+            if (heroSection && heroBottom) {
+                // Make sure the hero section is tall enough to contain its content
+                const contentHeight = heroSection.scrollHeight;
                 const viewportHeight = window.innerHeight;
-                const minHeightNeeded = viewportHeight;
 
-                bannerSection.setAttribute(
-                    'style',
-                    `min-height: ${minHeightNeeded}px`
-                );
+                // Calculate the effective height (minimum viewport height or content height)
+                const effectiveHeight = Math.max(viewportHeight, contentHeight);
+
+                // Set section height
+                heroSection.style.height = `${effectiveHeight}px`;
+
+                // Make sure the bottom bar has sufficient height for its content
+                if (heroBottom) {
+                    // Reset to auto-height to get the natural height
+                    heroBottom.style.height = 'auto';
+
+                    // Get computed style
+                    const bottomBarHeight = heroBottom.scrollHeight;
+
+                    // Ensure it's never smaller than its content
+                    heroBottom.style.minHeight = `${bottomBarHeight}px`;
+                }
             }
         }
     };

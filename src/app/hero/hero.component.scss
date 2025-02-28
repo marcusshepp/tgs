@@ -8,6 +8,7 @@
     background-image: url('/img/food-truck-bg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; // Parallax effect
 }
 
 .hero-overlay {
@@ -17,11 +18,13 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        160deg,
-        rgba(1, 15, 28, 0.85) 0%,
-        rgba(1, 15, 28, 0.65) 100%
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(45, 13, 0, 0.75) 50%,
+        rgba(98, 40, 0, 0.65) 100%
     );
     z-index: 1;
+    backdrop-filter: blur(3px); // Modern blur effect
 }
 
 .hero-content {
@@ -32,13 +35,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 2rem; // Adjust from previous 5rem
+    padding-bottom: 2rem;
+    height: 100%;
 }
 
 .hero-title-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-top: 5rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero-title {
@@ -48,20 +57,61 @@
 }
 
 .title-line {
-    font-family: 'Times New Roman', serif;
-    font-size: 5rem;
-    font-weight: 600;
-    line-height: 1.1;
-    color: transparent;
-    -webkit-text-stroke: 2px #ff6b00;
+    font-family: 'Poppins', sans-serif; // More modern font
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
     text-transform: uppercase;
-    text-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
-    transform: translateZ(0);
-    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+    position: relative;
+    text-shadow:
+        0 5px 15px rgba(255, 107, 0, 0.4),
+        0 0 30px rgba(255, 107, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    letter-spacing: -0.05em;
+
+    // Text gradient effect
+    background: linear-gradient(90deg, #ff6b00, #ffb700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    // Custom animation for each line
+    &:nth-child(1) {
+        animation: titleReveal 0.7s ease forwards 0.3s;
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    &:nth-child(2) {
+        animation: titleReveal 0.7s ease forwards 0.5s;
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    &:nth-child(3) {
+        animation: titleReveal 0.7s ease forwards 0.7s;
+        opacity: 0;
+        transform: translateX(-30px);
+    }
 
     &:hover {
+        transform: translateZ(20px) scale(1.05);
+        letter-spacing: 0;
+    }
+
+    &::after {
+        content: attr(class);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        filter: blur(10px);
+        opacity: 0.6;
         color: #ff6b00;
-        transform: scale(1.05);
+        transform: translateY(5px);
     }
 }
 
@@ -71,52 +121,98 @@
     width: 100%;
     max-width: 450px;
     margin: 2rem auto;
-    transform: translateY(0);
-    animation: float 6s ease-in-out infinite;
+    animation: scaleIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.9s;
+    opacity: 0;
+    transform: scale(0.9);
 }
 
 .burger-image {
     width: 100%;
     height: auto;
-    border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; // Blob shape
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 0 10px rgba(255, 107, 0, 0.1),
+        0 0 20px rgba(255, 107, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: saturate(1.2) brightness(1.05);
+    animation: morphBlob 12s infinite alternate ease-in-out;
 
     &:hover {
         transform: scale(1.05) rotate(3deg);
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.6),
+            0 0 0 15px rgba(255, 107, 0, 0.2),
+            0 0 30px rgba(255, 107, 0, 0.6);
+        filter: saturate(1.4) brightness(1.1);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }
 }
 
 .cta-container {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     z-index: 3;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.7s ease forwards 1.2s;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1.1rem 2.5rem;
     background-color: #ff6b00;
     color: white;
-    font-weight: 600;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
     text-transform: uppercase;
     border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+        );
+        transition: 0.5s;
+    }
 
     &:hover {
         background-color: #ff8c00;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(255, 107, 0, 0.5);
+        letter-spacing: 2px;
+
+        &::before {
+            left: 100%;
+        }
     }
 
     &.cta-secondary {
         background-color: transparent;
         border: 2px solid #ff6b00;
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.2);
 
         &:hover {
             background-color: rgba(255, 107, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+            border-color: #ff8c00;
         }
     }
 }
@@ -124,7 +220,12 @@
 .hero-bottom {
     position: relative;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 107, 0, 0.3);
+    width: 100%;
+    height: auto; // Changed from fixed height to auto
+    min-height: fit-content; // Ensures minimum height based on content
 }
 
 .info-bar {
@@ -133,37 +234,68 @@
     align-items: center;
     flex-wrap: wrap;
     color: white;
-    padding: 1rem 2rem;
+    padding: 1.2rem 3rem;
+    width: 100%;
+    box-sizing: border-box; // Ensures padding is included in width calculations
 }
 
 .location-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
 
     i {
         color: #ff6b00;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        filter: drop-shadow(0 0 5px rgba(255, 107, 0, 0.5));
+    }
+
+    span {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.5px;
     }
 }
 
 .phone-link {
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 3px;
+    margin-left: 15px;
+    font-weight: 400;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #ff6b00;
+        transition: width 0.3s ease;
+    }
 
     &:hover {
         color: #ff6b00;
+
+        &::before {
+            width: 100%;
+        }
     }
 }
 
 .social-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
 
     p {
         margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.5px;
     }
 }
 
@@ -176,17 +308,80 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.1);
         color: white;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+
+        i {
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b00, #ff8c00);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
 
         &:hover {
-            background-color: #ff6b00;
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+
+            i {
+                transform: scale(1.2);
+            }
+
+            &::before {
+                opacity: 1;
+            }
         }
+    }
+}
+
+// New animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -195,21 +390,35 @@
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-15px) rotate(1deg);
     }
     100% {
         transform: translateY(0px);
     }
 }
 
-.hero-content {
-    height: 100%;
-    padding-top: 5rem;
+@keyframes morphBlob {
+    0% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+    75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
 }
 
+// Responsive media queries with modern adjustments
 @media (max-width: 992px) {
     .title-line {
-        font-size: 4rem;
+        font-size: 5rem;
     }
 
     .hero-burger {
@@ -219,7 +428,7 @@
 
 @media (max-width: 768px) {
     .title-line {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .hero-burger {
@@ -227,17 +436,125 @@
     }
 
     .info-bar {
-        flex-direction: column;
-        gap: 1rem;
+        padding: 1.5rem;
+        // Removed flex-direction: column to keep content in one row when possible
+        flex-wrap: wrap; // Allow items to wrap to next line if needed
+        gap: 1rem; // Add some space between wrapped items
+        justify-content: space-between; // Spread items
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 576px) {
     .title-line {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .cta-container {
         flex-direction: column;
+        width: 80%;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(45, 13, 0, 0.8) 100%
+        );
+    }
+
+    .location-info {
+        // Changed from flex-direction: column to remain horizontal when possible
+        display: flex;
+        flex-wrap: wrap; // Let items wrap as needed
+        justify-content: center; // Center items when wrapped
+        width: 100%; // Ensure full width
+
+        i {
+            margin-right: 0.5rem; // Add space after icon
+            // Removed from column layout so no need for additional margins
+        }
+
+        span {
+            max-width: 100%; // Ensure text doesn't overflow
+            overflow-wrap: break-word; // Modern property for text wrapping
+            display: inline-block; // Allows the element to wrap
+        }
+    }
+
+    .phone-link {
+        display: inline-block; // Make sure this can wrap properly
+        margin: 0.5rem 0; // Add margins for better spacing
+        width: 100%; // Full width on small screens
+        text-align: center; // Center text
+    }
+
+    .social-info {
+        width: 100%; // Ensure it takes full width
+        display: flex;
+        flex-direction: row; // Keep row layout
+        flex-wrap: wrap; // Allow wrapping
+        justify-content: center; // Center items
+        align-items: center;
+        margin-top: 0.5rem; // Add some space from location info
+    }
+
+    .social-info p {
+        margin-right: 0.5rem; // Add space after "Follow Us"
+    }
+
+    .social-icons {
+        display: flex;
+        flex-wrap: wrap; // Allow icons to wrap as needed
+        justify-content: center; // Center icons
+    }
+
+    .info-bar {
+        padding: 1rem; // Reduce padding on small screens
+        display: flex;
+        flex-direction: column; // Stack elements vertically
+        align-items: center; // Center align all content
+        gap: 0.75rem; // Add space between elements
+    }
+
+    .hero-bottom {
+        overflow: visible; // Ensure content isn't cut off
+        height: auto; // Let it grow as needed
+        padding: 0.5rem 0; // Add vertical padding
+    }
+}
+
+// New very small screens media query
+@media (max-width: 380px) {
+    .info-bar {
+        padding: 0.75rem; // Even smaller padding
+    }
+
+    .location-info,
+    .social-info {
+        text-align: center; // Center all text
+        justify-content: center; // Center all content
+    }
+
+    .location-info {
+        flex-direction: column; // Stack on very small screens
+        gap: 0.5rem; // Reduce gap
+    }
+
+    .social-info {
+        flex-direction: column; // Stack on very small screens
+        gap: 0.5rem; // Reduce gap
+    }
+
+    .social-icons {
+        margin-top: 0.25rem; // Add small gap
+    }
+
+    .hero-section {
+        min-height: 100vh; // Ensure it's at least full viewport height
     }
 }

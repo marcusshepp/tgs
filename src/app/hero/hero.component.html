@@ -1,4 +1,7 @@
-<section class="hero-section">
+<section class="hero-section" #heroSection>
+    <!-- Particles background for added effect -->
+    <div class="particles-container" id="particles-js"></div>
+
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-title-container">
@@ -17,13 +20,12 @@
         </div>
         <div class="cta-container">
             <a routerLink="menu" class="cta-button">View Our Menu</a>
-
             <a [href]="contact.PHONE_LINK" class="cta-button cta-secondary"
                 >Call Now</a
             >
         </div>
     </div>
-    <div class="hero-bottom">
+    <div class="hero-bottom" #heroBottom>
         <div class="container-fluid">
             <div class="info-bar">
                 <div class="location-info">
