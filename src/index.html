@@ -42,35 +42,5 @@
 
     <body class="bg-color2">
         <app-root></app-root>
-        <script type="text/javascript">
-            function loadScripts() {
-                const scripts = [
-                    '/js/jquery-3.7.1.min.js',
-                    '/js/bootstrap.bundle.min.js',
-                    '/js/jquery.waypoints.js',
-                    '/js/jquery.counterup.min.js',
-                    '/js/viewport.jquery.js',
-                    '/js/magnific-popup.min.js',
-                    '/js/tilt.min.js',
-                    '/js/swiper-bundle.min.js',
-                    '/js/jquery.meanmenu.min.js',
-                    '/js/wow.min.js',
-                    '/js/nice-select.min.js',
-                    '/js/main.js',
-                ];
-
-                scripts.forEach((src) => {
-                    const script = document.createElement('script');
-                    script.src = src;
-                    script.defer = true;
-                    document.body.appendChild(script);
-                });
-            }
-
-            // Only run in browser environment
-            if (typeof window !== 'undefined') {
-                document.addEventListener('DOMContentLoaded', loadScripts);
-            }
-        </script>
     </body>
 </html>

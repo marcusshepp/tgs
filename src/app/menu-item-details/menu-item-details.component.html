@@ -32,9 +32,9 @@
                             {{ menuItem?.category }}
                         </div>
                         <h2 class="item-title">{{ menuItem?.title }}</h2>
-                        <div class="price-tag">
-                            ${{ menuItem?.price.toFixed(2) }}
-                        </div>
+                        <!--<div class="price-tag">-->
+                        <!--    ${{ menuItem?.price.toFixed(2) }}-->
+                        <!--</div>-->
                         <p class="item-description">
                             {{ menuItem?.description }}
                         </p>
@@ -133,9 +133,9 @@
                         </div>
                         <div class="card-content">
                             <h4 class="item-name">{{ item.title }}</h4>
-                            <p class="item-price">
-                                ${{ item.price.toFixed(2) }}
-                            </p>
+                            <!--<p class="item-price">-->
+                            <!--    ${{ item.price.toFixed(2) }}-->
+                            <!--</p>-->
                             <a
                                 [routerLink]="['/menu', item.id]"
                                 class="view-btn"
