@@ -11,68 +11,174 @@
         </div>
     </div>
 </div>
-<div class="about-section fix">
-    <div class="about-wrapper section-padding style3">
-        <ng-container *ngIf="!(isMobile$ | async)">
-            <div class="shape2">
-                <img
-                    class="float-bob-x"
-                    src="/img/shape/aboutShape3_2.png"
-                    alt="shape"
-                />
-            </div>
-            <div class="orange-shape">
-                <img src="/img/about/orange-shape.png" alt="shape" />
-            </div>
-        </ng-container>
-        <div class="container">
-            <div class="row gx-60 gy-5">
-                <div class="col-xl-6">
-                    <div class="about-thumb-img">
+
+<div class="menu-item-section">
+    <div class="container">
+        <div class="menu-item-wrapper">
+            <div class="row">
+                <div class="col-lg-6 image-col">
+                    <div class="menu-item-image">
                         <img
                             [src]="menuItem?.imageUrl ? '/' + menuItem?.imageUrl : '/img/dishes/default.png'"
                             [alt]="menuItem?.title"
+                            class="product-img"
                         />
+                        <div class="tag" *ngIf="menuItem?.popular">Popular</div>
                     </div>
                 </div>
-                <div class="col-xl-6">
-                    <div class="about-content">
-                        <div class="title-area">
-                            <div
-                                class="sub-title text-start wow fadeInUp"
-                                data-wow-delay="0.5s"
-                            >
-                                <img
-                                    class="me-1"
-                                    src="/img/icon/titleIcon.svg"
-                                    alt="icon"
-                                />
-                                Menu Item
-                                <img
-                                    class="ms-1"
-                                    src="/img/icon/titleIcon.svg"
-                                    alt="icon"
-                                />
+                <div class="col-lg-6 details-col">
+                    <div class="menu-item-details">
+                        <div class="category-badge">
+                            {{ menuItem?.category }}
+                        </div>
+                        <h2 class="item-title">{{ menuItem?.title }}</h2>
+                        <div class="price-tag">
+                            ${{ menuItem?.price.toFixed(2) }}
+                        </div>
+                        <p class="item-description">
+                            {{ menuItem?.description }}
+                        </p>
+
+                        <div
+                            class="specifications"
+                            *ngIf="menuItem?.spiceLevel || menuItem?.dietaryInfo"
+                        >
+                            <div class="spec-item" *ngIf="menuItem?.spiceLevel">
+                                <span class="spec-label">Spice Level:</span>
+                                <span class="spice-indicator">
+                                    <span
+                                        class="spice-dot"
+                                        *ngFor="let dot of [1,2,3,4,5]"
+                                        [ngClass]="{'active': dot <= menuItem?.spiceLevel}"
+                                    ></span>
+                                </span>
                             </div>
-                            <h2
-                                class="title text-start wow fadeInUp"
-                                data-wow-delay="0.7s"
-                            >
-                                {{ menuItem?.title }}
-                            </h2>
                             <div
-                                class="text text-start wow fadeInUp"
-                                data-wow-delay="0.8s"
+                                class="spec-item"
+                                *ngIf="menuItem?.dietaryInfo"
                             >
-                                {{ menuItem?.description }}
+                                <span class="spec-label">Dietary:</span>
+                                <span class="dietary-tags">
+                                    <span
+                                        class="dietary-tag"
+                                        *ngFor="let tag of menuItem?.dietaryInfo"
+                                        >{{ tag }}</span
+                                    >
+                                </span>
                             </div>
                         </div>
-                        <div class="fancy-box-wrapper">
-                            <div class="fancy-box">
-                                <div class="icon">
-                                    <img src="/img/icon/star2.svg" alt="icon" />
+
+                        <div class="toggle-section">
+                            <button
+                                class="toggle-btn"
+                                (click)="toggleNutrition()"
+                            >
+                                Nutrition Information
+                                <span class="toggle-icon"
+                                    >{{ nutritionVisible ? '−' : '+' }}</span
+                                >
+                            </button>
+                            <div
+                                class="toggle-content"
+                                [class.visible]="nutritionVisible"
+                            >
+                                <div class="nutrition-facts">
+                                    <div class="nutrition-item">
+                                        <span>Calories</span>
+                                        <span
+                                            >{{
+                                            menuItem?.nutritionInfo?.calories ||
+                                            '450' }}</span
+                                        >
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span>Protein</span>
+                                        <span
+                                            >{{ menuItem?.nutritionInfo?.protein
+                                            || '22g' }}</span
+                                        >
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span>Carbs</span>
+                                        <span
+                                            >{{ menuItem?.nutritionInfo?.carbs
+                                            || '35g' }}</span
+                                        >
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span>Fat</span>
+                                        <span
+                                            >{{ menuItem?.nutritionInfo?.fat ||
+                                            '18g' }}</span
+                                        >
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-items" *ngIf="relatedItems.length > 0">
+            <h3 class="section-title">You Might Also Like</h3>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let item of relatedItems">
+                    <div class="related-item-card">
+                        <div class="card-img">
+                            <img
+                                [src]="item.imageUrl ? '/' + item.imageUrl : '/img/dishes/default.png'"
+                                [alt]="item.title"
+                            />
+                        </div>
+                        <div class="card-content">
+                            <h4 class="item-name">{{ item.title }}</h4>
+                            <p class="item-price">
+                                ${{ item.price.toFixed(2) }}
+                            </p>
+                            <a
+                                [routerLink]="['/menu', item.id]"
+                                class="view-btn"
+                                >View Item</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prep-method">
+            <h3 class="section-title">How We Prepare It</h3>
+            <div class="prep-content">
+                <p>
+                    Our {{ menuItem?.title }} is made with the freshest
+                    ingredients, carefully selected by our chef each morning. We
+                    prepare each order from scratch when you place your order to
+                    ensure maximum flavor and quality.
+                </p>
+                <div class="prep-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            Premium ingredients selected daily
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            Prepared to order for maximum freshness
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            Cooked to perfection by our expert chefs
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">
+                            Quality checked before serving
                         </div>
                     </div>
                 </div>

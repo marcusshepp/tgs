@@ -1,106 +1,340 @@
-.meet-us-section {
-    padding: 100px 0;
+.banner-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #1d2b3a;
+}
 
-    .team-member-image {
-        margin-bottom: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
+.background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #1d2b3a,
+        #1d2b3a 10px,
+        #1e2d3c 10px,
+        #1e2d3c 20px
+    );
+    opacity: 0.8;
+    z-index: 0;
+}
 
-        img {
-            width: 100%;
-            transition: transform 0.5s ease;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(14, 31, 45, 0.5) 0%,
+        rgba(1, 15, 28, 0.9) 100%
+    );
+    z-index: 1;
+}
 
-            &:hover {
-                transform: scale(1.05);
-            }
-        }
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.burger-icon {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    top: 15%;
+    left: 10%;
+    opacity: 0.3;
+}
+
+.burger-icon-2 {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    bottom: 25%;
+    right: 10%;
+    opacity: 0.3;
+}
+
+.float-bob-y {
+    animation: float-bob-y 2s ease-in-out infinite;
+}
+
+.float-bob-x {
+    animation: float-bob-x 3s ease-in-out infinite;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.title-section {
+    margin-top: 20px;
+}
+
+.burger-section {
+    margin-top: -30px;
+    margin-bottom: -20px;
+}
+
+.button-section {
+    margin-bottom: 20px;
+}
+
+.banner-title {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subtitle {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff6b00;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', serif;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: #ff6b00;
+    }
+}
+
+.burger-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    animation: pulse 6s infinite;
+}
+
+.burger-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.action-button {
+    display: inline-block;
+    min-width: 180px;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.primary-button {
+    background-color: #ff6b00;
+    color: white;
+
+    &:hover {
+        background-color: #ff8124;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+    }
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: #ff6b00;
+    border: 2px solid #ff6b00;
+
+    &:hover {
+        background-color: rgba(255, 107, 0, 0.1);
+        transform: translateY(-3px);
+    }
+}
+
+.banner-bottom {
+    position: relative;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+.location-info {
+    color: white;
+
+    i {
+        color: #ff6b00;
+        margin-right: 8px;
     }
 
-    .team-member-info {
-        h2 {
-            color: #ff6b35;
-            font-size: 36px;
-            font-weight: 700;
-        }
-
-        h4 {
-            color: #666;
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        p {
-            color: #444;
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
+    span {
+        margin-right: 15px;
     }
+}
 
-    .our-story {
-        padding: 40px;
-        background-color: #f9f9f9;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+.phone-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
 
-        h2 {
-            color: #ff6b35;
-            font-size: 36px;
-            font-weight: 700;
-        }
-
-        p {
-            color: #444;
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
+    &:hover {
+        color: #ff6b00;
     }
+}
 
-    .food-truck-showcase {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
+.social-meta {
+    color: white;
 
-        img {
-            width: 100%;
+    p {
+        margin: 0;
+    }
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #ff6b00;
+            transform: translateY(-3px);
         }
     }
 }
 
-// Media queries
-@media (max-width: 991px) {
-    .meet-us-section {
-        padding: 70px 0;
+@keyframes float-bob-y {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
-        .team-member-info {
-            margin-bottom: 40px;
+@keyframes float-bob-x {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 107, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .subtitle {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .subtitle {
+        font-size: 3.5rem;
+    }
+
+    .title-section {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .subtitle {
+        font-size: 3rem;
+    }
+
+    .banner-bottom {
+        .container-fluid {
+            flex-direction: column;
+            gap: 10px;
             text-align: center;
-
-            h2 {
-                font-size: 30px;
-            }
         }
 
-        .our-story {
-            padding: 30px;
+        .location-info,
+        .social-meta {
+            width: 100%;
+            justify-content: center;
         }
     }
 }
 
-@media (max-width: 767px) {
-    .meet-us-section {
-        padding: 50px 0;
+@media (max-width: 576px) {
+    .subtitle {
+        font-size: 2.5rem;
+    }
 
-        .team-member-info {
-            h2 {
-                font-size: 26px;
-            }
+    .burger-section {
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
 
-            h4 {
-                font-size: 18px;
-            }
-        }
+    .action-button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-height: 700px) {
+    .banner-section {
+        height: auto;
     }
 }

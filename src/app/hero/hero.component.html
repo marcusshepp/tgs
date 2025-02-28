@@ -1,129 +1,53 @@
-<section class="banner-section fix">
-    <div class="slider-area">
-        <div class="swiper banner3-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="banner-wrapper style3 bg-img">
-                        <div
-                            class="shape1 d-none d-xxl-block"
-                            data-animation="slideInLeft"
-                            data-duration="2s"
-                            data-delay=".3s"
-                        >
-                            <img
-                                class="float-bob-y"
-                                src="/img/shape/burger-shape.png"
-                                alt="shape"
-                            />
-                        </div>
-                        <div
-                            class="shape2 d-none d-xxl-block"
-                            data-animation="slideInLeft"
-                            data-duration="2s"
-                            data-delay=".5s"
-                        >
-                            <img
-                                class="float-bob-x"
-                                src="/img/shape/burger-shape.png"
-                                alt="shape"
-                            />
-                        </div>
-                        <div class="shape2"></div>
-                        <div class="overlay"></div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="banner-style3">
-                                        <div
-                                            class="subtitle"
-                                            data-animation="slideInRight"
-                                            data-duration="2s"
-                                            data-delay=".3s"
-                                        >
-                                            Tim's
-                                        </div>
-                                        <div
-                                            class="subtitle"
-                                            data-animation="slideInLeft"
-                                            data-duration="2s"
-                                            data-delay=".3s"
-                                        >
-                                            Gourmet
-                                        </div>
-                                        <div
-                                            class="subtitle"
-                                            data-animation="slideInRight"
-                                            data-duration="2s"
-                                            data-delay=".3s"
-                                        >
-                                            sliders
-                                        </div>
-                                        <p
-                                            class="hero-text"
-                                            data-animation="slideInLeft"
-                                            data-duration="2s"
-                                            data-delay=".9s"
-                                        ></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="banner-bottom z-3 position-relative">
-                            <div
-                                class="container-fluid d-flex align-items-center justify-content-between"
-                            >
-                                <div class="fancy-item">
-                                    <div>
-                                        <i
-                                            class="fa-solid fa-location-dot text-theme-color2"
-                                        ></i>
-                                        <span class="text-white"
-                                            >{{ contact.ADDRESS }}</span
-                                        >
-                                    </div>
-                                    <div
-                                        itemscope
-                                        itemtype="http://schema.org/LocalBusiness"
-                                    >
-                                        <p>
-                                            <a
-                                                [href]="contact.PHONE_LINK"
-                                                itemprop="telephone"
-                                                aria-label="Call our business at 555-555-5555"
-                                                class="text-white"
-                                            >
-                                                {{ contact.PHONE }}
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="social-meta d-flex flex-column flex-md-row align-items-center gap-2"
-                                >
-                                    <p class="text-white">Follow Us:</p>
-                                    <ul class="d-flex align-items-center gap-2">
-                                        <a
-                                            target="_blank"
-                                            [href]="socials.FACEBOOK"
-                                            ><i class="fab fa-facebook-f"></i
-                                        ></a>
-                                        <a target="_blank" [href]="socials.YELP"
-                                            ><i class="fab fa-yelp"></i
-                                        ></a>
-                                        <a
-                                            target="_blank"
-                                            [href]="socials.GOOGLE"
-                                            ><i class="fab fa-google"></i
-                                        ></a>
-                                        <a
-                                            target="_blank"
-                                            [href]="socials.INSTAGRAM"
-                                            ><i class="fab fa-instagram"></i
-                                        ></a>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-title-container">
+            <div class="hero-title">
+                <div class="title-line">Tim's</div>
+                <div class="title-line">Gourmet</div>
+                <div class="title-line">Sliders</div>
+            </div>
+        </div>
+        <div class="hero-burger">
+            <img
+                src="/img/new/whiskey.jpg"
+                alt="Delicious gourmet slider"
+                class="burger-image"
+            />
+        </div>
+        <div class="cta-container">
+            <a routerLink="menu" class="cta-button">View Our Menu</a>
+
+            <a [href]="contact.PHONE_LINK" class="cta-button cta-secondary"
+                >Call Now</a
+            >
+        </div>
+    </div>
+    <div class="hero-bottom">
+        <div class="container-fluid">
+            <div class="info-bar">
+                <div class="location-info">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>{{ contact.ADDRESS }}</span>
+                    <a [href]="contact.PHONE_LINK" class="phone-link">
+                        {{ contact.PHONE }}
+                    </a>
+                </div>
+                <div class="social-info">
+                    <p>Follow Us:</p>
+                    <div class="social-icons">
+                        <a target="_blank" [href]="socials.FACEBOOK"
+                            ><i class="fab fa-facebook-f"></i
+                        ></a>
+                        <a target="_blank" [href]="socials.YELP"
+                            ><i class="fab fa-yelp"></i
+                        ></a>
+                        <a target="_blank" [href]="socials.GOOGLE"
+                            ><i class="fab fa-google"></i
+                        ></a>
+                        <a target="_blank" [href]="socials.INSTAGRAM"
+                            ><i class="fab fa-instagram"></i
+                        ></a>
                     </div>
                 </div>
             </div>
