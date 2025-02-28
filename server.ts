@@ -1,17 +1,25 @@
 import { CommonEngine } from '@angular/ssr/node';
+import { render } from '@netlify/angular-runtime/common-engine';
 import bootstrap from './src/main.server';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
 
 // Create a CommonEngine for pre-rendering
-const commonEngine = new CommonEngine();
+const commonEngine = new CommonEngine({
+    bootstrap,
+});
 
-// For Netlify, we're removing the handler function since we're going full static
+export async function netlifyCommonEngineHandler(
+    request: Request,
+    context: any
+): Promise<Response> {
+    return await render(commonEngine);
+}
 
 // Keep Express server for local development
 if (process.env['NODE_ENV'] === 'development') {
     const express = require('express');
     const { APP_BASE_HREF } = require('@angular/common');
+    const { fileURLToPath } = require('node:url');
+    const { dirname, join, resolve } = require('node:path');
 
     const server = express();
     const port = process.env['PORT'] || 4000;
@@ -35,7 +43,6 @@ if (process.env['NODE_ENV'] === 'development') {
         const { protocol, originalUrl, baseUrl, headers } = req;
         commonEngine
             .render({
-                bootstrap,
                 documentFilePath: indexHtml,
                 url: `${protocol}://${headers.host}${originalUrl}`,
                 publicPath: browserDistFolder,
