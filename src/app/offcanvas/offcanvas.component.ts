@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { SOCIAL_MEDIA } from '../data/social-media.model';
 import { CONTACT } from '../data/contact-info.model';
 import { NavigationEnd, RouterModule, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-offcanvas',
@@ -14,7 +15,10 @@ import { filter } from 'rxjs/operators';
 export class OffcanvasComponent {
     public socials = SOCIAL_MEDIA;
     public contact = CONTACT;
-    constructor(private router: Router) {}
+    constructor(
+        private router: Router,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) {}
 
     ngOnInit() {
         this.router.events
@@ -25,16 +29,18 @@ export class OffcanvasComponent {
     }
 
     closeMobileNav() {
-        const overlay = document.querySelector(
-            '.offcanvas__overlay'
-        ) as HTMLElement;
-        const fixArea = document.querySelector(
-            '.offcanvas__info'
-        ) as HTMLElement;
+        if (isPlatformBrowser(this.platformId)) {
+            const overlay = document.querySelector(
+                '.offcanvas__overlay'
+            ) as HTMLElement;
+            const fixArea = document.querySelector(
+                '.offcanvas__info'
+            ) as HTMLElement;
 
-        if (overlay && fixArea) {
-            overlay.style.display = 'none';
-            fixArea.classList.remove('info-open');
+            if (overlay && fixArea) {
+                overlay.style.display = 'none';
+                fixArea.classList.remove('info-open');
+            }
         }
     }
 }

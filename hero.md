@@ -32,35 +32,43 @@ export class HeroComponent implements OnInit {
     public socials = SOCIAL_MEDIA;
     public isHandset$: Observable<boolean>;
 
-    constructor(private mobileService: MobileService) {
+    constructor(
+        @Inject(PLATFORM_ID) private platformId: Object,
+        private mobileService: MobileService
+    ) {
         this.isHandset$ = this.mobileService.isHandset();
     }
 
     ngOnInit(): void {
-        this.setMinHeight();
-        window.addEventListener('resize', this.setMinHeight);
+        if (isPlatformBrowser(this.platformId)) {
+            this.setMinHeight();
+            window.addEventListener('resize', this.setMinHeight);
+        }
     }
 
     ngOnDestroy(): void {
-        window.removeEventListener('resize', this.setMinHeight);
+        if (isPlatformBrowser(this.platformId)) {
+            window.removeEventListener('resize', this.setMinHeight);
+        }
     }
 
     private setMinHeight = (): void => {
-        const bottomBar = document.querySelector('.banner-bottom');
-        const bannerSection = document.querySelector('.banner-section');
+        if (isPlatformBrowser(this.platformId)) {
+            const bottomBar = document.querySelector('.banner-bottom');
+            const bannerSection = document.querySelector('.banner-section');
 
-        if (bottomBar && bannerSection) {
-            const viewportHeight = window.innerHeight;
-            const minHeightNeeded = viewportHeight;
+            if (bottomBar && bannerSection) {
+                const viewportHeight = window.innerHeight;
+                const minHeightNeeded = viewportHeight;
 
-            bannerSection.setAttribute(
-                'style',
-                `min-height: ${minHeightNeeded}px`
-            );
+                bannerSection.setAttribute(
+                    'style',
+                    `min-height: ${minHeightNeeded}px`
+                );
+            }
         }
     };
 }
-
 ```
 
 `/home/marcusshep/p/tgs/src/app/hero/hero.component.html`:
@@ -169,7 +177,6 @@ export class HeroComponent implements OnInit {
         </div>
     </div>
 </section>
-
 ```
 
 `/home/marcusshep/p/tgs/src/app/hero/hero.component.scss`:
@@ -414,5 +421,4 @@ export class HeroComponent implements OnInit {
         flex-direction: column;
     }
 }
-
 ```
