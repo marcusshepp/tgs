@@ -15,9 +15,15 @@
     <div class="about-wrapper section-padding style3">
         <ng-container *ngIf="!(isMobile$ | async)">
             <div class="shape2">
-                <img class="float-bob-x" src="/img/shape/aboutShape3_2.png" alt="shape" />
+                <img
+                    class="float-bob-x"
+                    src="/img/shape/aboutShape3_2.png"
+                    alt="shape"
+                />
             </div>
-            <div class="orange-shape"><img src="/img/about/orange-shape.png" alt="shape" /></div>
+            <div class="orange-shape">
+                <img src="/img/about/orange-shape.png" alt="shape" />
+            </div>
         </ng-container>
         <div class="container">
             <div class="row gx-60 gy-5">
@@ -32,15 +38,32 @@
                 <div class="col-xl-6">
                     <div class="about-content">
                         <div class="title-area">
-                            <div class="sub-title text-start wow fadeInUp" data-wow-delay="0.5s">
-                                <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon" />
+                            <div
+                                class="sub-title text-start wow fadeInUp"
+                                data-wow-delay="0.5s"
+                            >
+                                <img
+                                    class="me-1"
+                                    src="/img/icon/titleIcon.svg"
+                                    alt="icon"
+                                />
                                 Menu Item
-                                <img class="ms-1" src="/img/icon/titleIcon.svg" alt="icon" />
+                                <img
+                                    class="ms-1"
+                                    src="/img/icon/titleIcon.svg"
+                                    alt="icon"
+                                />
                             </div>
-                            <h2 class="title text-start wow fadeInUp" data-wow-delay="0.7s">
+                            <h2
+                                class="title text-start wow fadeInUp"
+                                data-wow-delay="0.7s"
+                            >
                                 {{ menuItem?.title }}
                             </h2>
-                            <div class="text text-start wow fadeInUp" data-wow-delay="0.8s">
+                            <div
+                                class="text text-start wow fadeInUp"
+                                data-wow-delay="0.8s"
+                            >
                                 {{ menuItem?.description }}
                             </div>
                         </div>
@@ -50,7 +73,6 @@
                                     <img src="/img/icon/star2.svg" alt="icon" />
                                 </div>
                             </div>
-                            <div class="fancy-box">87 Reviews</div>
                         </div>
                     </div>
                 </div>
@@ -58,5 +80,3 @@
         </div>
     </div>
 </div>
-<app-testimonials [menuItem]="menuItem"></app-testimonials>
-<app-feedback-form></app-feedback-form>

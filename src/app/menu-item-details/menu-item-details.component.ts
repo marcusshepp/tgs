@@ -3,10 +3,8 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MENU_ITEMS, MenuItem } from '../data/menu.model';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { MobileService } from '../services/mobile.service';
 import { Observable } from 'rxjs';
-import { FeedbackFormComponent } from '../feedback-form/feedback-form/feedback-form.component';
 
 interface Review {
     id: string;
@@ -20,14 +18,7 @@ interface Review {
 @Component({
     selector: 'app-menu-item-details',
     standalone: true,
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        RouterModule,
-        FormsModule,
-        TestimonialsComponent,
-        FeedbackFormComponent,
-    ],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
     templateUrl: './menu-item-details.component.html',
     styleUrl: './menu-item-details.component.scss',
 })
@@ -56,39 +47,7 @@ export class MenuItemDetailsComponent implements OnInit {
             this.menuItem = this.menu.find(
                 (item: MenuItem): boolean => item.id === this.menuItemId
             );
-
-            //this.loadMenuItem(this.menuItemId);
-            //this.loadReviews(this.menuItemId);
         });
-    }
-
-    private loadMenuItem(id: string): void {
-        // Implementation would typically call a service
-        // For now, menuItem is assumed to be populated
-    }
-
-    private loadReviews(itemId: string): void {
-        // Implementation would typically call a service
-        // For now using mock data
-        this.reviews = [
-            {
-                id: '1',
-                authorName: 'Masirul Islam',
-                authorImage: '/img/blog/comment-author1.png',
-                rating: 5,
-                comment: 'Great menu item! Would definitely order again.',
-                date: new Date('2024-03-20T14:37:00'),
-            },
-            {
-                id: '2',
-                authorName: 'Daniel Adam',
-                authorImage: '/img/blog/comment-author2.png',
-                rating: 4,
-                comment: 'Delicious food and great service!',
-                date: new Date('2024-03-30T14:37:00'),
-            },
-        ];
-        this.calculateAverageRating();
     }
 
     private calculateAverageRating(): void {
@@ -96,7 +55,10 @@ export class MenuItemDetailsComponent implements OnInit {
             this.averageRating = 0;
             return;
         }
-        const sum = this.reviews.reduce((acc, review) => acc + review.rating, 0);
+        const sum = this.reviews.reduce(
+            (acc, review) => acc + review.rating,
+            0
+        );
         this.averageRating = parseFloat((sum / this.reviews.length).toFixed(2));
     }
 
@@ -115,7 +77,9 @@ export class MenuItemDetailsComponent implements OnInit {
     addToCart(): void {
         if (this.menuItem?.active) {
             // Implementation would call a cart service
-            console.log(`Adding ${this.quantity} of ${this.menuItem?.title} to cart`);
+            console.log(
+                `Adding ${this.quantity} of ${this.menuItem?.title} to cart`
+            );
         }
     }
 
