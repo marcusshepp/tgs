@@ -29,20 +29,6 @@
                     class="dishes-card style1 wow fadeInUp"
                     [attr.data-wow-delay]="(0.2 * (i + 1)) + 's'"
                 >
-                    <div class="social-profile">
-                        <ul>
-                            <li>
-                                <a
-                                    href="#"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
-                                    (click)="openModal(dish)"
-                                >
-                                    <i class="fa-light fa-eye"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                     <a
                         class="dishes-thumb"
                         [routerLink]='["menu-item", dish.id]'
