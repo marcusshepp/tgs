@@ -10,11 +10,12 @@ import { SOCIAL_MEDIA } from '../data/social-media.model';
 import { MobileService } from '../services/mobile.service';
 import { Observable } from 'rxjs';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-hero',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './hero.component.html',
     styleUrl: './hero.component.scss',
 })
