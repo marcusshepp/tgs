@@ -3,31 +3,28 @@
 // }
 $cloudinary-base: 'https://res.cloudinary.com/dy00ivhtt/image/upload';
 
+.breadcumb-wrapper::before {
+    background-color: transparent !important;
+}
+
 .breadcumb-wrapper {
     position: relative;
-    background-image: url('/img/old/truck2.jpg');
+    background-image: url('#{$cloudinary-base}/truck2-1_eqwzgl.webp');
     background-size: cover;
     background-position: center;
 }
 
 .breadcumb-wrapper.truck-name {
-    background-image: url('/img/old/Name.jpg');
+    background-image: url('#{$cloudinary-base}/truck999-1_etwedg.webp');
 }
 
 .breadcumb-wrapper.truck-9 {
-    background-image: url('/img/new/window.jpg');
+    background-image: url('#{$cloudinary-base}/window_ghdagy.webp');
 }
 
-.breadcumb-wrapper.truck-99 {
-    background-image: url('/img/old/truck99.png');
-}
-
-.breadcumb-wrapper.truck-999 {
-    background-image: url('/img/old/truck999.png');
-}
-
-.breadcumb-wrapper.truck-9999 {
-    background-image: url('/img/old/truck9999.png');
+.breadcumb-wrapper.full-menu {
+    // background-image: url('/img/old/truck99.png');
+    background-image: url('#{$cloudinary-base}/multi-yellow-lower_ux1n6t.webp');
 }
 
 .breadcumb-wrapper:before {
