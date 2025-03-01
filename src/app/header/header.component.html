@@ -1,110 +1,77 @@
 <app-preloader></app-preloader>
 
-<button id="back-top" class="back-to-top">
-    <i class="fa-regular fa-arrow-up"></i>
+<button
+    class="scroll-top-btn"
+    [class.visible]="isScrolled"
+    (click)="scrollToTop()"
+    aria-label="Scroll to top"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path
+            d="M374.6 246.6c-6.2-6.2-16.4-6.2-22.6 0L192 406.3 31.9 246.2c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l160 160c6.2 6.2 16.4 6.2 22.6 0l160-160c6.3-6.2 6.3-16.4 0-22.2z"
+            transform="rotate(180, 192, 256)"
+        />
+    </svg>
 </button>
 
-<app-offcanvas></app-offcanvas>
+<header class="header" [class.scrolled]="isScrolled">
+    <div class="container">
+        <div class="header__content">
+            <div class="header__left">
+                <button
+                    class="menu-toggle"
+                    (click)="toggleMobileMenu()"
+                    aria-label="Toggle menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-<header class="header-section-3">
-    <div class="container-fluid">
-        <div class="main-header-wrapper">
-            <div class="main-header-items">
-                <div id="header-sticky" class="header-3">
-                    <div class="mega-menu-wrapper">
-                        <div class="header-main">
-                            <div class="header-left">
-                                <div
-                                    class="header__hamburger d-xl-block my-auto"
-                                    *ngIf="(showMobileMenu$ | async)"
-                                >
-                                    <div class="mobile-logo">
-                                        <a routerLink="/">
-                                            <img
-                                                src="/img/old/Logo-250x230.png"
-                                                alt="img"
-                                            />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div
-                                    class="header__hamburger d-xl-block my-auto"
-                                >
-                                    <div class="sidebar__toggle">
-                                        <i class="fas fa-bars"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-middle">
-                                <div class="mean__menu-wrapper">
-                                    <div class="main-menu">
-                                        <nav
-                                            *ngIf="!(showMobileMenu$ | async)"
-                                            id="mobile-menu"
-                                        >
-                                            <ul>
-                                                <li class="active menu-thumb">
-                                                    <a routerLink="/"> Home </a>
-                                                </li>
-                                                <li>
-                                                    <a routerLink="catering">
-                                                        Catering
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a routerLink="menu">
-                                                        Menu
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div
-                                                        class="logo-image d-none d-xl-block"
-                                                    >
-                                                        <a routerLink="/">
-                                                            <img
-                                                                src="/img/old/logo-no-bg.png"
-                                                                alt="img"
-                                                            />
-                                                        </a>
-                                                    </div>
-                                                </li>
+                <a routerLink="/" class="mobile-logo" *ngIf="isMobile">
+                    <img src="/img/old/Logo-250x230.png" alt="Logo" />
+                </a>
+            </div>
 
-                                                <li>
-                                                    <a routerLink="meet-us">
-                                                        Meet Us
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a routerLink="/">
-                                                        Reviews
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a routerLink="contact-us">
-                                                        Contact Us
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                *ngIf="!(showMobileMenu$ | async)"
-                                class="header-right d-flex justify-content-end align-items-center"
-                            >
-                                <a
-                                    class="theme-btn style4 pe-2 ps-0 rounded-5"
-                                    routerLink="menu"
-                                >
-                                    <i
-                                        class="fa-sharp fa-regular fa-arrow-right"
-                                    ></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <nav class="header__nav" *ngIf="!isMobile">
+                <ul class="nav-menu">
+                    <li><a routerLink="/" class="nav-link">Home</a></li>
+                    <li>
+                        <a routerLink="catering" class="nav-link">Catering</a>
+                    </li>
+                    <li><a routerLink="menu" class="nav-link">Menu</a></li>
+
+                    <li class="logo-container">
+                        <a routerLink="/" class="logo">
+                            <img src="/img/old/logo-no-bg.png" alt="Logo" />
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="meet-us" class="nav-link">Meet Us</a>
+                    </li>
+                    <li><a routerLink="/" class="nav-link">Reviews</a></li>
+                    <li>
+                        <a routerLink="contact-us" class="nav-link"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__right" *ngIf="!isMobile">
+                <a routerLink="menu" class="order-btn" aria-label="Order now">
+                    <span>Menu</span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                        class="arrow-icon"
+                    >
+                        <path
+                            d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                        />
+                    </svg>
+                </a>
             </div>
         </div>
     </div>

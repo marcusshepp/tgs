@@ -35,24 +35,12 @@
                             "public/css/all.min.css",
                             "public/css/animate.css",
                             "public/css/bootstrap.min.css",
-                            "public/css/magnific-popup.css",
-                            "public/css/main.css",
-                            "public/css/meanmenu.css",
-                            "public/css/nice-select.css",
-                            "public/css/swiper-bundle.min.css"
+                            "public/css/main.css"
                         ],
                         "scripts": [
                             "public/js/bootstrap.bundle.min.js",
                             "public/js/jquery-3.7.1.min.js",
-                            "public/js/jquery.counterup.min.js",
-                            "public/js/jquery.meanmenu.min.js",
-                            "public/js/jquery.waypoints.js",
-                            "public/js/magnific-popup.min.js",
                             "public/js/main.js",
-                            "public/js/nice-select.min.js",
-                            "public/js/swiper-bundle.min.js",
-                            "public/js/tilt.min.js",
-                            "public/js/viewport.jquery.js",
                             "public/js/wow.min.js"
                         ],
                         "server": "src/main.server.ts",

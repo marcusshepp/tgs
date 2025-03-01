@@ -1,28 +1,34 @@
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Injectable } from '@angular/core';
-import { map, Observable, Subject } from 'rxjs';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
     providedIn: 'root',
 })
 export class MobileService {
-    public isMobileNavOpen: Subject<boolean> = new Subject<boolean>();
+    private _isMobile = new BehaviorSubject<boolean>(false);
+    public isMobileNavOpen = new BehaviorSubject<boolean>(false);
 
-    constructor(private breakpointObserver: BreakpointObserver) {}
-
-    public isHandset(): Observable<boolean> {
-        return this.breakpointObserver
-            .observe([Breakpoints.Handset])
-            .pipe(map((result: BreakpointState): boolean => result.matches));
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+        if (isPlatformBrowser(this.platformId)) {
+            this.checkScreenSize();
+            window.addEventListener('resize', () => this.checkScreenSize());
+        }
     }
 
-    public isMobile(): boolean {
-        return this.breakpointObserver.isMatched('(max-width: 768px)');
+    private checkScreenSize(): void {
+        this._isMobile.next(window.innerWidth < 992);
     }
 
-    public showMobileMenu$(): Observable<boolean> {
-        return this.breakpointObserver
-            .observe('(max-width: 1500px)')
-            .pipe(map((result: BreakpointState): boolean => result.matches));
+    public setMobile(isMobile: boolean): void {
+        this._isMobile.next(isMobile);
+    }
+
+    get isMobile$(): Observable<boolean> {
+        return this._isMobile.asObservable();
+    }
+
+    showMobileMenu$(): Observable<boolean> {
+        return this._isMobile.asObservable();
     }
 }

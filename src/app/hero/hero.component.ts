@@ -34,7 +34,7 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
         @Inject(PLATFORM_ID) private platformId: Object,
         private mobileService: MobileService
     ) {
-        this.isHandset$ = this.mobileService.isHandset();
+        this.isHandset$ = this.mobileService.isMobile$;
     }
 
     ngOnInit(): void {
