@@ -3,6 +3,7 @@ import { ContactFormComponent } from '../contact/contact-form/contact-form.compo
 
 @Component({
     selector: 'app-catering',
+    standalone: true,
     imports: [ContactFormComponent],
     templateUrl: './catering.component.html',
     styleUrl: './catering.component.scss',

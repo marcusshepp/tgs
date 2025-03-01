@@ -4,8 +4,6 @@ import { CONTACT } from '../data/contact-info.model';
 import { RouterModule } from '@angular/router';
 import { MENU_ITEMS, MenuItem } from '../data/menu.model';
 import { CommonModule } from '@angular/common';
-import { MobileService } from '../services/mobile.service';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-footer',
@@ -18,9 +16,4 @@ export class FooterComponent {
     public socials = SOCIAL_MEDIA;
     public contact = CONTACT;
     public menu: MenuItem[] = MENU_ITEMS.slice(0, 5);
-    public isMobile$: Observable<boolean>;
-
-    constructor(private mobileService: MobileService) {
-        this.isMobile$ = this.mobileService.showMobileMenu$();
-    }
 }

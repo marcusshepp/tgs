@@ -47,6 +47,7 @@
 
     &__logo {
         display: block;
+        order: 2;
 
         img {
             height: 50px;
@@ -59,6 +60,7 @@
         border: none;
         padding: 5px;
         cursor: pointer;
+        order: 1;
 
         svg {
             fill: #333;
@@ -161,4 +163,23 @@
 
 .no-scroll {
     overflow: hidden;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+    &__logo {
+        order: 2;
+    }
+
+    &__menu-toggle {
+        order: 1;
+        background: none;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
 }
