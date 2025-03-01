@@ -1,5 +1,7 @@
+import { CLOUDINARY_URL } from './cloudinary.model';
+
 export interface MenuItem {
-    id: string; // unique identifier for each item
+    id: string;
     title: string;
     description: string;
     imageUrl?: string;
@@ -30,7 +32,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'The NOT! So Basic',
         description:
             "Our most popular slider that's a fan favorite. American cheese, caramelized onions, lettuce, tomato, and our famous NOT! So Basic Sauce.",
-        imageUrl: 'img/new/not-so-basic.jpg',
+        imageUrl: `${CLOUDINARY_URL}not-so-basic_fiqbf8.webp`,
         category: 'beef',
         active: true,
         popular: true,
@@ -59,7 +61,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'BBQ Bacon Cheese',
         description:
             'Our juicy prime beef slider topped with smoky BBQ sauce, crispy applewood smoked bacon, and melted American cheese for a perfect blend of savory and sweet.',
-        imageUrl: 'img/new/bbq-bacon-cheese.jpg',
+        imageUrl: `${CLOUDINARY_URL}not-so-basic_fiqbf8.webp`,
         category: 'beef',
         active: true,
         spiceLevel: 2,
@@ -85,7 +87,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Black and Blue',
         description:
             'A steakhouse classic in slider form. Our prime beef topped with blue cheese crumbles, caramelized onions, and a dash of cracked black pepper for a bold, sophisticated flavor profile.',
-        imageUrl: 'img/new/black-and-blue.jpg',
+        imageUrl: `${CLOUDINARY_URL}black-and-blue_gzuzos.webp`,
         category: 'beef',
         active: true,
         spiceLevel: 3,
@@ -111,7 +113,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'The Classic',
         description:
             'Sometimes simple is best. Our perfectly seasoned prime beef slider with lettuce, tomato, pickle, and our signature sauce on a toasted brioche bun.',
-        imageUrl: 'img/new/classic.jpg',
+        imageUrl: `${CLOUDINARY_URL}classic_mz6jzy.webp`,
         category: 'beef',
         active: true,
         popular: true,
@@ -139,7 +141,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Famous Fried Chicken',
         description:
             'Our hand-breaded chicken slider fried to golden perfection. Topped with fresh lettuce, tomato, and our house-made mayo on a toasted brioche bun.',
-        imageUrl: 'img/new/famous-fried-chicken.jpg',
+        imageUrl: `${CLOUDINARY_URL}famous-fried-chicken_ggfvk7.webp`,
         category: 'chicken',
         active: true,
         popular: true,
@@ -166,7 +168,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Porky Pig',
         description:
             'For the pork lovers! Slow-roasted pulled pork topped with our homemade coleslaw and tangy BBQ sauce, served on a toasted brioche bun.',
-        imageUrl: 'img/new/porky-pig.jpg',
+        imageUrl: `${CLOUDINARY_URL}porky-pig_axfv6q.webp`,
         category: 'other',
         active: true,
         spiceLevel: 2,
@@ -191,7 +193,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Sweet and Savory',
         description:
             'For the true burger enthusiast we bring you the perfect balance of sweet and savory. Swiss cheese, caramelized onion, pepper jam and applewood bacon.',
-        imageUrl: 'img/new/sweet-and-savery.jpg',
+        imageUrl: `${CLOUDINARY_URL}sweet-savory2_iof3t7.webp`,
         category: 'beef',
         active: true,
         spiceLevel: 2,
@@ -218,7 +220,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Extra Cheese Please',
         description:
             'Where this one lacks on toppings it makes up with big flavor thats sure to please. Extra American cheese, seasoned prime patty on a brioche bun.',
-        imageUrl: 'img/new/extra-cheese-please.jpg',
+        imageUrl: `${CLOUDINARY_URL}extra-cheese-please_kagia5.webp`,
         category: 'beef',
         active: true,
         spiceLevel: 1,
@@ -242,7 +244,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Whiskey',
         description:
             'This one has it all...sweet, savory and a touch of heat. American cheese, applewood bacon, fried onion and our signature truck made whiskey sauce.',
-        imageUrl: 'img/new/whiskey.jpg',
+        imageUrl: `${CLOUDINARY_URL}whiskey_zbkelp.webp`,
         category: 'beef',
         active: true,
         spiceLevel: 3,
@@ -269,7 +271,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Double Bacon With Cheese',
         description:
             'Stacked with 8oz of our prime beef, double smoked bacon, double cheese',
-        imageUrl: 'img/new/double-bacon.jpg',
+        imageUrl: `${CLOUDINARY_URL}double-bacon_i4crrj.webp`,
         category: 'beef',
         active: true,
         popular: true,
@@ -295,7 +297,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Vegetarian options',
         description:
             'All of our sliders can be substituted with impossible meat at an additional cost',
-        imageUrl: 'img/new/impossible-slider.jpg',
+        imageUrl: `${CLOUDINARY_URL}impossible-slider_jigkrl.webp`,
         category: 'beef',
         isVegetarianOption: true,
         active: true,
@@ -319,7 +321,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'VERY! Basic Sliders',
         description:
             'Our prime beef sliders topped with American cheese and caramelized onions',
-        imageUrl: 'img/new/very-basic.jpg',
+        imageUrl: `${CLOUDINARY_URL}very-basic_mplsma.webp`,
         category: 'beef',
         active: true,
         spiceLevel: 1,
@@ -344,7 +346,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Spicy Chicken',
         description:
             'Hand breaded crispy chicken, pepper jack cheese, chipotle mayonnaise, fresh jalapeños, pickle',
-        imageUrl: 'img/new/spicy-chicken2.jpg',
+        imageUrl: `${CLOUDINARY_URL}spicy-chicken2_xydqkj.webp`,
         category: 'chicken',
         active: true,
         spiceLevel: 4,
@@ -371,7 +373,7 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'Honey Mustard Chicken',
         description:
             'Crispy chicken fried to golden perfection, topped with our tangy truck made honey mustard sauce.',
-        imageUrl: 'img/new/honey-mustard.jpg',
+        imageUrl: `${CLOUDINARY_URL}honey-mustard_ixdy9c.webp`,
         category: 'chicken',
         active: true,
         spiceLevel: 1,
@@ -390,7 +392,7 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'fries',
         title: 'Fries',
         description: 'Our famous crispy fries seasoned to perfection.',
-        imageUrl: 'img/old/fries-1-jpg.webp',
+        imageUrl: `${CLOUDINARY_URL}Famous-crispy-golden-fries-232x230_tkxc4v.webp`,
         category: 'other',
         active: true,
         popular: true,
