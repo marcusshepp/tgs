@@ -1,16 +1,182 @@
+.popular-dishes-section {
+    padding: 60px 0;
+    position: relative;
+    background-color: #f9f7f2;
+    overflow: hidden;
+}
+
+.popular-dishes-wrapper {
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.title-area {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.title-text {
+    margin-left: 8px;
+    margin-right: 8px;
+    color: black;
+}
+
+.sub-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff6b35;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 .dishes-card-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
-.dishes-card.style1 {
-    width: 300px;
+.dishes-card {
+    width: 260px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    .dishes-thumb {
+        display: block;
+        margin-bottom: 15px;
+
+        img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    h3 {
+        color: #333;
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+    }
 }
 
-.dishes-thumb > img {
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 250px;
+.btn-wrapper {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: 0.9s;
+}
+
+.theme-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e41e26;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #c91822;
+    }
+}
+
+.chili-decoration {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 150px;
+    height: 200px;
+    background-image: url('/assets/images/chili.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.leaf-decoration {
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    width: 150px;
+    height: 150px;
+    background-image: url('/assets/images/leaf.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.mushroom-decoration {
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    background-image: url('/assets/images/mushroom.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .dishes-card-wrap {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dishes-card {
+        width: 45%;
+    }
+
+    .chili-decoration,
+    .leaf-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .dishes-card {
+        width: 100%;
+    }
+
+    .mushroom-decoration {
+        display: none;
+    }
 }

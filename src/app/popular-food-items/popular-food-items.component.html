@@ -1,216 +1,50 @@
-<section class="popular-dishes-section fix section-padding">
-    <div class="popular-dishes-wrapper style1">
-        <div class="shape1 d-none d-xxl-block">
-            <img src="/img/shape/popularDishesShape1_1.png" alt="shape" />
-        </div>
-        <div class="shape2 float-bob-y d-none d-xxl-block">
-            <img src="/img/shape/popularDishesShape1_2.png" alt="shape" />
-        </div>
+<section class="popular-dishes-section">
+    <div class="popular-dishes-wrapper">
+        <div class="chili-decoration"></div>
+        <div class="leaf-decoration"></div>
+        <div class="mushroom-decoration"></div>
+
         <div class="container">
-            <div class="title-area">
-                <div
-                    class="sub-title text-center wow fadeInUp"
-                    data-wow-delay="0.5s"
-                >
-                    <img
-                        class="me-1"
-                        src="/img/icon/titleIcon.svg"
-                        alt="icon"
-                    />POPULAR DISHES<img
-                        class="ms-1"
-                        src="/img/icon/titleIcon.svg"
-                        alt="icon"
-                    />
+            <div class="row mb-5">
+                <div class="title-area">
+                    <div class="sub-title text-center">
+                        <img
+                            class="title-icon me-1"
+                            src="/img/icon/titleIcon.svg"
+                            alt="icon"
+                        />
+                        <span class="title-text">POPULAR DISHES</span>
+                        <img
+                            class="title-icon ms-1"
+                            src="/img/icon/titleIcon.svg"
+                            alt="icon"
+                        />
+                    </div>
                 </div>
             </div>
-            <div class="dishes-card-wrap style1">
+
+            <div class="dishes-card-wrap">
                 <div
                     *ngFor="let dish of menu.slice(0, 4); let i = index"
-                    class="dishes-card style1 wow fadeInUp"
-                    [attr.data-wow-delay]="(0.2 * (i + 1)) + 's'"
+                    class="dishes-card"
+                    [ngClass]="{'animate': true}"
+                    [style.animation-delay]="(0.2 * (i + 1)) + 's'"
                 >
                     <a
                         class="dishes-thumb"
-                        [routerLink]='["menu-item", dish.id]'
+                        [routerLink]="['/menu-item', dish.id]"
                     >
-                        <img [src]="dish.imageUrl" alt="dish" />
+                        <img [src]="dish.imageUrl" [alt]="dish.title" />
                     </a>
-                    <a [routerLink]='["menu-item", dish.id]'>
+                    <a [routerLink]="['/menu-item', dish.id]">
                         <h3>{{ dish.title }}</h3>
                     </a>
                     <p>{{ dish.description }}</p>
                 </div>
             </div>
-            <div class="btn-wrapper wow fadeInUp" data-wow-delay="0.9s">
-                <a class="theme-btn" routerLink="/menu"
-                    >View All Items
-                    <i class="fa-sharp fa-regular fa-arrow-right"></i
-                ></a>
-            </div>
-        </div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content pb-3 pe-3">
-                <div class="modal-header border-0">
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    ></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row gy-5">
-                            <div class="col-xxl-6">
-                                <div class="modal-thumb">
-                                    <div class="product-big-img bg-color2">
-                                        <div class="dishes-thumb">
-                                            <img
-                                                class="img-fluid"
-                                                src="/img/dishes/dishes3_1.png"
-                                                alt="thumb"
-                                            />
-                                            <div class="circle-shape">
-                                                <img
-                                                    class="cir36"
-                                                    src="/img/food-items/circleShape2.png"
-                                                    alt="shape"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xxl-6">
-                                <div class="modal-details">
-                                    <div class="product-about">
-                                        <div class="title-wrapper">
-                                            <h2 class="product-title">
-                                                {{ selectedDish?.title }}
-                                            </h2>
-                                            <div class="price">
-                                                ${{
-                                                selectedDish?.price?.toFixed(2)
-                                                }}
-                                            </div>
-                                        </div>
-
-                                        <div class="product-rating">
-                                            <div
-                                                class="star-rating"
-                                                role="img"
-                                                aria-label="Rated 5.00 out of 5"
-                                            >
-                                                <span style="width: 100%"
-                                                    >Rated
-                                                    <strong class="rating"
-                                                        >5.00</strong
-                                                    >
-                                                    out of 5 based on
-                                                    <span class="rating"
-                                                        >1</span
-                                                    >
-                                                    customer rating</span
-                                                >
-                                            </div>
-                                            <a
-                                                href="#"
-                                                class="woocommerce-review-link"
-                                                >(<span class="count">2</span>
-                                                customer reviews)</a
-                                            >
-                                        </div>
-                                        <p class="text">
-                                            {{ selectedDish?.description }}
-                                        </p>
-
-                                        <div class="actions">
-                                            <div class="quantity">
-                                                <p>Quantity</p>
-
-                                                <div class="qty-wrapper">
-                                                    <button
-                                                        class="quantity-plus qty-btn"
-                                                    >
-                                                        <i
-                                                            class="fa-solid fa-plus"
-                                                        ></i>
-                                                    </button>
-                                                    <input
-                                                        type="number"
-                                                        class="qty-input"
-                                                        step="1"
-                                                        min="1"
-                                                        max="100"
-                                                        name="quantity"
-                                                        value="1"
-                                                        title="Qty"
-                                                    />
-                                                    <button
-                                                        class="quantity-minus qty-btn"
-                                                    >
-                                                        <i
-                                                            class="fa-solid fa-minus"
-                                                        ></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="theme-btn"
-                                                >Add to Cart<i
-                                                    class="fa-regular fa-cart-shopping bg-transparent text-white"
-                                                ></i
-                                            ></a>
-                                            <a
-                                                href="#"
-                                                class="theme-btn style5 border-0"
-                                                >ADD TO wishlist<i
-                                                    class="fa-sharp fa-solid fa-heart"
-                                                ></i
-                                            ></a>
-                                        </div>
-                                        <div class="share">
-                                            <h6>share with friends</h6>
-                                            <ul class="social-media">
-                                                <li>
-                                                    <a href="#">
-                                                        <i
-                                                            class="fa-brands fa-facebook-f"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i
-                                                            class="fa-brands fa-youtube"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i
-                                                            class="fa-brands fa-twitter"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i
-                                                            class="fa-brands fa-instagram"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="btn-wrapper">
+                <a class="theme-btn" routerLink="/menu">View All Items →</a>
             </div>
         </div>
     </div>

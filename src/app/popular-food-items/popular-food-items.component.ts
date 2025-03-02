@@ -1,25 +1,29 @@
-import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { MENU_ITEMS, MenuItem } from "../data/menu.model";
+import { Component } from '@angular/core';
+import { MENU_ITEMS } from '../data/menu.model';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+interface MenuItem {
+    id: number;
+    title: string;
+    description: string;
+    imageUrl: string;
+    price?: number;
+}
 
 @Component({
-  selector: "app-popular-food-items",
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: "./popular-food-items.component.html",
-  styleUrl: "./popular-food-items.component.scss",
+    selector: 'app-popular-food-items',
+    standalone: true,
+    imports: [RouterModule, CommonModule],
+    templateUrl: './popular-food-items.component.html',
+    styleUrls: ['./popular-food-items.component.scss'],
 })
 export class PopularFoodItemsComponent {
-  public menu: MenuItem[] = MENU_ITEMS;
+    public menu = MENU_ITEMS.slice(0, 5);
 
-  public selectedDish: MenuItem | null = null;
+    public selectedDish: MenuItem | null = null;
 
-  public openModal(dish: MenuItem): void {
-    this.selectedDish = dish;
-  }
-
-  public get displayedDishes(): MenuItem[] {
-    return this.menu.slice(0, 4);
-  }
+    public openModal(dish: MenuItem): void {
+        this.selectedDish = dish;
+    }
 }

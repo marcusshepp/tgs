@@ -1,0 +1,79 @@
+:root {
+    --container-max-width: 1200px;
+    --container-padding: 1rem;
+    --overlay-opacity: 0.5;
+}
+
+/* Hero Section Base Styles */
+.hero-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/truck2-1_eqwzgl.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dynamic background overlay */
+.hero-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, var(--overlay-opacity));
+    z-index: 1;
+}
+
+/* Content container */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--container-max-width);
+    padding: 0 var(--container-padding);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-title {
+    color: #fff;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-wrapper.truck-name {
+    background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/truck999-1_etwedg.webp');
+}
+
+.hero-wrapper.truck-9 {
+    background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/window_ghdagy.webp');
+}
+
+.hero-wrapper.full-menu {
+    background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/multi-yellow-lower_ux1n6t.webp');
+}
+
+@media (max-width: 768px) {
+    .hero-wrapper {
+        height: 200px;
+    }
+
+    :root {
+        --overlay-opacity: 0.6; /* Slightly darker overlay on mobile */
+    }
+}

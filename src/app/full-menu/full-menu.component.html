@@ -1,28 +1,18 @@
-<div class="breadcumb-section">
-    <div class="breadcumb-wrapper full-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcumb-content"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<app-banner variant="full-menu" title="Menu"></app-banner>
+
 <section class="menu-showcase section-padding">
     <div class="container">
         <div class="row mb-5">
             <div class="title-area">
-                <div
-                    class="sub-title text-center wow fadeInUp"
-                    data-wow-delay="0.5s"
-                >
+                <div class="sub-title text-center">
                     <img
-                        class="me-1"
+                        class="title-icon me-1"
                         src="/img/icon/titleIcon.svg"
                         alt="icon"
-                    />Detroits Best Slider Menu<img
-                        class="ms-1"
+                    />
+                    <span class="title-text">DETROITS BEST SLIDER MENU</span>
+                    <img
+                        class="title-icon ms-1"
                         src="/img/icon/titleIcon.svg"
                         alt="icon"
                     />
@@ -30,34 +20,48 @@
             </div>
         </div>
 
-        <div class="row g-4">
+        <div class="menu-grid">
             <div
                 *ngFor="let item of menu; let $index = index"
-                class="col-md-6 col-lg-4 wow fadeInUp"
-                [attr.data-wow-delay]="'0.' + ($index + 3) + 's'"
+                class="menu-card"
+                [attr.data-index]="$index"
+                @fadeIn
             >
-                <div class="card border-0 shadow-sm h-100">
+                <div class="card shadow-sm h-100">
                     <div class="menu-image-wrapper">
                         <img
                             [src]="item.imageUrl || '/img/menu/default.png'"
                             [alt]="item.title"
-                            class="card-img-top menu-image"
+                            class="menu-image"
+                            loading="lazy"
                         />
-                        <!--<div class="price-tag">${{item.price || '15.99'}}</div>-->
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title h4">{{item.title}}</h3>
+                        <h3 class="card-title">{{item.title}}</h3>
                         <p class="card-text">{{item.description}}</p>
                     </div>
-                    <div class="card-footer bg-transparent border-0">
+                    <div class="card-footer">
                         <div class="btn-wrapper">
                             <a
                                 class="theme-btn"
                                 [routerLink]="['/menu-item', item.id]"
-                                >View Details<i
-                                    class="fa-sharp fa-regular fa-arrow-right"
-                                ></i
-                            ></a>
+                            >
+                                View Details
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>

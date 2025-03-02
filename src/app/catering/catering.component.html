@@ -1,23 +1,10 @@
-<div class="breadcumb-section">
-    <div class="breadcumb-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcumb-content"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<app-banner variant="truck-name" title="Catering Services"></app-banner>
 
 <section class="catering-section">
     <div class="container">
         <div class="catering-content">
             <div class="title-area">
-                <div
-                    class="sub-title text-center wow fadeInUp"
-                    data-wow-delay="0.5s"
-                >
+                <div class="sub-title text-center" [class.animate]="isBrowser">
                     <img
                         class="me-1"
                         src="/img/icon/titleIcon.svg"
@@ -42,7 +29,7 @@
                 </p>
             </div>
 
-            <div class="features-list wow fadeInUp" data-wow-delay=".6s">
+            <div class="features-list" [class.animate]="isBrowser">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="feature-item">
@@ -92,10 +79,7 @@
             </div>
 
             <div class="title-area package-heading">
-                <div
-                    class="sub-title text-center wow fadeInUp"
-                    data-wow-delay="0.5s"
-                >
+                <div class="sub-title text-center" [class.animate]="isBrowser">
                     <img
                         class="me-1"
                         src="/img/icon/titleIcon.svg"
@@ -110,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="package-container wow fadeInUp" data-wow-delay=".6s">
+            <div class="package-container" [class.animate]="isBrowser">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="package-card">

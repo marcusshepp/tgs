@@ -1,27 +1,17 @@
-<div class="breadcumb-section">
-    <div class="breadcumb-wrapper truck-99">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcumb-content">
-                        <h1 class="breadcumb-title">{{ menuItem?.title }}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<app-banner variant="truck-9" [title]="menuItem?.title"></app-banner>
 
 <div class="menu-item-section">
     <div class="container">
         <div class="menu-item-wrapper">
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-lg-6 image-col">
                     <div class="menu-item-image">
                         <img
-                            [src]="menuItem?.imageUrl ? '/' + menuItem?.imageUrl : '/img/dishes/default.png'"
+                            [src]="menuItem?.imageUrl ?  menuItem?.imageUrl : '/img/dishes/default.png'"
                             [alt]="menuItem?.title"
                             class="product-img"
+                            width="500"
+                            height="350"
                         />
                         <div class="tag" *ngIf="menuItem?.popular">Popular</div>
                     </div>
@@ -32,9 +22,6 @@
                             {{ menuItem?.category }}
                         </div>
                         <h2 class="item-title">{{ menuItem?.title }}</h2>
-                        <!--<div class="price-tag">-->
-                        <!--    ${{ menuItem?.price.toFixed(2) }}-->
-                        <!--</div>-->
                         <p class="item-description">
                             {{ menuItem?.description }}
                         </p>
@@ -55,7 +42,7 @@
                             </div>
                             <div
                                 class="spec-item"
-                                *ngIf="menuItem?.dietaryInfo"
+                                *ngIf="menuItem?.dietaryInfo && menuItem?.dietaryInfo.length > 0"
                             >
                                 <span class="spec-label">Dietary:</span>
                                 <span class="dietary-tags">
@@ -72,6 +59,7 @@
                             <button
                                 class="toggle-btn"
                                 (click)="toggleNutrition()"
+                                [attr.aria-expanded]="nutritionVisible"
                             >
                                 Nutrition Information
                                 <span class="toggle-icon"
@@ -122,22 +110,19 @@
 
         <div class="related-items" *ngIf="relatedItems.length > 0">
             <h3 class="section-title">You Might Also Like</h3>
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-md-4" *ngFor="let item of relatedItems">
                     <div class="related-item-card">
                         <div class="card-img">
                             <img
-                                [src]="item.imageUrl ? '/' + item.imageUrl : '/img/dishes/default.png'"
+                                [src]="item.imageUrl ?  item.imageUrl : '/img/dishes/default.png'"
                                 [alt]="item.title"
                             />
                         </div>
                         <div class="card-content">
                             <h4 class="item-name">{{ item.title }}</h4>
-                            <!--<p class="item-price">-->
-                            <!--    ${{ item.price.toFixed(2) }}-->
-                            <!--</p>-->
                             <a
-                                [routerLink]="['/menu', item.id]"
+                                [routerLink]="['/menu-item', item.id]"
                                 class="view-btn"
                                 >View Item</a
                             >
@@ -184,5 +169,7 @@
                 </div>
             </div>
         </div>
+
+        <!-- Testimonials component removed -->
     </div>
 </div>

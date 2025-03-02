@@ -1,4 +1,4 @@
-<div class="contact-form style2 p-4">
+<div class="contact-form p-4">
     <h2 class="mb-4">Contact Us</h2>
     <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="col-md-6">
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-6">
             <input
-                type="number"
+                type="tel"
                 placeholder="Phone Number"
                 class="form-control"
                 formControlName="phoneNumber"
@@ -111,7 +111,6 @@
         </div>
         <div class="col-12">
             <textarea
-                id="message"
                 class="form-control"
                 placeholder="Tell us about your ideal event"
                 rows="5"
@@ -126,11 +125,10 @@
             <button
                 class="btn btn-primary w-100"
                 type="submit"
-                (click)="onSubmit()"
                 [disabled]="form.invalid"
             >
                 Submit Request
-                <i class="fa-sharp fa-regular fa-arrow-right-long ms-2"></i>
+                <i class="arrow-right-long ms-2"></i>
             </button>
         </div>
     </form>
