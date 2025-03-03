@@ -81,7 +81,7 @@ export class ContactFormComponent implements OnInit {
                 submitBtn.innerHTML = 'Sending... <div class="spinner"></div>';
             }
 
-            const apiUrl = `${environment.apiUrl}/tgs/contactus`;
+            const apiUrl = `${environment.apiUrl}/TGS/ContactUs`;
             this.http.post(apiUrl, this.form.value).subscribe({
                 next: () => {
                     this.showSuccessMessage();
