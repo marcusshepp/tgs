@@ -55,54 +55,6 @@
                             </div>
                         </div>
 
-                        <div class="toggle-section">
-                            <button
-                                class="toggle-btn"
-                                (click)="toggleNutrition()"
-                                [attr.aria-expanded]="nutritionVisible"
-                            >
-                                Nutrition Information
-                                <span class="toggle-icon"
-                                    >{{ nutritionVisible ? '−' : '+' }}</span
-                                >
-                            </button>
-                            <div
-                                class="toggle-content"
-                                [class.visible]="nutritionVisible"
-                            >
-                                <div class="nutrition-facts">
-                                    <div class="nutrition-item">
-                                        <span>Calories</span>
-                                        <span
-                                            >{{
-                                            menuItem?.nutritionInfo?.calories ||
-                                            '450' }}</span
-                                        >
-                                    </div>
-                                    <div class="nutrition-item">
-                                        <span>Protein</span>
-                                        <span
-                                            >{{ menuItem?.nutritionInfo?.protein
-                                            || '22g' }}</span
-                                        >
-                                    </div>
-                                    <div class="nutrition-item">
-                                        <span>Carbs</span>
-                                        <span
-                                            >{{ menuItem?.nutritionInfo?.carbs
-                                            || '35g' }}</span
-                                        >
-                                    </div>
-                                    <div class="nutrition-item">
-                                        <span>Fat</span>
-                                        <span
-                                            >{{ menuItem?.nutritionInfo?.fat ||
-                                            '18g' }}</span
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -137,14 +89,19 @@
             <div class="prep-content">
                 <p>
                     Our {{ menuItem?.title }} is made with the freshest
-                    ingredients, carefully selected by our chef each morning. We
-                    prepare each order from scratch when you place your order to
+                    ingredients. We prepare each order from scratch when you place your order to
                     ensure maximum flavor and quality.
                 </p>
                 <div class="prep-steps">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <div class="step-text">
+                        <div class="step-text" *ngIf="menuItem?.category === 'beef'">
+                            100% prime beef
+                        </div>
+                        <div class="step-text" *ngIf="menuItem?.category === 'chicken'">
+                            Cut fresh daily
+                        </div>
+                        <div class="step-text" *ngIf="menuItem?.category !== 'beef' && menuItem?.category !== 'chicken'">
                             Premium ingredients selected daily
                         </div>
                     </div>
@@ -169,7 +126,5 @@
                 </div>
             </div>
         </div>
-
-        <!-- Testimonials component removed -->
     </div>
 </div>

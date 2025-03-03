@@ -90,7 +90,7 @@
 }
 
 .col-md-6 {
-    width: 50%;
+    width: 33%;
     padding: 0 15px;
 }
 
@@ -238,6 +238,7 @@
     border: 1px solid #f0f0f0;
     opacity: 0;
     transform: translateY(30px);
+    font-size: 0.95rem; // Slightly reduced font size
 
     &.animate {
         opacity: 1;
@@ -251,10 +252,10 @@
 
     &.popular {
         border: 2px solid #d40000;
-        transform: scale(1.05);
+        transform: scale(1.02); // Reduced scale from 1.05
 
         &:hover {
-            transform: scale(1.05) translateY(-10px);
+            transform: scale(1.02) translateY(-10px); // Matching reduction
         }
 
         &::after {
@@ -291,7 +292,7 @@
 
     .package-header {
         background: #f9f9f9;
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem; // Reduced padding
         text-align: center;
         border-bottom: 1px solid #eee;
         position: relative;
@@ -322,7 +323,7 @@
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem; // Reduced margin
             position: relative;
             z-index: 1;
             transition: all 0.3s ease;
@@ -330,11 +331,18 @@
 
         h4 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.3rem; // Slightly smaller heading
             font-weight: 700;
             color: #222;
             position: relative;
             z-index: 1;
+        }
+
+        .package-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #d40000;
+            margin-top: 0.5rem;
         }
     }
 
@@ -348,20 +356,20 @@
     }
 
     .package-body {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem; // Reduced padding
 
         ul {
             list-style: none;
             padding: 0;
-            margin: 0 0 1.5rem;
+            margin: 0 0 1rem; // Reduced margin
 
             li {
-                padding: 0.8rem 0;
+                padding: 0.6rem 0; // Reduced padding
                 border-bottom: 1px dashed #eee;
                 position: relative;
                 color: #555;
-                padding-left: 1.8rem;
-                font-size: 1rem;
+                padding-left: 1.5rem; // Adjusted left padding
+                font-size: 0.95rem; // Smaller font
                 transition: all 0.3s ease;
 
                 &:last-child {
@@ -379,7 +387,7 @@
 
                 &:hover {
                     color: #000;
-                    padding-left: 2rem;
+                    padding-left: 1.7rem;
                 }
 
                 &:hover::before {
@@ -480,6 +488,269 @@
     }
 }
 
+// Menu Tabs and Menu Container Styles
+.menu-heading {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.menu-container {
+    margin-bottom: 3rem;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+
+    &.animate {
+        opacity: 1;
+    }
+}
+
+// Menu Tabs
+.menu-tabs {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+
+    .nav-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            white-space: nowrap;
+            position: relative;
+            transition: all 0.3s ease;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: #d40000;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                color: #333;
+            }
+
+            &.active {
+                color: #d40000;
+
+                &:after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+
+        &::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #d40000;
+            border-radius: 10px;
+        }
+    }
+}
+
+// Menu Content
+.menu-content {
+    padding: 1.5rem;
+}
+
+.menu-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+
+    &.visible {
+        display: block;
+    }
+
+    .menu-category {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #d40000;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #d40000;
+        }
+    }
+
+    .menu-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+
+        &.side-items {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+
+    .menu-item {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 1.2rem;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #f0f0f0;
+        opacity: 0;
+        transform: translateY(20px);
+
+        &.animate-item {
+            animation: fadeItemIn 0.5s forwards;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-color: rgba(212, 0, 0, 0.3);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .portion-size {
+                font-size: 0.85rem;
+                font-weight: 400;
+                color: #666;
+            }
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .additional-charge {
+            color: #d40000;
+            font-style: italic;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// Good To Know Section
+.good-to-know {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+    h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 5px;
+            height: 70%;
+            background-color: #d40000;
+            border-radius: 3px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 2rem;
+
+        li {
+            padding: 0.6rem 0;
+            font-size: 1rem;
+            color: #555;
+            position: relative;
+            padding-left: 1.8rem;
+            line-height: 1.6;
+
+            &:before {
+                content: '•';
+                color: #d40000;
+                font-size: 1.3rem;
+                position: absolute;
+                left: 0.5rem;
+                top: 0.4rem;
+            }
+        }
+    }
+
+    .contact-info {
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        margin-top: 1rem;
+
+        h3 {
+            margin-bottom: 1rem;
+            color: #d40000;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+
+            i {
+                color: #d40000;
+                font-size: 1.1rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
 .contact-container {
     width: 100%;
     display: flex;
@@ -537,6 +808,17 @@
     }
 }
 
+@keyframes fadeItemIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 991px) {
     .hero-banner {
         height: 400px;
@@ -552,12 +834,20 @@
         }
     }
 
+  .col-lg-4 {
+        width: 100%;
+    }
+
     .package-card.popular {
         transform: scale(1);
 
         &:hover {
             transform: translateY(-10px);
         }
+    }
+
+    .menu-section .menu-items {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
@@ -578,6 +868,10 @@
     .col-md-6 {
         width: 100%;
         padding: 0 10px;
+    }
+
+    .package-card {
+        margin-bottom: 20px;
     }
 
     .hero-banner {
@@ -640,6 +934,27 @@
     .package-note {
         padding: 1.5rem;
         margin-bottom: 3rem;
+    }
+
+    .menu-tabs .nav-tabs li {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .menu-content {
+        padding: 1.2rem;
+    }
+
+    .menu-section .menu-items {
+        grid-template-columns: 1fr;
+    }
+
+    .good-to-know {
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.4rem;
+        }
     }
 
     .contact-container app-contact-form {
@@ -764,6 +1079,54 @@
         .gluten-free {
             font-size: 1rem;
             padding: 4px 12px;
+        }
+    }
+
+    .menu-tabs .nav-tabs {
+        padding: 0 0.5rem;
+
+        li {
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .menu-section {
+        .menu-category {
+            font-size: 1.5rem;
+        }
+
+        .menu-item {
+            padding: 1rem;
+
+            h4 {
+                font-size: 1.1rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .good-to-know {
+        padding: 1.2rem;
+
+        h3 {
+            font-size: 1.3rem;
+            padding-left: 1.2rem;
+        }
+
+        ul li {
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            padding: 1.2rem;
+
+            p {
+                font-size: 0.9rem;
+            }
         }
     }
 

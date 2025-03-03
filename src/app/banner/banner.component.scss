@@ -9,12 +9,13 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    height: var(--banner-height, 280px);
 }
 
 .hero-wrapper {
     position: relative;
     width: 100%;
-    height: 280px;
+    height: var(--banner-height, 280px);
     background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/truck2-1_eqwzgl.webp');
     background-size: cover;
     background-position: center;
@@ -23,7 +24,6 @@
     justify-content: center;
 }
 
-/* Dynamic background overlay */
 .hero-wrapper::before {
     content: '';
     position: absolute;
@@ -62,6 +62,10 @@
 
 .hero-wrapper.truck-9 {
     background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/window_ghdagy.webp');
+}
+
+.hero-wrapper.reviews {
+    background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/back-window_loxdva.webp');
 }
 
 .hero-wrapper.full-menu {

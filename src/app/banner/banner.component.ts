@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
     selector: 'app-banner',
@@ -17,7 +17,26 @@ import { Component, Input } from '@angular/core';
     `,
     styleUrls: ['./banner.component.scss'],
 })
-export class BannerComponent {
+export class BannerComponent implements OnInit {
     @Input() variant: string = '';
     @Input() title: string = '';
+    @Input() height: string = '';
+
+    constructor(
+        private el: ElementRef,
+        private renderer: Renderer2
+    ) {}
+
+    ngOnInit() {
+        if (this.height) {
+            const wrapper =
+                this.el.nativeElement.querySelector('.hero-wrapper');
+            const section =
+                this.el.nativeElement.querySelector('.hero-section');
+            if (wrapper && section) {
+                this.renderer.setStyle(wrapper, 'height', this.height);
+                this.renderer.setStyle(section, 'height', this.height);
+            }
+        }
+    }
 }

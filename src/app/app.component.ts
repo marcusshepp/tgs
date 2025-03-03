@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private titleService: Title,
         private metaService: Meta,
-        private router: Router
+        private router: Router,
     ) {
         if (isPlatformBrowser(this.platformId)) {
             this.router.events.subscribe((event) => {

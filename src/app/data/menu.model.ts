@@ -5,7 +5,7 @@ export interface MenuItem {
     title: string;
     description: string;
     imageUrl?: string;
-    category: 'beef' | 'chicken' | 'other';
+    category: 'pork' | 'beef' | 'chicken' | 'other';
     isSeasonal?: boolean;
     isVegetarianOption?: boolean;
     price?: number;
@@ -13,7 +13,7 @@ export interface MenuItem {
     featured?: boolean;
     popular?: boolean;
     spiceLevel?: number; // Scale of 1-5
-    dietaryInfo?: string[]; // e.g., ['Gluten-Free', 'Dairy-Free', 'Vegan']
+    dietaryInfo?: string[];
     nutritionInfo?: {
         calories?: number;
         protein?: string;
@@ -35,8 +35,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}not-so-basic_fiqbf8.webp`,
         category: 'beef',
         active: true,
-        popular: true,
-        spiceLevel: 2,
+        popular: false, // Changed from true to false
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 450,
@@ -61,10 +61,10 @@ export const MENU_ITEMS: MenuItem[] = [
         title: 'BBQ Bacon Cheese',
         description:
             'Our juicy prime beef slider topped with smoky BBQ sauce, crispy applewood smoked bacon, and melted American cheese for a perfect blend of savory and sweet.',
-        imageUrl: `${CLOUDINARY_URL}not-so-basic_fiqbf8.webp`,
+        imageUrl: `${CLOUDINARY_URL}bbq-bacon-cheese_pahhpv.webp`,
         category: 'beef',
         active: true,
-        spiceLevel: 2,
+        spiceLevel: 1,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 520,
@@ -90,7 +90,7 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}black-and-blue_gzuzos.webp`,
         category: 'beef',
         active: true,
-        spiceLevel: 3,
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 490,
@@ -116,8 +116,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}classic_mz6jzy.webp`,
         category: 'beef',
         active: true,
-        popular: true,
-        spiceLevel: 1,
+        popular: false, // Changed from true to false
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 420,
@@ -144,7 +144,7 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}famous-fried-chicken_ggfvk7.webp`,
         category: 'chicken',
         active: true,
-        popular: true,
+        popular: false, // Changed from true to false
         spiceLevel: 1,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -169,9 +169,9 @@ export const MENU_ITEMS: MenuItem[] = [
         description:
             'For the pork lovers! Slow-roasted pulled pork topped with our homemade coleslaw and tangy BBQ sauce, served on a toasted brioche bun.',
         imageUrl: `${CLOUDINARY_URL}porky-pig_axfv6q.webp`,
-        category: 'other',
+        category: 'pork',
         active: true,
-        spiceLevel: 2,
+        spiceLevel: 0,
         dietaryInfo: ['Contains Gluten'],
         nutritionInfo: {
             calories: 510,
@@ -196,7 +196,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}sweet-savory2_iof3t7.webp`,
         category: 'beef',
         active: true,
-        spiceLevel: 2,
+        popular: true, // Added popular flag
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 530,
@@ -223,7 +224,7 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}extra-cheese-please_kagia5.webp`,
         category: 'beef',
         active: true,
-        spiceLevel: 1,
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 480,
@@ -247,7 +248,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}whiskey_zbkelp.webp`,
         category: 'beef',
         active: true,
-        spiceLevel: 3,
+        popular: true, // Added popular flag
+        spiceLevel: 1,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 550,
@@ -274,8 +276,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}double-bacon_i4crrj.webp`,
         category: 'beef',
         active: true,
-        popular: true,
-        spiceLevel: 2,
+        popular: true, // Kept as true
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 780,
@@ -294,13 +296,14 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'vegetarian',
-        title: 'Vegetarian options',
+        title: 'Impossible Sliders',
         description:
             'All of our sliders can be substituted with impossible meat at an additional cost',
         imageUrl: `${CLOUDINARY_URL}impossible-slider_jigkrl.webp`,
         category: 'beef',
         isVegetarianOption: true,
         active: true,
+        spiceLevel: 0,
         dietaryInfo: ['Vegetarian', 'Contains Gluten'],
         nutritionInfo: {
             calories: 420,
@@ -324,7 +327,7 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}very-basic_mplsma.webp`,
         category: 'beef',
         active: true,
-        spiceLevel: 1,
+        spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 380,
@@ -349,7 +352,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}spicy-chicken2_xydqkj.webp`,
         category: 'chicken',
         active: true,
-        spiceLevel: 4,
+        popular: true, // Added popular flag
+        spiceLevel: 3,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
             calories: 510,
@@ -395,8 +399,8 @@ export const MENU_ITEMS: MenuItem[] = [
         imageUrl: `${CLOUDINARY_URL}Famous-crispy-golden-fries-232x230_tkxc4v.webp`,
         category: 'other',
         active: true,
-        popular: true,
-        spiceLevel: 1,
+        popular: false, // Changed from true to false
+        spiceLevel: 0,
         dietaryInfo: ['Vegetarian', 'Vegan'],
         nutritionInfo: {
             calories: 320,
