@@ -1,0 +1,9 @@
+# Serve prerendered files directly where they exist
+/menu/*    /menu/index.html    200
+/reviews/*    /reviews/index.html    200
+/catering/*    /catering/index.html    200
+/contact-us/*    /contact-us/index.html    200
+/meet-us/*    /meet-us/index.html    200
+
+# Fallback to root index.html for unmatched routes (SPA behavior)
+/*    /index.html    200
