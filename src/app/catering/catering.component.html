@@ -112,9 +112,6 @@
                                     <li>Classic</li>
                                     <li>Choice of one side</li>
                                 </ul>
-                                <div class="package-cta">
-                                    <a href="#contact" class="btn-quote">Get Quote</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,9 +130,6 @@
                                     <li>Premium slider selections</li>
                                     <li>Includes your choice of one side</li>
                                 </ul>
-                                <div class="package-cta">
-                                    <a href="#contact" class="btn-quote">Get Quote</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -154,9 +148,6 @@
                                     <li>Includes your choice of two sides</li>
                                     <li>Choose cajun fries or truffle fries</li>
                                 </ul>
-                                <div class="package-cta">
-                                    <a href="#contact" class="btn-quote">Get Quote</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -189,189 +180,7 @@
                 </div>
             </div>
 
-            <!-- Updated menu container to match the menu images -->
-            <div class="menu-container" [class.animate]="isBrowser">
-                <!-- New Menu layout based on the images -->
-                <div class="menu-tabs">
-                    <ul class="nav-tabs">
-                        <li [class.active]="activeTab === 'beef'" (click)="setActiveTab('beef')">Beef</li>
-                        <li [class.active]="activeTab === 'poultry'" (click)="setActiveTab('poultry')">Poultry</li>
-                        <li [class.active]="activeTab === 'vegetarian'" (click)="setActiveTab('vegetarian')">Vegetarian</li>
-                        <li [class.active]="activeTab === 'pork'" (click)="setActiveTab('pork')">Pork</li>
-                        <li [class.active]="activeTab === 'additional'" (click)="setActiveTab('additional')">Additional</li>
-                        <li [class.active]="activeTab === 'sides'" (click)="setActiveTab('sides')">Sides</li>
-                    </ul>
-                </div>
-
-                <div class="menu-content">
-                    <!-- Beef Menu Items -->
-                    <div class="menu-section" [class.visible]="activeTab === 'beef'">
-                        <h3 class="menu-category">Beef</h3>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <h4>Classic Sliders</h4>
-                                <p>Our prime beef sliders topped with ketchup, mustard, American cheese, caramelized onions and pickles</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Very! Basic Sliders</h4>
-                                <p>Our prime beef sliders topped with American cheese and caramelized onions</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>The Not! So Basic Sliders</h4>
-                                <p>Our prime beef sliders topped with American cheese, grilled onions, Not! So Basic Sauce, lettuce and tomato</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Whiskey Sliders</h4>
-                                <p>Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Steak House Sliders</h4>
-                                <p>Our prime beef sliders topped with Swiss cheese, fried onions, mayo, and steakhouse seasoning</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Black and Blue Sliders</h4>
-                                <p>Our prime beef sliders topped with blue cheese aioli, bacon, and caramelized onions</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Sweet and Savory Sliders</h4>
-                                <p>Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Extra Cheese Please! Sliders</h4>
-                                <p>Our prime beef sliders topped with double the American cheese</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Bacon Cheese Sliders</h4>
-                                <p>Our prime beef sliders topped with smoked bacon, and American cheese</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Double Bacon Cheese Sliders</h4>
-                                <p>Our classic bacon cheese sliders but with double the beef, double the bacon, and double the cheese <span class="additional-charge">(additional charge)</span></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Poultry Menu Items -->
-                    <div class="menu-section" [class.visible]="activeTab === 'poultry'">
-                        <h3 class="menu-category">Poultry</h3>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <h4>Honey Mustard Chicken Sliders</h4>
-                                <p>Hand battered crispy chicken topped with honey mustard sauce, lettuce, and tomato</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Buffalo Chicken Sliders</h4>
-                                <p>Hand battered crispy chicken, truck made buffalo sauce, drizzled with ranch and topped off with blue cheese crumbles</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Spicy Chicken Sliders</h4>
-                                <p>Hand battered crispy chicken topped with pepper jack cheese, spicy pickles, spicy ranch and chipotle mayo</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Monte Cristo Sliders</h4>
-                                <p>Fresh ground turkey, honey ham, Swiss cheese, caramelized onions, truck made raspberry jam, on cinnamon butter brioche buns and dusted with powdered sugar</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Grilled Garlic Chicken Sliders</h4>
-                                <p>Grilled chicken topped with lettuce, tomato, and Not! So Basic Sauce</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>General Chicken Sliders</h4>
-                                <p>Crispy, fried thigh meat prepared to golden perfection, tossed in a sweet and spicy General Tso sauce, drizzled with sriracha and green onions</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Tim's Famous Fried Chicken Sliders</h4>
-                                <p>Crispy fried chicken topped with pickles, Not! So Basic Sauce and American cheese</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vegetarian Menu Items -->
-                    <div class="menu-section" [class.visible]="activeTab === 'vegetarian'">
-                        <h3 class="menu-category">Vegetarian</h3>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <h4>Impossible Sliders</h4>
-                                <p>Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions <span class="additional-charge">(additional charge)</span></p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Ultimate Grilled Cheese</h4>
-                                <p>American and Swiss cheese, caramelized onions, roasted tomatoes, pesto and olive oil drizzle on grilled sourdough</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pork Menu Items -->
-                    <div class="menu-section" [class.visible]="activeTab === 'pork'">
-                        <h3 class="menu-category">Pork</h3>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <h4>The Porky Pig Sliders</h4>
-                                <p>Our truck smoked pulled pork nestled on top of our prime beef, drizzled with barbeque sauce, spicy pickles, and fried onions <span class="additional-charge">(additional charge)</span></p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Tim's Pulled Pork Sliders</h4>
-                                <p>Our truck smoked pulled pork and spicy pickles drizzled with our own honey chipotle barbeque sauce <span class="additional-charge">(additional charge)</span></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Additional Offerings -->
-                    <div class="menu-section" [class.visible]="activeTab === 'additional'">
-                        <h3 class="menu-category">Additional Offerings</h3>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <h4>Smoked Chicken Tacos <span class="portion-size">(2 per person)</span></h4>
-                                <p>Topped with cilantro, onions and chipotle mayo on corn tortillas</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Premium Chicken Tenders</h4>
-                                <p>Crispy, delicious chicken paired with your choice of dipping sauce</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Side Options -->
-                    <div class="menu-section" [class.visible]="activeTab === 'sides'">
-                        <h3 class="menu-category">Side Options</h3>
-                        <div class="menu-items side-items">
-                            <div class="menu-item">
-                                <h4>Cole Slaw</h4>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Pasta Salad</h4>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Truck made potato chips</h4>
-                                <p>(with choice of ranch, cajun or bbq seasonings)</p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Hot crispy fries</h4>
-                                <p>Upgrade your fry game with your choice of our premium cajun or truffle seasoning <span class="additional-charge">(additional charge)</span></p>
-                            </div>
-                            <div class="menu-item">
-                                <h4>Beverages Available</h4>
-                                <p><span class="additional-charge">(additional charge)</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="good-to-know">
-                    <h3>Good To Know!</h3>
-                    <ul>
-                        <li>A $300 truck fee applies and covers 2 hours of service. Sales tax of 6% will apply to all food and beverages</li>
-                        <li>A non-refundable $150 minimum contract and $500 deposit to hold the date of your event</li>
-                        <li>Our trucks are licensed and insured, and are held to a high standard of cleanliness and sanitation. We aim to exceed the local and state requirements and provide our guests an outstanding experience</li>
-                        <li>Looking to stream your favorite playlist during the event? Let us know and we will be delighted to stream your playlist on our Bluetooth speakers</li>
-                    </ul>
-                    <div class="contact-info">
-                        <h3>Ready To Eat?</h3>
-                        <p><i class="fas fa-envelope"></i> tgfgfoodtruck&#64;gmail.com</p>
-                        <p><i class="fas fa-phone"></i> (248) 251-5781</p>
-                    </div>
-                </div>
-            </div>
+            <app-catering-menu></app-catering-menu>
         </div>
     </div>
 

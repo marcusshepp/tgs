@@ -3,6 +3,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../contact/contact-form/contact-form.component';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from '../banner/banner.component';
+import { CateringMenuComponent } from './menu/catering-menu.component';
 
 @Component({
     selector: 'app-catering',
@@ -12,13 +13,13 @@ import { BannerComponent } from '../banner/banner.component';
         BannerComponent,
         ContactFormComponent,
         RouterModule,
+        CateringMenuComponent,
     ],
     templateUrl: './catering.component.html',
     styleUrl: './catering.component.scss',
 })
 export class CateringComponent {
     isBrowser: boolean;
-    activeTab: string = 'beef';
 
     constructor(@Inject(PLATFORM_ID) private platformId: Object) {
         this.isBrowser = isPlatformBrowser(this.platformId);
@@ -27,13 +28,7 @@ export class CateringComponent {
     ngOnInit() {
         if (this.isBrowser) {
             this.initAnimations();
-            this.triggerInitialMenuAnimation();
         }
-    }
-
-    setActiveTab(tabName: string): void {
-        this.activeTab = tabName;
-        this.animateMenuItems();
     }
 
     private initAnimations() {
@@ -66,45 +61,5 @@ export class CateringComponent {
                 observer.observe(menuContainer);
             }
         }, 100);
-    }
-
-    private triggerInitialMenuAnimation() {
-        setTimeout(() => {
-            const activeSection = document.querySelector('.menu-section.visible');
-            if (activeSection) {
-                const menuItems = activeSection.querySelectorAll('.menu-item');
-                menuItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.classList.add('animate-item');
-                    }, index * 50);
-                });
-            }
-        }, 300);
-    }
-
-    private animateMenuItems(): void {
-        if (!this.isBrowser) return;
-
-        const activeSection = document.querySelector('.menu-section.visible');
-        if (!activeSection) return;
-
-        const menuItems = activeSection.querySelectorAll('.menu-item');
-        menuItems.forEach((item) => {
-            item.classList.remove('animate-item');
-        });
-
-        void (activeSection as any).offsetWidth;
-
-        setTimeout(() => {
-            const activeSection = document.querySelector('.menu-section.visible');
-            if (!activeSection) return;
-
-            const menuItems = activeSection.querySelectorAll('.menu-item');
-            menuItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('animate-item');
-                }, index * 50);
-            });
-        }, 50);
     }
 }

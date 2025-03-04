@@ -17,7 +17,7 @@ export class MobileService {
     }
 
     private checkScreenSize(): void {
-        this._isMobile.next(window.innerWidth < 992);
+        this._isMobile.next(window.innerWidth < 1200);
     }
 
     public setMobile(isMobile: boolean): void {

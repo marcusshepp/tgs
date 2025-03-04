@@ -1,0 +1,41 @@
+<div class="menu-container" [class.animate]="isBrowser">
+    <div class="menu-tabs">
+        <ul class="nav-tabs">
+            <li *ngFor="let section of menuSections"
+                [class.active]="activeTab === section.id"
+                (click)="setActiveTab(section.id)">{{ section.label }}</li>
+        </ul>
+    </div>
+
+    <div class="menu-content">
+        <ng-container *ngFor="let section of menuSections">
+            <div class="menu-section" [class.visible]="activeTab === section.id">
+                <h3 class="menu-category">{{ section.label }}</h3>
+                <div class="menu-items" [class.side-items]="section.id === 'sides'">
+                    <div class="menu-item" *ngFor="let item of section.items">
+                        <h4>
+                            {{ item.title }}
+                            <span class="portion-size" *ngIf="item.portionSize">{{ item.portionSize }}</span>
+                        </h4>
+                        <p *ngIf="item.description">
+                            {{ item.description }}
+                            <span class="additional-charge" *ngIf="item.additionalCharge">(additional charge)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="good-to-know">
+        <h3>Good To Know!</h3>
+        <ul>
+            <li *ngFor="let item of goodToKnowItems">{{ item.text }}</li>
+        </ul>
+        <div class="contact-info">
+            <h3>Ready To Eat?</h3>
+            <p><i class="fas fa-envelope"></i> {{ contactInfo.email }}</p>
+            <p><i class="fas fa-phone"></i> {{ contactInfo.phone }}</p>
+        </div>
+    </div>
+</div>
