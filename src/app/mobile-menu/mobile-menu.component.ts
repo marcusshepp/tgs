@@ -2,8 +2,6 @@ import {
     Component,
     OnInit,
     OnDestroy,
-    Inject,
-    PLATFORM_ID,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
@@ -29,7 +27,6 @@ export class MobileMenuComponent implements OnInit, OnDestroy {
     constructor(
         private mobileMenuService: MobileMenuService,
         private router: Router,
-        @Inject(PLATFORM_ID) private platformId: Object
     ) {}
 
     ngOnInit(): void {

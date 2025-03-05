@@ -5,7 +5,7 @@ export interface MenuItem {
     title: string;
     description: string;
     imageUrl?: string;
-    category: 'pork' | 'beef' | 'chicken' | 'other';
+    category: 'pork' | 'beef' | 'chicken' | 'other' | 'vegetarian';
     isSeasonal?: boolean;
     isVegetarianOption?: boolean;
     price?: number;
@@ -29,13 +29,14 @@ export interface MenuItem {
 export const MENU_ITEMS: MenuItem[] = [
     {
         id: 'not-so-basic',
-        title: 'The NOT! So Basic',
+        title: 'Not! So Basic',
         description:
-            "Our most popular slider that's a fan favorite. American cheese, caramelized onions, lettuce, tomato, and our famous NOT! So Basic Sauce.",
+            'Our prime beef sliders topped with American cheese, grilled onions, Not! So Basic Sauce, lettuce and tomato',
         imageUrl: `${CLOUDINARY_URL}not-so-basic_fiqbf8.webp`,
         category: 'beef',
+        price: 13,
         active: true,
-        popular: false, // Changed from true to false
+        popular: false,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -60,9 +61,10 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'bbq-bacon-cheese',
         title: 'BBQ Bacon Cheese',
         description:
-            'Our juicy prime beef slider topped with smoky BBQ sauce, crispy applewood smoked bacon, and melted American cheese for a perfect blend of savory and sweet.',
+            'Our prime beef sliders topped with chipotle BBQ sauce, bacon, and American cheese',
         imageUrl: `${CLOUDINARY_URL}bbq-bacon-cheese_pahhpv.webp`,
         category: 'beef',
+        price: 14,
         active: true,
         spiceLevel: 1,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
@@ -86,9 +88,10 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'black-and-blue',
         title: 'Black and Blue',
         description:
-            'A steakhouse classic in slider form. Our prime beef topped with blue cheese crumbles, caramelized onions, and a dash of cracked black pepper for a bold, sophisticated flavor profile.',
+            'Our prime beef sliders topped with blue cheese aioli, bacon, and caramelized onions',
         imageUrl: `${CLOUDINARY_URL}black-and-blue_gzuzos.webp`,
         category: 'beef',
+        price: 14,
         active: true,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
@@ -110,13 +113,14 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'classic',
-        title: 'The Classic',
+        title: 'Classic',
         description:
-            'Sometimes simple is best. Our perfectly seasoned prime beef slider with lettuce, tomato, pickle, and our signature sauce on a toasted brioche bun.',
+            'Our prime beef sliders topped with ketchup, mustard, American cheese, pickles, and caramelized onions',
         imageUrl: `${CLOUDINARY_URL}classic_mz6jzy.webp`,
         category: 'beef',
+        price: 13,
         active: true,
-        popular: false, // Changed from true to false
+        popular: false,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -138,13 +142,14 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'famous-fried-chicken',
-        title: 'Famous Fried Chicken',
+        title: 'Tim\'s Famous Fried Chicken',
         description:
-            'Our hand-breaded chicken slider fried to golden perfection. Topped with fresh lettuce, tomato, and our house-made mayo on a toasted brioche bun.',
+            'Crispy fried chicken topped with pickles, Not! So Basic Sauce and American cheese',
         imageUrl: `${CLOUDINARY_URL}famous-fried-chicken_ggfvk7.webp`,
         category: 'chicken',
+        price: 14,
         active: true,
-        popular: false, // Changed from true to false
+        popular: false,
         spiceLevel: 1,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -164,39 +169,15 @@ export const MENU_ITEMS: MenuItem[] = [
         allergens: ['Dairy', 'Gluten', 'Egg'],
     },
     {
-        id: 'porky-pig',
-        title: 'Porky Pig',
-        description:
-            'For the pork lovers! Slow-roasted pulled pork topped with our homemade coleslaw and tangy BBQ sauce, served on a toasted brioche bun.',
-        imageUrl: `${CLOUDINARY_URL}porky-pig_axfv6q.webp`,
-        category: 'pork',
-        active: true,
-        spiceLevel: 0,
-        dietaryInfo: ['Contains Gluten'],
-        nutritionInfo: {
-            calories: 510,
-            protein: '26g',
-            carbs: '45g',
-            fat: '25g',
-            sodium: '880mg',
-        },
-        ingredients: [
-            'Slow-Roasted Pulled Pork',
-            'Homemade Coleslaw',
-            'Tangy BBQ Sauce',
-            'Brioche Bun',
-        ],
-        allergens: ['Gluten'],
-    },
-    {
         id: 'sweet-savory',
         title: 'Sweet and Savory',
         description:
-            'For the true burger enthusiast we bring you the perfect balance of sweet and savory. Swiss cheese, caramelized onion, pepper jam and applewood bacon.',
+            'Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions',
         imageUrl: `${CLOUDINARY_URL}sweet-savory2_iof3t7.webp`,
         category: 'beef',
+        price: 14,
         active: true,
-        popular: true, // Added popular flag
+        popular: true,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -210,8 +191,7 @@ export const MENU_ITEMS: MenuItem[] = [
             'Prime Beef Patty',
             'Swiss Cheese',
             'Caramelized Onion',
-            'Pepper Jam',
-            'Applewood Bacon',
+            'Bacon Pepper Jam',
             'Brioche Bun',
         ],
         allergens: ['Dairy', 'Gluten'],
@@ -220,9 +200,10 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'extra-cheese',
         title: 'Extra Cheese Please',
         description:
-            'Where this one lacks on toppings it makes up with big flavor thats sure to please. Extra American cheese, seasoned prime patty on a brioche bun.',
+            'Our prime beef sliders topped with double the American cheese',
         imageUrl: `${CLOUDINARY_URL}extra-cheese-please_kagia5.webp`,
         category: 'beef',
+        price: 13,
         active: true,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
@@ -244,11 +225,12 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'whiskey',
         title: 'Whiskey',
         description:
-            'This one has it all...sweet, savory and a touch of heat. American cheese, applewood bacon, fried onion and our signature truck made whiskey sauce.',
+            'Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce',
         imageUrl: `${CLOUDINARY_URL}whiskey_zbkelp.webp`,
         category: 'beef',
+        price: 14,
         active: true,
-        popular: true, // Added popular flag
+        popular: true,
         spiceLevel: 1,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -270,13 +252,14 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'double-bacon',
-        title: 'Double Bacon With Cheese',
+        title: 'Double Bacon Cheese',
         description:
-            'Stacked with 8oz of our prime beef, double smoked bacon, double cheese',
+            'Our classic bacon cheese sliders but with double the beef, double the bacon, and double the cheese',
         imageUrl: `${CLOUDINARY_URL}double-bacon_i4crrj.webp`,
         category: 'beef',
+        price: 17,
         active: true,
-        popular: true, // Kept as true
+        popular: true,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -296,11 +279,12 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'vegetarian',
-        title: 'Impossible Sliders',
+        title: 'Impossible Recipe',
         description:
-            'All of our sliders can be substituted with impossible meat at an additional cost',
+            'Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions',
         imageUrl: `${CLOUDINARY_URL}impossible-slider_jigkrl.webp`,
-        category: 'beef',
+        category: 'vegetarian',
+        price: 15,
         isVegetarianOption: true,
         active: true,
         spiceLevel: 0,
@@ -321,11 +305,12 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'very-basic',
-        title: 'VERY! Basic Sliders',
+        title: 'Very Basic',
         description:
             'Our prime beef sliders topped with American cheese and caramelized onions',
         imageUrl: `${CLOUDINARY_URL}very-basic_mplsma.webp`,
         category: 'beef',
+        price: 13,
         active: true,
         spiceLevel: 0,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
@@ -348,11 +333,12 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'spicy-chicken',
         title: 'Spicy Chicken',
         description:
-            'Hand breaded crispy chicken, pepper jack cheese, chipotle mayonnaise, fresh jalapeños, pickle',
+            'Hand battered crispy chicken topped with pepperjack cheese, jalapeños, spicy pickles and chipotle mayo',
         imageUrl: `${CLOUDINARY_URL}spicy-chicken2_xydqkj.webp`,
         category: 'chicken',
+        price: 14,
         active: true,
-        popular: true, // Added popular flag
+        popular: true,
         spiceLevel: 3,
         dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
         nutritionInfo: {
@@ -376,9 +362,10 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'honey-mustard',
         title: 'Honey Mustard Chicken',
         description:
-            'Crispy chicken fried to golden perfection, topped with our tangy truck made honey mustard sauce.',
+            'Hand battered crispy chicken topped with honey mustard sauce, lettuce, and tomato',
         imageUrl: `${CLOUDINARY_URL}honey-mustard_ixdy9c.webp`,
         category: 'chicken',
+        price: 14,
         active: true,
         spiceLevel: 1,
         dietaryInfo: ['Contains Gluten'],
@@ -393,13 +380,35 @@ export const MENU_ITEMS: MenuItem[] = [
         allergens: ['Gluten', 'Egg'],
     },
     {
+        id: 'steak-house',
+        title: 'Steak House',
+        description: 'Our prime beef sliders topped with Swiss cheese, fried onions, mayo, and steakhouse seasoning',
+        imageUrl: `${CLOUDINARY_URL}steak-house_gqlko1.webp`,
+        category: 'beef',
+        price: 13,
+        active: true,
+        popular: false,
+        spiceLevel: 0,
+        dietaryInfo: ['Contains Dairy', 'Contains Gluten'],
+        nutritionInfo: {
+            calories: 320,
+            protein: '4g',
+            carbs: '42g',
+            fat: '16g',
+            sodium: '380mg',
+        },
+        ingredients: ['Prime Beef Patty', 'Swiss Cheese', 'Fried Onions', 'Mayo', 'Steakhouse Seasoning', 'Brioche Bun'],
+        allergens: ['Dairy', 'Gluten'],
+    },
+    {
         id: 'fries',
-        title: 'Fries',
+        title: 'Basket of Fries',
         description: 'Our famous crispy fries seasoned to perfection.',
         imageUrl: `${CLOUDINARY_URL}Famous-crispy-golden-fries-232x230_tkxc4v.webp`,
         category: 'other',
+        price: 8,
         active: true,
-        popular: false, // Changed from true to false
+        popular: false,
         spiceLevel: 0,
         dietaryInfo: ['Vegetarian', 'Vegan'],
         nutritionInfo: {
@@ -411,5 +420,20 @@ export const MENU_ITEMS: MenuItem[] = [
         },
         ingredients: ['Idaho Potatoes', 'House Seasoning', 'Sea Salt'],
         allergens: [],
+    },
+    {
+        id: 'chicken-tenders',
+        title: 'Premium Chicken Tenders',
+        description: 'Delicious crispy chicken paired with your choice of dipping sauce. Served with our famous crispy fries',
+        imageUrl: '',
+        category: 'chicken',
+        price: 14,
+        active: true,
+        popular: false,
+        spiceLevel: 0,
+        dietaryInfo: ['Contains Gluten'],
+        nutritionInfo: {},
+        ingredients: ['Crispy Chicken Tenders', 'Dipping Sauce', 'Crispy Fries'],
+        allergens: ['Gluten'],
     },
 ];

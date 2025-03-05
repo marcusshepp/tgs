@@ -175,7 +175,7 @@ export interface GoodToKnowItem {
 
 export const GOOD_TO_KNOW_ITEMS: GoodToKnowItem[] = [
     {
-        text: 'A $300 truck fee applies and covers 2 hours of service. Sales tax of 6% will apply to all food and beverages'
+        text: 'A $250 truck fee applies and covers 2 hours of service. Sales tax of 6% will apply to all food and beverages'
     },
     {
         text: 'A non-refundable $150 minimum contract and $500 deposit to hold the date of your event'

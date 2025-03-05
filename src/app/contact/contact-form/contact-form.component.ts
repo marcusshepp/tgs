@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
@@ -16,17 +16,17 @@ import { environment } from '../../../environments/environment';
     imports: [ReactiveFormsModule, FormsModule, CommonModule],
     templateUrl: './contact-form.component.html',
     styleUrl: './contact-form.component.scss',
-    animations: [
-        // Animation can be added here if needed
-    ],
+    animations: [],
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent implements OnInit, AfterViewInit {
     form: FormGroup;
     submitting = false;
+    formInitialized = false;
 
     constructor(
         private fb: FormBuilder,
-        private http: HttpClient
+        private http: HttpClient,
+        private cdr: ChangeDetectorRef
     ) {
         this.form = this.fb.group({
             fullName: ['', [Validators.required, Validators.minLength(2)]],
@@ -48,7 +48,6 @@ export class ContactFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Add animation to fields on load
         const formElements = document.querySelectorAll(
             '.form-control, .form-select, .btn'
         );
@@ -67,13 +66,26 @@ export class ContactFormComponent implements OnInit {
                 100 + index * 50
             );
         });
+
+        this.form.valueChanges.subscribe(() => {
+            this.cdr.detectChanges();
+        });
+    }
+
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            this.formInitialized = true;
+            this.form.updateValueAndValidity();
+            this.cdr.detectChanges();
+        }, 100);
     }
 
     onSubmit() {
+        this.form.updateValueAndValidity();
+
         if (this.form.valid && !this.submitting) {
             this.submitting = true;
 
-            // Add visual feedback during submission
             const submitBtn = document.querySelector(
                 '.btn-primary'
             ) as HTMLButtonElement;
@@ -91,7 +103,6 @@ export class ContactFormComponent implements OnInit {
                     });
                     this.submitting = false;
 
-                    // Reset button
                     if (submitBtn) {
                         submitBtn.innerHTML =
                             'Submit Request <i class="arrow-right-long ms-2"></i>';
@@ -104,7 +115,6 @@ export class ContactFormComponent implements OnInit {
                     );
                     this.submitting = false;
 
-                    // Reset button
                     if (submitBtn) {
                         submitBtn.innerHTML =
                             'Submit Request <i class="arrow-right-long ms-2"></i>';
@@ -112,13 +122,11 @@ export class ContactFormComponent implements OnInit {
                 },
             });
         } else {
-            // Mark all fields as touched to show validation errors
             Object.keys(this.form.controls).forEach((key) => {
                 const control = this.form.get(key);
                 control?.markAsTouched();
             });
 
-            // Scroll to first error
             const firstError = document.querySelector('.text-danger');
             if (firstError) {
                 firstError.scrollIntoView({
@@ -137,7 +145,6 @@ export class ContactFormComponent implements OnInit {
     }
 
     private showSuccessMessage() {
-        // Create success message element
         const successMessage = document.createElement('div');
         successMessage.className = 'success-message';
         successMessage.innerHTML = `
@@ -146,7 +153,6 @@ export class ContactFormComponent implements OnInit {
             <p>Your event request has been submitted successfully. We'll contact you shortly.</p>
         `;
 
-        // Append to form container
         const formContainer = document.querySelector('.contact-form');
         const form = document.querySelector('form');
 
@@ -158,7 +164,6 @@ export class ContactFormComponent implements OnInit {
 
             formContainer.appendChild(successMessage);
 
-            // Remove success message after 5 seconds and restore form
             setTimeout(() => {
                 successMessage.style.opacity = '0';
                 successMessage.style.transition = 'opacity 0.5s ease';

@@ -1,7 +1,13 @@
-<app-banner variant="truck-9" [title]="menuItem?.title"></app-banner>
+<app-banner variant="plater" [title]="menuItem?.title" [height]="'400px'"></app-banner>
 
 <div class="menu-item-section">
     <div class="container">
+        <div class="back-button-container">
+            <a routerLink="/menu" class="back-btn">
+                <span class="back-icon">←</span> Back to Menu
+            </a>
+        </div>
+
         <div class="menu-item-wrapper">
             <div class="row g-4">
                 <div class="col-lg-6 image-col">
@@ -10,8 +16,8 @@
                             [src]="menuItem?.imageUrl ?  menuItem?.imageUrl : '/img/dishes/default.png'"
                             [alt]="menuItem?.title"
                             class="product-img"
-                            width="500"
-                            height="350"
+                            width="800"
+                            height="500"
                         />
                         <div class="tag" *ngIf="menuItem?.popular">Popular</div>
                     </div>
@@ -67,8 +73,9 @@
                     <div class="related-item-card">
                         <div class="card-img">
                             <img
-                                [src]="item.imageUrl ?  item.imageUrl : '/img/dishes/default.png'"
+                                [src]="item.imageUrl ? item.imageUrl : '/img/dishes/default.png'"
                                 [alt]="item.title"
+                                class="related-image"
                             />
                         </div>
                         <div class="card-content">

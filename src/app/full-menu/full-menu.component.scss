@@ -94,6 +94,7 @@ $transition: all 0.3s ease;
     @include flex-between;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-top: 8px;
 }
 
 .filter-title {
@@ -175,11 +176,11 @@ $transition: all 0.3s ease;
     }
 }
 
-// Menu Grid
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .menu-card {

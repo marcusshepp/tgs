@@ -70,7 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     private checkScreenSize(): void {
         const width = window.innerWidth;
-        this.mobileService.setMobile(width < 992);
+        this.mobileService.setMobile(width < 1200);
     }
 
     private checkScrollPosition(): void {
