@@ -178,7 +178,7 @@ export const GOOD_TO_KNOW_ITEMS: GoodToKnowItem[] = [
         text: 'A $250 truck fee applies and covers 2 hours of service. Sales tax of 6% will apply to all food and beverages'
     },
     {
-        text: 'A non-refundable $150 minimum contract and $500 deposit to hold the date of your event'
+        text: 'A non-refundable $150 minimum catering contract and $500 deposit required to hold date'
     },
     {
         text: 'Our trucks are licensed and insured, and are held to a high standard of cleanliness and sanitation. We aim to exceed the local and state requirements and provide our guests an outstanding experience'
