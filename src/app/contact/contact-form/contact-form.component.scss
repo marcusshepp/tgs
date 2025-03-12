@@ -27,6 +27,32 @@
     }
 }
 
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #444;
+    font-size: 14px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #6c757d;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.textarea-icon {
+    top: 14px;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -65,18 +91,6 @@
     width: 100%;
 }
 
-.position-relative {
-    position: relative;
-}
-
-.position-absolute {
-    position: absolute;
-}
-
-.text-muted {
-    color: #6c757d;
-}
-
 .text-danger {
     color: #dc3545;
     font-size: 12px;
@@ -86,7 +100,7 @@
 .form-control,
 .form-select {
     width: 100%;
-    padding: 14px 20px;
+    padding: 14px 20px 14px 45px;
     font-size: 16px;
     line-height: 1.5;
     border: 1px solid #d4dcff;
@@ -122,6 +136,7 @@
 textarea.form-control {
     resize: vertical;
     min-height: 120px;
+    padding-top: 14px;
 }
 
 .btn {
@@ -189,88 +204,6 @@ textarea.form-control {
     margin-left: 8px;
 }
 
-.date-input-container {
-    position: relative;
-}
-
-.date-label {
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: all 0.2s ease;
-}
-
-input[type='date']::-webkit-calendar-picker-indicator {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 15px;
-    height: 100%;
-    width: 50px;
-    cursor: pointer;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%236c757d' d='M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z'/%3E%3Cpath fill='%236c757d' d='M5.5 7a.5.5 0 0 1 .5.5V9h1.5a.5.5 0 0 1 0 1H5.5a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5z'/%3E%3Cpath fill='%236c757d' d='M11 5.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5z'/%3E%3C/svg%3E")
-        center / contain no-repeat;
-    opacity: 0.6;
-}
-
-input[type='date']::-webkit-datetime-edit {
-    color: transparent;
-}
-
-input[type='date']:focus::-webkit-datetime-edit,
-input[type='date']:valid::-webkit-datetime-edit {
-    color: #333;
-}
-
-input[type='date']:valid + .date-label,
-input[type='date']:focus + .date-label {
-    display: none;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.arrow-right-long {
-    display: inline-block;
-    width: 20px;
-    height: 10px;
-    position: relative;
-    animation: float 2s ease-in-out infinite;
-
-    &::before {
-        content: '';
-        position: absolute;
-        width: 16px;
-        height: 2px;
-        background-color: currentColor;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        border-top: 2px solid currentColor;
-        border-right: 2px solid currentColor;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%) rotate(45deg);
-    }
-}
-
 @media (max-width: 768px) {
     .col-md-6 {
         flex: 0 0 100%;
@@ -284,12 +217,25 @@ input[type='date']:focus + .date-label {
     .row {
         gap: 12px;
     }
+
+    .success-message {
+        padding: 30px 15px;
+    }
+
+    .success-links {
+        flex-direction: column;
+        width: 100%;
+
+        .btn {
+            width: 100%;
+        }
+    }
 }
 
 @media (max-width: 480px) {
     .form-control,
     .form-select {
-        padding: 12px 16px;
+        padding: 12px 16px 12px 40px;
         font-size: 14px;
     }
 
@@ -301,40 +247,87 @@ input[type='date']:focus + .date-label {
     h2 {
         font-size: 24px;
     }
+
+    .form-label {
+        font-size: 13px;
+    }
 }
 
-.date-input-container {
-    position: relative;
-    width: 100%;
+.success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
 }
 
-.date-label {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #6c757d;
-    pointer-events: none;
-    transition: all 0.3s ease;
+.success-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    transform: scale(0);
+    animation: popIn 0.5s ease forwards 0.3s;
 }
 
-.date-label.hidden {
-    display: none;
+.success-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-.date-input {
-    width: 100%;
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ff6b35;
+    color: #ff6b35;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #ff6b35;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+    }
 }
 
-input[type='date']::-webkit-calendar-picker-indicator {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 15px;
-    height: 100%;
-    width: 50px;
-    cursor: pointer;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%236c757d' d='M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z'/%3E%3Cpath fill='%236c757d' d='M5.5 7a.5.5 0 0 1 .5.5V9h1.5a.5.5 0 0 1 0 1H5.5a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5z'/%3E%3Cpath fill='%236c757d' d='M11 5.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5z'/%3E%3C/svg%3E")
-        center / contain no-repeat;
-    opacity: 0.6;
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
 }

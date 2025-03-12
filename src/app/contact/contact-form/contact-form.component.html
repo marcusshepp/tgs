@@ -1,26 +1,34 @@
-<div class="contact-form p-4">
+<div class="contact-form p-4" #formContainer>
     <h2 class="mb-4">Contact Us</h2>
-    <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()" #formElement>
         <div class="col-md-6">
-            <input
-                type="text"
-                placeholder="Full Name"
-                class="form-control"
-                formControlName="fullName"
-                (blur)="form.get('fullName')?.markAsTouched()"
-            />
+            <label for="fullName" class="form-label">Full Name</label>
+            <div class="input-wrapper">
+                <i class="fas fa-user input-icon"></i>
+                <input
+                    type="text"
+                    id="fullName"
+                    class="form-control"
+                    formControlName="fullName"
+                    (blur)="form.get('fullName')?.markAsTouched()"
+                />
+            </div>
             <div class="text-danger mt-1" *ngIf="shouldShowError('fullName')">
                 Full Name is required.
             </div>
         </div>
         <div class="col-md-6">
-            <input
-                type="text"
-                placeholder="Address of Event"
-                class="form-control"
-                formControlName="eventAddress"
-                (blur)="form.get('eventAddress')?.markAsTouched()"
-            />
+            <label for="eventAddress" class="form-label">Address of Event</label>
+            <div class="input-wrapper">
+                <i class="fas fa-map-marker-alt input-icon"></i>
+                <input
+                    type="text"
+                    id="eventAddress"
+                    class="form-control"
+                    formControlName="eventAddress"
+                    (blur)="form.get('eventAddress')?.markAsTouched()"
+                />
+            </div>
             <div
                 class="text-danger mt-1"
                 *ngIf="shouldShowError('eventAddress')"
@@ -29,94 +37,110 @@
             </div>
         </div>
         <div class="col-md-6">
-            <input
-                type="tel"
-                placeholder="Phone Number"
-                class="form-control"
-                formControlName="phoneNumber"
-                (blur)="form.get('phoneNumber')?.markAsTouched()"
-            />
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <div class="input-wrapper">
+                <i class="fas fa-phone input-icon"></i>
+                <input
+                    type="tel"
+                    id="phoneNumber"
+                    class="form-control"
+                    formControlName="phoneNumber"
+                    (blur)="form.get('phoneNumber')?.markAsTouched()"
+                />
+            </div>
             <div
                 class="text-danger mt-1"
                 *ngIf="shouldShowError('phoneNumber')"
             >
-                {{ form.get('phoneNumber')?.errors?.['required'] ? 'Phone Number
-                is required.' : 'Phone Number must be at least 10 digits.' }}
+                {{ form.get('phoneNumber')?.errors?.['required'] ? 'Phone Number is required.' : 'Phone Number must be at least 10 digits.' }}
             </div>
         </div>
         <div class="col-md-6">
-            <input
-                type="email"
-                placeholder="Email Address"
-                class="form-control"
-                formControlName="email"
-                (blur)="form.get('email')?.markAsTouched()"
-            />
+            <label for="email" class="form-label">Email Address</label>
+            <div class="input-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    formControlName="email"
+                    (blur)="form.get('email')?.markAsTouched()"
+                />
+            </div>
             <div class="text-danger mt-1" *ngIf="shouldShowError('email')">
-                {{ form.get('email')?.errors?.['required'] ? 'Email is
-                required.' : 'Please enter a valid email address.' }}
+                {{ form.get('email')?.errors?.['required'] ? 'Email is required.' : 'Please enter a valid email address.' }}
             </div>
         </div>
         <div class="col-md-6">
-            <div class="date-input-container position-relative">
+            <label for="eventDate" class="form-label">Date of Event</label>
+            <div class="input-wrapper">
+                <i class="fas fa-calendar-alt input-icon"></i>
                 <input
                     type="date"
+                    id="eventDate"
                     class="form-control"
-                    aria-label="Date of Event"
                     formControlName="eventDate"
                     (blur)="form.get('eventDate')?.markAsTouched()"
                 />
-                <span class="date-label position-absolute text-muted"
-                    >Date of Event</span
-                >
             </div>
             <div class="text-danger mt-1" *ngIf="shouldShowError('eventDate')">
                 Event Date is required.
             </div>
         </div>
         <div class="col-md-6">
-            <input
-                type="number"
-                placeholder="Number of Guests"
-                class="form-control"
-                formControlName="numberOfGuests"
-                (blur)="form.get('numberOfGuests')?.markAsTouched()"
-            />
+            <label for="numberOfGuests" class="form-label">Number of Guests</label>
+            <div class="input-wrapper">
+                <i class="fas fa-users input-icon"></i>
+                <input
+                    type="number"
+                    id="numberOfGuests"
+                    class="form-control"
+                    formControlName="numberOfGuests"
+                    (blur)="form.get('numberOfGuests')?.markAsTouched()"
+                />
+            </div>
             <div
                 class="text-danger mt-1"
                 *ngIf="shouldShowError('numberOfGuests')"
             >
-                {{ form.get('numberOfGuests')?.errors?.['required'] ? 'Number of
-                Guests is required.' : 'Number of Guests must be at least 1.' }}
+                {{ form.get('numberOfGuests')?.errors?.['required'] ? 'Number of Guests is required.' : 'Number of Guests must be at least 1.' }}
             </div>
         </div>
         <div class="col-md-6">
-            <select
-                class="form-select"
-                aria-label="Type Of Event"
-                formControlName="eventType"
-                (blur)="form.get('eventType')?.markAsTouched()"
-            >
-                <option value="" disabled selected>Type of Event</option>
-                <option value="corporate">Corporate</option>
-                <option value="birthday">Birthday</option>
-                <option value="graduation">Graduation</option>
-                <option value="neighborhood">Neighborhood</option>
-                <option value="festival">Festival</option>
-                <option value="other">Other</option>
-            </select>
+            <label for="eventType" class="form-label">Type of Event</label>
+            <div class="input-wrapper">
+                <i class="fas fa-glass-cheers input-icon"></i>
+                <select
+                    id="eventType"
+                    class="form-select"
+                    formControlName="eventType"
+                    (blur)="form.get('eventType')?.markAsTouched()"
+                >
+                    <option value="" disabled selected>Select Event Type</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="graduation">Graduation</option>
+                    <option value="neighborhood">Neighborhood</option>
+                    <option value="festival">Festival</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
             <div class="text-danger mt-1" *ngIf="shouldShowError('eventType')">
                 Event Type is required.
             </div>
         </div>
         <div class="col-12">
-            <textarea
-                class="form-control"
-                placeholder="Tell us about your ideal event"
-                rows="5"
-                formControlName="message"
-                (blur)="form.get('message')?.markAsTouched()"
-            ></textarea>
+            <label for="message" class="form-label">Your Message</label>
+            <div class="input-wrapper">
+                <i class="fas fa-comment input-icon textarea-icon"></i>
+                <textarea
+                    id="message"
+                    class="form-control"
+                    rows="5"
+                    formControlName="message"
+                    (blur)="form.get('message')?.markAsTouched()"
+                ></textarea>
+            </div>
             <div class="text-danger mt-1" *ngIf="shouldShowError('message')">
                 Message is required.
             </div>
@@ -127,8 +151,8 @@
                 type="submit"
                 [disabled]="form.invalid"
             >
-                Submit Request
-                <i class="arrow-right-long ms-2"></i>
+                Send Message
+                <i class="fas fa-paper-plane ms-2"></i>
             </button>
         </div>
     </form>
