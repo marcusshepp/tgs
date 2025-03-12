@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ElementRef, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ElementRef, ViewChild, PLATFORM_ID, Inject, NgZone } from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
     FormsModule,
     ReactiveFormsModule,
     Validators,
+    AbstractControl,
+    ValidationErrors,
 } from '@angular/forms';
 import { environment } from '../../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
@@ -22,19 +24,28 @@ import { isPlatformBrowser } from '@angular/common';
 export class ContactFormComponent implements OnInit, AfterViewInit {
     @ViewChild('formContainer') formContainer!: ElementRef;
     @ViewChild('formElement') formElement!: ElementRef;
+    @ViewChild('honeyPot') honeyPot!: ElementRef;
 
     public form: FormGroup;
+    public showSuccessMessage: boolean = false;
+    public submittedName: string = '';
+
     private submitting: boolean = false;
     private formInitialized: boolean = false;
     private isBrowser: boolean;
+    private userInteracted: boolean = false;
+    private formStartTime: number = 0;
+    private mouseMoveCount: number = 0;
 
     constructor(
         private fb: FormBuilder,
         private http: HttpClient,
         private cdr: ChangeDetectorRef,
+        private ngZone: NgZone,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
+
         this.form = this.fb.group({
             fullName: ['', [Validators.required, Validators.minLength(2)]],
             eventAddress: ['', Validators.required],
@@ -51,11 +62,87 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             numberOfGuests: ['', [Validators.required, Validators.min(1)]],
             eventType: ['', Validators.required],
             message: ['', [Validators.required, Validators.minLength(10)]],
+            honeypot: ['', this.honeyPotValidator],
+            formToken: [''],
+            interactionScore: [0, [Validators.required, Validators.min(3)]]
         });
     }
 
+    private honeyPotValidator(control: AbstractControl): ValidationErrors | null {
+        return control.value ? { honeypot: true } : null;
+    }
+
+    private generateFormToken(): string {
+        const randomStr = Math.random().toString(36).substring(2, 15);
+        const timestamp = new Date().getTime().toString(36);
+        return `${randomStr}${timestamp}`;
+    }
+
+    private trackUserInteraction(): void {
+        if (!this.isBrowser) {
+            return;
+        }
+
+        // Set the form start time
+        this.formStartTime = new Date().getTime();
+
+        // Update the form token on load
+        this.form.get('formToken')?.setValue(this.generateFormToken());
+
+        // Track mouse movements
+        document.addEventListener('mousemove', () => {
+            this.ngZone.run(() => {
+                if (!this.userInteracted) {
+                    this.mouseMoveCount++;
+                    if (this.mouseMoveCount > 5) {
+                        this.userInteracted = true;
+                        this.updateInteractionScore();
+                    }
+                }
+            });
+        });
+
+        // Track focus events on form fields
+        const formFields = document.querySelectorAll('input, textarea, select');
+        formFields.forEach(field => {
+            field.addEventListener('focus', () => {
+                this.ngZone.run(() => {
+                    this.userInteracted = true;
+                    this.updateInteractionScore();
+                });
+            });
+        });
+
+        // Track key presses
+        document.addEventListener('keydown', () => {
+            this.ngZone.run(() => {
+                this.userInteracted = true;
+                this.updateInteractionScore();
+            });
+        });
+    }
+
+    private updateInteractionScore(): void {
+        const currentScore = this.form.get('interactionScore')?.value || 0;
+        // Only increment if we haven't maxed out the score
+        if (currentScore < 10) {
+            this.form.get('interactionScore')?.setValue(currentScore + 1);
+        }
+    }
+
+    private timeOnPageCheck(): boolean {
+        // Check if user has spent at least 3 seconds on the page
+        const currentTime = new Date().getTime();
+        const timeSpent = currentTime - this.formStartTime;
+        return timeSpent > 3000;
+    }
+
     public ngOnInit(): void {
+        // Only run DOM manipulation in browser environment
         if (this.isBrowser) {
+            this.trackUserInteraction();
+
+            // Defer DOM operations to the next tick to ensure the component is rendered
             setTimeout(() => {
                 const formElements: NodeListOf<Element> | null = document.querySelectorAll(
                     '.form-control, .form-select, .btn, .form-label'
@@ -81,6 +168,10 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
         }
 
         this.form.valueChanges.subscribe(() => {
+            // Update interaction score when form values change
+            if (this.userInteracted) {
+                this.updateInteractionScore();
+            }
             this.cdr.detectChanges();
         });
     }
@@ -98,6 +189,24 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     public onSubmit(): void {
         this.form.updateValueAndValidity();
 
+        // Additional bot checks
+        const honeypotFilled = !!this.form.get('honeypot')?.value;
+        const timeCheckPassed = this.timeOnPageCheck();
+        const interactionScore = this.form.get('interactionScore')?.value || 0;
+
+        // If the honeypot is filled or other bot checks fail, silently reject the form
+        if (honeypotFilled || !timeCheckPassed || interactionScore < 3) {
+            console.log('Bot submission detected and blocked');
+
+            // Show success message anyway to trick bots
+            if (this.isBrowser) {
+                const fullName: string = this.form.get('fullName')?.value || 'valued customer';
+                this.displaySuccessMessage(fullName);
+            }
+
+            return;
+        }
+
         if (this.form.valid && !this.submitting) {
             this.submitting = true;
 
@@ -111,11 +220,18 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             }
 
             const apiUrl: string = `${environment.apiUrl}/TGS/ContactUs`;
-            this.http.post(apiUrl, this.form.value).subscribe({
+
+            // Create a copy of the form data without the anti-bot fields
+            const formData = { ...this.form.value };
+            delete formData.honeypot;
+            delete formData.formToken;
+            delete formData.interactionScore;
+
+            this.http.post(apiUrl, formData).subscribe({
                 next: () => {
                     if (this.isBrowser) {
                         const fullName: string = this.form.get('fullName')?.value || 'valued customer';
-                        this.showSuccessMessage(fullName);
+                        this.displaySuccessMessage(fullName);
                     }
 
                     this.form.reset();
@@ -167,41 +283,10 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
         );
     }
 
-    private showSuccessMessage(customerName: string): void {
-        if (!this.isBrowser || !this.formContainer || !this.formElement) {
-            return;
-        }
-
-        const successMessage: HTMLDivElement = document.createElement('div');
-        successMessage.className = 'success-message';
-        successMessage.innerHTML = `
-            <div class="success-icon">
-                <i class="fas fa-check"></i>
-            </div>
-            <h3>Thank You, ${customerName}!</h3>
-            <p class="mb-4">Your event request has been submitted successfully. We'll contact you within 24 hours.</p>
-            <p class="mb-4">In the meantime, why not check out:</p>
-            <div class="success-links">
-                <a href="/menu" class="btn btn-outline">
-                    <i class="fas fa-utensils me-2"></i>Our Menu
-                </a>
-                <a href="/catering" class="btn btn-outline">
-                    <i class="fas fa-concierge-bell me-2"></i>Catering Services
-                </a>
-            </div>
-        `;
-
-        const formContainer: HTMLElement = this.formContainer.nativeElement;
-        const form: HTMLElement = this.formElement.nativeElement;
-
-        if (formContainer && form) {
-            (form as any).style.opacity = '0';
-            (form as any).style.height = '0';
-            (form as any).style.overflow = 'hidden';
-            (form as any).style.transition = 'opacity 0.5s ease, height 0.5s ease';
-
-            formContainer.appendChild(successMessage);
-
-        }
+    // Method to switch to success message view
+    private displaySuccessMessage(customerName: string): void {
+        this.submittedName = customerName;
+        this.showSuccessMessage = true;
+        this.cdr.detectChanges();
     }
 }

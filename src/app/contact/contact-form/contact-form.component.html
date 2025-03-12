@@ -1,6 +1,16 @@
-<div class="contact-form p-4" #formContainer>
+<div class="honeypot-field" aria-hidden="true">
+            <input
+                type="text"
+                id="honeypot"
+                #honeyPot
+                formControlName="honeypot"
+                autocomplete="new-password"
+                tabindex="-1"
+            />
+        </div><div class="contact-form p-4" #formContainer>
     <h2 class="mb-4">Contact Us</h2>
-    <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()" #formElement>
+
+    <form *ngIf="!showSuccessMessage" class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()" #formElement>
         <div class="col-md-6">
             <label for="fullName" class="form-label">Full Name</label>
             <div class="input-wrapper">
@@ -156,4 +166,25 @@
             </button>
         </div>
     </form>
+
+    <!-- Success Message Section -->
+    <div *ngIf="showSuccessMessage" class="success-message">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h3>Thank You, {{submittedName}}!</h3>
+        <p>Your event request has been submitted successfully.</p>
+        <p>We'll contact you within 24 hours.</p>
+        <p>In the meantime, why not check out:</p>
+        <div class="btn-wrapper">
+            <a href="/menu" class="theme-btn">
+                <i class="fas fa-utensils"></i>Our Menu
+            </a>
+        </div>
+        <div class="btn-wrapper" style="animation-delay: 1.2s;">
+            <a href="/catering" class="theme-btn">
+                <i class="fas fa-concierge-bell"></i>Catering Services
+            </a>
+        </div>
+    </div>
 </div>
