@@ -81,7 +81,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Grilled Garlic Chicken Sliders',
-                description: 'Grilled chicken topped with lettuce, tomato, and Not! So Basic Sauce'
+                description: 'Grilled chicken topped with Pesto marinade, garlic aioli, spring greens, tomato'
             },
             {
                 title: 'General Chicken Sliders',

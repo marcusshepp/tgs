@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /                    # Allow all public routes
+Sitemap: https://timsgourmetsliders.com/sitemap.xml

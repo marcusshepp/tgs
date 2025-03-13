@@ -29,7 +29,9 @@
                                 "input": "public",
                                 "output": "/"
                             },
-                            "src/_redirects"
+                            "src/_redirects",
+                            "src/sitemap.xml",
+                            "src/robots.txt"
                         ],
                         "styles": ["src/styles.scss", "public/css/all.min.css"],
                         "scripts": [],
