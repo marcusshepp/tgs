@@ -81,7 +81,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Grilled Garlic Chicken Sliders',
-                description: 'Grilled chicken topped with Pesto marinade, garlic aioli, spring greens, tomato'
+                description: 'Pesto marinade, garlic aioli, spring greens, tomato'
             },
             {
                 title: 'General Chicken Sliders',
@@ -100,7 +100,6 @@ export const MENU_SECTIONS: MenuSection[] = [
             {
                 title: 'Impossible Sliders',
                 description: 'Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions',
-                additionalCharge: true
             },
             {
                 title: 'Ultimate Grilled Cheese',
@@ -158,7 +157,6 @@ export const MENU_SECTIONS: MenuSection[] = [
             {
                 title: 'Hot crispy fries',
                 description: 'Upgrade your fry game with your choice of our premium cajun or truffle seasoning',
-                additionalCharge: true
             },
             {
                 title: 'Beverages Available',
