@@ -1,13 +1,14 @@
 <div class="honeypot-field" aria-hidden="true">
-            <input
-                type="text"
-                id="honeypot"
-                #honeyPot
-                formControlName="honeypot"
-                autocomplete="new-password"
-                tabindex="-1"
-            />
-        </div><div class="contact-form p-4" #formContainer>
+    <input
+        type="text"
+        id="honeypot"
+        #honeyPot
+        formControlName="honeypot"
+        autocomplete="new-password"
+        tabindex="-1"
+    />
+</div>
+<div class="contact-form p-4" #formContainer>
     <h2 class="mb-4">Contact Us</h2>
 
     <form *ngIf="!showSuccessMessage" class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()" #formElement>
@@ -25,25 +26,6 @@
             </div>
             <div class="text-danger mt-1" *ngIf="shouldShowError('fullName')">
                 Full Name is required.
-            </div>
-        </div>
-        <div class="col-md-6">
-            <label for="eventAddress" class="form-label">Address of Event</label>
-            <div class="input-wrapper">
-                <i class="fas fa-map-marker-alt input-icon"></i>
-                <input
-                    type="text"
-                    id="eventAddress"
-                    class="form-control"
-                    formControlName="eventAddress"
-                    (blur)="form.get('eventAddress')?.markAsTouched()"
-                />
-            </div>
-            <div
-                class="text-danger mt-1"
-                *ngIf="shouldShowError('eventAddress')"
-            >
-                Event Address is required.
             </div>
         </div>
         <div class="col-md-6">
@@ -97,65 +79,7 @@
                 Event Date is required.
             </div>
         </div>
-        <div class="col-md-6">
-            <label for="numberOfGuests" class="form-label">Number of Guests</label>
-            <div class="input-wrapper">
-                <i class="fas fa-users input-icon"></i>
-                <input
-                    type="number"
-                    id="numberOfGuests"
-                    class="form-control"
-                    formControlName="numberOfGuests"
-                    (blur)="form.get('numberOfGuests')?.markAsTouched()"
-                />
-            </div>
-            <div
-                class="text-danger mt-1"
-                *ngIf="shouldShowError('numberOfGuests')"
-            >
-                {{ form.get('numberOfGuests')?.errors?.['required'] ? 'Number of Guests is required.' : 'Number of Guests must be at least 1.' }}
-            </div>
-        </div>
-        <div class="col-md-6">
-            <label for="eventType" class="form-label">Type of Event</label>
-            <div class="input-wrapper">
-                <i class="fas fa-glass-cheers input-icon"></i>
-                <select
-                    id="eventType"
-                    class="form-select"
-                    formControlName="eventType"
-                    (blur)="form.get('eventType')?.markAsTouched()"
-                >
-                    <option value="" disabled selected>Select Event Type</option>
-                    <option value="corporate">Corporate</option>
-                    <option value="birthday">Birthday</option>
-                    <option value="graduation">Graduation</option>
-                    <option value="neighborhood">Neighborhood</option>
-                    <option value="festival">Festival</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="text-danger mt-1" *ngIf="shouldShowError('eventType')">
-                Event Type is required.
-            </div>
-        </div>
         <div class="col-12">
-            <label for="message" class="form-label">Your Message</label>
-            <div class="input-wrapper">
-                <i class="fas fa-comment input-icon textarea-icon"></i>
-                <textarea
-                    id="message"
-                    class="form-control"
-                    rows="5"
-                    formControlName="message"
-                    (blur)="form.get('message')?.markAsTouched()"
-                ></textarea>
-            </div>
-            <div class="text-danger mt-1" *ngIf="shouldShowError('message')">
-                Message is required.
-            </div>
-        </div>
-        <div class="col-12 form-group mb-0">
             <button
                 class="btn btn-primary w-100"
                 type="submit"

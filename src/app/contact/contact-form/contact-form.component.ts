@@ -22,9 +22,9 @@ import { isPlatformBrowser } from '@angular/common';
     animations: [],
 })
 export class ContactFormComponent implements OnInit, AfterViewInit {
-    @ViewChild('formContainer') formContainer!: ElementRef;
-    @ViewChild('formElement') formElement!: ElementRef;
-    @ViewChild('honeyPot') honeyPot!: ElementRef;
+    @ViewChild('formContainer') private formContainer!: ElementRef;
+    @ViewChild('formElement') private formElement!: ElementRef;
+    @ViewChild('honeyPot') private honeyPot!: ElementRef;
 
     public form: FormGroup;
     public showSuccessMessage: boolean = false;
@@ -48,7 +48,6 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 
         this.form = this.fb.group({
             fullName: ['', [Validators.required, Validators.minLength(2)]],
-            eventAddress: ['', Validators.required],
             phoneNumber: [
                 '',
                 [
@@ -59,9 +58,6 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             ],
             email: ['', [Validators.required, Validators.email]],
             eventDate: ['', Validators.required],
-            numberOfGuests: ['', [Validators.required, Validators.min(1)]],
-            eventType: ['', Validators.required],
-            message: ['', [Validators.required, Validators.minLength(10)]],
             honeypot: ['', this.honeyPotValidator],
             formToken: [''],
             interactionScore: [0, [Validators.required, Validators.min(3)]]
@@ -73,8 +69,8 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     }
 
     private generateFormToken(): string {
-        const randomStr = Math.random().toString(36).substring(2, 15);
-        const timestamp = new Date().getTime().toString(36);
+        const randomStr: string = Math.random().toString(36).substring(2, 15);
+        const timestamp: string = new Date().getTime().toString(36);
         return `${randomStr}${timestamp}`;
     }
 
@@ -83,13 +79,9 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             return;
         }
 
-        // Set the form start time
         this.formStartTime = new Date().getTime();
-
-        // Update the form token on load
         this.form.get('formToken')?.setValue(this.generateFormToken());
 
-        // Track mouse movements
         document.addEventListener('mousemove', () => {
             this.ngZone.run(() => {
                 if (!this.userInteracted) {
@@ -102,9 +94,8 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             });
         });
 
-        // Track focus events on form fields
-        const formFields = document.querySelectorAll('input, textarea, select');
-        formFields.forEach(field => {
+        const formFields: NodeListOf<Element> = document.querySelectorAll('input, textarea, select');
+        formFields.forEach((field: Element) => {
             field.addEventListener('focus', () => {
                 this.ngZone.run(() => {
                     this.userInteracted = true;
@@ -113,7 +104,6 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             });
         });
 
-        // Track key presses
         document.addEventListener('keydown', () => {
             this.ngZone.run(() => {
                 this.userInteracted = true;
@@ -123,26 +113,22 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     }
 
     private updateInteractionScore(): void {
-        const currentScore = this.form.get('interactionScore')?.value || 0;
-        // Only increment if we haven't maxed out the score
+        const currentScore: number = this.form.get('interactionScore')?.value || 0;
         if (currentScore < 10) {
             this.form.get('interactionScore')?.setValue(currentScore + 1);
         }
     }
 
     private timeOnPageCheck(): boolean {
-        // Check if user has spent at least 3 seconds on the page
-        const currentTime = new Date().getTime();
-        const timeSpent = currentTime - this.formStartTime;
+        const currentTime: number = new Date().getTime();
+        const timeSpent: number = currentTime - this.formStartTime;
         return timeSpent > 3000;
     }
 
     public ngOnInit(): void {
-        // Only run DOM manipulation in browser environment
         if (this.isBrowser) {
             this.trackUserInteraction();
 
-            // Defer DOM operations to the next tick to ensure the component is rendered
             setTimeout(() => {
                 const formElements: NodeListOf<Element> | null = document.querySelectorAll(
                     '.form-control, .form-select, .btn, .form-label'
@@ -168,7 +154,6 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
         }
 
         this.form.valueChanges.subscribe(() => {
-            // Update interaction score when form values change
             if (this.userInteracted) {
                 this.updateInteractionScore();
             }
@@ -189,16 +174,13 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     public onSubmit(): void {
         this.form.updateValueAndValidity();
 
-        // Additional bot checks
-        const honeypotFilled = !!this.form.get('honeypot')?.value;
-        const timeCheckPassed = this.timeOnPageCheck();
-        const interactionScore = this.form.get('interactionScore')?.value || 0;
+        const honeypotFilled: boolean = !!this.form.get('honeypot')?.value;
+        const timeCheckPassed: boolean = this.timeOnPageCheck();
+        const interactionScore: number = this.form.get('interactionScore')?.value || 0;
 
-        // If the honeypot is filled or other bot checks fail, silently reject the form
         if (honeypotFilled || !timeCheckPassed || interactionScore < 3) {
             console.log('Bot submission detected and blocked');
 
-            // Show success message anyway to trick bots
             if (this.isBrowser) {
                 const fullName: string = this.form.get('fullName')?.value || 'valued customer';
                 this.displaySuccessMessage(fullName);
@@ -221,8 +203,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 
             const apiUrl: string = `${environment.apiUrl}/TGS/ContactUs`;
 
-            // Create a copy of the form data without the anti-bot fields
-            const formData = { ...this.form.value };
+            const formData: any = { ...this.form.value };
             delete formData.honeypot;
             delete formData.formToken;
             delete formData.interactionScore;
@@ -260,7 +241,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             });
         } else {
             Object.keys(this.form.controls).forEach((key: string) => {
-                const control = this.form.get(key);
+                const control: AbstractControl | null = this.form.get(key);
                 control?.markAsTouched();
             });
 
@@ -277,13 +258,12 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     }
 
     public shouldShowError(controlName: string): boolean {
-        const control = this.form.get(controlName);
+        const control: AbstractControl | null = this.form.get(controlName);
         return (
             (control?.invalid && (control?.touched || control?.dirty)) || false
         );
     }
 
-    // Method to switch to success message view
     private displaySuccessMessage(customerName: string): void {
         this.submittedName = customerName;
         this.showSuccessMessage = true;
