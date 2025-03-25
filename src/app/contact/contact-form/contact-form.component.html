@@ -80,6 +80,22 @@
             </div>
         </div>
         <div class="col-12">
+            <label for="message" class="form-label">Your Message</label>
+            <div class="input-wrapper">
+                <i class="fas fa-comment input-icon textarea-icon"></i>
+                <textarea
+                    id="message"
+                    class="form-control"
+                    rows="5"
+                    formControlName="message"
+                    (blur)="form.get('message')?.markAsTouched()"
+                ></textarea>
+            </div>
+            <div class="text-danger mt-1" *ngIf="shouldShowError('message')">
+                Message is required.
+            </div>
+        </div>
+        <div class="col-12">
             <button
                 class="btn btn-primary w-100"
                 type="submit"
