@@ -1,7 +1,7 @@
 <app-banner variant="reviews" title="" height="400px"></app-banner>
 
 <section class="reviews-section">
-                <app-page-title title="What Our Customers Say"></app-page-title>
+    <app-page-title title="What Our Customers Are Saying"></app-page-title>
 
     <div *ngIf="loading" class="loading">
         <p>Loading reviews...</p>
@@ -15,37 +15,24 @@
         <div *ngFor="let review of reviews" class="review-card">
             <div class="review-header">
                 <div *ngIf="review.profile_photo_url" class="reviewer-avatar">
-                    <img
-                        [src]="review.profile_photo_url"
-                        [alt]="review.author_name + '\'s profile picture'"
-                    />
+                    <img [src]="review.profile_photo_url" [alt]="review.author_name + '\'s profile picture'" />
                 </div>
                 <div class="reviewer-info">
                     <h3 class="reviewer-name">{{ review.author_name }}</h3>
                     <div class="star-rating">
-                        <span
-                            *ngFor="
-                                        let star of getStarArray(review.rating)
-                                    "
-                            class="star"
-                            >★</span
-                        >
+                        <span *ngFor="let star of getStarArray(review.rating)" class="star">★</span>
                     </div>
-                    <p class="review-date">
-                        {{ review.relative_time_description }}
-                    </p>
                 </div>
+                <p class="review-date">{{ getRelativeTime(review.time) }}</p>
             </div>
-            <p class="review-text">{{ review.text }}</p>
+            <div class="review-text">{{ review.text }}</div>
         </div>
     </div>
 
     <div class="reviews-footer">
-        <a
-            href="https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m8!3m7!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!9m1!1b1!16s%2Fg%2F11thr41x68?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-            class="review-link"
-        >
+        <a href="https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m8!3m7!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!9m1!1b1!16s%2Fg%2F11thr41x68?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+           target="_blank"
+           class="review-link">
             Leave us a review on Google
         </a>
     </div>

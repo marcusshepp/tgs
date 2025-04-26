@@ -1,86 +1,180 @@
 .reviews-section {
-    padding: 2rem 0;
+    padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.reviews-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    background-color: #fafafa;
 }
 
 .loading,
 .error-message {
     text-align: center;
-    padding: 2rem;
+    padding: 4rem;
+    font-size: 1.2rem;
+    color: #555;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .reviews-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin: 3.5rem 0;
 }
 
 .review-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .review-header {
     display: flex;
-    margin-bottom: 1rem;
+    align-items: center;
+    padding: 2rem 2rem 0;
+    position: relative;
 }
 
 .reviewer-avatar {
-    margin-right: 1rem;
+    margin-right: 1.25rem;
+
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
 }
 
-.reviewer-avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+.reviewer-info {
+    flex: 1;
 }
 
 .reviewer-name {
-    margin: 0 0 0.25rem 0;
-    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
 }
 
 .star-rating {
-    color: #fbbc04;
-    margin-bottom: 0.25rem;
+    color: #ff9500;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    letter-spacing: 3px;
 }
 
 .review-date {
-    color: #70757a;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     margin: 0;
+    color: #888;
+    font-weight: 500;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
 }
 
 .review-text {
-    line-height: 1.5;
+    padding: 1.5rem 2rem 2.5rem;
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.05rem;
+    flex-grow: 1;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    margin-top: 1.5rem;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0.5rem;
+        left: 1.5rem;
+        font-size: 5rem;
+        line-height: 0;
+        color: rgba(0, 0, 0, 0.04);
+        font-family: Georgia, serif;
+    }
 }
 
 .reviews-footer {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 
 .review-link {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #4285f4;
+    padding: 1.25rem 2.5rem;
+    background-color: #e74c3c;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+
+    &:hover {
+        background-color: #d44333;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
 }
 
-.review-link:hover {
-    background-color: #3367d6;
+@media (max-width: 992px) {
+    .reviews-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .reviews-section {
+        padding: 4rem 1rem;
+    }
+
+    .review-header {
+        padding: 1.5rem 1.5rem 0;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reviewer-avatar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .review-date {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 0.5rem;
+    }
+
+    .review-text {
+        padding: 1.5rem 1.5rem 2rem;
+    }
+
+    .review-link {
+        padding: 1rem 2rem;
+        width: 100%;
+    }
 }
