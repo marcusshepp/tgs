@@ -34,7 +34,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Steak House Sliders',
-                description: 'Our prime beef sliders topped with Swiss cheese, fried onions, mayo, and steakhouse seasoning'
+                description: 'Our prime beef sliders topped with swiss cheese, fried onions, steakhouse seasoning and garlic aioli',
             },
             {
                 title: 'Black and Blue Sliders',
@@ -69,7 +69,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Buffalo Chicken Sliders',
-                description: 'Hand battered crispy chicken, truck made buffalo sauce, drizzled with ranch and topped off with blue cheese crumbles'
+                description: 'Hand battered crispy chicken, truck made buffalo sauce, drizzled with buttermilk ranch',
             },
             {
                 title: 'Spicy Chicken Sliders',
@@ -127,11 +127,6 @@ export const MENU_SECTIONS: MenuSection[] = [
         id: 'additional',
         label: 'Additional',
         items: [
-            {
-                title: 'Smoked Chicken Tacos',
-                description: 'Topped with cilantro, onions and chipotle mayo on corn tortillas',
-                portionSize: '(2 per person)'
-            },
             {
                 title: 'Premium Chicken Tenders',
                 description: 'Crispy, delicious chicken paired with your choice of dipping sauce'
