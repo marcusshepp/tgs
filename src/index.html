@@ -53,6 +53,12 @@
             content="Tim's Gourmet Sliders offers delicious gourmet sliders in Redford and Detroit, Michigan. Experience our mouth-watering menu featuring premium ingredients and unique flavor combinations."
         />
 
+        <!-- Preload critical resources for hero section -->
+        <link rel="preload" as="image" href="https://res.cloudinary.com/dy00ivhtt/image/upload/c_scale,f_webp,q_70,w_1920/food-truck-1_dp6xhl.webp">
+        <link rel="preload" as="image" href="/img/new/whiskey.jpg">
+        <link rel="preconnect" href="https://res.cloudinary.com">
+        <link rel="dns-prefetch" href="https://res.cloudinary.com">
+
         <meta
             name="keywords"
             content="gourmet sliders, food truck, detroit food, redford food, burger sliders, mini burgers, food truck detroit, gourmet food truck, slider burgers, detroit food truck, redford food truck, michigan food truck, slider restaurant, burger restaurant, gourmet burgers, local food, detroit eats, redford eats, michigan eats, food truck catering, event catering, burger catering, slider catering, food truck events, tim's sliders, tim's food truck, gourmet food detroit"
@@ -110,15 +116,74 @@
 
         <!--<< Favcion >>-->
         <link rel="shortcut icon" href="/img/favicon.png" />
+        
+        <!-- Critical CSS for home page hero section only - inline for faster render -->
+        <style>
+        app-hero .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://res.cloudinary.com/dy00ivhtt/image/upload/c_scale,f_webp,q_70,w_1920/food-truck-1_dp6xhl.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+        app-hero .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(45, 13, 0, 0.8) 50%, rgba(98, 40, 0, 0.7) 100%);
+            z-index: 1;
+        }
+        app-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 2rem;
+            place-items: center;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        </style>
+        
         <link
             href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/css/main.css" />
         <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+            rel="preload"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+            rel="stylesheet"
+        /></noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Alfa Slab One&display=swap"
+            rel="preload"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link
             href="https://fonts.googleapis.com/css2?family=Alfa Slab One&display=swap"
             rel="stylesheet"
-        />
+        /></noscript>
     </head>
 
     <body class="bg-color2">
