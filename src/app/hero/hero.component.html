@@ -1,55 +1,59 @@
-<section class="hero-section" #heroSection>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div class="hero-title-container">
-            <div class="hero-title">
-                <div class="title-line">Tims</div>
-                <div class="title-line">Gourmet</div>
-                <div class="title-line">Sliders</div>
-                <div class="title-line">Food Truck</div>
-            </div>
+<section class="hero" aria-label="Tim's Gourmet Sliders - Detroit & Redford Michigan Food Truck">
+    <!-- Video Background -->
+    <div class="hero__background">
+        <div class="hero__loader" [class.hero__loader--hidden]="videoLoaded">
+            <div class="hero__spinner"></div>
         </div>
-        <div class="hero-burger">
-            <img
-                src="/img/new/whiskey.jpg"
-                alt="Delicious gourmet slider"
-                class="burger-image"
-                loading="eager"
-                decoding="async"
-            />
-        </div>
-        <div class="cta-container">
-            <a routerLink="menu" class="cta-button">View Our Menu</a>
-            <a [href]="contact.PHONE_LINK" class="cta-button cta-secondary"
-                >Call Now</a
-            >
-        </div>
+        <video
+            class="hero__video"
+            [class.hero__video--visible]="videoLoaded"
+            autoplay
+            muted
+            loop
+            playsinline
+            [muted]="true"
+            preload="auto"
+            (canplaythrough)="onVideoReady()"
+            (playing)="onVideoReady()"
+            #heroVideo
+        >
+            <source src="/img/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__overlay"></div>
     </div>
-    <div class="hero-bottom" #heroBottom>
-        <div class="container-fluid">
-            <div class="info-bar">
-                <div class="location-info">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>{{ contact.ADDRESS }}</span>
-                    <a [href]="contact.PHONE_LINK" class="phone-link">
-                        {{ contact.PHONE }}
-                    </a>
-                </div>
-                <div class="social-info">
-                    <p>Follow Us:</p>
-                    <div class="social-icons">
-                        <a target="_blank" [href]="socials.FACEBOOK"
-                            ><i class="fab fa-facebook-f"></i
-                        ></a>
-                        <a target="_blank" [href]="socials.GOOGLE"
-                            ><i class="fab fa-google"></i
-                        ></a>
-                        <a target="_blank" [href]="socials.INSTAGRAM"
-                            ><i class="fab fa-instagram"></i
-                        ></a>
-                    </div>
-                </div>
+
+    <!-- Hero Content -->
+    <div class="hero__container">
+        <header class="hero__header">
+            <h1 class="hero__title">Tim's Gourmet Sliders</h1>
+            <p class="hero__tagline">Detroit & Redford's Favorite Food Truck</p>
+        </header>
+
+        <a routerLink="menu" class="hero__cta">View Our Menu</a>
+
+        <!-- Contact Info -->
+        <footer class="hero__contact">
+            <a [href]="contact.PHONE_LINK" class="hero__contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>{{ contact.PHONE }}</span>
+            </a>
+            <div class="hero__contact-divider"></div>
+            <div class="hero__contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>{{ contact.ADDRESS }}</span>
             </div>
-        </div>
+            <div class="hero__contact-divider"></div>
+            <div class="hero__social">
+                <a [href]="socials.FACEBOOK" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a [href]="socials.INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a [href]="socials.GOOGLE" target="_blank" rel="noopener" aria-label="Google">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
+        </footer>
     </div>
 </section>

@@ -4,6 +4,9 @@ import {
     OnDestroy,
     Inject,
     PLATFORM_ID,
+    ViewChild,
+    ElementRef,
+    AfterViewInit,
 } from '@angular/core';
 import { CONTACT } from '../data/contact-info.model';
 import { SOCIAL_MEDIA } from '../data/social-media.model';
@@ -19,10 +22,13 @@ import { RouterModule } from '@angular/router';
     templateUrl: './hero.component.html',
     styleUrl: './hero.component.scss',
 })
-export class HeroComponent implements OnInit, OnDestroy {
+export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
     public contact = CONTACT;
     public socials = SOCIAL_MEDIA;
     public isHandset$: Observable<boolean>;
+    public videoLoaded = false;
+
+    @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
@@ -31,12 +37,19 @@ export class HeroComponent implements OnInit, OnDestroy {
         this.isHandset$ = this.mobileService.isMobile$;
     }
 
-    ngOnInit(): void {
-        // Removed expensive resize listener and height calculations
-        // CSS handles all layout now
+    ngOnInit(): void {}
+
+    ngAfterViewInit(): void {
+        if (isPlatformBrowser(this.platformId) && this.heroVideo?.nativeElement) {
+            const video = this.heroVideo.nativeElement;
+            video.muted = true;
+            video.play().catch(() => {});
+        }
     }
 
-    ngOnDestroy(): void {
-        // No cleanup needed since we removed event listeners
+    onVideoReady(): void {
+        this.videoLoaded = true;
     }
+
+    ngOnDestroy(): void {}
 }

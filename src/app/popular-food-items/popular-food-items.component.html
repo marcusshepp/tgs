@@ -20,7 +20,7 @@
                         class="dishes-thumb"
                         [routerLink]="['/menu-item', dish.id]"
                     >
-                        <img [src]="dish.imageUrl" [alt]="dish.title" />
+                        <img [src]="dish.imageUrl" [alt]="dish.title" loading="lazy" />
                     </a>
                     <a [routerLink]="['/menu-item', dish.id]">
                         <h3>{{ dish.title }}</h3>

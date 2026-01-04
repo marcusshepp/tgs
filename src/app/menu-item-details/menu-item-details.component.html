@@ -18,6 +18,7 @@
                             class="product-img"
                             width="800"
                             height="500"
+                            fetchpriority="high"
                         />
                         <div class="tag" *ngIf="menuItem?.popular">Popular</div>
                     </div>
@@ -76,6 +77,7 @@
                                 [src]="item.imageUrl ? item.imageUrl : '/img/dishes/default.png'"
                                 [alt]="item.title"
                                 class="related-image"
+                                loading="lazy"
                             />
                         </div>
                         <div class="card-content">

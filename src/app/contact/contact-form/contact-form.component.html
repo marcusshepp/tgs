@@ -1,17 +1,17 @@
-<div class="honeypot-field" aria-hidden="true">
-    <input
-        type="text"
-        id="honeypot"
-        #honeyPot
-        formControlName="honeypot"
-        autocomplete="new-password"
-        tabindex="-1"
-    />
-</div>
 <div class="contact-form p-4" #formContainer>
     <h2 class="mb-4">Contact Us</h2>
 
     <form *ngIf="!showSuccessMessage" class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()" #formElement>
+        <div class="honeypot-field" aria-hidden="true">
+            <input
+                type="text"
+                id="honeypot"
+                #honeyPot
+                formControlName="honeypot"
+                autocomplete="new-password"
+                tabindex="-1"
+            />
+        </div>
         <div class="col-md-6">
             <label for="fullName" class="form-label">Full Name</label>
             <div class="input-wrapper">

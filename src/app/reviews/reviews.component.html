@@ -15,7 +15,7 @@
         <div *ngFor="let review of reviews" class="review-card">
             <div class="review-header">
                 <div *ngIf="review.profile_photo_url" class="reviewer-avatar">
-                    <img [src]="review.profile_photo_url" [alt]="review.author_name + '\'s profile picture'" />
+                    <img [src]="review.profile_photo_url" [alt]="review.author_name + '\'s profile picture'" loading="lazy" />
                 </div>
                 <div class="reviewer-info">
                     <h3 class="reviewer-name">{{ review.author_name }}</h3>

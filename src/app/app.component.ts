@@ -9,7 +9,7 @@ import {
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
@@ -25,12 +25,17 @@ import { Meta, Title } from '@angular/platform-browser';
     styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+    private readonly siteName = "Tim's Gourmet Sliders";
+    private readonly siteUrl = 'https://www.timsgourmetsliders.com';
+    private readonly defaultImage = '/img/new/whiskey.jpg';
+
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
+        @Inject(DOCUMENT) private document: Document,
         private activatedRoute: ActivatedRoute,
         private titleService: Title,
         private metaService: Meta,
-        private router: Router,
+        private router: Router
     ) {
         if (isPlatformBrowser(this.platformId)) {
             this.router.events.subscribe((event) => {
@@ -40,11 +45,11 @@ export class AppComponent implements OnInit {
             });
         }
     }
+
     ngOnInit(): void {
-        if (isPlatformBrowser(this.platformId)) {
-            this.initRouteEvents();
-        }
+        this.initRouteEvents();
     }
+
     private initRouteEvents(): void {
         this.router.events
             .pipe(
@@ -60,18 +65,73 @@ export class AppComponent implements OnInit {
                 mergeMap((route) => route.data)
             )
             .subscribe((data) => {
-                if (data['title']) {
-                    this.titleService.setTitle(
-                        `${data['title']} | YourSiteName`
-                    );
-                }
-                if (data['description']) {
+                const title = data['title'] || this.siteName;
+                const description =
+                    data['description'] ||
+                    "Tim's Gourmet Sliders serves delicious handcrafted sliders in Detroit & Redford, Michigan.";
+                const fullTitle =
+                    title === this.siteName
+                        ? `${title} | Gourmet Food Truck Detroit & Redford MI`
+                        : `${title} | ${this.siteName}`;
+
+                // Set page title
+                this.titleService.setTitle(fullTitle);
+
+                // Update meta description
+                this.metaService.updateTag({
+                    name: 'description',
+                    content: description,
+                });
+
+                // Update keywords if provided
+                if (data['keywords']) {
                     this.metaService.updateTag({
-                        name: 'description',
-                        content: data['description'],
+                        name: 'keywords',
+                        content: data['keywords'],
                     });
                 }
-                window.scrollTo(0, 0);
+
+                // Open Graph tags
+                this.metaService.updateTag({
+                    property: 'og:title',
+                    content: fullTitle,
+                });
+                this.metaService.updateTag({
+                    property: 'og:description',
+                    content: description,
+                });
+                this.metaService.updateTag({
+                    property: 'og:url',
+                    content: `${this.siteUrl}${this.router.url}`,
+                });
+
+                // Twitter Card tags
+                this.metaService.updateTag({
+                    name: 'twitter:title',
+                    content: fullTitle,
+                });
+                this.metaService.updateTag({
+                    name: 'twitter:description',
+                    content: description,
+                });
+
+                // Update canonical URL
+                this.updateCanonicalUrl(`${this.siteUrl}${this.router.url}`);
+
+                if (isPlatformBrowser(this.platformId)) {
+                    window.scrollTo(0, 0);
+                }
             });
+    }
+
+    private updateCanonicalUrl(url: string): void {
+        let link: HTMLLinkElement | null =
+            this.document.querySelector('link[rel="canonical"]');
+        if (!link) {
+            link = this.document.createElement('link');
+            link.setAttribute('rel', 'canonical');
+            this.document.head.appendChild(link);
+        }
+        link.setAttribute('href', url);
     }
 }
