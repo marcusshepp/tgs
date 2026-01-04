@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, ElementRef, Renderer2, OnDestroy } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Input, OnInit, ElementRef, Renderer2, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 
 @Component({
     selector: 'app-banner',
@@ -25,14 +25,18 @@ export class BannerComponent implements OnInit, OnDestroy {
     private resizeObserver: ResizeObserver | null = null;
     private readonly DESKTOP_BREAKPOINT: number = 768;
     private readonly DESKTOP_ADDITIONAL_HEIGHT: number = 300;
+    private isBrowser: boolean;
 
     constructor(
         private el: ElementRef<HTMLElement>,
-        private renderer: Renderer2
-    ) {}
+        private renderer: Renderer2,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
+    }
 
     ngOnInit(): void {
-        if (this.height) {
+        if (this.height && this.isBrowser) {
             this.applyResponsiveHeight();
             this.setupResizeObserver();
         }
@@ -46,6 +50,8 @@ export class BannerComponent implements OnInit, OnDestroy {
     }
 
     private applyResponsiveHeight(): void {
+        if (!this.isBrowser) return;
+        
         const wrapper: HTMLElement | null = this.el.nativeElement.querySelector('.hero-wrapper');
         const section: HTMLElement | null = this.el.nativeElement.querySelector('.hero-section');
 

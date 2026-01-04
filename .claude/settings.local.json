@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\marcu\\\\p\\\\tgs\\\\public\")",
+      "Bash(dir \"C:\\\\Users\\\\marcu\\\\p\\\\tgs\\\\src\" /b)",
+      "Bash(cmd /c:*)",
+      "Bash(powershell -Command:*)"
+    ]
+  }
+}

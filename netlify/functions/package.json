@@ -1,8 +1,0 @@
-{
-  "name": "tgs-netlify-functions",
-  "version": "1.0.0",
-  "description": "Netlify functions for Tim's Gourmet Sliders",
-  "dependencies": {
-    "@sendgrid/mail": "^8.1.0"
-  }
-}
