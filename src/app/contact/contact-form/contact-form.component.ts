@@ -202,7 +202,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
                 }
             }
 
-            const apiUrl: string = `${environment.apiUrl}/TGS/ContactUs`;
+            const apiUrl: string = `${environment.apiUrl}/contact`;
 
             const formData: any = { ...this.form.value };
             delete formData.honeypot;
