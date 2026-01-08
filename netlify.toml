@@ -2,12 +2,10 @@
   command = "npm run build"
   publish = "dist/tgs/browser"
   functions = "netlify/functions"
-  # Ignore the edge functions directory that angular-runtime tries to create
-  ignore_edge_functions = true
+  # Disable framework detection to prevent auto-installation of @netlify/angular-runtime
+  framework = "#custom"
 
 # Skip Angular SSR - use prerendered static pages only
-# IMPORTANT: You must also remove @netlify/angular-runtime from Netlify UI:
-# Site Settings > Build & deploy > Build plugins > Remove the Angular plugin
 [build.environment]
   NETLIFY_SKIP_ANGULAR_RUNTIME = "true"
 
