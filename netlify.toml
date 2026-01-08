@@ -3,6 +3,16 @@
   publish = "dist/tgs/browser"
   functions = "netlify/functions"
 
+# Disable Angular SSR edge functions (incompatible with Angular 19)
+# Use prerendered static pages instead
+[template.environment]
+  NETLIFY_ANGULAR_SSR = "false"
+
+[[plugins]]
+  package = "@netlify/angular-runtime"
+  [plugins.inputs]
+    edge = false
+
 [functions]
   node_bundler = "esbuild"
   included_files = ["netlify/functions/**"]
