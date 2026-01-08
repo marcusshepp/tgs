@@ -11,12 +11,6 @@
 [build.environment]
   NETLIFY_SKIP_ANGULAR_RUNTIME = "true"
 
-# Explicitly disable the Angular plugin
-[[plugins]]
-  package = "@netlify/angular-runtime"
-  [plugins.inputs]
-    skip = true
-
 [functions]
   node_bundler = "esbuild"
   included_files = ["netlify/functions/**"]
