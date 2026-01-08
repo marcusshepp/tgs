@@ -67,4 +67,31 @@ export const routes: Routes = [
                 "View details about this delicious menu item from Tim's Gourmet Sliders. Premium ingredients and unique flavor combinations.",
         },
     },
+    {
+        path: 'menu-pdf',
+        loadComponent: () => import('./menu-pdf/menu-pdf.component').then(m => m.MenuPdfComponent),
+        data: {
+            title: 'Menu PDF Export',
+            description:
+                "Export Tim's Gourmet Sliders menu to PDF. Choose between our public menu or catering menu for easy printing.",
+        },
+    },
+    {
+        path: 'menu-pdf/public',
+        loadComponent: () => import('./menu-pdf/public/menu-pdf-public.component').then(m => m.MenuPdfPublicComponent),
+        data: {
+            title: 'Public Menu PDF',
+            description:
+                "Tim's Gourmet Sliders public menu - ready to print or export to PDF.",
+        },
+    },
+    {
+        path: 'menu-pdf/catering',
+        loadComponent: () => import('./menu-pdf/catering/menu-pdf-catering.component').then(m => m.MenuPdfCateringComponent),
+        data: {
+            title: 'Catering Menu PDF',
+            description:
+                "Tim's Gourmet Sliders catering menu - ready to print or export to PDF.",
+        },
+    },
 ];

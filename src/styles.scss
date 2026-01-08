@@ -304,3 +304,55 @@ main {
         grid-column: span 12;
     }
 }
+
+/* ==========================================
+   PRINT STYLES FOR PDF MENU EXPORT
+   ========================================== */
+@media print {
+    /* Hide all navigation and footer elements globally */
+    app-header,
+    app-desktop-nav,
+    app-mobile-menu,
+    app-footer,
+    footer,
+    .footer-section,
+    .footer-widgets-wrapper,
+    .footer-bottom,
+    header,
+    nav,
+    .header-section,
+    .mobile-menu,
+    .desktop-nav {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Hide any element with no-print class */
+    .no-print {
+        display: none !important;
+    }
+
+    /* Reset body for clean print */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Reset main element */
+    main {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Page setup for single page */
+    @page {
+        size: letter;
+        margin: 0.25in;
+    }
+}
+

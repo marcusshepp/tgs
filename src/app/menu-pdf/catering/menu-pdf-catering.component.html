@@ -1,0 +1,47 @@
+<div class="menu-pdf-container">
+    <!-- Print Button (hidden when printing) -->
+    <div class="no-print">
+        <div class="action-bar">
+            <a routerLink="/menu-pdf" class="back-btn">← Back</a>
+            <button (click)="printMenu()" class="print-btn">📄 Export to PDF</button>
+        </div>
+    </div>
+
+    <!-- PDF Content -->
+    <div class="pdf-content">
+        <!-- Header -->
+        <div class="menu-header">
+            <div class="logo-row">
+                <img src="/img/logo-no-bg.png" alt="Tim's Gourmet Sliders" class="menu-logo" />
+            </div>
+            <p class="tagline">Professional Catering | Weddings | Corporate Events | Parties</p>
+            <p class="contact">📞 {{ contact.phone }} | 📧 {{ contact.email }}</p>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid">
+            @for (section of menuSections; track section.id) {
+                <div class="category-section">
+                    <h2 class="category-title">{{ section.label }}</h2>
+                    <div class="items">
+                        @for (item of section.items; track $index) {
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <span class="item-name">{{ item.title }}</span>
+                                </div>
+                                @if (item.description) {
+                                    <p class="item-description">{{ item.description }}</p>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Footer -->
+        <div class="menu-footer">
+            <p><strong>+ Additional charge applies</strong> | Visit timsgourmetsliders.com for more information</p>
+        </div>
+    </div>
+</div>

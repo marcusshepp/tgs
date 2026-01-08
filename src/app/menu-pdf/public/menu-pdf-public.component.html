@@ -1,0 +1,103 @@
+<div class="menu-pdf-container">
+    <!-- Print Button (hidden when printing) -->
+    <div class="no-print">
+        <div class="action-bar">
+            <a routerLink="/menu-pdf" class="back-btn">← Back</a>
+            <button (click)="printMenu()" class="print-btn">📄 Export to PDF</button>
+        </div>
+    </div>
+
+    <!-- PDF Content -->
+    <div class="pdf-content">
+        <!-- Header -->
+        <div class="menu-header">
+            <div class="logo-row">
+                <img src="/img/logo-no-bg.png" alt="Tim's Gourmet Sliders" class="menu-logo" />
+            </div>
+            <p class="tagline">Handcrafted Sliders | Fresh Ingredients | Unique Flavors</p>
+            <p class="contact">📞 (248) 251-5781 | 📧 tgfgfoodtruck&#64;gmail.com</p>
+        </div>
+
+        <!-- Beef Section - Full Width -->
+        <div class="section-box">
+            <h2 class="category-title">Beef Sliders</h2>
+            <div class="items-grid">
+                @for (item of getItemsByCategory('beef'); track item.id) {
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">{{ item.title }}</span>
+                            @if (item.price) {
+                                <span class="item-price">${{ item.price }}</span>
+                            }
+                        </div>
+                        <p class="item-description">{{ item.description }}</p>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Other Categories Section -->
+        <div class="section-box">
+            <div class="categories-row">
+                <!-- Chicken -->
+                <div class="category-column">
+                    <h2 class="category-title">Chicken Sliders</h2>
+                    <div class="items">
+                        @for (item of getItemsByCategory('chicken'); track item.id) {
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <span class="item-name">{{ item.title }}</span>
+                                    @if (item.price) {
+                                        <span class="item-price">${{ item.price }}</span>
+                                    }
+                                </div>
+                                <p class="item-description">{{ item.description }}</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Vegetarian -->
+                <div class="category-column">
+                    <h2 class="category-title">Vegetarian</h2>
+                    <div class="items">
+                        @for (item of getItemsByCategory('vegetarian'); track item.id) {
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <span class="item-name">{{ item.title }}</span>
+                                    @if (item.price) {
+                                        <span class="item-price">${{ item.price }}</span>
+                                    }
+                                </div>
+                                <p class="item-description">{{ item.description }}</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Sides & More -->
+                <div class="category-column">
+                    <h2 class="category-title">Sides & More</h2>
+                    <div class="items">
+                        @for (item of getItemsByCategory('other'); track item.id) {
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <span class="item-name">{{ item.title }}</span>
+                                    @if (item.price) {
+                                        <span class="item-price">${{ item.price }}</span>
+                                    }
+                                </div>
+                                <p class="item-description">{{ item.description }}</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="menu-footer">
+            <p>🚚 Available for Catering | Visit us at timsgourmetsliders.com</p>
+        </div>
+    </div>
+</div>

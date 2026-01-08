@@ -34,16 +34,15 @@
                             "src/robots.txt"
                         ],
                         "styles": ["src/styles.scss", "public/css/all.min.css"],
-                        "scripts": [],
-                        "server": "src/main.server.ts",
-                        "prerender": true,
-                        "ssr": {
-                            "entry": "server.ts"
-                        }
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
+                            "server": "src/main.server.ts",
                             "prerender": true,
+                            "ssr": {
+                                "entry": "server.ts"
+                            },
                             "fileReplacements": [
                                 {
                                     "replace": "src/environments/environment.ts",
