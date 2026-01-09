@@ -4,12 +4,11 @@ import { MENU_ITEMS, MenuItem } from '../data/menu.model';
 import { CommonModule } from '@angular/common';
 import { MobileService } from '../services/mobile.service';
 import { Observable } from 'rxjs';
-import { BannerComponent } from '../banner/banner.component';
 
 @Component({
     selector: 'app-menu-item-details',
     standalone: true,
-    imports: [CommonModule, BannerComponent, RouterModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './menu-item-details.component.html',
     styleUrl: './menu-item-details.component.scss',
 })

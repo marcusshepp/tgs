@@ -1,10 +1,17 @@
-.menu-item-section {
-    padding: 80px 0;
+.top-nav-container {
+    padding: 120px 0 30px 0;
     background-color: #f9f7f2;
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
 }
 
-.back-button-container {
-    margin-bottom: 30px;
+.menu-item-section {
+    padding: 0 0 80px 0;
+    background-color: #f9f7f2;
 }
 
 .back-btn {
