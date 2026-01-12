@@ -1,7 +1,80 @@
-<div class="container container-bot">
-    <div class="row gx-4 gy-5">
-        <div class="col-xl-6">
-            <app-contact-form></app-contact-form>
+<section class="contact-page">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Form Section - First on mobile -->
+            <div class="contact-form-section">
+                <app-contact-form></app-contact-form>
+            </div>
+
+            <!-- Info Section -->
+            <div class="contact-info-section">
+                <div class="info-image">
+                    <img 
+                        src="https://res.cloudinary.com/dy00ivhtt/image/upload/q_auto,f_auto,w_600/whiskey_zbkelp.webp" 
+                        alt="Tim's Gourmet Sliders - Whiskey Slider"
+                        loading="lazy"
+                    />
+                </div>
+
+                <div class="info-card">
+                    <h2>Let's Connect</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Service Area</h3>
+                            <p>{{ contact.ADDRESS }}</p>
+                            <span class="info-note">Serving Detroit & surrounding areas</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Call Us</h3>
+                            <a [href]="contact.PHONE_LINK">{{ contact.PHONE }}</a>
+                            <span class="info-note">We respond within 24 hours</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <a href="mailto:{{ contact.EMAIL }}">{{ contact.EMAIL }}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card rules-card">
+                    <h3>Good to Know</h3>
+                    <ul class="rules-list">
+                        <li>
+                            <span class="rule-number">01</span>
+                            <span>Book early — we fill up fast for weekends</span>
+                        </li>
+                        <li>
+                            <span class="rule-number">02</span>
+                            <span>Custom menus available for large events</span>
+                        </li>
+                        <li>
+                            <span class="rule-number">03</span>
+                            <span>We bring the full food truck experience</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a routerLink="/menu" class="menu-link">
+                    <span>View Our Full Menu</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+</section>
