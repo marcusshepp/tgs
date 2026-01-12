@@ -182,7 +182,7 @@ exports.handler = async function (event, context) {
     }
 
     const fromEmail = process.env.FROM_EMAIL || "info@syncgr.com";
-    const toEmail = process.env.TO_EMAIL || "timsgourmetsliders@gmail.com";
+    const toEmail = process.env.TO_EMAIL || "timsfoodtruckdetroit@gmail.com";
 
     const msg = {
       to: toEmail,
