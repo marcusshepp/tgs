@@ -34,11 +34,11 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Steak House Sliders',
-                description: 'Our prime beef sliders topped with swiss cheese, fried onions, steakhouse seasoning and garlic aioli',
+                description: 'Our prime beef sliders topped with swiss cheese, fried onions and garlic aioli',
             },
             {
                 title: 'Black and Blue Sliders',
-                description: 'Our prime beef sliders topped with blue cheese aioli, bacon, and caramelized onions'
+                description: 'Our prime beef sliders topped with gorgonzola aioli, smoked bacon, and caramelized onions'
             },
             {
                 title: 'Sweet and Savory Sliders',
@@ -51,11 +51,6 @@ export const MENU_SECTIONS: MenuSection[] = [
             {
                 title: 'Bacon Cheese Sliders',
                 description: 'Our prime beef sliders topped with smoked bacon, and American cheese'
-            },
-            {
-                title: 'Double Bacon Cheese Sliders',
-                description: 'Our classic bacon cheese sliders but with double the beef, double the bacon, and double the cheese',
-                additionalCharge: true
             }
         ]
     },
@@ -73,7 +68,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Spicy Chicken Sliders',
-                description: 'Hand battered crispy chicken topped with pepper jack cheese, spicy pickles, spicy ranch and chipotle mayo'
+                description: 'Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo'
             },
             {
                 title: 'Monte Cristo Sliders',
@@ -89,7 +84,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Tim\'s Famous Fried Chicken Sliders',
-                description: 'Crispy fried chicken topped with pickles, Not! So Basic Sauce and American cheese'
+                description: 'Crispy fried chicken topped with pickles, Not! So Basic Sauce and white American cheese'
             }
         ]
     },
@@ -98,7 +93,7 @@ export const MENU_SECTIONS: MenuSection[] = [
         label: 'Vegetarian',
         items: [
             {
-                title: 'Impossible Sliders',
+                title: 'The Imposter',
                 description: 'Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions',
             },
             {
@@ -112,13 +107,8 @@ export const MENU_SECTIONS: MenuSection[] = [
         label: 'Pork',
         items: [
             {
-                title: 'The Porky Pig Sliders',
-                description: 'Our truck smoked pulled pork nestled on top of our prime beef, drizzled with barbeque sauce, spicy pickles, and fried onions',
-                additionalCharge: true
-            },
-            {
-                title: 'Tim\'s Pulled Pork Sliders',
-                description: 'Our truck smoked pulled pork and spicy pickles drizzled with our own honey chipotle barbeque sauce',
+                title: 'Techno Sliders',
+                description: 'Our truck smoked pulled pork nestled on top of our prime beef, pickles, fried onions, and drizzled with bbq sauce and chipotle mayo',
                 additionalCharge: true
             }
         ]
@@ -144,10 +134,6 @@ export const MENU_SECTIONS: MenuSection[] = [
             {
                 title: 'Pasta Salad',
                 description: ''
-            },
-            {
-                title: 'Truck made potato chips',
-                description: '(with choice of ranch, cajun or bbq seasonings)'
             },
             {
                 title: 'Hot crispy fries',
@@ -187,6 +173,6 @@ export interface ContactInfo {
 }
 
 export const CONTACT_INFO: ContactInfo = {
-    email: 'tgfgfoodtruck@gmail.com',
+    email: 'timsfoodtruckdetroit@gmail.com',
     phone: '(248) 251-5781'
 };

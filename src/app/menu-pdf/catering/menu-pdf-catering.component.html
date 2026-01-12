@@ -27,7 +27,7 @@
                         @for (item of section.items; track $index) {
                             <div class="menu-item">
                                 <div class="item-header">
-                                    <span class="item-name">{{ item.title }}</span>
+                                    <span class="item-name">{{ item.title }}@if (item.additionalCharge) {*}</span>
                                 </div>
                                 @if (item.description) {
                                     <p class="item-description">{{ item.description }}</p>
@@ -41,7 +41,7 @@
 
         <!-- Footer -->
         <div class="menu-footer">
-            <p><strong>+ Additional charge applies</strong> | Visit timsgourmetsliders.com for more information</p>
+            <p><strong>* Additional charge applies</strong> | Visit timsgourmetsliders.com for more information</p>
         </div>
     </div>
 </div>

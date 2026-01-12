@@ -58,6 +58,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             ],
             email: ['', [Validators.required, Validators.email]],
             eventDate: ['', Validators.required],
+            eventLocation: ['', Validators.required],
             message: ['', [Validators.required, Validators.minLength(10)]],
             honeypot: ['', this.honeyPotValidator],
             formToken: [''],

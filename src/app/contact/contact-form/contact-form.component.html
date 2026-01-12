@@ -80,6 +80,22 @@
             </div>
         </div>
         <div class="col-12">
+            <label for="eventLocation" class="form-label">Location of Event</label>
+            <div class="input-wrapper">
+                <i class="fas fa-map-marker-alt input-icon"></i>
+                <input
+                    type="text"
+                    id="eventLocation"
+                    class="form-control"
+                    formControlName="eventLocation"
+                    (blur)="form.get('eventLocation')?.markAsTouched()"
+                />
+            </div>
+            <div class="text-danger mt-1" *ngIf="shouldShowError('eventLocation')">
+                Location of Event is required.
+            </div>
+        </div>
+        <div class="col-12">
             <label for="message" class="form-label">Your Message</label>
             <div class="input-wrapper">
                 <i class="fas fa-comment input-icon textarea-icon"></i>
