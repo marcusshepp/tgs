@@ -4,6 +4,53 @@
             <!-- Form Section - First on mobile -->
             <div class="contact-form-section">
                 <app-contact-form></app-contact-form>
+
+                <!-- Animated Food Truck -->
+                <div class="truck-animation">
+                    <div class="truck-scene">
+                        <!-- Static Road -->
+                        <svg class="road" viewBox="0 0 200 10" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="5" x2="200" y2="5" stroke="#e0e0e0" stroke-width="2" stroke-dasharray="8,6" stroke-linecap="round"/>
+                        </svg>
+                        <!-- Animated Truck -->
+                        <svg class="food-truck" viewBox="0 0 130 55" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Air/exhaust puffs behind truck -->
+                            <g class="air-effect">
+                                <circle class="puff puff-1" cx="6" cy="38" r="4" fill="#ddd" stroke="#ccc" stroke-width="1.5"/>
+                                <circle class="puff puff-2" cx="2" cy="34" r="3" fill="#e5e5e5" stroke="#ddd" stroke-width="1"/>
+                                <circle class="puff puff-3" cx="8" cy="32" r="3.5" fill="#ddd" stroke="#ccc" stroke-width="1"/>
+                            </g>
+                            <!-- Truck Body -->
+                            <path class="truck-body" d="M18 38 L18 14 Q18 10 22 10 L72 10 Q76 10 76 14 L76 38" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Cabin -->
+                            <path class="truck-cabin" d="M76 38 L76 18 L92 18 Q100 18 102 28 L102 38" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Cabin window -->
+                            <path d="M80 22 L90 22 Q96 22 97 28 L97 32 L80 32 Z" fill="none" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
+                            <!-- Serving window with awning -->
+                            <rect x="28" y="16" width="22" height="14" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
+                            <path d="M26 16 L52 16 L50 13 L28 13 Z" fill="none" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
+                            <!-- Wheels (behind undercarriage) -->
+                            <circle class="wheel" cx="35" cy="43" r="7" fill="none" stroke="#333" stroke-width="2"/>
+                            <circle class="wheel" cx="88" cy="43" r="7" fill="none" stroke="#333" stroke-width="2"/>
+                            <!-- Wheel centers -->
+                            <circle cx="35" cy="43" r="2.5" fill="#333"/>
+                            <circle cx="88" cy="43" r="2.5" fill="#333"/>
+                            <!-- Undercarriage (covers top of wheels) -->
+                            <rect x="18" y="33" width="84" height="6" fill="#fff"/>
+                            <line x1="18" y1="38" x2="102" y2="38" stroke="#333" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="truck-text">On our way to serve you</p>
+                </div>
+
+                <!-- Mobile-only image -->
+                <div class="info-image-mobile">
+                    <img 
+                        src="https://res.cloudinary.com/dy00ivhtt/image/upload/q_auto,f_auto,w_600/window_ghdagy.webp" 
+                        alt="Tim's Gourmet Sliders Food Truck"
+                        loading="lazy"
+                    />
+                </div>
             </div>
 
             <!-- Info Section -->

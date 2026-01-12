@@ -48,6 +48,7 @@ $light-gray: #f8f9fa;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    display: block;
 
     img {
         width: 100%;
@@ -63,6 +64,25 @@ $light-gray: #f8f9fa;
 
     @media (max-width: 992px) {
         display: none;
+    }
+}
+
+.info-image-mobile {
+    display: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+
+    @media (max-width: 992px) {
+        display: block;
     }
 }
 
@@ -209,6 +229,141 @@ $light-gray: #f8f9fa;
 
     &:hover i {
         transform: translateX(4px);
+    }
+}
+
+// Animated Food Truck
+.truck-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    margin-top: 1.5rem;
+}
+
+.truck-scene {
+    position: relative;
+    width: 360px;
+    height: 115px;
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+}
+
+.food-truck {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 90px;
+    animation: truckDrive 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.truck-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #999;
+    letter-spacing: 0.3px;
+}
+
+// Smooth, subtle driving animation
+@keyframes truckDrive {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateX(-50%) translateY(-2px) translateX(1px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(0) translateX(0);
+    }
+    75% {
+        transform: translateX(-50%) translateY(-1.5px) translateX(-0.5px);
+    }
+}
+
+// Slower wheel rotation
+.wheel {
+    animation: wheelRoll 3s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes wheelRoll {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Air puff effect
+.puff {
+    opacity: 0;
+    animation: puffFloat 3s ease-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.puff-1 {
+    animation-delay: 0s;
+}
+
+.puff-2 {
+    animation-delay: 1s;
+}
+
+.puff-3 {
+    animation-delay: 2s;
+}
+
+@keyframes puffFloat {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateX(-12px) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-25px) scale(2);
+    }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+    .food-truck {
+        animation: none;
+    }
+    
+    .wheel {
+        animation: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .truck-scene {
+        width: 160px;
+        height: 55px;
+    }
+    
+    .food-truck {
+        width: 80px;
+        height: 40px;
+    }
+    
+    .truck-text {
+        font-size: 0.8rem;
     }
 }
 
