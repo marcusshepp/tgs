@@ -28,12 +28,12 @@
                     <span></span>
                 </button>
 
-                <a routerLink="/" class="mobile-logo" *ngIf="isMobile">
+                <a routerLink="/" class="mobile-logo">
                     <img src="/img/Logo.png" alt="Logo" />
                 </a>
             </div>
 
-            <nav class="header__nav" *ngIf="!isMobile">
+            <nav class="header__nav">
                 <ul class="nav-menu">
                     <li><a routerLink="/" class="nav-link">Home</a></li>
                     <li>
@@ -61,7 +61,7 @@
                 </ul>
             </nav>
 
-            <div class="header__right" *ngIf="!isMobile">
+            <div class="header__right">
                 <a routerLink="menu" class="order-btn" aria-label="Order now">
                     <span>Menu</span>
                     <svg

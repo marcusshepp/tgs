@@ -12,12 +12,14 @@
             loop
             playsinline
             [muted]="true"
-            preload="auto"
+            preload="metadata"
+            poster="https://res.cloudinary.com/dy00ivhtt/video/upload/so_0,w_1280,q_auto,f_jpg/hero-video_b7nk2y.jpg"
             (canplaythrough)="onVideoReady()"
             (playing)="onVideoReady()"
             #heroVideo
         >
-            <source src="/img/videos/hero-video.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto,f_webm/hero-video_b7nk2y.webm" type="video/webm" />
+            <source src="https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto/hero-video_b7nk2y.mp4" type="video/mp4" />
         </video>
         <div class="hero__overlay"></div>
     </div>

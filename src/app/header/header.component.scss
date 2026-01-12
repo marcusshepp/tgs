@@ -36,6 +36,16 @@
 
     &__nav {
         flex: 1;
+
+        @media (max-width: 1199px) {
+            display: none;
+        }
+    }
+
+    &__right {
+        @media (max-width: 1199px) {
+            display: none;
+        }
     }
 }
 
@@ -70,6 +80,10 @@
 
 .mobile-logo {
     display: block;
+
+    @media (min-width: 1200px) {
+        display: none;
+    }
 
     img {
         height: 52px;
