@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MENU_ITEMS } from '../data/menu.model';
+import { MENU_ITEMS } from '../data/public-menu.model';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PageTitleComponent } from '../page-title/page-title.component';

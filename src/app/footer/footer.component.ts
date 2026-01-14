@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SOCIAL_MEDIA } from '../data/social-media.model';
 import { CONTACT } from '../data/contact-info.model';
 import { RouterModule } from '@angular/router';
-import { MENU_ITEMS, MenuItem } from '../data/menu.model';
+import { MENU_ITEMS, MenuItem } from '../data/public-menu.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

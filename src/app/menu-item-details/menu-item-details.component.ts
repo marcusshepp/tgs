@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { MENU_ITEMS, MenuItem } from '../data/menu.model';
+import { MENU_ITEMS, MenuItem } from '../data/public-menu.model';
 import { CommonModule } from '@angular/common';
 import { MobileService } from '../services/mobile.service';
 import { Observable } from 'rxjs';

@@ -12,7 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { MENU_ITEMS, MenuItem } from '../data/menu.model';
+import { MENU_ITEMS, MenuItem } from '../data/public-menu.model';
 import { BannerComponent } from '../banner/banner.component';
 import { PageTitleComponent } from '../page-title/page-title.component';
 
@@ -41,7 +41,7 @@ import { PageTitleComponent } from '../page-title/page-title.component';
     ],
 })
 export class FullMenuComponent implements OnInit {
-    public menu: MenuItem[] = MENU_ITEMS;
+    public menu: MenuItem[] = MENU_ITEMS.filter(item => item.active);
     public filteredMenu: MenuItem[] = [];
     public searchTerm: string = '';
     public activeFilter: string = 'all';
@@ -152,3 +152,4 @@ export class FullMenuComponent implements OnInit {
         this.menuClosedEvent.emit(true);
     }
 }
+

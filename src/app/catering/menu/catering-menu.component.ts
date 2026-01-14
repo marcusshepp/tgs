@@ -1,6 +1,6 @@
 import { Component, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { CONTACT_INFO, ContactInfo, GOOD_TO_KNOW_ITEMS, GoodToKnowItem, MENU_SECTIONS, MenuSection } from '../../data/catering.model';
+import { CONTACT_INFO, ContactInfo, GOOD_TO_KNOW_ITEMS, GoodToKnowItem, MENU_SECTIONS, MenuSection } from '../../data/catering-menu.model';
 
 @Component({
     selector: 'app-catering-menu',

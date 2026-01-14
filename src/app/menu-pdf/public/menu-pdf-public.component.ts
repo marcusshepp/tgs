@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MENU_ITEMS, MenuItem } from '../../data/menu.model';
+import { MENU_ITEMS, MenuItem } from '../../data/public-menu.model';
 
 @Component({
     selector: 'app-menu-pdf-public',

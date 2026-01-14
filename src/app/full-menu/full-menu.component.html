@@ -145,8 +145,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <div class="view-details">
+                    <div class="card-footer"><span class="item-price" *ngIf="item.price">${{item.price}}</span><div class="view-details">
                             View Details
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -169,3 +168,5 @@
         </div>
     </div>
 </section>
+
+

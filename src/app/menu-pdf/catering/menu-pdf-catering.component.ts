@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MENU_SECTIONS, MenuSection, GOOD_TO_KNOW_ITEMS, CONTACT_INFO } from '../../data/catering.model';
+import { MENU_SECTIONS, MenuSection, GOOD_TO_KNOW_ITEMS, CONTACT_INFO } from '../../data/catering-menu.model';
 
 @Component({
     selector: 'app-menu-pdf-catering',

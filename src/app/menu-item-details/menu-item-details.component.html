@@ -29,6 +29,7 @@
                             {{ menuItem?.category }}
                         </div>
                         <h2 class="item-title">{{ menuItem?.title }}</h2>
+                        <div class="price-tag" *ngIf="menuItem?.price">${{menuItem?.price}}</div>
                         <p class="item-description">
                             {{ menuItem?.description }}
                         </p>
@@ -137,3 +138,5 @@
         </div>
     </div>
 </div>
+
+
