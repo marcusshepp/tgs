@@ -14,7 +14,7 @@ export interface MenuSection {
 export const MENU_SECTIONS: MenuSection[] = [
     {
         id: 'beef',
-        label: 'Beef',
+        label: '100% Halal Beef',
         items: [
             {
                 title: 'Classic Sliders',
