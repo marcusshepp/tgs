@@ -211,6 +211,27 @@ $orange-gold: #ffb700;
             }
         }
     }
+
+    &__halal-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        border-radius: 50px;
+        animation: fadeUp 0.6s ease 0.6s forwards;
+        opacity: 0;
+
+        span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+    }
 }
 
 // Animations
@@ -294,6 +315,14 @@ $orange-gold: #ffb700;
                 i {
                     font-size: 0.7rem;
                 }
+            }
+        }
+
+        &__halal-badge {
+            padding: 0.35rem 0.85rem;
+
+            span {
+                font-size: 0.6rem;
             }
         }
     }
