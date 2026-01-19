@@ -3,8 +3,15 @@
     <div class="no-print">
         <div class="action-bar">
             <a routerLink="/menu-pdf" class="back-btn">← Back</a>
-            <button (click)="printMenu()" class="print-btn">Export to PDF</button>
+            <button (click)="printMenu()" class="print-btn">
+                {{ isIOS ? 'Save as PDF' : 'Export to PDF' }}
+            </button>
         </div>
+        @if (showIOSHint) {
+            <div class="ios-hint">
+                <p><strong>On iPhone/iPad:</strong> Tap the Share button <span class="share-icon">⬆</span> at the bottom of Safari, then select "Print" to save as PDF</p>
+            </div>
+        }
     </div>
 
     <!-- PDF Content -->

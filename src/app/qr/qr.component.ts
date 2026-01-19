@@ -1,8 +1,8 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import QRCode from 'qrcode';
 
-const SITE_URL = 'https://timsgourmetsliders.com';
+const SITE_URL = 'https://timsgourmetsliders.com/scan';
 
 @Component({
   selector: 'app-qr',
@@ -20,19 +20,19 @@ const SITE_URL = 'https://timsgourmetsliders.com';
           <canvas #qrCanvas width="240" height="240"></canvas>
         </div>
 
-        <p class="site-url">{{ siteUrl }}</p>
+        <p class="site-url">{{ displayUrl }}</p>
 
         <div class="qr-actions">
           <button class="btn-primary" (click)="downloadPNG()">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Download PNG
+            {{ isIOS ? 'Save QR Code' : 'Download PNG' }}
           </button>
 
-          <button class="btn-outline" (click)="copyToClipboard()">
+          <button class="btn-outline" (click)="shareOrCopy()">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path *ngIf="!copied" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              <path *ngIf="!copied" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
               <path *ngIf="copied" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
             {{ copied ? 'Copied!' : 'Share' }}
@@ -150,10 +150,22 @@ export class QrComponent implements AfterViewInit {
   @ViewChild('qrCanvas') qrCanvas!: ElementRef<HTMLCanvasElement>;
 
   siteUrl = SITE_URL;
+  displayUrl = 'timsgourmetsliders.com/scan';
   copied = false;
+  isIOS = false;
+  private isBrowser = false;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    if (this.isBrowser) {
+      this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    }
+  }
 
   ngAfterViewInit() {
-    this.generateQR();
+    if (this.isBrowser) {
+      this.generateQR();
+    }
   }
 
   async generateQR() {
@@ -171,7 +183,9 @@ export class QrComponent implements AfterViewInit {
     }
   }
 
-  downloadPNG() {
+  async downloadPNG() {
+    if (!this.isBrowser) return;
+
     const canvas = this.qrCanvas.nativeElement;
     const size = 1024;
     const downloadCanvas = document.createElement('canvas');
@@ -186,13 +200,78 @@ export class QrComponent implements AfterViewInit {
     const padding = 64;
     ctx.drawImage(canvas, padding, padding, size - padding * 2, size - padding * 2);
 
-    const link = document.createElement('a');
-    link.href = downloadCanvas.toDataURL('image/png');
-    link.download = 'tims-gourmet-sliders-qr.png';
-    link.click();
+    // Convert to blob for better iOS compatibility
+    downloadCanvas.toBlob(async (blob) => {
+      if (!blob) return;
+
+      // Try Web Share API first (works great on iOS)
+      if (navigator.share && this.isIOS) {
+        try {
+          const file = new File([blob], 'tims-gourmet-sliders-qr.png', { type: 'image/png' });
+          await navigator.share({
+            files: [file],
+            title: "Tim's Gourmet Sliders QR Code",
+          });
+          return;
+        } catch (err) {
+          // User cancelled or share failed, fall through to other methods
+          if ((err as Error).name !== 'AbortError') {
+            console.log('Share failed, trying alternative method');
+          }
+        }
+      }
+
+      // For iOS without share support, open in new tab (user can long-press to save)
+      if (this.isIOS) {
+        const dataUrl = downloadCanvas.toDataURL('image/png');
+        const newWindow = window.open();
+        if (newWindow) {
+          newWindow.document.write(`
+            <html>
+              <head><title>QR Code - Long press to save</title></head>
+              <body style="margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#1a1a1a;">
+                <div style="text-align:center;">
+                  <p style="color:#fff;margin-bottom:1rem;font-family:system-ui;">Long press the image to save</p>
+                  <img src="${dataUrl}" alt="QR Code" style="max-width:90vw;max-height:80vh;" />
+                </div>
+              </body>
+            </html>
+          `);
+        }
+        return;
+      }
+
+      // Desktop: Use standard download
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'tims-gourmet-sliders-qr.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }, 'image/png');
   }
 
-  async copyToClipboard() {
+  async shareOrCopy() {
+    if (!this.isBrowser) return;
+
+    // Try native share first
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Tim's Gourmet Sliders",
+          text: 'Check out our menu!',
+          url: SITE_URL,
+        });
+        return;
+      } catch (err) {
+        // User cancelled, fall through to clipboard
+        if ((err as Error).name === 'AbortError') return;
+      }
+    }
+
+    // Fallback to clipboard
     try {
       await navigator.clipboard.writeText(SITE_URL);
       this.copied = true;

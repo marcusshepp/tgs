@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MENU_ITEMS, MenuItem } from '../../data/public-menu.model';
 
@@ -20,6 +20,17 @@ export class MenuPdfPublicComponent implements OnInit {
         { id: 'other', label: 'Sides & More' },
     ];
 
+    isIOS = false;
+    showIOSHint = false;
+    private isBrowser = false;
+
+    constructor(@Inject(PLATFORM_ID) platformId: Object) {
+        this.isBrowser = isPlatformBrowser(platformId);
+        if (this.isBrowser) {
+            this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        }
+    }
+
     ngOnInit() {
         this.menuItems = MENU_ITEMS.filter(item => item.active);
     }
@@ -29,6 +40,24 @@ export class MenuPdfPublicComponent implements OnInit {
     }
 
     printMenu() {
-        window.print();
+        if (!this.isBrowser) return;
+
+        if (this.isIOS) {
+            // On iOS, window.print() doesn't always work reliably
+            // Try it first, then show hint if it doesn't seem to work
+            try {
+                window.print();
+                // Show hint after a delay in case print dialog didn't appear
+                setTimeout(() => {
+                    this.showIOSHint = true;
+                    setTimeout(() => this.showIOSHint = false, 8000);
+                }, 500);
+            } catch {
+                this.showIOSHint = true;
+                setTimeout(() => this.showIOSHint = false, 8000);
+            }
+        } else {
+            window.print();
+        }
     }
 }

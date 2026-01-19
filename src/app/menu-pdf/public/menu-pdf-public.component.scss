@@ -44,6 +44,43 @@
             }
         }
     }
+
+    .ios-hint {
+        max-width: 1200px;
+        margin: 0 auto 1rem;
+        padding: 1rem 1.25rem;
+        background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+        border-radius: 12px;
+        animation: slideIn 0.3s ease-out;
+
+        p {
+            margin: 0;
+            color: white;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .share-icon {
+            display: inline-block;
+            background: white;
+            color: #007AFF;
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0 0.25rem;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
 .pdf-content {
