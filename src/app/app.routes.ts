@@ -94,4 +94,13 @@ export const routes: Routes = [
                 "Tim's Gourmet Sliders catering menu - ready to print or export to PDF.",
         },
     },
+    {
+        path: 'qr',
+        loadComponent: () => import('./qr/qr.component').then(m => m.QrComponent),
+        data: {
+            title: 'QR Code',
+            description:
+                "Tim's Gourmet Sliders QR code for marketing materials.",
+        },
+    },
 ];
