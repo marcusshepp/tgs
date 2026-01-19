@@ -120,7 +120,7 @@ export class ReviewsComponent implements OnInit {
             profile_photo_url: 'https://ui-avatars.com/api/?name=Kimberly+Schermesser&background=random',
             rating: 5,
             relative_time_description: '',
-            text: 'Great communication, easy to work with and excellent food! Everyone at our event was impressed with how great everything was. I will use Tim's again for all my events. Well done!',
+            text: "Great communication, easy to work with and excellent food! Everyone at our event was impressed with how great everything was. I will use Tim's again for all my events. Well done!",
             time: 1745445600, // Apr 2025
         },
     ];
