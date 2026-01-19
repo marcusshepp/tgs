@@ -103,13 +103,4 @@ export const routes: Routes = [
                 "Tim's Gourmet Sliders QR code for marketing materials.",
         },
     },
-    {
-        path: 'scan',
-        loadComponent: () => import('./scan/scan.component').then(m => m.ScanComponent),
-        data: {
-            title: "Tim's Gourmet Sliders",
-            description:
-                "Welcome to Tim's Gourmet Sliders! Explore our menu or learn more about us.",
-        },
-    },
 ];

@@ -2,7 +2,20 @@ import { Component, ElementRef, ViewChild, AfterViewInit, PLATFORM_ID, Inject } 
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import QRCode from 'qrcode';
 
-const SITE_URL = 'https://timsgourmetsliders.com/scan';
+type QRTab = 'menu' | 'home';
+
+const URLS: Record<QRTab, { url: string; display: string; label: string }> = {
+  menu: {
+    url: 'https://timsgourmetsliders.com/menu',
+    display: 'timsgourmetsliders.com/menu',
+    label: 'Menu',
+  },
+  home: {
+    url: 'https://timsgourmetsliders.com',
+    display: 'timsgourmetsliders.com',
+    label: 'Home',
+  },
+};
 
 @Component({
   selector: 'app-qr',
@@ -13,14 +26,31 @@ const SITE_URL = 'https://timsgourmetsliders.com/scan';
       <div class="qr-container">
         <div class="qr-header">
           <h1>Tim's Gourmet Sliders</h1>
-          <p>Scan to visit our website</p>
+          <p>QR Code Generator</p>
+        </div>
+
+        <div class="tabs">
+          <button
+            class="tab"
+            [class.active]="activeTab === 'menu'"
+            (click)="setTab('menu')"
+          >
+            Menu
+          </button>
+          <button
+            class="tab"
+            [class.active]="activeTab === 'home'"
+            (click)="setTab('home')"
+          >
+            Home
+          </button>
         </div>
 
         <div class="qr-code-wrapper">
           <canvas #qrCanvas width="240" height="240"></canvas>
         </div>
 
-        <p class="site-url">{{ displayUrl }}</p>
+        <p class="site-url">{{ currentConfig.display }}</p>
 
         <div class="qr-actions">
           <button class="btn-primary" (click)="downloadPNG()">
@@ -59,7 +89,7 @@ const SITE_URL = 'https://timsgourmetsliders.com/scan';
     }
 
     .qr-header {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
 
       h1 {
         font-size: 1.75rem;
@@ -71,6 +101,36 @@ const SITE_URL = 'https://timsgourmetsliders.com/scan';
       p {
         color: #9ca3af;
         font-size: 0.875rem;
+      }
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+
+      .tab {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: #374151;
+        color: #9ca3af;
+        border: 1px solid #4b5563;
+
+        &:hover {
+          background: #4b5563;
+          color: #fff;
+        }
+
+        &.active {
+          background: #f59e0b;
+          color: #000;
+          border-color: #f59e0b;
+        }
       }
     }
 
@@ -149,11 +209,14 @@ const SITE_URL = 'https://timsgourmetsliders.com/scan';
 export class QrComponent implements AfterViewInit {
   @ViewChild('qrCanvas') qrCanvas!: ElementRef<HTMLCanvasElement>;
 
-  siteUrl = SITE_URL;
-  displayUrl = 'timsgourmetsliders.com/scan';
+  activeTab: QRTab = 'menu';
   copied = false;
   isIOS = false;
   private isBrowser = false;
+
+  get currentConfig() {
+    return URLS[this.activeTab];
+  }
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -168,9 +231,16 @@ export class QrComponent implements AfterViewInit {
     }
   }
 
+  setTab(tab: QRTab) {
+    if (this.activeTab === tab) return;
+    this.activeTab = tab;
+    this.generateQR();
+  }
+
   async generateQR() {
+    if (!this.isBrowser) return;
     try {
-      await QRCode.toCanvas(this.qrCanvas.nativeElement, SITE_URL, {
+      await QRCode.toCanvas(this.qrCanvas.nativeElement, this.currentConfig.url, {
         width: 240,
         margin: 0,
         color: {
@@ -200,6 +270,8 @@ export class QrComponent implements AfterViewInit {
     const padding = 64;
     ctx.drawImage(canvas, padding, padding, size - padding * 2, size - padding * 2);
 
+    const filename = `tgs-qr-${this.activeTab}.png`;
+
     // Convert to blob for better iOS compatibility
     downloadCanvas.toBlob(async (blob) => {
       if (!blob) return;
@@ -207,10 +279,10 @@ export class QrComponent implements AfterViewInit {
       // Try Web Share API first (works great on iOS)
       if (navigator.share && this.isIOS) {
         try {
-          const file = new File([blob], 'tims-gourmet-sliders-qr.png', { type: 'image/png' });
+          const file = new File([blob], filename, { type: 'image/png' });
           await navigator.share({
             files: [file],
-            title: "Tim's Gourmet Sliders QR Code",
+            title: `Tim's Gourmet Sliders QR Code - ${this.currentConfig.label}`,
           });
           return;
         } catch (err) {
@@ -245,7 +317,7 @@ export class QrComponent implements AfterViewInit {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'tims-gourmet-sliders-qr.png';
+      link.download = filename;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -261,8 +333,8 @@ export class QrComponent implements AfterViewInit {
       try {
         await navigator.share({
           title: "Tim's Gourmet Sliders",
-          text: 'Check out our menu!',
-          url: SITE_URL,
+          text: this.activeTab === 'menu' ? 'Check out our menu!' : 'Visit our website!',
+          url: this.currentConfig.url,
         });
         return;
       } catch (err) {
@@ -273,7 +345,7 @@ export class QrComponent implements AfterViewInit {
 
     // Fallback to clipboard
     try {
-      await navigator.clipboard.writeText(SITE_URL);
+      await navigator.clipboard.writeText(this.currentConfig.url);
       this.copied = true;
       setTimeout(() => this.copied = false, 2000);
     } catch (err) {
