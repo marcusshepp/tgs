@@ -10,7 +10,7 @@ import {
     AbstractControl,
     ValidationErrors,
 } from '@angular/forms';
-import { environment } from '../../../environments/environment';
+// Environment import removed - now posting directly to sync API
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -203,14 +203,29 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
                 }
             }
 
-            const apiUrl: string = `${environment.apiUrl}/contact`;
+            // POST directly to sync API
+            const apiUrl: string = 'https://api.syncgr.com/contact';
 
             const formData: any = { ...this.form.value };
             delete formData.honeypot;
             delete formData.formToken;
             delete formData.interactionScore;
 
-            this.http.post(apiUrl, formData).subscribe({
+            // Build payload for sync contact API
+            const payload = {
+                to: 'timsfoodtruckdetroit@gmail.com',
+                from: 'info@syncgr.com',
+                subject: `Tim's Gourmet Sliders - New Catering Inquiry from ${formData.fullName}`,
+                text: `Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phoneNumber || 'Not provided'}\nEvent Date: ${formData.eventDate || 'Not specified'}\nEvent Location: ${formData.eventLocation || 'Not specified'}\n\nMessage:\n${formData.message}`,
+                replyTo: formData.email,
+                // Lead tracking fields
+                domain: 'timsgourmetsliders.com',
+                contactName: formData.fullName,
+                contactPhone: formData.phoneNumber || undefined,
+                contactMessage: formData.message,
+            };
+
+            this.http.post(apiUrl, payload).subscribe({
                 next: () => {
                     if (this.isBrowser) {
                         const fullName: string = this.form.get('fullName')?.value || 'valued customer';
