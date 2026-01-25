@@ -223,6 +223,24 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
                 contactName: formData.fullName,
                 contactPhone: formData.phoneNumber || undefined,
                 contactMessage: formData.message,
+                // Auto-reply confirmation email
+                autoReply: {
+                    enabled: true,
+                    subject: "Thank you for your catering inquiry - Tim's Gourmet Sliders",
+                    fromName: "Tim's Gourmet Sliders",
+                    replyTo: 'timsfoodtruckdetroit@gmail.com',
+                    body: `Hi ${formData.fullName},
+
+Thank you for reaching out to Tim's Gourmet Sliders for your catering needs. We've received your inquiry and will get back to you within 24 hours with availability and pricing for your event on ${formData.eventDate}.
+
+If you need immediate assistance, please call us at (248) 251-5781.
+
+We look forward to making your event delicious!
+
+Tim's Gourmet Sliders
+(248) 251-5781
+timsgourmetsliders.com`
+                }
             };
 
             this.http.post(apiUrl, payload).subscribe({
