@@ -136,6 +136,10 @@ export const MENU_SECTIONS: MenuSection[] = [
                 description: ''
             },
             {
+                title: 'Hot crispy fries',
+                description: 'Upgrade your fry game with your choice of our premium cajun or truffle seasoning',
+            },
+            {
                 title: 'Beverages Available',
                 description: '',
                 additionalCharge: true
