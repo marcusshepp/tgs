@@ -26,7 +26,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'The Not! So Basic Sliders',
-                description: 'Our prime beef sliders topped with American cheese, grilled onions, Not! So Basic Sauce, lettuce and tomato'
+                description: 'Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato'
             },
             {
                 title: 'Whiskey Sliders',
@@ -84,7 +84,7 @@ export const MENU_SECTIONS: MenuSection[] = [
             },
             {
                 title: 'Tim\'s Famous Fried Chicken Sliders',
-                description: 'Crispy fried chicken topped with pickles, Not! So Basic Sauce and white American cheese'
+                description: 'Crispy fried chicken topped with pickles, our signature sauce and white American cheese'
             }
         ]
     },

@@ -31,7 +31,7 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'not-so-basic',
         title: 'Not! So Basic',
         description:
-            'Our prime beef sliders topped with American cheese, grilled onions, Not! So Basic Sauce, lettuce and tomato',
+            'Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato',
         imageUrl: `${CLOUDINARY_URL}not-so-basic_fiqbf8.webp`,
         category: 'beef',
         price: 13,
@@ -144,7 +144,7 @@ export const MENU_ITEMS: MenuItem[] = [
         id: 'famous-fried-chicken',
         title: 'Tim\'s Famous Fried Chicken',
         description:
-            'Crispy fried chicken topped with pickles, Not! So Basic Sauce and white American cheese',
+            'Crispy fried chicken topped with pickles, our signature sauce and white American cheese',
         imageUrl: `${CLOUDINARY_URL}famous-fried-chicken_ggfvk7.webp`,
         category: 'chicken',
         price: 15,
@@ -162,7 +162,7 @@ export const MENU_ITEMS: MenuItem[] = [
         ingredients: [
             'Hand-Breaded Chicken',
             'Pickles',
-            'Not! So Basic Sauce',
+            'Our Signature Sauce',
             'White American Cheese',
             'Brioche Bun',
         ],
@@ -252,7 +252,7 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'double-bacon',
-        title: 'Double Cheese',
+        title: 'Double Banger',
         description:
             '4 prime beef patties with American cheese\nAdd bacon for an additional $2',
         imageUrl: `${CLOUDINARY_URL}double-bacon_i4crrj.webp`,
@@ -401,8 +401,8 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     {
         id: 'fries',
-        title: 'Basket of Fries',
-        description: 'Our famous crispy fries seasoned to perfection.',
+        title: 'The Spud-Tacular Basket',
+        description: 'Our famous crispy fries served with our signature sauce.',
         imageUrl: `${CLOUDINARY_URL}fries_hzklhc.webp`,
         category: 'other',
         price: 8,
@@ -423,7 +423,7 @@ export const MENU_ITEMS: MenuItem[] = [
     {
         id: 'chicken-tenders',
         title: 'Premium Chicken Tenders',
-        description: 'Delicious crispy chicken paired with your choice of dipping sauce... ranch, bbq or NSB sauce. Served with our famous crispy fries',
+        description: 'Delicious crispy chicken paired with your choice of dipping sauce... ranch, bbq or our signature sauce. Served with our famous crispy fries',
         imageUrl: `${CLOUDINARY_URL}tenders_uyrp48.webp`,
         category: 'other',
         price: 15,
