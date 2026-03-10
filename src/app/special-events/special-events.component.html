@@ -63,6 +63,16 @@
                                 loading="lazy"
                             />
                         </div>
+                        <div class="download-area">
+                            <button (click)="downloadMenu()" class="download-btn">
+                                {{ isIOS ? 'View Menu PDF' : 'Download Menu PDF' }}
+                            </button>
+                            @if (showIOSHint) {
+                                <div class="ios-hint">
+                                    <p><strong>On iPhone/iPad:</strong> Tap the Share button <span class="share-icon">⬆</span> then select "Save to Files" or "Print" to save as PDF</p>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

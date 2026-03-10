@@ -157,6 +157,52 @@
     }
 }
 
+.download-area {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #d40000;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid #d40000;
+    cursor: pointer;
+
+    &:hover {
+        background: transparent;
+        color: #d40000;
+    }
+}
+
+.ios-hint {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .share-icon {
+        display: inline-block;
+        font-size: 1.1rem;
+    }
+}
+
 @media (max-width: 767px) {
     .events-section {
         padding-top: 60px;
