@@ -5,5 +5,9 @@
 /contact-us/*    /contact-us/index.html    200
 /meet-us/*    /meet-us/index.html    200
 
+# Proxy /admin to Sync Portal
+/admin              https://portal.syncgr.com/admin    200
+/admin/*            https://portal.syncgr.com/admin/:splat    200
+
 # Fallback to root index.html for unmatched routes (SPA behavior)
 /*    /index.html    200
