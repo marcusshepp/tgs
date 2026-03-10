@@ -59,6 +59,15 @@ export const routes: Routes = [
         },
     },
     {
+        path: 'special-events',
+        loadComponent: () => import('./special-events/special-events.component').then(m => m.SpecialEventsComponent),
+        data: {
+            title: 'Special Events',
+            description:
+                "Catch Tim's Gourmet Sliders at upcoming special events across Michigan. Limited-time menus, live entertainment, and our signature sliders.",
+        },
+    },
+    {
         path: 'menu-item/:id',
         loadComponent: () => import('./menu-item-details/menu-item-details.component').then(m => m.MenuItemDetailsComponent),
         data: {
