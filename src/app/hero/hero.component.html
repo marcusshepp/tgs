@@ -1,4 +1,4 @@
-<section class="hero" aria-label="Tim's Gourmet Sliders - Detroit & Redford Michigan Food Truck">
+<section class="hero" [attr.aria-label]="brand?.ariaDescription || 'Tim\'s Gourmet Sliders - Detroit & Redford Michigan Food Truck'">
     <!-- Video Background -->
     <div class="hero__background">
         <div class="hero__loader" [class.hero__loader--hidden]="videoLoaded">
@@ -13,13 +13,13 @@
             playsinline
             [muted]="true"
             preload="metadata"
-            poster="https://res.cloudinary.com/dy00ivhtt/video/upload/so_0,w_1280,q_auto,f_jpg/hero-video_b7nk2y.jpg"
+            [attr.poster]="brand?.heroVideoPoster || 'https://res.cloudinary.com/dy00ivhtt/video/upload/so_0,w_1280,q_auto,f_jpg/hero-video_b7nk2y.jpg'"
             (canplaythrough)="onVideoReady()"
             (playing)="onVideoReady()"
             #heroVideo
         >
-            <source src="https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto,f_webm/hero-video_b7nk2y.webm" type="video/webm" />
-            <source src="https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto/hero-video_b7nk2y.mp4" type="video/mp4" />
+            <source [attr.src]="brand?.heroVideoWebm || 'https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto,f_webm/hero-video_b7nk2y.webm'" type="video/webm" />
+            <source [attr.src]="brand?.heroVideoMp4 || 'https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto/hero-video_b7nk2y.mp4'" type="video/mp4" />
         </video>
         <div class="hero__overlay"></div>
     </div>
@@ -27,39 +27,39 @@
     <!-- Hero Content -->
     <div class="hero__container">
         <header class="hero__header">
-            <h1 class="hero__title">Tim's Gourmet Sliders</h1>
-            <p class="hero__tagline">Detroit's #1 Top Rated Food Truck</p>
+            <h1 class="hero__title">{{ brand?.businessName || "Tim's Gourmet Sliders" }}</h1>
+            <p class="hero__tagline">{{ brand?.tagline || "Detroit's #1 Top Rated Food Truck" }}</p>
         </header>
 
-        <a routerLink="menu" class="hero__cta">View Our Menu</a>
+        <a [routerLink]="hero?.ctaUrl || '/menu'" class="hero__cta">{{ hero?.ctaLabel || 'View Our Menu' }}</a>
 
         <!-- Contact Info -->
-        <footer class="hero__contact">
-            <a [href]="contact.PHONE_LINK" class="hero__contact-item">
+        <footer class="hero__contact" *ngIf="contact">
+            <a [href]="contact.phoneLink" class="hero__contact-item">
                 <i class="fa-solid fa-phone"></i>
-                <span>{{ contact.PHONE }}</span>
+                <span>{{ contact.phone }}</span>
             </a>
             <div class="hero__contact-divider"></div>
             <div class="hero__contact-item">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>{{ contact.ADDRESS }}</span>
+                <span>{{ contact.address }}</span>
             </div>
             <div class="hero__contact-divider"></div>
-            <div class="hero__social">
-                <a [href]="socials.FACEBOOK" target="_blank" rel="noopener" aria-label="Facebook">
+            <div class="hero__social" *ngIf="brand">
+                <a [href]="brand.socialUrls.facebook" target="_blank" rel="noopener" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a [href]="socials.INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram">
+                <a [href]="brand.socialUrls.instagram" target="_blank" rel="noopener" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a [href]="socials.GOOGLE" target="_blank" rel="noopener" aria-label="Google">
+                <a [href]="brand.socialUrls.google" target="_blank" rel="noopener" aria-label="Google">
                     <i class="fab fa-google"></i>
                 </a>
             </div>
         </footer>
 
-        <div class="hero__halal-badge">
-            <span>100% Halal Beef</span>
+        <div class="hero__halal-badge" *ngIf="brand">
+            <span>{{ brand.halalBadgeText }}</span>
         </div>
     </div>
 </section>
