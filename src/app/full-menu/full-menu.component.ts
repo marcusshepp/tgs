@@ -3,6 +3,7 @@ import {
     EventEmitter,
     Input,
     OnInit,
+    OnDestroy,
     Output,
     PLATFORM_ID,
     Inject,
@@ -11,8 +12,11 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { MENU_ITEMS, MenuItem } from '../data/public-menu.model';
+import { CmsService } from '../services/cms.service';
+import { CmsMenuItem } from '../models/cms.types';
 import { BannerComponent } from '../banner/banner.component';
 import { PageTitleComponent } from '../page-title/page-title.component';
 
@@ -40,11 +44,13 @@ import { PageTitleComponent } from '../page-title/page-title.component';
         ]),
     ],
 })
-export class FullMenuComponent implements OnInit {
-    public menu: MenuItem[] = MENU_ITEMS.filter(item => item.active);
-    public filteredMenu: MenuItem[] = [];
+export class FullMenuComponent implements OnInit, OnDestroy {
+    public menu: CmsMenuItem[] = [];
+    public filteredMenu: CmsMenuItem[] = [];
     public searchTerm: string = '';
     public activeFilter: string = 'all';
+    public loading: boolean = true;
+    private destroy$ = new Subject<void>();
 
     @Input() public showMenu = true;
     @Output() public menuClosedEvent: EventEmitter<boolean> =
@@ -55,10 +61,10 @@ export class FullMenuComponent implements OnInit {
         private router: Router,
         private meta: Meta,
         private title: Title,
+        private cms: CmsService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
-        this.filteredMenu = [...this.menu];
     }
 
     public ngOnInit(): void {
@@ -71,9 +77,21 @@ export class FullMenuComponent implements OnInit {
                 content:
                     'Explore our delicious menu of freshly prepared Detroit-style sliders. From our famous NOT! So Basic to the Black And Blue steakhouse classic.',
             });
-
-            this.initAnimations();
         }
+
+        this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
+            this.menu = items.filter(item => item.available);
+            this.filteredMenu = [...this.menu];
+            this.loading = false;
+            if (this.isBrowser) {
+                setTimeout(() => this.initAnimations(), 100);
+            }
+        });
+    }
+
+    public ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 
     private initAnimations(): void {
@@ -122,7 +140,7 @@ export class FullMenuComponent implements OnInit {
         if (this.searchTerm.trim()) {
             const searchLower = this.searchTerm.toLowerCase().trim();
             result = result.filter(item => {
-                if (item.title.toLowerCase().includes(searchLower)) return true;
+                if (item.name.toLowerCase().includes(searchLower)) return true;
                 if (item.description.toLowerCase().includes(searchLower)) return true;
                 if (item.category.toLowerCase().includes(searchLower)) return true;
                 if (item.ingredients && item.ingredients.some(ing => ing.toLowerCase().includes(searchLower))) return true;
@@ -144,12 +162,11 @@ export class FullMenuComponent implements OnInit {
         this.filteredMenu = [...this.menu];
     }
 
-    public goToMenuItem(id: string): void {
-        this.router.navigate(['menu-item', id]);
+    public goToMenuItem(slug: string): void {
+        this.router.navigate(['menu-item', slug]);
     }
 
     public closeMenu(): void {
         this.menuClosedEvent.emit(true);
     }
 }
-

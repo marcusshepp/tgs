@@ -13,10 +13,7 @@
                 <h3 class="menu-category">{{ section.label }}</h3>
                 <div class="menu-items" [class.side-items]="section.id === 'sides'">
                     <div class="menu-item" *ngFor="let item of section.items">
-                        <h4>
-                            {{ item.title }}
-                            <span class="portion-size" *ngIf="item.portionSize">{{ item.portionSize }}</span>
-                        </h4>
+                        <h4>{{ item.name }}</h4>
                         <p *ngIf="item.description">
                             {{ item.description }}
                             <span class="additional-charge" *ngIf="item.additionalCharge">(additional charge)</span>
@@ -34,8 +31,8 @@
         </ul>
         <div class="contact-info">
             <h3>Ready To Eat?</h3>
-            <p><i class="fas fa-envelope"></i> {{ contactInfo.email }}</p>
-            <p><i class="fas fa-phone"></i> {{ contactInfo.phone }}</p>
+            <p><i class="fas fa-envelope"></i> {{ contactEmail }}</p>
+            <p><i class="fas fa-phone"></i> {{ contactPhone }}</p>
         </div>
     </div>
 </div>

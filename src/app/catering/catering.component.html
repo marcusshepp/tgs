@@ -8,7 +8,7 @@
                         src="/img/icon/titleIcon.svg"
                         alt="icon"
                     />
-                    Detroit's Premier Slider Catering Service
+                    {{ catering?.pageKicker || "Detroit's Premier Slider Catering Service" }}
                     <img
                         class="ms-1"
                         src="/img/icon/titleIcon.svg"
@@ -18,18 +18,12 @@
             </div>
 
             <div class="intro-text">
-                <p>
-                    Tim's Gourmet Sliders brings the restaurant experience
-                    directly to your event with our full-service catering
-                    options. From corporate gatherings to weddings and
-                    celebrations, we deliver fresh, made-to-order sliders your
-                    guests will love.
-                </p>
+                <p>{{ catering?.introParagraph }}</p>
             </div>
 
             <div class="wedding-photo">
                 <img
-                    src="/img/wedding-catering.jpg"
+                    [src]="catering?.weddingPhotoUrl || '/img/wedding-catering.jpg'"
                     alt="Tim's Gourmet Sliders food truck catering a wedding reception"
                     loading="lazy"
                 />
@@ -37,48 +31,10 @@
 
             <div class="features-list" [class.animate]="isBrowser">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" *ngFor="let feature of catering?.features">
                         <div class="feature-item">
-                            <i class="fas fa-users"></i>
-                            <h4>Professional Staff</h4>
-                            <p>
-                                Experienced team dedicated to excellent service
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-item">
-                            <i class="fas fa-truck"></i>
-                            <h4>Full Mobile Kitchen</h4>
-                            <p>Complete cooking setup at your location</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <h4>High Quality Ingredients</h4>
-                            <p>Fresh, locally sourced premium ingredients</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-item">
-                            <i class="fas fa-clipboard-list"></i>
-                            <h4>Customizable Menus</h4>
-                            <p>Flexible options to suit your event</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <h4>Licensed and Insured</h4>
-                            <p>Fully compliant with all regulations</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="feature-item">
-                            <i class="fas fa-star"></i>
-                            <h4>30 Years Experience</h4>
-                            <p>Decades of culinary excellence</p>
+                            <h4>{{ feature.heading }}</h4>
+                            <p>{{ feature.body }}</p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +47,7 @@
                         src="/img/icon/titleIcon.svg"
                         alt="icon"
                     />
-                    Catering Packages
+                    {{ catering?.packagesHeading || 'Catering Packages' }}
                     <img
                         class="ms-1"
                         src="/img/icon/titleIcon.svg"
@@ -102,56 +58,16 @@
 
             <div class="package-container" [class.animate]="isBrowser">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-card">
+                    <div class="col-lg-4 col-md-6" *ngFor="let pkg of catering?.packages">
+                        <div class="package-card" [class.popular]="pkg.popularTag">
+                            <div class="popular-tag" *ngIf="pkg.popularTag">{{ pkg.popularTag }}</div>
                             <div class="package-header">
-                                <span class="package-badge">Basic</span>
-                                <h4>Starter Package</h4>
+                                <span class="package-badge">{{ pkg.badge }}</span>
+                                <h4>{{ pkg.name }}</h4>
                             </div>
                             <div class="package-body">
                                 <ul>
-                                    <li>Includes these 4 slider options:</li>
-                                    <li>Not So Basic</li>
-                                    <li>Very! Basic</li>
-                                    <li>Extra Cheese Please</li>
-                                    <li>Classic</li>
-                                    <li>Choice of one side</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-card popular">
-                            <div class="popular-tag">Most Popular</div>
-                            <div class="package-header">
-                                <span class="package-badge">Premium</span>
-                                <h4>Not! So Basic Package</h4>
-                            </div>
-                            <div class="package-body">
-                                <ul>
-                                    <li>Your choice of any 4 options</li>
-                                    <li>Premium slider selections</li>
-                                    <li>Includes your choice of one side</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-card">
-                            <div class="package-header">
-                                <span class="package-badge">Deluxe</span>
-                                <h4>Deluxe Package</h4>
-                            </div>
-                            <div class="package-body">
-                                <ul>
-                                    <li>5 slider options</li>
-                                    <li>Spudtacular Loaded Fries
-                                        <span class="side-description">Seasoned ground beef, truck made cheese sauce, sour cream, green onions, jalapeño</span>
-                                    </li>
-                                    <li>Assorted beverages</li>
-                                    <li>Choose BBQ seasoning or Tim's signature seasoning for fries</li>
+                                    <li *ngFor="let bullet of pkg.bullets">{{ bullet }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -160,13 +76,8 @@
             </div>
 
             <div class="package-note text-center">
-                <p class="note">
-                    All catering packages include napkins, plasticware,
-                    condiments, and bluetooth music streaming with service
-                </p>
-                <p class="gluten-free">
-                    Gluten Free Option Available! Contact us for more details
-                </p>
+                <p class="note">{{ catering?.packageIncludesNote }}</p>
+                <p class="gluten-free">{{ catering?.glutenFreeNote }}</p>
             </div>
 
             <div class="title-area menu-heading">
