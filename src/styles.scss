@@ -3,6 +3,20 @@
 // }
 $cloudinary-base: 'https://res.cloudinary.com/dy00ivhtt/image/upload';
 
+// ── TGS Order Flow custom properties ─────────────────
+:root {
+    --tgs-order-bg: #0d0905;
+    --tgs-order-bg-alt: #1a0f07;
+    --tgs-order-surface: #231308;
+    --tgs-order-surface-hover: #2e1a0a;
+    --tgs-order-amber: #e8a020;
+    --tgs-order-orange: #e06400;
+    --tgs-order-cream: #f5ede0;
+    --tgs-order-muted: #a08060;
+    --tgs-order-border: rgba(232, 160, 32, 0.10);
+    --tgs-order-border-strong: rgba(232, 160, 32, 0.22);
+}
+
 .breadcumb-wrapper::before {
     background-color: transparent !important;
 }

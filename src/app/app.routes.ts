@@ -112,4 +112,13 @@ export const routes: Routes = [
                 "Tim's Gourmet Sliders QR code for marketing materials.",
         },
     },
+    {
+        path: 'events/:slug/order',
+        loadComponent: () => import('./events/order/event-order.component').then(m => m.EventOrderComponent),
+        data: {
+            title: 'Order Sliders',
+            description:
+                "Pre-order sliders from Tim's Gourmet Sliders for this event. Pick up fresh off the truck.",
+        },
+    },
 ];
