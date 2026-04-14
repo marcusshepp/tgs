@@ -1,0 +1,68 @@
+<div class="confirm-page">
+
+  <!-- No order found -->
+  @if (!order) {
+    <div class="state-center">
+      <p class="state-eyebrow">Nothing here</p>
+      <h1 class="state-heading">No order found.</h1>
+      <p class="state-body">Looks like you got here by accident.</p>
+      <a routerLink="/special-events" class="btn-primary">Browse Events →</a>
+    </div>
+  }
+
+  <!-- Order confirmed -->
+  @if (order) {
+    <div class="confirm-inner">
+
+      <!-- Animated checkmark -->
+      <div class="checkmark-wrap" aria-label="Order placed successfully" role="img">
+        <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke-width="2"/>
+          <path class="checkmark-path" d="M14 26l9 9 15-16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1 class="confirm-headline">Order's In!</h1>
+      <p class="confirm-order-id">{{ order.orderId }}</p>
+
+      <!-- Summary card -->
+      <div class="confirm-card">
+
+        <p class="confirm-name-row">For {{ order.customer.name }}</p>
+
+        <div class="confirm-items">
+          @for (item of order.items; track item.slug) {
+            <div class="confirm-line-item">
+              <span class="confirm-item-name">{{ item.quantity }}× {{ item.name }}</span>
+              <span class="confirm-item-price">{{ lineTotal(item) }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="confirm-total-row">
+          <span>Total</span>
+          <span class="confirm-total-amount">{{ formatPrice(order.total) }}</span>
+        </div>
+
+        @if (order.customer.pickupInstructions) {
+          <div class="confirm-instructions">
+            <p class="confirm-instructions-label">Pickup notes</p>
+            <p class="confirm-instructions-text">{{ order.customer.pickupInstructions }}</p>
+          </div>
+        }
+
+        <div class="demo-disclaimer">
+          This is a demo. No real order was placed and no payment was charged.
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="confirm-actions">
+        <a routerLink="/special-events" class="btn-primary">Back to Events</a>
+        <a routerLink="/menu" class="btn-ghost">See Full Menu</a>
+      </div>
+
+    </div>
+  }
+
+</div>
