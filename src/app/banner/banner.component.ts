@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Input, OnInit, ElementRef, Renderer2, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { CmsService } from '../services/cms.service';
 
 @Component({
     selector: 'app-banner',
@@ -30,6 +31,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     constructor(
         private el: ElementRef<HTMLElement>,
         private renderer: Renderer2,
+        private cms: CmsService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);

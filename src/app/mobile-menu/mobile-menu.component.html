@@ -51,11 +51,13 @@
             </ul>
         </nav>
 
-        <div class="mobile-menu__social">
+        <div class="mobile-menu__social" *ngIf="brand">
             <a
-                href="{{ socials.FACEBOOK }}"
+                *ngIf="brand.socialUrls.facebook"
+                [href]="brand.socialUrls.facebook"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -69,9 +71,11 @@
                 </svg>
             </a>
             <a
-                href="{{ socials.INSTAGRAM }}"
+                *ngIf="brand.socialUrls.instagram"
+                [href]="brand.socialUrls.instagram"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,9 +89,11 @@
                 </svg>
             </a>
             <a
-                href="{{ socials.GOOGLE }}"
+                *ngIf="brand.socialUrls.google"
+                [href]="brand.socialUrls.google"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Google"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -6,8 +6,6 @@ import {
     PLATFORM_ID,
     HostListener,
 } from '@angular/core';
-import { SOCIAL_MEDIA } from '../data/social-media.model';
-import { CONTACT } from '../data/contact-info.model';
 import { RouterModule } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Subject } from 'rxjs';
@@ -15,6 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 import { MobileService } from '../services/mobile.service';
 import { PreloaderComponent } from '../preloader/preloader.component';
 import { MobileMenuService } from '../services/mobile-menu.service';
+import { CmsService } from '../services/cms.service';
 
 @Component({
     selector: 'app-header',
@@ -24,8 +23,6 @@ import { MobileMenuService } from '../services/mobile-menu.service';
     styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-    public socials = SOCIAL_MEDIA;
-    public contact = CONTACT;
     public isMobile = false;
     public isScrolled = false;
     private destroy$ = new Subject<void>();
@@ -34,6 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     constructor(
         private mobileService: MobileService,
         private mobileMenuService: MobileMenuService,
+        private cms: CmsService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {}
 
