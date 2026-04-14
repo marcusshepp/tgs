@@ -19,91 +19,133 @@
 
             <div class="intro-text">
                 <p>
-                    Catch Tim's Gourmet Sliders at these upcoming special events!
+                    Catch Tim's Gourmet Sliders at these special events!
                     We bring our signature sliders and special limited-time menus
                     to venues across Michigan.
                 </p>
             </div>
 
-            <div class="event-card">
-                <div class="event-header">
-                    <span class="event-badge">This Friday!</span>
-                    <div class="event-details">
-                        <p><strong>Date:</strong> Friday, March 13th, 2026</p>
-                        <p><strong>Time:</strong> 4:30 PM – 7:30 PM</p>
-                        <p><strong>Location:</strong> 4358 Ardmore Dr, Bloomfield Township, MI 48302 (Vernor Estates)</p>
-                    </div>
-                </div>
+            @if (upcomingEvents.length > 0) {
+                <div class="events-group-heading">Upcoming Events</div>
 
-                <div class="event-body">
-                    <div class="event-description">
-                        <p>
-                            Tim's Gourmet Sliders is coming to Vernor Estates this Friday evening!
-                            Swing by and grab our signature sliders, loaded fries, and more —
-                            fresh off the truck, right in your neighborhood. Bring the family
-                            and kick off the weekend with something delicious.
-                        </p>
-                    </div>
-
-                    <div class="event-highlights">
-                        <div class="highlight-item">Vernor Estates Subdivision</div>
-                        <div class="highlight-item">4:30 PM – 7:30 PM</div>
-                        <div class="highlight-item">Full Menu Available</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-header">
-                    <span class="event-badge">Upcoming</span>
-                    <h2>St. Patrick's Day at The Show</h2>
-                    <div class="event-details">
-                        <p><strong>Date:</strong> Tuesday, March 17th, 2026</p>
-                        <p><strong>Time:</strong> Opens at Noon</p>
-                        <p><strong>Location:</strong> 14661 Eleven Mile, Oak Park, MI</p>
-                    </div>
-                </div>
-
-                <div class="event-body">
-                    <div class="event-flyer">
-                        <img
-                            src="/img/events/st-patricks-flyer.jpg"
-                            alt="St. Paddy's Day at The Show - featuring Tim's Gourmet Sliders and O'Kennedy Holland Irish Dance Academy"
-                            loading="lazy"
-                        />
-                    </div>
-
-                    <div class="event-description">
-                        <p>
-                            Join us for St. Paddy's Day at The Show! Enjoy $5 pints of
-                            O'Guinymish Irish Stout & White Hart English Mild, a special menu
-                            from Tim's Gourmet Sliders, and live entertainment from the
-                            O'Kennedy Holland Irish Dance Academy.
-                        </p>
-                    </div>
-
-                    <div class="event-menu">
-                        <h3>St. Patrick's Day Special Menu</h3>
-                        <div class="event-flyer">
-                            <img
-                                src="/img/events/stpatricks-menu.jpg"
-                                alt="St. Patrick's Day Special Menu - Wee Reubens, Irish Car Bomb sliders, Leprechaun's Loot fries, and more"
-                                loading="lazy"
-                            />
+                @for (event of upcomingEvents; track event.slug) {
+                    <div class="event-card">
+                        <div class="event-header">
+                            <span class="event-badge">{{ event.badge || 'Upcoming' }}</span>
+                            <h2>{{ event.name }}</h2>
+                            <div class="event-details">
+                                <p><strong>Date:</strong> {{ event.date }}</p>
+                                @if (getEventTime(event)) {
+                                    <p><strong>Time:</strong> {{ getEventTime(event) }}</p>
+                                }
+                                <p><strong>Location:</strong> {{ event.location }}</p>
+                            </div>
                         </div>
-                        <div class="download-area">
-                            <button (click)="downloadMenu()" class="download-btn">
-                                {{ isIOS ? 'View Menu PDF' : 'Download Menu PDF' }}
-                            </button>
-                            @if (showIOSHint) {
-                                <div class="ios-hint">
-                                    <p><strong>On iPhone/iPad:</strong> Tap the Share button <span class="share-icon">⬆</span> then select "Save to Files" or "Print" to save as PDF</p>
+
+                        <div class="event-body">
+                            @if (event.coverImage) {
+                                <div class="event-cover-image">
+                                    <img
+                                        [src]="event.coverImage"
+                                        [alt]="event.name"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            }
+
+                            <div class="event-description">
+                                <p>{{ event.description }}</p>
+                            </div>
+
+                            @if (event.highlights.length > 0) {
+                                <div class="event-highlights">
+                                    @for (h of event.highlights; track h) {
+                                        <div class="highlight-item">{{ h }}</div>
+                                    }
+                                </div>
+                            }
+
+                            <div class="event-order-cta">
+                                @if (isOrderingOpen(event)) {
+                                    <a
+                                        [routerLink]="['/events', event.slug, 'order']"
+                                        class="order-now-btn"
+                                    >Order Now</a>
+                                } @else if (isOrderingFuture(event)) {
+                                    <p class="ordering-opens-note">
+                                        Ordering opens {{ formatOrderOpensDate(event.orderOpensAt) }}
+                                    </p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            @if (pastEvents.length > 0) {
+                <div class="events-group-heading past">Past Events</div>
+
+                @for (event of pastEvents; track event.slug) {
+                    <div class="event-card past-event">
+                        <div class="event-header">
+                            <span class="event-badge past">{{ event.badge || 'Past Event' }}</span>
+                            <h2>{{ event.name }}</h2>
+                            <div class="event-details">
+                                <p><strong>Date:</strong> {{ event.date }}</p>
+                                @if (getEventTime(event)) {
+                                    <p><strong>Time:</strong> {{ getEventTime(event) }}</p>
+                                }
+                                <p><strong>Location:</strong> {{ event.location }}</p>
+                            </div>
+                        </div>
+
+                        <div class="event-body">
+                            @if (event.coverImage) {
+                                <div class="event-cover-image">
+                                    <img
+                                        [src]="event.coverImage"
+                                        [alt]="event.name"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            }
+
+                            <div class="event-description">
+                                <p>{{ event.description }}</p>
+                            </div>
+
+                            @if (event.highlights.length > 0) {
+                                <div class="event-highlights">
+                                    @for (h of event.highlights; track h) {
+                                        <div class="highlight-item">{{ h }}</div>
+                                    }
+                                </div>
+                            }
+
+                            @if (event.menuImageUrl) {
+                                <div class="event-menu">
+                                    @if (event.specialMenuHeading) {
+                                        <h3>{{ event.specialMenuHeading }}</h3>
+                                    }
+                                    <div class="event-flyer">
+                                        <img
+                                            [src]="event.menuImageUrl"
+                                            [alt]="event.specialMenuHeading || event.name + ' menu'"
+                                            loading="lazy"
+                                        />
+                                    </div>
                                 </div>
                             }
                         </div>
                     </div>
+                }
+            }
+
+            @if (upcomingEvents.length === 0 && pastEvents.length === 0) {
+                <div class="no-events">
+                    <p>No events at this time. Check back soon!</p>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </section>
