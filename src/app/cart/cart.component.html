@@ -95,10 +95,6 @@
                 <span>Subtotal</span>
                 <span class="summary-value">{{ formatPrice(subtotal) }}</span>
               </div>
-              <div class="summary-line">
-                <span>Tax</span>
-                <span class="summary-value">{{ formatPrice(tax) }}</span>
-              </div>
             </div>
 
             <div class="summary-total-row">
@@ -112,7 +108,7 @@
               [class.checkout-btn--disabled]="isEmpty"
               [attr.aria-disabled]="isEmpty ? 'true' : null"
             >
-              Continue to Checkout
+              Go to Checkout
             </a>
 
             <a routerLink="/special-events" class="back-link">← Keep browsing</a>

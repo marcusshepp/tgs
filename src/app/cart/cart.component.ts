@@ -74,7 +74,7 @@ export class CartComponent implements OnInit, OnDestroy {
     }
 
     formatPrice(price: number): string {
-        return `$${price.toFixed(2)}`;
+        return price % 1 === 0 ? `$${price}` : `$${price.toFixed(2)}`;
     }
 
     lineTotal(item: LineItem): string {

@@ -143,23 +143,25 @@
             }
           </div>
 
-          <!-- Submit -->
-          <button
-            type="submit"
-            class="submit-btn"
-            [class.submit-btn--loading]="isSubmitting"
-            [disabled]="isSubmitting || totalQty === 0"
-            aria-label="Place my order"
-          >
-            @if (isSubmitting) {
-              <span class="btn-spinner" aria-hidden="true"></span>
-              Placing order…
-            } @else {
-              Place My Order
-            }
-          </button>
+          <!-- Submit (sticky on mobile) -->
+          <div class="submit-wrap">
+            <button
+              type="submit"
+              class="submit-btn"
+              [class.submit-btn--loading]="isSubmitting"
+              [disabled]="isSubmitting || totalQty === 0"
+              aria-label="Place my order"
+            >
+              @if (isSubmitting) {
+                <span class="btn-spinner" aria-hidden="true"></span>
+                Placing order…
+              } @else {
+                Place My Order
+              }
+            </button>
 
-          <p class="demo-note">Demo only — no real order is placed.</p>
+            <p class="demo-note">Demo only — no real order is placed.</p>
+          </div>
 
         </form>
       </main>
@@ -188,10 +190,6 @@
               <div class="summary-line">
                 <span>Subtotal</span>
                 <span class="summary-value">{{ formatPrice(subtotal) }}</span>
-              </div>
-              <div class="summary-line">
-                <span>Tax</span>
-                <span class="summary-value">{{ formatPrice(tax) }}</span>
               </div>
             </div>
 

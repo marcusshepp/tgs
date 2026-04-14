@@ -67,9 +67,10 @@
 
 // ── Animated checkmark ────────────────────────────────
 .checkmark-wrap {
-    width: 72px;
-    height: 72px;
-    margin-bottom: 0.25rem;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 12px rgba(232, 160, 32, 0.45));
 }
 
 .checkmark-svg {

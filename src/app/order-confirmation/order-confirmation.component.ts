@@ -35,7 +35,7 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
         cartEmptyMessage: '',
         checkoutHeading: '',
         submitButtonLabel: '',
-        confirmationHeading: 'Order confirmed — this is a demo',
+        confirmationHeading: "Order's In!",
         confirmationMessage: '',
     };
 
@@ -87,7 +87,7 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
     }
 
     formatPrice(price: number): string {
-        return `$${price.toFixed(2)}`;
+        return price % 1 === 0 ? `$${price}` : `$${price.toFixed(2)}`;
     }
 
     lineTotal(item: LineItem): string {
@@ -110,7 +110,9 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
     formatEventDate(isoString: string): string {
         if (!isoString) return '';
         try {
-            return new Date(isoString).toLocaleDateString('en-US', {
+            const d = new Date(isoString);
+            if (isNaN(d.getTime())) return isoString;
+            return d.toLocaleDateString('en-US', {
                 weekday: 'long',
                 month: 'long',
                 day: 'numeric',

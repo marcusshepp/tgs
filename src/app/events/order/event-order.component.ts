@@ -188,7 +188,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
     }
 
     get formattedTotal(): string {
-        return `$${this.totalPrice.toFixed(2)}`;
+        return this.totalPrice % 1 === 0 ? `$${this.totalPrice}` : `$${this.totalPrice.toFixed(2)}`;
     }
 
     submitOrder(): void {

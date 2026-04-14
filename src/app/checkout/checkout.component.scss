@@ -8,7 +8,7 @@
     --co-cream: #f5ede0;
     --co-muted: #a08060;
     --co-border: rgba(232, 160, 32, 0.10);
-    --co-border-strong: rgba(232, 160, 32, 0.22);
+    --co-border-strong: rgba(232, 160, 32, 0.40);
     --co-error: #ef4444;
     --co-error-bg: rgba(239, 68, 68, 0.06);
     --co-error-border: rgba(239, 68, 68, 0.30);
@@ -81,7 +81,7 @@
     gap: 2rem;
     align-items: start;
 
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
         grid-template-columns: 1fr 320px;
     }
 
@@ -218,7 +218,7 @@
     padding: 1.25rem;
     margin-bottom: 1.5rem;
 
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
         display: none;
     }
 }
@@ -227,7 +227,7 @@
 .checkout-summary {
     display: none;
 
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
         display: block;
         position: sticky;
         top: 1.5rem;
@@ -329,6 +329,20 @@
     font-size: 1.4rem;
     color: var(--co-amber);
     font-variant-numeric: tabular-nums;
+}
+
+// ── Submit wrapper (sticky on mobile) ─────────────────
+.submit-wrap {
+    @media (max-width: 767px) {
+        position: sticky;
+        bottom: 0;
+        background: linear-gradient(to top, var(--co-bg) 70%, transparent);
+        padding: 1rem 0 calc(1rem + env(safe-area-inset-bottom, 0px));
+        margin: 0 -1.25rem -5rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        z-index: 10;
+    }
 }
 
 // ── Submit button ─────────────────────────────────────
