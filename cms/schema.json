@@ -1,0 +1,457 @@
+[
+  {
+    "type": "section",
+    "key": "brand",
+    "label": "Brand",
+    "description": "Global brand identity — business name, tagline, hero video, logo URLs, social links.",
+    "fields": [
+      { "key": "businessName", "type": "text", "label": "Business Name", "required": true },
+      { "key": "tagline", "type": "text", "label": "Tagline" },
+      { "key": "footerText", "type": "text", "label": "Footer Tagline / Descriptor" },
+      { "key": "ariaDescription", "type": "text", "label": "Site ARIA Label (accessibility)" },
+      { "key": "halalBadgeText", "type": "text", "label": "Halal Badge Text" },
+      { "key": "pdfTagline", "type": "text", "label": "Menu PDF Tagline" },
+      { "key": "menuPageTitle", "type": "text", "label": "Full Menu Page Title" },
+      { "key": "siteUrl", "type": "link", "label": "Canonical Site URL" },
+      { "key": "cloudinaryBaseUrl", "type": "link", "label": "Cloudinary Base URL" },
+      { "key": "footerLogoUrl", "type": "image", "label": "Footer Logo" },
+      { "key": "heroVideoPoster", "type": "image", "label": "Hero Video Poster Frame" },
+      { "key": "heroVideoWebm", "type": "link", "label": "Hero Video (WebM)" },
+      { "key": "heroVideoMp4", "type": "link", "label": "Hero Video (MP4)" },
+      {
+        "key": "socialUrls",
+        "type": "object",
+        "label": "Social Media URLs",
+        "fields": [
+          { "key": "facebook", "type": "link", "label": "Facebook" },
+          { "key": "instagram", "type": "link", "label": "Instagram" },
+          { "key": "tiktok", "type": "link", "label": "TikTok" },
+          { "key": "twitter", "type": "link", "label": "Twitter / X" },
+          { "key": "yelp", "type": "link", "label": "Yelp" },
+          { "key": "google", "type": "link", "label": "Google Maps Listing" },
+          { "key": "googleReviewLink", "type": "link", "label": "Google Leave-a-Review Link" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "contact",
+    "label": "Contact",
+    "description": "Phone, email, address, service area, hours, auto-reply copy.",
+    "fields": [
+      { "key": "email", "type": "text", "label": "Email Address", "required": true },
+      { "key": "phone", "type": "text", "label": "Phone Number (display)", "required": true },
+      { "key": "phoneLink", "type": "text", "label": "Phone Number (tel: href, digits only)" },
+      { "key": "address", "type": "text", "label": "Address" },
+      { "key": "hours", "type": "text", "label": "Hours (short, e.g. Mon–Sat 10am–9pm)" },
+      { "key": "googleMapsUrl", "type": "link", "label": "Google Maps Embed / Link URL" },
+      { "key": "serviceArea", "type": "text", "label": "Service Area" },
+      { "key": "serviceAreaNote", "type": "text", "label": "Service Area Note" },
+      { "key": "responseTime", "type": "text", "label": "Response Time Commitment" },
+      { "key": "sectionHeading", "type": "text", "label": "Contact Section Heading" },
+      { "key": "sideImageUrl", "type": "image", "label": "Contact Page Side Image" },
+      { "key": "pdfFooterLine", "type": "text", "label": "PDF Footer Contact Line" },
+      { "key": "inquiryEmailSubject", "type": "text", "label": "Catering Inquiry Email Subject" },
+      { "key": "autoReplySubject", "type": "text", "label": "Auto-Reply Email Subject" },
+      { "key": "autoReplyBody", "type": "richtext", "label": "Auto-Reply Email Body" },
+      {
+        "key": "goodToKnow",
+        "type": "array",
+        "label": "Good To Know Bullets",
+        "itemType": "object",
+        "fields": [
+          { "key": "text", "type": "text", "label": "Bullet Text" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "home",
+    "label": "Home Page",
+    "description": "All copy and configuration for homepage sections.",
+    "fields": [
+      {
+        "key": "hero",
+        "type": "object",
+        "label": "Hero Section",
+        "fields": [
+          { "key": "ctaLabel", "type": "text", "label": "CTA Button Label" },
+          { "key": "ctaUrl", "type": "link", "label": "CTA Button URL" }
+        ]
+      },
+      {
+        "key": "homeMenuTeaser",
+        "type": "object",
+        "label": "Home Menu Teaser",
+        "fields": [
+          { "key": "sectionTitle", "type": "text", "label": "Section Title (e.g. Popular Items)" },
+          { "key": "viewAllLabel", "type": "text", "label": "View All Button Label" },
+          { "key": "viewAllUrl", "type": "link", "label": "View All Button URL" },
+          {
+            "key": "popularItemSlugs",
+            "type": "array",
+            "label": "Pinned Popular Item Slugs",
+            "itemType": "text"
+          }
+        ]
+      },
+      {
+        "key": "servicesTeaser",
+        "type": "object",
+        "label": "Services Teaser Section",
+        "fields": [
+          { "key": "sectionTitle", "type": "text", "label": "Section Title" },
+          { "key": "sectionBody", "type": "textarea", "label": "Section Body" },
+          { "key": "ctaLabel", "type": "text", "label": "CTA Label" },
+          { "key": "ctaUrl", "type": "link", "label": "CTA URL" }
+        ]
+      },
+      {
+        "key": "meetUsTeaser",
+        "type": "object",
+        "label": "Meet Us Teaser Section",
+        "fields": [
+          { "key": "sectionTitle", "type": "text", "label": "Section Title" },
+          { "key": "sectionBody", "type": "textarea", "label": "Section Body" },
+          { "key": "ctaLabel", "type": "text", "label": "CTA Label" },
+          { "key": "ctaUrl", "type": "link", "label": "CTA URL" }
+        ]
+      },
+      {
+        "key": "trustedBy",
+        "type": "object",
+        "label": "Trusted By Teaser",
+        "fields": [
+          { "key": "sectionTitle", "type": "text", "label": "Section Title" }
+        ]
+      },
+      {
+        "key": "cta",
+        "type": "object",
+        "label": "Homepage CTA Section",
+        "fields": [
+          { "key": "heading", "type": "text", "label": "Heading" },
+          { "key": "body", "type": "textarea", "label": "Body Copy" },
+          { "key": "ctaLabel", "type": "text", "label": "CTA Button Label" },
+          { "key": "ctaUrl", "type": "link", "label": "CTA Button URL" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "meet-us",
+    "label": "Meet Us / About",
+    "description": "Team member bios and Our Story section.",
+    "fields": [
+      { "key": "title", "type": "text", "label": "Page Title" },
+      { "key": "storyHeading", "type": "text", "label": "Our Story Section Heading" },
+      { "key": "body", "type": "richtext", "label": "Our Story Body" },
+      { "key": "imageUrl", "type": "image", "label": "Feature / Truck Image" },
+      {
+        "key": "teamMembers",
+        "type": "array",
+        "label": "Team Members",
+        "itemType": "object",
+        "fields": [
+          { "key": "name", "type": "text", "label": "Name" },
+          { "key": "role", "type": "text", "label": "Role / Title" },
+          { "key": "photoUrl", "type": "image", "label": "Photo" },
+          { "key": "photoAlt", "type": "text", "label": "Photo Alt Text" },
+          { "key": "bio", "type": "richtext", "label": "Bio" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "services",
+    "label": "Services",
+    "description": "Service offering highlights shown on catering / homepage sections.",
+    "fields": [
+      { "key": "sectionTitle", "type": "text", "label": "Section Title" },
+      {
+        "key": "items",
+        "type": "array",
+        "label": "Service Items",
+        "itemType": "object",
+        "fields": [
+          { "key": "title", "type": "text", "label": "Title" },
+          { "key": "description", "type": "textarea", "label": "Description" },
+          { "key": "icon", "type": "text", "label": "Icon (CSS class or identifier)" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "trusted-by",
+    "label": "Trusted By",
+    "description": "Client and partner names shown in homepage marquee.",
+    "fields": [
+      { "key": "sectionTitle", "type": "text", "label": "Section Title" },
+      {
+        "key": "items",
+        "type": "array",
+        "label": "Clients / Partners",
+        "itemType": "object",
+        "fields": [
+          { "key": "name", "type": "text", "label": "Name", "required": true },
+          { "key": "logoUrl", "type": "image", "label": "Logo (optional)" },
+          { "key": "url", "type": "link", "label": "Website URL (optional)" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "footer",
+    "label": "Footer",
+    "description": "Footer column headings, hours copy, and copyright.",
+    "fields": [
+      { "key": "copyright", "type": "text", "label": "Copyright Text" },
+      { "key": "hoursLabel", "type": "text", "label": "Hours Label (e.g. Monday – Saturday:)" },
+      { "key": "hoursValue", "type": "text", "label": "Hours Value (e.g. 10am – 9pm)" },
+      { "key": "quickLinksHeading", "type": "text", "label": "Quick Links Column Heading" },
+      { "key": "menuColumnHeading", "type": "text", "label": "Menu Column Heading" },
+      { "key": "hoursColumnHeading", "type": "text", "label": "Hours Column Heading" }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "catering",
+    "label": "Catering Page",
+    "description": "Catering page prose, feature highlights, and package descriptions.",
+    "fields": [
+      { "key": "pageKicker", "type": "text", "label": "Page Kicker / Eyebrow" },
+      { "key": "introParagraph", "type": "richtext", "label": "Intro Paragraph" },
+      { "key": "weddingPhotoUrl", "type": "image", "label": "Intro Photo" },
+      { "key": "packagesHeading", "type": "text", "label": "Packages Section Heading" },
+      { "key": "packageIncludesNote", "type": "text", "label": "Package Includes Note" },
+      { "key": "glutenFreeNote", "type": "text", "label": "Gluten Free Note" },
+      {
+        "key": "features",
+        "type": "array",
+        "label": "Feature Highlights",
+        "itemType": "object",
+        "fields": [
+          { "key": "heading", "type": "text", "label": "Heading" },
+          { "key": "body", "type": "text", "label": "Body" }
+        ]
+      },
+      {
+        "key": "packages",
+        "type": "array",
+        "label": "Catering Packages",
+        "itemType": "object",
+        "fields": [
+          { "key": "badge", "type": "text", "label": "Badge Text (e.g. Basic)" },
+          { "key": "name", "type": "text", "label": "Package Name" },
+          { "key": "popularTag", "type": "text", "label": "Popular Tag (leave blank if none)" },
+          {
+            "key": "bullets",
+            "type": "array",
+            "label": "Bullet Points",
+            "itemType": "text"
+          }
+        ]
+      },
+      {
+        "key": "goodToKnow",
+        "type": "array",
+        "label": "Good To Know Bullets",
+        "itemType": "object",
+        "fields": [
+          { "key": "text", "type": "text", "label": "Bullet Text" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "reviews-page",
+    "label": "Reviews Page",
+    "description": "Reviews page heading and Google review link copy.",
+    "fields": [
+      { "key": "pageTitle", "type": "text", "label": "Page Title" },
+      { "key": "reviewLinkText", "type": "text", "label": "Google Review CTA Text" }
+    ]
+  },
+
+  {
+    "type": "section",
+    "key": "order-ui",
+    "label": "Order UI Copy",
+    "description": "Editable copy strings for the mock ordering flow. Controls labels and messages — not button functionality.",
+    "fields": [
+      { "key": "eventsListTitle", "type": "text", "label": "Events List Page Title" },
+      { "key": "noUpcomingEventsMessage", "type": "text", "label": "No Upcoming Events Message" },
+      { "key": "orderPageHeading", "type": "text", "label": "Order Page Heading" },
+      { "key": "cartEmptyMessage", "type": "text", "label": "Cart Empty Message" },
+      { "key": "checkoutHeading", "type": "text", "label": "Checkout Heading" },
+      { "key": "submitButtonLabel", "type": "text", "label": "Submit Order Button Label" },
+      { "key": "confirmationHeading", "type": "text", "label": "Confirmation Heading" },
+      { "key": "confirmationMessage", "type": "text", "label": "Confirmation Message (demo notice)" }
+    ]
+  },
+
+  {
+    "type": "collection",
+    "key": "menu-items",
+    "label": "Menu Items",
+    "description": "Public-facing slider and sides menu. One document per item.",
+    "slugField": "slug",
+    "fields": [
+      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true },
+      { "key": "name", "type": "text", "label": "Item Name", "required": true },
+      { "key": "description", "type": "textarea", "label": "Description" },
+      { "key": "price", "type": "number", "label": "Price (USD)" },
+      { "key": "imageUrl", "type": "image", "label": "Item Image" },
+      {
+        "key": "category",
+        "type": "select",
+        "label": "Category",
+        "options": ["beef", "chicken", "pork", "vegetarian", "other"],
+        "required": true
+      },
+      { "key": "popular", "type": "boolean", "label": "Popular Item" },
+      { "key": "available", "type": "boolean", "label": "Available / Active" },
+      { "key": "spiceLevel", "type": "number", "label": "Spice Level (0–5)" },
+      { "key": "isVegetarianOption", "type": "boolean", "label": "Vegetarian Option" },
+      {
+        "key": "dietaryInfo",
+        "type": "array",
+        "label": "Dietary Info Tags",
+        "itemType": "text"
+      },
+      {
+        "key": "ingredients",
+        "type": "array",
+        "label": "Ingredients",
+        "itemType": "text"
+      },
+      {
+        "key": "allergens",
+        "type": "array",
+        "label": "Allergens",
+        "itemType": "text"
+      },
+      {
+        "key": "nutritionInfo",
+        "type": "object",
+        "label": "Nutrition Info",
+        "fields": [
+          { "key": "calories", "type": "number", "label": "Calories" },
+          { "key": "protein", "type": "text", "label": "Protein (e.g. 22g)" },
+          { "key": "carbs", "type": "text", "label": "Carbs (e.g. 35g)" },
+          { "key": "fat", "type": "text", "label": "Fat (e.g. 25g)" },
+          { "key": "sodium", "type": "text", "label": "Sodium (e.g. 780mg)" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "type": "collection",
+    "key": "catering-items",
+    "label": "Catering Menu Items",
+    "description": "Catering menu — one document per item across all sections (beef, poultry, vegetarian, pork, sides, additional).",
+    "slugField": "slug",
+    "fields": [
+      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true },
+      { "key": "name", "type": "text", "label": "Item Name", "required": true },
+      { "key": "description", "type": "textarea", "label": "Description" },
+      { "key": "servingSize", "type": "text", "label": "Serving Size / Portion Info" },
+      { "key": "price", "type": "number", "label": "Price (USD, optional)" },
+      { "key": "imageUrl", "type": "image", "label": "Item Image (optional)" },
+      {
+        "key": "category",
+        "type": "select",
+        "label": "Category",
+        "options": ["beef", "poultry", "pork", "vegetarian", "sides", "additional"],
+        "required": true
+      },
+      { "key": "additionalCharge", "type": "boolean", "label": "Additional Charge Applies" }
+    ]
+  },
+
+  {
+    "type": "collection",
+    "key": "events",
+    "label": "Events",
+    "description": "Special events with optional ordering window. One document per event.",
+    "slugField": "slug",
+    "fields": [
+      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true },
+      { "key": "name", "type": "text", "label": "Event Name", "required": true },
+      { "key": "date", "type": "text", "label": "Date Display (e.g. Friday, March 13th, 2026)" },
+      { "key": "startTime", "type": "text", "label": "Start Time (e.g. 4:30 PM)" },
+      { "key": "endTime", "type": "text", "label": "End Time (e.g. 7:30 PM)" },
+      { "key": "location", "type": "text", "label": "Street Address" },
+      { "key": "locationLabel", "type": "text", "label": "Location Label (neighborhood / venue name)" },
+      { "key": "description", "type": "richtext", "label": "Event Description" },
+      { "key": "coverImage", "type": "image", "label": "Cover / Flyer Image" },
+      { "key": "badge", "type": "text", "label": "Badge Label (e.g. This Friday!, Upcoming)" },
+      {
+        "key": "highlights",
+        "type": "array",
+        "label": "Highlight Bullets",
+        "itemType": "text"
+      },
+      { "key": "menuImageUrl", "type": "image", "label": "Special Menu Image (optional)" },
+      { "key": "menuPdfUrl", "type": "link", "label": "Special Menu PDF URL (optional)" },
+      { "key": "specialMenuHeading", "type": "text", "label": "Special Menu Section Heading" },
+      {
+        "key": "status",
+        "type": "select",
+        "label": "Status",
+        "options": ["upcoming", "active", "past"],
+        "required": true
+      },
+      { "key": "orderOpensAt", "type": "text", "label": "Order Opens At (ISO 8601 datetime)" },
+      { "key": "orderClosesAt", "type": "text", "label": "Order Closes At (ISO 8601 datetime)" },
+      { "key": "pickupLocation", "type": "text", "label": "Pickup Location (address or description)" },
+      { "key": "pickupStartAt", "type": "text", "label": "Pickup Window Start (ISO 8601 datetime)" },
+      { "key": "pickupEndAt", "type": "text", "label": "Pickup Window End (ISO 8601 datetime)" },
+      { "key": "maxOrders", "type": "number", "label": "Max Orders (0 = unlimited)" },
+      {
+        "key": "linkedMenuItemSlugs",
+        "type": "array",
+        "label": "Linked Menu Item Slugs (for ordering — leave empty to use full menu)",
+        "itemType": "text"
+      }
+    ]
+  },
+
+  {
+    "type": "collection",
+    "key": "reviews",
+    "label": "Reviews",
+    "description": "Customer reviews displayed on the reviews page. One document per review.",
+    "slugField": "slug",
+    "fields": [
+      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true },
+      { "key": "author", "type": "text", "label": "Author Name", "required": true },
+      { "key": "rating", "type": "number", "label": "Rating (1–5)", "required": true },
+      { "key": "body", "type": "textarea", "label": "Review Text" },
+      {
+        "key": "source",
+        "type": "select",
+        "label": "Review Source",
+        "options": ["google", "yelp", "facebook", "direct"]
+      },
+      { "key": "date", "type": "text", "label": "Date (ISO 8601 or Unix timestamp as string)" },
+      { "key": "profilePhotoUrl", "type": "image", "label": "Author Profile Photo (optional)" }
+    ]
+  }
+]
