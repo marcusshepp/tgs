@@ -15,39 +15,6 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-// ── State center (not found) ───────────────────────────
-.state-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 70dvh;
-    padding: 2rem 1.25rem;
-    text-align: center;
-    gap: 0.75rem;
-}
-
-.state-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--oc-muted);
-}
-
-.state-heading {
-    font-family: 'Alfa Slab One', serif;
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--oc-cream);
-    letter-spacing: -0.01em;
-    margin: 0;
-}
-
-.state-body {
-    color: var(--oc-muted);
-    font-size: 1rem;
-    max-width: 28rem;
-}
-
 // ── Main confirmation ──────────────────────────────────
 .confirm-page {
     min-height: 100dvh;
@@ -65,6 +32,37 @@
     max-width: 480px;
     width: 100%;
     text-align: center;
+}
+
+// ── Demo mode banner ───────────────────────────────────
+.demo-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    width: 100%;
+    background: #e8a020;
+    color: #0d0905;
+    border-radius: 0.625rem;
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-align: left;
+    animation: fade-up 300ms 100ms ease-out both;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+.demo-banner-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.demo-banner-text {
+    flex: 1;
 }
 
 // ── Animated checkmark ────────────────────────────────
@@ -115,7 +113,7 @@
 // ── Confirm headlines ─────────────────────────────────
 .confirm-headline {
     font-family: 'Alfa Slab One', serif;
-    font-size: clamp(2rem, 6vw, 2.8rem);
+    font-size: clamp(1.75rem, 5.5vw, 2.5rem);
     color: var(--oc-cream);
     letter-spacing: -0.01em;
     margin: 0;
@@ -132,6 +130,15 @@
     animation: fade-up 400ms 300ms ease-out both;
 }
 
+.confirm-subheading {
+    color: var(--oc-muted);
+    font-size: 0.9rem;
+    max-width: 36rem;
+    line-height: 1.55;
+    margin: 0;
+    animation: fade-up 400ms 350ms ease-out both;
+}
+
 @keyframes fade-up {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -139,7 +146,8 @@
 
 @media (prefers-reduced-motion: reduce) {
     .confirm-headline,
-    .confirm-order-id { animation: none; }
+    .confirm-order-id,
+    .confirm-subheading { animation: none; }
 }
 
 // ── Confirm card ──────────────────────────────────────
@@ -210,6 +218,35 @@
     font-variant-numeric: tabular-nums;
 }
 
+// ── Pickup details ────────────────────────────────────
+.confirm-pickup {
+    margin-top: 0.875rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--oc-border);
+}
+
+.confirm-pickup-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oc-muted);
+    margin: 0 0 0.3rem;
+}
+
+.confirm-pickup-location {
+    font-size: 0.875rem;
+    color: var(--oc-cream);
+    font-weight: 600;
+    margin: 0 0 0.2rem;
+}
+
+.confirm-pickup-time {
+    font-size: 0.875rem;
+    color: var(--oc-muted);
+    margin: 0;
+}
+
+// ── Pickup notes ──────────────────────────────────────
 .confirm-instructions {
     margin-top: 0.875rem;
     padding-top: 0.875rem;
@@ -229,18 +266,6 @@
     color: var(--oc-cream);
     margin: 0;
     line-height: 1.5;
-}
-
-.demo-disclaimer {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    background: var(--oc-bg-alt);
-    border: 1px solid var(--oc-border);
-    border-radius: 0.5rem;
-    font-size: 0.78rem;
-    color: var(--oc-muted);
-    line-height: 1.5;
-    text-align: center;
 }
 
 // ── Actions ───────────────────────────────────────────
@@ -276,6 +301,7 @@
     cursor: pointer;
     transition: background 150ms ease-in-out, transform 150ms ease-in-out;
     min-height: 48px;
+    touch-action: manipulation;
 
     &:hover {
         background: var(--oc-orange);
@@ -296,6 +322,7 @@
     cursor: pointer;
     transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
     min-height: 48px;
+    touch-action: manipulation;
 
     &:hover {
         color: var(--oc-cream);

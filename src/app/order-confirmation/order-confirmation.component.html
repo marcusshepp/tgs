@@ -1,18 +1,13 @@
 <div class="confirm-page">
 
-  <!-- No order found -->
-  @if (!order) {
-    <div class="state-center">
-      <p class="state-eyebrow">Nothing here</p>
-      <h1 class="state-heading">No order found.</h1>
-      <p class="state-body">Looks like you got here by accident.</p>
-      <a routerLink="/special-events" class="btn-primary">Browse Events →</a>
-    </div>
-  }
-
-  <!-- Order confirmed -->
   @if (order) {
     <div class="confirm-inner">
+
+      <!-- Demo mode banner -->
+      <div class="demo-banner" role="alert">
+        <span class="demo-banner-icon" aria-hidden="true">⚠</span>
+        <span class="demo-banner-text">This is a demo — no real order was placed and no payment was charged.</span>
+      </div>
 
       <!-- Animated checkmark -->
       <div class="checkmark-wrap" aria-label="Order placed successfully" role="img">
@@ -22,8 +17,12 @@
         </svg>
       </div>
 
-      <h1 class="confirm-headline">Order's In!</h1>
+      <h1 class="confirm-headline">{{ orderUi.confirmationHeading || 'Order confirmed — this is a demo' }}</h1>
       <p class="confirm-order-id">{{ order.orderId }}</p>
+
+      @if (orderUi.confirmationMessage) {
+        <p class="confirm-subheading">{{ orderUi.confirmationMessage }}</p>
+      }
 
       <!-- Summary card -->
       <div class="confirm-card">
@@ -44,6 +43,19 @@
           <span class="confirm-total-amount">{{ formatPrice(order.total) }}</span>
         </div>
 
+        @if (event) {
+          <div class="confirm-pickup">
+            <p class="confirm-pickup-label">Pickup details</p>
+            <p class="confirm-pickup-location">{{ event.pickupLocation || event.location }}</p>
+            @if (event.date) {
+              <p class="confirm-pickup-time">{{ formatEventDate(event.date) }}</p>
+            }
+            @if (event.pickupStartAt && event.pickupEndAt) {
+              <p class="confirm-pickup-time">{{ formatPickupTime(event.pickupStartAt) }} – {{ formatPickupTime(event.pickupEndAt) }}</p>
+            }
+          </div>
+        }
+
         @if (order.customer.pickupInstructions) {
           <div class="confirm-instructions">
             <p class="confirm-instructions-label">Pickup notes</p>
@@ -51,14 +63,11 @@
           </div>
         }
 
-        <div class="demo-disclaimer">
-          This is a demo. No real order was placed and no payment was charged.
-        </div>
       </div>
 
       <!-- Actions -->
       <div class="confirm-actions">
-        <a routerLink="/special-events" class="btn-primary">Back to Events</a>
+        <a routerLink="/" class="btn-primary">Back to home</a>
         <a routerLink="/menu" class="btn-ghost">See Full Menu</a>
       </div>
 
