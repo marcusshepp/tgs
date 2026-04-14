@@ -1,0 +1,850 @@
+{
+  "brand": {
+    "businessName": "Tim's Gourmet Sliders",
+    "tagline": "Detroit's #1 Top Rated Food Truck",
+    "footerText": "Detroit's Premier Slider Catering Service",
+    "ariaDescription": "Tim's Gourmet Sliders - Detroit & Redford Michigan Food Truck",
+    "halalBadgeText": "100% Halal Beef",
+    "pdfTagline": "Handcrafted Sliders | Fresh Ingredients | Unique Flavors",
+    "menuPageTitle": "Detroit's Best Slider Menu",
+    "siteUrl": "https://www.timsgourmetsliders.com",
+    "cloudinaryBaseUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/",
+    "footerLogoUrl": "/img/old/logo2.png",
+    "heroVideoPoster": "https://res.cloudinary.com/dy00ivhtt/video/upload/so_0,w_1280,q_auto,f_jpg/hero-video_b7nk2y.jpg",
+    "heroVideoWebm": "https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto,f_webm/hero-video_b7nk2y.webm",
+    "heroVideoMp4": "https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto/hero-video_b7nk2y.mp4",
+    "socialUrls": {
+      "facebook": "https://www.facebook.com/Timsgourmetsliders/",
+      "instagram": "https://www.instagram.com/timsgourmetsliders/",
+      "tiktok": "",
+      "twitter": "",
+      "yelp": "https://www.yelp.com/biz/tims-gourmet-sliders-redford",
+      "google": "https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1",
+      "googleReviewLink": "https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m8!3m7!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!9m1!1b1!16s%2Fg%2F11thr41x68?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+    }
+  },
+
+  "contact": {
+    "email": "timsfoodtruckdetroit@gmail.com",
+    "phone": "(248)-251-5781",
+    "phoneLink": "tel:2482515781",
+    "address": "Redford, MI 48239",
+    "hours": "Monday – Saturday: 10am – 9pm",
+    "googleMapsUrl": "https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68",
+    "serviceArea": "Detroit & Southeast Michigan",
+    "serviceAreaNote": "Based in Redford, serving the entire metro area",
+    "responseTime": "We respond within 24 hours",
+    "sectionHeading": "Let's Connect",
+    "sideImageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/q_auto,f_auto,w_600/window_ghdagy.webp",
+    "pdfFooterLine": "Available for Catering | Visit us at timsgourmetsliders.com | (248) 251-5781",
+    "inquiryEmailSubject": "Tim's Gourmet Sliders - New Catering Inquiry",
+    "autoReplySubject": "Thank you for your catering inquiry - Tim's Gourmet Sliders",
+    "autoReplyBody": "Thank you for reaching out to Tim's Gourmet Sliders! We received your inquiry and will get back to you within 24 hours. You can also reach us directly at (248) 251-5781.",
+    "goodToKnow": [
+      { "text": "Book early — we fill up fast for weekends" },
+      { "text": "Custom menus available for large events" },
+      { "text": "We bring the full food truck experience" }
+    ]
+  },
+
+  "home": {
+    "hero": {
+      "ctaLabel": "View Our Menu",
+      "ctaUrl": "/menu"
+    },
+    "homeMenuTeaser": {
+      "sectionTitle": "Popular Items",
+      "viewAllLabel": "View All Items →",
+      "viewAllUrl": "/menu",
+      "popularItemSlugs": ["whiskey", "sweet-savory", "double-bacon", "spicy-chicken"]
+    },
+    "servicesTeaser": {
+      "sectionTitle": "Full-Service Catering",
+      "sectionBody": "From corporate gatherings to weddings and celebrations, Tim's Gourmet Sliders brings the restaurant experience directly to your event. Fresh, made-to-order sliders your guests will love.",
+      "ctaLabel": "Learn More",
+      "ctaUrl": "/catering"
+    },
+    "meetUsTeaser": {
+      "sectionTitle": "Meet the Team",
+      "sectionBody": "Tim's vision is to deliver sliders that pack a big punch, made with the finest ingredients and a dash of flair, all served with the kind of care you'd expect from a seasoned pro.",
+      "ctaLabel": "Meet Us",
+      "ctaUrl": "/meet-us"
+    },
+    "trustedBy": {
+      "sectionTitle": "Trusted By"
+    },
+    "cta": {
+      "heading": "Ready to Book Tim's for Your Event?",
+      "body": "Whether it's a corporate lunch, wedding reception, or neighborhood block party — we bring the sliders and the experience.",
+      "ctaLabel": "Get in Touch",
+      "ctaUrl": "/contact-us"
+    }
+  },
+
+  "meet-us": {
+    "title": "Meet Us",
+    "storyHeading": "Our Story",
+    "body": "At Tim's Gourmet Sliders, we're not just flipping patties—we're crafting an experience. Tim's vision is to deliver sliders that pack a big punch, made with the finest ingredients and a dash of flair, all served with the kind of care you'd expect from a seasoned pro.\n\nOur team is dedicated, responsible, and downright excited to bring you sliders that elevate the everyday into something extraordinary. We're here to make your day delicious—one gourmet bite at a time!",
+    "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/truck9-1_tzbsih.webp",
+    "teamMembers": [
+      {
+        "name": "Tim",
+        "role": "Owner/Chef",
+        "photoUrl": "/img/new/tim.jpg",
+        "photoAlt": "Tim - Owner/Chef",
+        "bio": "Tim has been a lifelong foodie with a deep-rooted passion for exceptional flavors and top-notch service. With years of experience in both fine dining and casual dining, he's honed his craft as a culinary pro, working in kitchens where quality and creativity reign supreme.\n\nAfter traveling far and wide, tasting burgers from coast to coast, Tim noticed a gap in the food scene—there simply wasn't a slider that lived up to his gourmet standards. So, he decided to change the game.\n\n\"We chose to focus on sliders because we want to put a high-end meal in the palm of your hand. Everyone loves burgers, so we decided to put our gourmet touch and creativity on the classic slider.\""
+      },
+      {
+        "name": "Christey",
+        "role": "Event Coordinator",
+        "photoUrl": "/img/new/c.jpg",
+        "photoAlt": "Christey - Event Coordinator",
+        "bio": "As our dedicated Event Coordinator, Christey ensures every catering experience with Tim's Gourmet Sliders exceeds expectations. With her meticulous attention to detail and passion for creating memorable food experiences, she works closely with clients to customize menus and coordinate flawless service.\n\nChristey brings warmth and professionalism to every interaction, making the planning process as enjoyable as the sliders themselves. Her expertise in event management means your gathering will run smoothly from setup to cleanup.\n\nWhether you're planning a corporate function, wedding reception, or backyard celebration, Christey will help bring your vision to life with Tim's Gourmet Sliders as the highlight of your event."
+      }
+    ]
+  },
+
+  "services": {
+    "sectionTitle": "Why Choose Tim's",
+    "items": [
+      {
+        "title": "Professional Staff",
+        "description": "Experienced team dedicated to excellent service",
+        "icon": "fas fa-users"
+      },
+      {
+        "title": "Full Mobile Kitchen",
+        "description": "Complete cooking setup at your location",
+        "icon": "fas fa-truck"
+      },
+      {
+        "title": "High Quality Ingredients",
+        "description": "Fresh, locally sourced premium ingredients",
+        "icon": "fas fa-check-circle"
+      },
+      {
+        "title": "Customizable Menus",
+        "description": "Flexible options to suit your event",
+        "icon": "fas fa-clipboard-list"
+      },
+      {
+        "title": "Licensed and Insured",
+        "description": "Fully compliant with all regulations",
+        "icon": "fas fa-shield-alt"
+      },
+      {
+        "title": "30 Years Experience",
+        "description": "Decades of culinary excellence",
+        "icon": "fas fa-star"
+      }
+    ]
+  },
+
+  "trusted-by": {
+    "sectionTitle": "Trusted By",
+    "items": [
+      { "name": "Ford Motor Company", "logoUrl": "", "url": "" },
+      { "name": "General Motors", "logoUrl": "", "url": "" },
+      { "name": "Chrysler", "logoUrl": "", "url": "" },
+      { "name": "Frito-Lay", "logoUrl": "", "url": "" },
+      { "name": "Republic Services", "logoUrl": "", "url": "" },
+      { "name": "Cleary University", "logoUrl": "", "url": "" },
+      { "name": "University of Michigan", "logoUrl": "", "url": "" },
+      { "name": "Community Choice Credit Union", "logoUrl": "", "url": "" }
+    ]
+  },
+
+  "footer": {
+    "copyright": "© Copyright Tim's Gourmet Sliders. All Rights Reserved.",
+    "hoursLabel": "Monday – Saturday:",
+    "hoursValue": "10am – 9pm",
+    "quickLinksHeading": "Quick Links",
+    "menuColumnHeading": "Our Menu",
+    "hoursColumnHeading": "Hours"
+  },
+
+  "catering": {
+    "pageKicker": "Detroit's Premier Slider Catering Service",
+    "introParagraph": "Tim's Gourmet Sliders brings the restaurant experience directly to your event with our full-service catering options. From corporate gatherings to weddings and celebrations, we deliver fresh, made-to-order sliders your guests will love.",
+    "weddingPhotoUrl": "/img/wedding-catering.jpg",
+    "packagesHeading": "Catering Packages",
+    "packageIncludesNote": "All catering packages include napkins, plasticware, condiments, and bluetooth music streaming with service",
+    "glutenFreeNote": "Gluten Free Option Available! Contact us for more details",
+    "features": [
+      { "heading": "Professional Staff", "body": "Experienced team dedicated to excellent service" },
+      { "heading": "Full Mobile Kitchen", "body": "Complete cooking setup at your location" },
+      { "heading": "High Quality Ingredients", "body": "Fresh, locally sourced premium ingredients" },
+      { "heading": "Customizable Menus", "body": "Flexible options to suit your event" },
+      { "heading": "Licensed and Insured", "body": "Fully compliant with all regulations" },
+      { "heading": "30 Years Experience", "body": "Decades of culinary excellence" }
+    ],
+    "packages": [
+      {
+        "badge": "Basic",
+        "name": "Starter Package",
+        "popularTag": "",
+        "bullets": [
+          "Includes these 4 slider options:",
+          "Not So Basic",
+          "Very! Basic",
+          "Extra Cheese Please",
+          "Classic",
+          "Choice of one side"
+        ]
+      },
+      {
+        "badge": "Premium",
+        "name": "Not! So Basic Package",
+        "popularTag": "Most Popular",
+        "bullets": [
+          "Your choice of any 4 options",
+          "Premium slider selections",
+          "Includes your choice of one side"
+        ]
+      },
+      {
+        "badge": "Deluxe",
+        "name": "Deluxe Package",
+        "popularTag": "",
+        "bullets": [
+          "5 slider options",
+          "Spudtacular Loaded Fries — Seasoned ground beef, truck made cheese sauce, sour cream, green onions, jalapeño",
+          "Assorted beverages",
+          "Choose BBQ seasoning or Tim's signature seasoning for fries"
+        ]
+      }
+    ],
+    "goodToKnow": [
+      { "text": "Food truck fee will apply" },
+      { "text": "Catering contract and deposit required to hold" },
+      { "text": "Our trucks are licensed and insured, and are held to a high standard of cleanliness and sanitation. We aim to exceed the local and state requirements and provide our guests an outstanding experience" },
+      { "text": "Looking to stream your favorite playlist during the event? Let us know and we will be delighted to stream your playlist on our Bluetooth speakers" }
+    ]
+  },
+
+  "reviews-page": {
+    "pageTitle": "What Our Customers Are Saying",
+    "reviewLinkText": "Leave us a review on Google"
+  },
+
+  "order-ui": {
+    "eventsListTitle": "Order Ahead for Upcoming Events",
+    "noUpcomingEventsMessage": "No upcoming events — check back soon!",
+    "orderPageHeading": "Place Your Order",
+    "cartEmptyMessage": "Your cart is empty. Add some sliders!",
+    "checkoutHeading": "Complete Your Order",
+    "submitButtonLabel": "Submit Order",
+    "confirmationHeading": "Order Confirmed!",
+    "confirmationMessage": "Order confirmed — this is a demo. Your order has been received! Tim's team will reach out to confirm pickup details."
+  },
+
+  "menu-items": [
+    {
+      "slug": "not-so-basic",
+      "name": "Not! So Basic",
+      "description": "Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato",
+      "price": 13,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/not-so-basic_fiqbf8.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "American Cheese", "Caramelized Onions", "Lettuce", "Tomato", "NOT! So Basic Sauce", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 450, "protein": "22g", "carbs": "35g", "fat": "25g", "sodium": "780mg" }
+    },
+    {
+      "slug": "bbq-bacon-cheese",
+      "name": "BBQ Bacon Cheese",
+      "description": "Our prime beef sliders topped with chipotle BBQ sauce, bacon, and American cheese",
+      "price": 14,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/bbq-bacon-cheese_pahhpv.webp",
+      "category": "beef",
+      "popular": false,
+      "available": false,
+      "spiceLevel": 1,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "BBQ Sauce", "Applewood Smoked Bacon", "American Cheese", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 520, "protein": "24g", "carbs": "38g", "fat": "28g", "sodium": "920mg" }
+    },
+    {
+      "slug": "black-and-blue",
+      "name": "Black and Blue",
+      "description": "Our prime beef sliders topped with gorgonzola aioli, smoked bacon, and caramelized onions",
+      "price": 15,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/black-and-blue_gzuzos.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "Gorgonzola Aioli", "Smoked Bacon", "Caramelized Onions", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 490, "protein": "23g", "carbs": "32g", "fat": "29g", "sodium": "840mg" }
+    },
+    {
+      "slug": "classic",
+      "name": "Classic",
+      "description": "Our prime beef sliders topped with ketchup, mustard, American cheese, pickles, and caramelized onions",
+      "price": 13,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/classic_mz6jzy.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "Lettuce", "Tomato", "Pickle", "Signature Sauce", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 420, "protein": "21g", "carbs": "30g", "fat": "22g", "sodium": "680mg" }
+    },
+    {
+      "slug": "famous-fried-chicken",
+      "name": "Tim's Famous Fried Chicken",
+      "description": "Crispy fried chicken topped with pickles, our signature sauce and white American cheese",
+      "price": 15,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/famous-fried-chicken_ggfvk7.webp",
+      "category": "chicken",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 1,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Hand-Breaded Chicken", "Pickles", "Our Signature Sauce", "White American Cheese", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten", "Egg"],
+      "nutritionInfo": { "calories": 480, "protein": "24g", "carbs": "42g", "fat": "24g", "sodium": "760mg" }
+    },
+    {
+      "slug": "sweet-savory",
+      "name": "Sweet and Savory",
+      "description": "Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions",
+      "price": 14,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/sweet-savory2_iof3t7.webp",
+      "category": "beef",
+      "popular": true,
+      "available": false,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "Swiss Cheese", "Caramelized Onion", "Bacon Pepper Jam", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 530, "protein": "24g", "carbs": "40g", "fat": "30g", "sodium": "790mg" }
+    },
+    {
+      "slug": "extra-cheese",
+      "name": "Extra Cheese Please",
+      "description": "Our prime beef sliders topped with double the American cheese",
+      "price": 13,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/extra-cheese-please_kagia5.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "Double American Cheese", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 480, "protein": "23g", "carbs": "30g", "fat": "30g", "sodium": "920mg" }
+    },
+    {
+      "slug": "whiskey",
+      "name": "Whiskey",
+      "description": "Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce",
+      "price": 15,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/whiskey_zbkelp.webp",
+      "category": "beef",
+      "popular": true,
+      "available": true,
+      "spiceLevel": 1,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "American Cheese", "Applewood Bacon", "Fried Onion", "Whiskey Sauce", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 550, "protein": "25g", "carbs": "40g", "fat": "32g", "sodium": "880mg" }
+    },
+    {
+      "slug": "double-bacon",
+      "name": "Double Banger",
+      "description": "4 prime beef patties with American cheese\nAdd bacon for an additional $2",
+      "price": 18,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/double-bacon_i4crrj.webp",
+      "category": "beef",
+      "popular": true,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Double Prime Beef Patty", "Double Smoked Bacon", "Double American Cheese", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 780, "protein": "45g", "carbs": "40g", "fat": "50g", "sodium": "1250mg" }
+    },
+    {
+      "slug": "vegetarian",
+      "name": "The Imposter",
+      "description": "Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions",
+      "price": 15,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/impossible-slider_jigkrl.webp",
+      "category": "vegetarian",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": true,
+      "dietaryInfo": ["Vegetarian", "Contains Gluten"],
+      "ingredients": ["Impossible Patty", "Your Choice of Toppings", "Brioche Bun"],
+      "allergens": ["Gluten"],
+      "nutritionInfo": { "calories": 420, "protein": "19g", "carbs": "38g", "fat": "20g", "sodium": "580mg" }
+    },
+    {
+      "slug": "very-basic",
+      "name": "Very Basic",
+      "description": "Our prime beef sliders topped with American cheese and caramelized onions",
+      "price": 13,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/very-basic_mplsma.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "American Cheese", "Caramelized Onions", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 380, "protein": "18g", "carbs": "28g", "fat": "22g", "sodium": "650mg" }
+    },
+    {
+      "slug": "spicy-chicken",
+      "name": "Spicy Chicken",
+      "description": "Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo",
+      "price": 15,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/spicy-chicken2_xydqkj.webp",
+      "category": "chicken",
+      "popular": true,
+      "available": true,
+      "spiceLevel": 3,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Hand Breaded Crispy Chicken", "White American Cheese", "Chipotle Mayonnaise", "Pickle", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten", "Egg"],
+      "nutritionInfo": { "calories": 510, "protein": "26g", "carbs": "42g", "fat": "26g", "sodium": "820mg" }
+    },
+    {
+      "slug": "honey-mustard",
+      "name": "Honey Mustard Chicken",
+      "description": "Hand battered crispy chicken topped with honey mustard sauce, lettuce, and tomato",
+      "price": 14,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/honey-mustard_ixdy9c.webp",
+      "category": "chicken",
+      "popular": false,
+      "available": false,
+      "spiceLevel": 1,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Gluten"],
+      "ingredients": ["Crispy Chicken", "Honey Mustard Sauce", "Brioche Bun"],
+      "allergens": ["Gluten", "Egg"],
+      "nutritionInfo": { "calories": 490, "protein": "25g", "carbs": "44g", "fat": "23g", "sodium": "780mg" }
+    },
+    {
+      "slug": "steak-house",
+      "name": "Steak House",
+      "description": "Our prime beef sliders topped with Swiss cheese, fried onions and garlic aioli",
+      "price": 13,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/steak-house_gqlko1.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
+      "ingredients": ["Prime Beef Patty", "Swiss Cheese", "Fried Onions", "Garlic Aioli", "Brioche Bun"],
+      "allergens": ["Dairy", "Gluten"],
+      "nutritionInfo": { "calories": 320, "protein": "4g", "carbs": "42g", "fat": "16g", "sodium": "380mg" }
+    },
+    {
+      "slug": "fries",
+      "name": "The Spud-Tacular Basket",
+      "description": "Our famous crispy fries served with our signature sauce.",
+      "price": 8,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/fries_hzklhc.webp",
+      "category": "other",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Vegetarian", "Vegan"],
+      "ingredients": ["Idaho Potatoes", "House Seasoning", "Sea Salt"],
+      "allergens": [],
+      "nutritionInfo": { "calories": 320, "protein": "4g", "carbs": "42g", "fat": "16g", "sodium": "380mg" }
+    },
+    {
+      "slug": "chicken-tenders",
+      "name": "Premium Chicken Tenders",
+      "description": "Delicious crispy chicken paired with your choice of dipping sauce... ranch, bbq or our signature sauce. Served with our famous crispy fries",
+      "price": 15,
+      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/tenders_uyrp48.webp",
+      "category": "other",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": ["Contains Gluten"],
+      "ingredients": ["Crispy Chicken Tenders", "Dipping Sauce", "Crispy Fries"],
+      "allergens": ["Gluten"],
+      "nutritionInfo": {}
+    }
+  ],
+
+  "catering-items": [
+    {
+      "slug": "catering-classic-sliders",
+      "name": "Classic Sliders",
+      "description": "Our prime beef sliders topped with ketchup, mustard, American cheese, caramelized onions and pickles",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-very-basic-sliders",
+      "name": "Very! Basic Sliders",
+      "description": "Our prime beef sliders topped with American cheese and caramelized onions",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-not-so-basic-sliders",
+      "name": "The Not! So Basic Sliders",
+      "description": "Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-whiskey-sliders",
+      "name": "Whiskey Sliders",
+      "description": "Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-steak-house-sliders",
+      "name": "Steak House Sliders",
+      "description": "Our prime beef sliders topped with swiss cheese, fried onions and garlic aioli",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-black-and-blue-sliders",
+      "name": "Black and Blue Sliders",
+      "description": "Our prime beef sliders topped with gorgonzola aioli, smoked bacon, and caramelized onions",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-sweet-and-savory-sliders",
+      "name": "Sweet and Savory Sliders",
+      "description": "Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-extra-cheese-please-sliders",
+      "name": "Extra Cheese Please! Sliders",
+      "description": "Our prime beef sliders topped with double the American cheese",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-bacon-cheese-sliders",
+      "name": "Bacon Cheese Sliders",
+      "description": "Our prime beef sliders topped with smoked bacon, and American cheese",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-honey-mustard-chicken-sliders",
+      "name": "Honey Mustard Chicken Sliders",
+      "description": "Hand battered crispy chicken topped with honey mustard sauce, lettuce, and tomato",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-buffalo-chicken-sliders",
+      "name": "Buffalo Chicken Sliders",
+      "description": "Hand battered crispy chicken, truck made buffalo sauce, drizzled with buttermilk ranch",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-spicy-chicken-sliders",
+      "name": "Spicy Chicken Sliders",
+      "description": "Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-monte-cristo-sliders",
+      "name": "Monte Cristo Sliders",
+      "description": "Fresh ground turkey, honey ham, Swiss cheese, caramelized onions, truck made raspberry jam, on cinnamon butter brioche buns and dusted with powdered sugar",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-grilled-garlic-chicken-sliders",
+      "name": "Grilled Garlic Chicken Sliders",
+      "description": "Pesto marinade, garlic aioli, spring greens, tomato",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-general-chicken-sliders",
+      "name": "General Chicken Sliders",
+      "description": "Crispy, fried thigh meat prepared to golden perfection, tossed in a sweet and spicy General Tso sauce, drizzled with sriracha and green onions",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-famous-fried-chicken-sliders",
+      "name": "Tim's Famous Fried Chicken Sliders",
+      "description": "Crispy fried chicken topped with pickles, our signature sauce and white American cheese",
+      "category": "poultry",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-the-imposter",
+      "name": "The Imposter",
+      "description": "Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions",
+      "category": "vegetarian",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-ultimate-grilled-cheese",
+      "name": "Ultimate Grilled Cheese",
+      "description": "American and Swiss cheese, caramelized onions, roasted tomatoes, pesto and olive oil drizzle on grilled sourdough",
+      "category": "vegetarian",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-techno-sliders",
+      "name": "Techno Sliders",
+      "description": "Our truck smoked pulled pork nestled on top of our prime beef, pickles, fried onions, and drizzled with bbq sauce and chipotle mayo",
+      "category": "pork",
+      "additionalCharge": true
+    },
+    {
+      "slug": "catering-premium-chicken-tenders",
+      "name": "Premium Chicken Tenders",
+      "description": "Crispy, delicious chicken paired with your choice of dipping sauce",
+      "category": "additional",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-cole-slaw",
+      "name": "Cole Slaw",
+      "description": "",
+      "category": "sides",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-pasta-salad",
+      "name": "Pasta Salad",
+      "description": "",
+      "category": "sides",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-hot-crispy-fries",
+      "name": "Hot Crispy Fries",
+      "description": "Upgrade your fry game with your choice of our premium cajun or truffle seasoning",
+      "category": "sides",
+      "additionalCharge": true
+    },
+    {
+      "slug": "catering-beverages",
+      "name": "Beverages Available",
+      "description": "",
+      "category": "sides",
+      "additionalCharge": true
+    }
+  ],
+
+  "events": [
+    {
+      "slug": "st-patricks-day-the-show-2026",
+      "name": "St. Patrick's Day at The Show",
+      "date": "Tuesday, March 17th, 2026",
+      "startTime": "Opens at Noon",
+      "endTime": "",
+      "location": "14661 Eleven Mile, Oak Park, MI",
+      "locationLabel": "The Show",
+      "description": "Join us for St. Paddy's Day at The Show! Enjoy $5 pints of O'Guinymish Irish Stout & White Hart English Mild, a special menu from Tim's Gourmet Sliders, and live entertainment from the O'Kennedy Holland Irish Dance Academy.",
+      "coverImage": "/img/events/st-patricks-flyer.jpg",
+      "badge": "Past Event",
+      "highlights": [
+        "The Show, Oak Park",
+        "Opens at Noon",
+        "Special St. Patrick's Day Menu",
+        "$5 pints of Irish Stout & English Mild",
+        "Live Irish Dance Entertainment"
+      ],
+      "menuImageUrl": "/img/events/stpatricks-menu.jpg",
+      "menuPdfUrl": "/img/events/stpatricks-menu.pdf",
+      "specialMenuHeading": "St. Patrick's Day Special Menu",
+      "status": "past",
+      "orderOpensAt": "",
+      "orderClosesAt": "",
+      "pickupLocation": "",
+      "pickupStartAt": "",
+      "pickupEndAt": "",
+      "maxOrders": 0,
+      "linkedMenuItemSlugs": []
+    },
+    {
+      "slug": "test-event-upcoming",
+      "name": "Campus Martius Pop-Up — Spring 2026",
+      "date": "Tuesday, April 28th, 2026",
+      "startTime": "5:00 PM",
+      "endTime": "7:00 PM",
+      "location": "Campus Martius Park, Detroit, MI 48226",
+      "locationLabel": "Campus Martius Park, Detroit",
+      "description": "Tim's Gourmet Sliders is popping up at Campus Martius Park this spring! Pre-order your sliders and pick up fresh off the truck. This is a QA/demo test event — limited menu, order-ahead only.",
+      "coverImage": "",
+      "badge": "Upcoming",
+      "highlights": [
+        "Campus Martius Park, Detroit",
+        "5:00 PM – 7:00 PM",
+        "Order-Ahead Only",
+        "Limited Menu Available"
+      ],
+      "menuImageUrl": "",
+      "menuPdfUrl": "",
+      "specialMenuHeading": "",
+      "status": "upcoming",
+      "orderOpensAt": "2026-04-14T00:00:00Z",
+      "orderClosesAt": "2026-04-21T00:00:00Z",
+      "pickupLocation": "Campus Martius Park, Detroit",
+      "pickupStartAt": "2026-04-28T17:00:00Z",
+      "pickupEndAt": "2026-04-28T19:00:00Z",
+      "maxOrders": 0,
+      "linkedMenuItemSlugs": [
+        "whiskey",
+        "spicy-chicken",
+        "double-bacon",
+        "not-so-basic",
+        "classic",
+        "fries"
+      ]
+    }
+  ],
+
+  "reviews": [
+    {
+      "slug": "google-rd-d-2025-12",
+      "author": "RD D",
+      "rating": 5,
+      "body": "Tim and his crew came out to our dealerships and feed everyone. These Burgers are Excellent. The Steak slider and the impossible Burger are really Tasty and the Fries good too. Tim come back next year please.",
+      "source": "google",
+      "date": "1766102400",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=RD+D&background=random"
+    },
+    {
+      "slug": "google-james-hargrove-2025-09",
+      "author": "James Hargrove",
+      "rating": 5,
+      "body": "Best sliders i ever had. Highly recommend, one of the best food trucks in the metro area along with genuine customer service and ownership 10/10",
+      "source": "google",
+      "date": "1758240000",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=James+Hargrove&background=random"
+    },
+    {
+      "slug": "google-sandra-anger-2025-08",
+      "author": "Sandra Anger",
+      "rating": 5,
+      "body": "EXCELLENT food and service! Made our graduation party extra special. The sliders and fries got RAVE reviews from everyone. Very friendly, organized, and professional. Highly recommend.",
+      "source": "google",
+      "date": "1755561600",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Sandra+Anger&background=random"
+    },
+    {
+      "slug": "google-anita-rodgers-2025-07",
+      "author": "Anita Rodgers",
+      "rating": 5,
+      "body": "Tim's Food truck is the best food truck ever! If you want delicious food with a variety of choices this is your company. The customer service is exceptional and to me beyond 5 stars. My annual picnic for my group of stroke survivors will definitely be memorable and Tim's Food Truck helped to make this happen. Thank you again.",
+      "source": "google",
+      "date": "1752969600",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Anita+Rodgers&background=random"
+    },
+    {
+      "slug": "google-marlo-rencher-2025-07",
+      "author": "Marlo Rencher",
+      "rating": 5,
+      "body": "Tim's Gourmet Sliders truly elevated my event! The food was amazing and the friendly staff was extremely professional throughout the process. The game changer is the pager system for guests so that they can enjoy the event after they order and pick up hot, delicious sliders once they're ready. Absolutely recommend!",
+      "source": "google",
+      "date": "1752969600",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Marlo+Rencher&background=random"
+    },
+    {
+      "slug": "google-jim-mcbroom-2025-06",
+      "author": "Jim McBroom",
+      "rating": 5,
+      "body": "Tim's Gourmet Sliders were in our neighborhood tonight serving up the goods! We got the Steak Burger Sliders & the Garlic Chicken Sliders served up with delicious french fries! I highly recommend!",
+      "source": "google",
+      "date": "1750291200",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Jim+McBroom&background=random"
+    },
+    {
+      "slug": "google-rebecca-padin-2024-11",
+      "author": "Rebecca Padin",
+      "rating": 5,
+      "body": "Tim's Gourmet Sliders boasts a fantastic variety of sliders with fries, serving up something for everyone! Quick turnaround makes it easy to please a crowd, and prices are very reasonable. Punctual, friendly, and great for a block party!",
+      "source": "google",
+      "date": "1730152800",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Rebecca+Padin&background=random"
+    },
+    {
+      "slug": "google-lisa-golden-2024-12",
+      "author": "Lisa Golden",
+      "rating": 5,
+      "body": "Tim's Sliders were amazing! The best black and blue burger I've ever had...I could have eaten 10 more! Can't want to have them again at a company event. I HIGHLY recommend 100%. Fresh and super high quality ingredients. I need to reverse engineer the sauce that was on my burger. I'll be dreaming about it for months!",
+      "source": "google",
+      "date": "1732744800",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Lisa+Golden&background=random"
+    },
+    {
+      "slug": "google-shawn-disbrow-2024-12",
+      "author": "Shawn Disbrow",
+      "rating": 5,
+      "body": "Wow! Just Wow!! Decided to have a company tailgate lunch, best choice we made was choosing Tim's! The food was absolutely fantastic as well as the service! Rave reviews from all of the employees! Best sliders I've had, ever! Will definitely be calling upon you again! Thank you!",
+      "source": "google",
+      "date": "1732744800",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Shawn+Disbrow&background=random"
+    },
+    {
+      "slug": "google-lin-beckhold-2024-11",
+      "author": "Lin Beckhold",
+      "rating": 5,
+      "body": "They were at our local library today and the food was great! I got the steakhouse sliders, hubby got the bacon cheeseburger, and they were bigger and better then we expected. Their fries were great as well. We will be watching for them in our travels.",
+      "source": "google",
+      "date": "1730152800",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Lin+Beckhold&background=random"
+    },
+    {
+      "slug": "google-christie-r-2024-08",
+      "author": "Christie R",
+      "rating": 5,
+      "body": "Had a great experience using them for our daughters grad party. Guests were impressed with the food and how quick it came out. Guests even got beepers for when their food was ready. We had 150+ people and all I heard was how great it was",
+      "source": "google",
+      "date": "1722463200",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Christie+R&background=random"
+    },
+    {
+      "slug": "google-kimberly-schermesser-2025-04",
+      "author": "Kimberly Schermesser",
+      "rating": 5,
+      "body": "Great communication, easy to work with and excellent food! Everyone at our event was impressed with how great everything was. I will use Tim's again for all my events. Well done!",
+      "source": "google",
+      "date": "1745445600",
+      "profilePhotoUrl": "https://ui-avatars.com/api/?name=Kimberly+Schermesser&background=random"
+    }
+  ]
+}
