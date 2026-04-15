@@ -15,6 +15,7 @@
 
     display: block;
     min-height: 100dvh;
+    overflow-x: hidden;
     background: var(--order-bg);
     color: var(--order-cream);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

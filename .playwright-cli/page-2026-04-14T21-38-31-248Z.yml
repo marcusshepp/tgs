@@ -1,0 +1,282 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: T I M S G O U R M E T S L I D E R S
+      - paragraph [ref=e8]: Loading
+    - banner [ref=e9]:
+      - generic [ref=e12]:
+        - button "Toggle menu" [ref=e13] [cursor=pointer]
+        - link "Logo" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img "Logo" [ref=e18]
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e25]:
+          - img "icon" [ref=e26]
+          - text: Detroit's Premier Slider Catering Service
+          - img "icon" [ref=e27]
+        - paragraph [ref=e29]: Tim's Gourmet Sliders brings the restaurant experience directly to your event with our full-service catering options. From corporate gatherings to weddings and celebrations, we deliver fresh, made-to-order sliders your guests will love.
+        - img "Tim's Gourmet Sliders food truck catering a wedding reception" [ref=e31]
+        - generic [ref=e33]:
+          - generic [ref=e35]:
+            - heading "Professional Staff" [level=4] [ref=e36]
+            - paragraph [ref=e37]: Experienced team dedicated to excellent service
+          - generic [ref=e39]:
+            - heading "Full Mobile Kitchen" [level=4] [ref=e40]
+            - paragraph [ref=e41]: Complete cooking setup at your location
+          - generic [ref=e43]:
+            - heading "High Quality Ingredients" [level=4] [ref=e44]
+            - paragraph [ref=e45]: Fresh, locally sourced premium ingredients
+          - generic [ref=e47]:
+            - heading "Customizable Menus" [level=4] [ref=e48]
+            - paragraph [ref=e49]: Flexible options to suit your event
+          - generic [ref=e51]:
+            - heading "Licensed and Insured" [level=4] [ref=e52]
+            - paragraph [ref=e53]: Fully compliant with all regulations
+          - generic [ref=e55]:
+            - heading "30 Years Experience" [level=4] [ref=e56]
+            - paragraph [ref=e57]: Decades of culinary excellence
+        - generic [ref=e59]:
+          - img "icon" [ref=e60]
+          - text: Catering Packages
+          - img "icon" [ref=e61]
+        - generic [ref=e63]:
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: Basic
+              - heading "Starter Package" [level=4] [ref=e68]
+            - list [ref=e70]:
+              - listitem [ref=e71]: "✓ Includes these 4 slider options:"
+              - listitem [ref=e72]: ✓ Not So Basic
+              - listitem [ref=e73]: ✓ Very! Basic
+              - listitem [ref=e74]: ✓ Extra Cheese Please
+              - listitem [ref=e75]: ✓ Classic
+              - listitem [ref=e76]: ✓ Choice of one side
+          - generic [ref=e78]:
+            - generic [ref=e79]: Most Popular
+            - generic [ref=e80]:
+              - generic [ref=e81]: Premium
+              - heading "Not! So Basic Package" [level=4] [ref=e82]
+            - list [ref=e84]:
+              - listitem [ref=e85]: ✓ Your choice of any 4 options
+              - listitem [ref=e86]: ✓ Premium slider selections
+              - listitem [ref=e87]: ✓ Includes your choice of one side
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: Deluxe
+              - heading "Deluxe Package" [level=4] [ref=e92]
+            - list [ref=e94]:
+              - listitem [ref=e95]: ✓ 5 slider options
+              - listitem [ref=e96]: ✓ Spudtacular Loaded Fries — Seasoned ground beef, truck made cheese sauce, sour cream, green onions, jalapeño
+              - listitem [ref=e97]: ✓ Assorted beverages
+              - listitem [ref=e98]: ✓ Choose BBQ seasoning or Tim's signature seasoning for fries
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: All catering packages include napkins, plasticware, condiments, and bluetooth music streaming with service
+          - paragraph [ref=e101]: Gluten Free Option Available! Contact us for more details
+        - generic [ref=e103]:
+          - img "icon" [ref=e104]
+          - text: Our Catering Options
+          - img "icon" [ref=e105]
+        - generic [ref=e107]:
+          - list [ref=e109]:
+            - listitem [ref=e110] [cursor=pointer]: 100% Halal Beef
+            - listitem [ref=e111] [cursor=pointer]: Poultry
+            - listitem [ref=e112] [cursor=pointer]: Vegetarian
+            - listitem [ref=e113] [cursor=pointer]: Pork
+            - listitem [ref=e114] [cursor=pointer]: Additional
+            - listitem [ref=e115] [cursor=pointer]: Sides
+          - generic [ref=e117]:
+            - heading "100% Halal Beef" [level=3] [ref=e118]
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - heading "Classic Sliders" [level=4] [ref=e121]
+                - paragraph [ref=e122]: Our prime beef sliders topped with ketchup, mustard, American cheese, caramelized onions and pickles
+              - generic [ref=e123]:
+                - heading "Very! Basic Sliders" [level=4] [ref=e124]
+                - paragraph [ref=e125]: Our prime beef sliders topped with American cheese and caramelized onions
+              - generic [ref=e126]:
+                - heading "The Not! So Basic Sliders" [level=4] [ref=e127]
+                - paragraph [ref=e128]: Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato
+              - generic [ref=e129]:
+                - heading "Whiskey Sliders" [level=4] [ref=e130]
+                - paragraph [ref=e131]: Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce
+              - generic [ref=e132]:
+                - heading "Steak House Sliders" [level=4] [ref=e133]
+                - paragraph [ref=e134]: Our prime beef sliders topped with swiss cheese, fried onions and garlic aioli
+              - generic [ref=e135]:
+                - heading "Black and Blue Sliders" [level=4] [ref=e136]
+                - paragraph [ref=e137]: Our prime beef sliders topped with gorgonzola aioli, smoked bacon, and caramelized onions
+              - generic [ref=e138]:
+                - heading "Sweet and Savory Sliders" [level=4] [ref=e139]
+                - paragraph [ref=e140]: Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions
+              - generic [ref=e141]:
+                - heading "Extra Cheese Please! Sliders" [level=4] [ref=e142]
+                - paragraph [ref=e143]: Our prime beef sliders topped with double the American cheese
+              - generic [ref=e144]:
+                - heading "Bacon Cheese Sliders" [level=4] [ref=e145]
+                - paragraph [ref=e146]: Our prime beef sliders topped with smoked bacon, and American cheese
+          - generic [ref=e147]:
+            - heading "Good To Know!" [level=3] [ref=e148]
+            - list [ref=e149]:
+              - listitem [ref=e150]: • Food truck fee will apply
+              - listitem [ref=e151]: • Catering contract and deposit required to hold
+              - listitem [ref=e152]: • Our trucks are licensed and insured, and are held to a high standard of cleanliness and sanitation. We aim to exceed the local and state requirements and provide our guests an outstanding experience
+              - listitem [ref=e153]: • Looking to stream your favorite playlist during the event? Let us know and we will be delighted to stream your playlist on our Bluetooth speakers
+            - generic [ref=e154]:
+              - heading "Ready To Eat?" [level=3] [ref=e155]
+              - paragraph [ref=e156]:
+                - generic [ref=e157]: 
+                - text: timsfoodtruckdetroit@gmail.com
+              - paragraph [ref=e158]:
+                - generic [ref=e159]: 
+                - text: (248)-251-5781
+      - generic [ref=e162]:
+        - heading "Contact Us" [level=2] [ref=e163]
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]: Full Name
+            - generic [ref=e167]:
+              - generic [ref=e168]: 
+              - textbox "Full Name" [ref=e169]
+          - generic [ref=e170]:
+            - generic [ref=e171]: Phone Number
+            - generic [ref=e172]:
+              - generic [ref=e173]: 
+              - textbox "Phone Number" [ref=e174]
+          - generic [ref=e175]:
+            - generic [ref=e176]: Email Address
+            - generic [ref=e177]:
+              - generic [ref=e178]: 
+              - textbox "Email Address" [ref=e179]
+          - generic [ref=e180]:
+            - generic [ref=e181]: Date of Event
+            - generic [ref=e182]:
+              - generic [ref=e183]: 
+              - textbox "Date of Event" [ref=e184]
+          - generic [ref=e185]:
+            - generic [ref=e186]: Location of Event
+            - generic [ref=e187]:
+              - generic [ref=e188]: 
+              - textbox "Location of Event" [ref=e189]
+          - generic [ref=e190]:
+            - generic [ref=e191]: Your Message
+            - generic [ref=e192]:
+              - generic [ref=e193]: 
+              - textbox "Your Message" [ref=e194]
+          - button "Send Message " [disabled] [ref=e196]:
+            - text: Send Message
+            - generic [ref=e197]: 
+  - contentinfo [ref=e199]:
+    - generic [ref=e201]:
+      - generic [ref=e203]:
+        - generic [ref=e205]:
+          - generic [ref=e207]: 
+          - generic [ref=e208]:
+            - heading "Address" [level=6] [ref=e209]
+            - paragraph [ref=e210]: Redford, MI 48239
+        - generic [ref=e212]:
+          - generic [ref=e214]: 
+          - generic [ref=e215]:
+            - heading "Email" [level=6] [ref=e216]
+            - link "timsfoodtruckdetroit@gmail.com" [ref=e217] [cursor=pointer]:
+              - /url: mailto:timsfoodtruckdetroit@gmail.com
+              - paragraph [ref=e218]: timsfoodtruckdetroit@gmail.com
+        - generic [ref=e220]:
+          - generic [ref=e222]: 
+          - generic [ref=e223]:
+            - heading "Phone Number" [level=6] [ref=e224]
+            - paragraph [ref=e225]:
+              - link "(248)-251-5781" [ref=e226] [cursor=pointer]:
+                - /url: tel:2482515781
+      - generic [ref=e228]:
+        - generic [ref=e230]:
+          - link "logo-img" [ref=e232] [cursor=pointer]:
+            - /url: "#"
+            - img "logo-img"
+          - generic [ref=e234]:
+            - link "Facebook" [ref=e235] [cursor=pointer]:
+              - /url: https://www.facebook.com/Timsgourmetsliders/
+              - generic [ref=e236]: 
+            - link "Google" [ref=e237] [cursor=pointer]:
+              - /url: https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1
+              - generic [ref=e238]: 
+            - link "Instagram" [ref=e239] [cursor=pointer]:
+              - /url: https://www.instagram.com/timsgourmetsliders/
+              - generic [ref=e240]: 
+        - generic [ref=e242]:
+          - heading "Quick Links" [level=3] [ref=e244]
+          - list [ref=e245]:
+            - listitem [ref=e246]:
+              - link " Home" [ref=e247] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e248]: 
+                - text: Home
+            - listitem [ref=e249]:
+              - link " Catering" [ref=e250] [cursor=pointer]:
+                - /url: /catering
+                - generic [ref=e251]: 
+                - text: Catering
+            - listitem [ref=e252]:
+              - link " Menu" [ref=e253] [cursor=pointer]:
+                - /url: /menu
+                - generic [ref=e254]: 
+                - text: Menu
+            - listitem [ref=e255]:
+              - link " Meet Us" [ref=e256] [cursor=pointer]:
+                - /url: /meet-us
+                - generic [ref=e257]: 
+                - text: Meet Us
+            - listitem [ref=e258]:
+              - link " Reviews" [ref=e259] [cursor=pointer]:
+                - /url: /reviews
+                - generic [ref=e260]: 
+                - text: Reviews
+            - listitem [ref=e261]:
+              - link " Contact Us" [ref=e262] [cursor=pointer]:
+                - /url: /contact-us
+                - generic [ref=e263]: 
+                - text: Contact Us
+            - listitem [ref=e264]:
+              - link " Menu PDF" [ref=e265] [cursor=pointer]:
+                - /url: /menu-pdf
+                - generic [ref=e266]: 
+                - text: Menu PDF
+        - generic [ref=e268]:
+          - heading "Our Menu" [level=3] [ref=e270]
+          - list [ref=e271]:
+            - listitem [ref=e272]:
+              - link " Not! So Basic" [ref=e273] [cursor=pointer]:
+                - /url: /menu-item/not-so-basic
+                - generic [ref=e274]: 
+                - text: Not! So Basic
+            - listitem [ref=e275]:
+              - link " Black and Blue" [ref=e276] [cursor=pointer]:
+                - /url: /menu-item/black-and-blue
+                - generic [ref=e277]: 
+                - text: Black and Blue
+            - listitem [ref=e278]:
+              - link " Classic" [ref=e279] [cursor=pointer]:
+                - /url: /menu-item/classic
+                - generic [ref=e280]: 
+                - text: Classic
+            - listitem [ref=e281]:
+              - link " Tim's Famous Fried Chicken" [ref=e282] [cursor=pointer]:
+                - /url: /menu-item/famous-fried-chicken
+                - generic [ref=e283]: 
+                - text: Tim's Famous Fried Chicken
+            - listitem [ref=e284]:
+              - link " Extra Cheese Please" [ref=e285] [cursor=pointer]:
+                - /url: /menu-item/extra-cheese
+                - generic [ref=e286]: 
+                - text: Extra Cheese Please
+        - generic [ref=e288]:
+          - heading "Hours" [level=3] [ref=e290]
+          - list [ref=e291]:
+            - listitem [ref=e292]:
+              - text: "Monday – Saturday:"
+              - generic [ref=e293]: 10am – 9pm
+    - paragraph [ref=e297]:
+      - text: Website by
+      - link "Sync." [ref=e298] [cursor=pointer]:
+        - /url: https://syncgr.com

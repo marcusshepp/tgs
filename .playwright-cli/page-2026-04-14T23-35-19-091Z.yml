@@ -1,0 +1,359 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: T I M S G O U R M E T S L I D E R S
+      - paragraph [ref=e8]: Loading
+    - banner [ref=e9]:
+      - generic [ref=e11]:
+        - button "Toggle menu" [ref=e13] [cursor=pointer]
+        - navigation [ref=e17]:
+          - list [ref=e18]:
+            - listitem [ref=e19]:
+              - link "Home" [ref=e20] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e21]:
+              - link "Catering" [ref=e22] [cursor=pointer]:
+                - /url: /catering
+            - listitem [ref=e23]:
+              - link "Menu" [ref=e24] [cursor=pointer]:
+                - /url: /menu
+            - listitem [ref=e25]:
+              - link "Events" [ref=e26] [cursor=pointer]:
+                - /url: /special-events
+            - listitem [ref=e27]:
+              - link "Logo" [ref=e28] [cursor=pointer]:
+                - /url: /
+                - img "Logo" [ref=e29]
+            - listitem [ref=e30]:
+              - link "Meet Us" [ref=e31] [cursor=pointer]:
+                - /url: /meet-us
+            - listitem [ref=e32]:
+              - link "Reviews" [ref=e33] [cursor=pointer]:
+                - /url: /reviews
+            - listitem [ref=e34]:
+              - link "Contact Us" [ref=e35] [cursor=pointer]:
+                - /url: /contact-us
+        - link "Order now" [ref=e37] [cursor=pointer]:
+          - /url: /menu
+          - generic [ref=e38]: Menu
+          - img [ref=e39]
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - region "Tim's Gourmet Sliders - Detroit & Redford Michigan Food Truck" [ref=e44]:
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - heading "Tim's Gourmet Sliders" [level=1] [ref=e50]
+            - paragraph [ref=e51]: "Detroit's #1 Top Rated Food Truck"
+          - link "View Our Menu" [ref=e52] [cursor=pointer]:
+            - /url: /menu
+          - generic [ref=e53]:
+            - link " (248)-251-5781" [ref=e54] [cursor=pointer]:
+              - /url: tel:2482515781
+              - generic [ref=e55]: 
+              - generic [ref=e56]: (248)-251-5781
+            - generic [ref=e58]:
+              - generic [ref=e59]: 
+              - generic [ref=e60]: Redford, MI 48239
+            - generic [ref=e62]:
+              - link "Facebook" [ref=e63] [cursor=pointer]:
+                - /url: https://www.facebook.com/Timsgourmetsliders/
+                - generic [ref=e64]: 
+              - link "Instagram" [ref=e65] [cursor=pointer]:
+                - /url: https://www.instagram.com/timsgourmetsliders/
+                - generic [ref=e66]: 
+              - link "Google" [ref=e67] [cursor=pointer]:
+                - /url: https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1
+                - generic [ref=e68]: 
+          - generic [ref=e70]: 100% Halal Beef
+      - generic [ref=e73]:
+        - generic [ref=e77]:
+          - img "icon" [ref=e78]
+          - text: Popular Items
+          - img "icon" [ref=e79]
+        - generic [ref=e80]:
+          - link "Whiskey Whiskey Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce $15" [ref=e81] [cursor=pointer]:
+            - /url: /menu-item/whiskey
+            - img "Whiskey" [ref=e83]
+            - generic [ref=e84]:
+              - heading "Whiskey" [level=3] [ref=e85]
+              - paragraph [ref=e86]: Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce
+              - generic [ref=e87]: $15
+          - link "Sweet and Savory Sweet and Savory Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions $14" [ref=e88] [cursor=pointer]:
+            - /url: /menu-item/sweet-savory
+            - img "Sweet and Savory" [ref=e90]
+            - generic [ref=e91]:
+              - heading "Sweet and Savory" [level=3] [ref=e92]
+              - paragraph [ref=e93]: Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions
+              - generic [ref=e94]: $14
+          - link "Double Banger Double Banger 4 prime beef patties with American cheese Add bacon for an additional $2 $18" [ref=e95] [cursor=pointer]:
+            - /url: /menu-item/double-bacon
+            - img "Double Banger" [ref=e97]
+            - generic [ref=e98]:
+              - heading "Double Banger" [level=3] [ref=e99]
+              - paragraph [ref=e100]: 4 prime beef patties with American cheese Add bacon for an additional $2
+              - generic [ref=e101]: $18
+          - link "Spicy Chicken Spicy Chicken Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo $15" [ref=e102] [cursor=pointer]:
+            - /url: /menu-item/spicy-chicken
+            - img "Spicy Chicken" [ref=e104]
+            - generic [ref=e105]:
+              - heading "Spicy Chicken" [level=3] [ref=e106]
+              - paragraph [ref=e107]: Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo
+              - generic [ref=e108]: $15
+        - link "View All Items →" [ref=e110] [cursor=pointer]:
+          - /url: /menu
+      - generic [ref=e114]:
+        - generic [ref=e118]:
+          - img "icon" [ref=e119]
+          - text: Popular Items
+          - img "icon" [ref=e120]
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - link "Sweet and Savory" [ref=e123] [cursor=pointer]:
+              - /url: /menu-item/sweet-savory
+              - img "Sweet and Savory" [ref=e124]
+            - link "Sweet and Savory" [ref=e125] [cursor=pointer]:
+              - /url: /menu-item/sweet-savory
+              - heading "Sweet and Savory" [level=3] [ref=e126]
+            - paragraph [ref=e127]: Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions
+          - generic [ref=e128]:
+            - link "Whiskey" [ref=e129] [cursor=pointer]:
+              - /url: /menu-item/whiskey
+              - img "Whiskey" [ref=e130]
+            - link "Whiskey" [ref=e131] [cursor=pointer]:
+              - /url: /menu-item/whiskey
+              - heading "Whiskey" [level=3] [ref=e132]
+            - paragraph [ref=e133]: Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce
+          - generic [ref=e134]:
+            - link "Double Banger" [ref=e135] [cursor=pointer]:
+              - /url: /menu-item/double-bacon
+              - img "Double Banger" [ref=e136]
+            - link "Double Banger" [ref=e137] [cursor=pointer]:
+              - /url: /menu-item/double-bacon
+              - heading "Double Banger" [level=3] [ref=e138]
+            - paragraph [ref=e139]: 4 prime beef patties with American cheese Add bacon for an additional $2
+          - generic [ref=e140]:
+            - link "Spicy Chicken" [ref=e141] [cursor=pointer]:
+              - /url: /menu-item/spicy-chicken
+              - img "Spicy Chicken" [ref=e142]
+            - link "Spicy Chicken" [ref=e143] [cursor=pointer]:
+              - /url: /menu-item/spicy-chicken
+              - heading "Spicy Chicken" [level=3] [ref=e144]
+            - paragraph [ref=e145]: Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo
+        - link "View All Items →" [ref=e147] [cursor=pointer]:
+          - /url: /menu
+      - generic [ref=e149]:
+        - heading "Trusted By" [level=2] [ref=e150]
+        - generic [ref=e152]:
+          - generic [ref=e153]: Ford Motor Company •
+          - generic [ref=e154]: General Motors •
+          - generic [ref=e155]: Chrysler •
+          - generic [ref=e156]: Frito-Lay •
+          - generic [ref=e157]: Republic Services •
+          - generic [ref=e158]: Cleary University •
+          - generic [ref=e159]: University of Michigan •
+          - generic [ref=e160]: Community Choice Credit Union •
+          - generic [ref=e161]: Ford Motor Company •
+          - generic [ref=e162]: General Motors •
+          - generic [ref=e163]: Chrysler •
+          - generic [ref=e164]: Frito-Lay •
+          - generic [ref=e165]: Republic Services •
+          - generic [ref=e166]: Cleary University •
+          - generic [ref=e167]: University of Michigan •
+          - generic [ref=e168]: Community Choice Credit Union •
+        - generic [ref=e170]:
+          - generic [ref=e171]: Ford Motor Company •
+          - generic [ref=e172]: General Motors •
+          - generic [ref=e173]: Chrysler •
+          - generic [ref=e174]: Frito-Lay •
+          - generic [ref=e175]: Republic Services •
+          - generic [ref=e176]: Cleary University •
+          - generic [ref=e177]: University of Michigan •
+          - generic [ref=e178]: Community Choice Credit Union •
+          - generic [ref=e179]: Ford Motor Company •
+          - generic [ref=e180]: General Motors •
+          - generic [ref=e181]: Chrysler •
+          - generic [ref=e182]: Frito-Lay •
+          - generic [ref=e183]: Republic Services •
+          - generic [ref=e184]: Cleary University •
+          - generic [ref=e185]: University of Michigan •
+          - generic [ref=e186]: Community Choice Credit Union •
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - heading "Full-Service Catering" [level=2] [ref=e191]
+          - paragraph [ref=e192]: From corporate gatherings to weddings and celebrations, Tim's Gourmet Sliders brings the restaurant experience directly to your event. Fresh, made-to-order sliders your guests will love.
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e196]: 
+            - heading "Professional Staff" [level=3] [ref=e197]
+            - paragraph [ref=e198]: Experienced team dedicated to excellent service
+          - generic [ref=e199]:
+            - generic [ref=e201]: 
+            - heading "Full Mobile Kitchen" [level=3] [ref=e202]
+            - paragraph [ref=e203]: Complete cooking setup at your location
+          - generic [ref=e204]:
+            - generic [ref=e206]: 
+            - heading "High Quality Ingredients" [level=3] [ref=e207]
+            - paragraph [ref=e208]: Fresh, locally sourced premium ingredients
+          - generic [ref=e209]:
+            - generic [ref=e211]: 
+            - heading "Customizable Menus" [level=3] [ref=e212]
+            - paragraph [ref=e213]: Flexible options to suit your event
+          - generic [ref=e214]:
+            - generic [ref=e216]: 
+            - heading "Licensed and Insured" [level=3] [ref=e217]
+            - paragraph [ref=e218]: Fully compliant with all regulations
+          - generic [ref=e219]:
+            - generic [ref=e221]: 
+            - heading "30 Years Experience" [level=3] [ref=e222]
+            - paragraph [ref=e223]: Decades of culinary excellence
+        - link "Learn More" [ref=e225] [cursor=pointer]:
+          - /url: /catering
+      - generic [ref=e228]:
+        - heading "Contact Us" [level=2] [ref=e229]
+        - generic [ref=e230]:
+          - generic [ref=e231]:
+            - generic [ref=e232]: Full Name
+            - generic [ref=e233]:
+              - generic [ref=e234]: 
+              - textbox "Full Name" [ref=e235]
+          - generic [ref=e236]:
+            - generic [ref=e237]: Phone Number
+            - generic [ref=e238]:
+              - generic [ref=e239]: 
+              - textbox "Phone Number" [ref=e240]
+          - generic [ref=e241]:
+            - generic [ref=e242]: Email Address
+            - generic [ref=e243]:
+              - generic [ref=e244]: 
+              - textbox "Email Address" [ref=e245]
+          - generic [ref=e246]:
+            - generic [ref=e247]: Date of Event
+            - generic [ref=e248]:
+              - generic [ref=e249]: 
+              - textbox "Date of Event" [ref=e250]
+          - generic [ref=e251]:
+            - generic [ref=e252]: Location of Event
+            - generic [ref=e253]:
+              - generic [ref=e254]: 
+              - textbox "Location of Event" [ref=e255]
+          - generic [ref=e256]:
+            - generic [ref=e257]: Your Message
+            - generic [ref=e258]:
+              - generic [ref=e259]: 
+              - textbox "Your Message" [ref=e260]
+          - button "Send Message " [disabled] [ref=e262]:
+            - text: Send Message
+            - generic [ref=e263]: 
+  - contentinfo [ref=e265]:
+    - generic [ref=e267]:
+      - generic [ref=e269]:
+        - generic [ref=e271]:
+          - generic [ref=e273]: 
+          - generic [ref=e274]:
+            - heading "Address" [level=6] [ref=e275]
+            - paragraph [ref=e276]: Redford, MI 48239
+        - generic [ref=e278]:
+          - generic [ref=e280]: 
+          - generic [ref=e281]:
+            - heading "Email" [level=6] [ref=e282]
+            - link "timsfoodtruckdetroit@gmail.com" [ref=e283] [cursor=pointer]:
+              - /url: mailto:timsfoodtruckdetroit@gmail.com
+              - paragraph [ref=e284]: timsfoodtruckdetroit@gmail.com
+        - generic [ref=e286]:
+          - generic [ref=e288]: 
+          - generic [ref=e289]:
+            - heading "Phone Number" [level=6] [ref=e290]
+            - paragraph [ref=e291]:
+              - link "(248)-251-5781" [ref=e292] [cursor=pointer]:
+                - /url: tel:2482515781
+      - generic [ref=e294]:
+        - generic [ref=e296]:
+          - link "logo-img" [ref=e298] [cursor=pointer]:
+            - /url: "#"
+            - img "logo-img" [ref=e299]
+          - generic [ref=e301]:
+            - link "Facebook" [ref=e302] [cursor=pointer]:
+              - /url: https://www.facebook.com/Timsgourmetsliders/
+              - generic [ref=e303]: 
+            - link "Google" [ref=e304] [cursor=pointer]:
+              - /url: https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1
+              - generic [ref=e305]: 
+            - link "Instagram" [ref=e306] [cursor=pointer]:
+              - /url: https://www.instagram.com/timsgourmetsliders/
+              - generic [ref=e307]: 
+        - generic [ref=e309]:
+          - heading "Quick Links" [level=3] [ref=e311]
+          - list [ref=e312]:
+            - listitem [ref=e313]:
+              - link " Home" [ref=e314] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e315]: 
+                - text: Home
+            - listitem [ref=e316]:
+              - link " Catering" [ref=e317] [cursor=pointer]:
+                - /url: /catering
+                - generic [ref=e318]: 
+                - text: Catering
+            - listitem [ref=e319]:
+              - link " Menu" [ref=e320] [cursor=pointer]:
+                - /url: /menu
+                - generic [ref=e321]: 
+                - text: Menu
+            - listitem [ref=e322]:
+              - link " Meet Us" [ref=e323] [cursor=pointer]:
+                - /url: /meet-us
+                - generic [ref=e324]: 
+                - text: Meet Us
+            - listitem [ref=e325]:
+              - link " Reviews" [ref=e326] [cursor=pointer]:
+                - /url: /reviews
+                - generic [ref=e327]: 
+                - text: Reviews
+            - listitem [ref=e328]:
+              - link " Contact Us" [ref=e329] [cursor=pointer]:
+                - /url: /contact-us
+                - generic [ref=e330]: 
+                - text: Contact Us
+            - listitem [ref=e331]:
+              - link " Menu PDF" [ref=e332] [cursor=pointer]:
+                - /url: /menu-pdf
+                - generic [ref=e333]: 
+                - text: Menu PDF
+        - generic [ref=e335]:
+          - heading "Our Menu" [level=3] [ref=e337]
+          - list [ref=e338]:
+            - listitem [ref=e339]:
+              - link " Not! So Basic" [ref=e340] [cursor=pointer]:
+                - /url: /menu-item/not-so-basic
+                - generic [ref=e341]: 
+                - text: Not! So Basic
+            - listitem [ref=e342]:
+              - link " Black and Blue" [ref=e343] [cursor=pointer]:
+                - /url: /menu-item/black-and-blue
+                - generic [ref=e344]: 
+                - text: Black and Blue
+            - listitem [ref=e345]:
+              - link " Classic" [ref=e346] [cursor=pointer]:
+                - /url: /menu-item/classic
+                - generic [ref=e347]: 
+                - text: Classic
+            - listitem [ref=e348]:
+              - link " Tim's Famous Fried Chicken" [ref=e349] [cursor=pointer]:
+                - /url: /menu-item/famous-fried-chicken
+                - generic [ref=e350]: 
+                - text: Tim's Famous Fried Chicken
+            - listitem [ref=e351]:
+              - link " Extra Cheese Please" [ref=e352] [cursor=pointer]:
+                - /url: /menu-item/extra-cheese
+                - generic [ref=e353]: 
+                - text: Extra Cheese Please
+        - generic [ref=e355]:
+          - heading "Hours" [level=3] [ref=e357]
+          - list [ref=e358]:
+            - listitem [ref=e359]:
+              - text: "Monday – Saturday:"
+              - generic [ref=e360]: 10am – 9pm
+    - paragraph [ref=e364]:
+      - text: Website by
+      - link "Sync." [ref=e365] [cursor=pointer]:
+        - /url: https://syncgr.com

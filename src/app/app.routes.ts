@@ -113,6 +113,11 @@ export const routes: Routes = [
         },
     },
     {
+        path: 'order',
+        redirectTo: 'special-events',
+        pathMatch: 'full',
+    },
+    {
         path: 'events/:slug/order',
         loadComponent: () => import('./events/order/event-order.component').then(m => m.EventOrderComponent),
         data: {

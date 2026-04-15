@@ -1,0 +1,14 @@
+- generic [active] [ref=e1]:
+  - heading "404 Not Found" [level=1] [ref=e2]
+  - list [ref=e3]:
+    - listitem [ref=e4]: "Code: NoSuchKey"
+    - listitem [ref=e5]: "Message: The specified key does not exist."
+    - listitem [ref=e6]: "Key: index.html"
+    - listitem [ref=e7]: "RequestId: 96H37T3FXQ41WA0N"
+    - listitem [ref=e8]: "HostId: AbEU4sYj13KPcpO1PsJQFO9Mcnuxm9SbxjqRaKJwQLI4o4hETdNB6niZYdFx9dhoNxTqENrVeL8="
+  - heading "An Error Occurred While Attempting to Retrieve a Custom Error Document" [level=3] [ref=e9]
+  - list [ref=e10]:
+    - listitem [ref=e11]: "Code: NoSuchKey"
+    - listitem [ref=e12]: "Message: The specified key does not exist."
+    - listitem [ref=e13]: "Key: index.html"
+  - separator [ref=e14]

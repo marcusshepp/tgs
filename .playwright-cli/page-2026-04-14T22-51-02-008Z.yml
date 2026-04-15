@@ -1,0 +1,188 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: T I M S G O U R M E T S L I D E R S
+      - paragraph [ref=e8]: Loading
+    - banner [ref=e9]:
+      - generic [ref=e11]:
+        - button "Toggle menu" [ref=e13] [cursor=pointer]
+        - navigation [ref=e17]:
+          - list [ref=e18]:
+            - listitem [ref=e19]:
+              - link "Home" [ref=e20] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e21]:
+              - link "Catering" [ref=e22] [cursor=pointer]:
+                - /url: /catering
+            - listitem [ref=e23]:
+              - link "Menu" [ref=e24] [cursor=pointer]:
+                - /url: /menu
+            - listitem [ref=e25]:
+              - link "Events" [ref=e26] [cursor=pointer]:
+                - /url: /special-events
+            - listitem [ref=e27]:
+              - link "Logo" [ref=e28] [cursor=pointer]:
+                - /url: /
+                - img "Logo" [ref=e29]
+            - listitem [ref=e30]:
+              - link "Meet Us" [ref=e31] [cursor=pointer]:
+                - /url: /meet-us
+            - listitem [ref=e32]:
+              - link "Reviews" [ref=e33] [cursor=pointer]:
+                - /url: /reviews
+            - listitem [ref=e34]:
+              - link "Contact Us" [ref=e35] [cursor=pointer]:
+                - /url: /contact-us
+        - link "Order now" [ref=e37] [cursor=pointer]:
+          - /url: /menu
+          - generic [ref=e38]: Menu
+          - img [ref=e39]
+  - main [ref=e41]:
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - link "Back to cart" [ref=e46] [cursor=pointer]:
+          - /url: /cart
+          - img [ref=e47]
+          - text: Back to cart
+        - paragraph [ref=e49]: Almost there
+        - heading "Checkout" [level=1] [ref=e50]
+      - generic [ref=e51]:
+        - main [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - paragraph [ref=e55]: Your information
+              - generic [ref=e56]:
+                - generic [ref=e57]: Full Name *
+                - textbox "Full Name" [ref=e58]:
+                  - /placeholder: Tim Johnson
+              - generic [ref=e59]:
+                - generic [ref=e60]: Phone Number *
+                - textbox "Phone Number" [ref=e61]:
+                  - /placeholder: (313) 555-0123
+              - generic [ref=e62]:
+                - generic [ref=e63]: Email Address *
+                - textbox "Email Address" [ref=e64]:
+                  - /placeholder: tim@example.com
+              - generic [ref=e65]:
+                - generic [ref=e66]: Pickup Instructions (optional)
+                - textbox "Pickup Instructions (optional)" [ref=e67]:
+                  - /placeholder: Any special notes for pickup…
+            - button "Place my order" [disabled] [ref=e68]: Place My Order
+            - paragraph [ref=e69]: Demo only — no real order is placed.
+        - region "Order summary" [ref=e70]:
+          - generic [ref=e71]:
+            - paragraph [ref=e72]: Order Summary
+            - paragraph [ref=e73]: No items in cart.
+  - contentinfo [ref=e75]:
+    - generic [ref=e77]:
+      - generic [ref=e79]:
+        - generic [ref=e81]:
+          - generic [ref=e83]: 
+          - generic [ref=e84]:
+            - heading "Address" [level=6] [ref=e85]
+            - paragraph [ref=e86]: Redford, MI 48239
+        - generic [ref=e88]:
+          - generic [ref=e90]: 
+          - generic [ref=e91]:
+            - heading "Email" [level=6] [ref=e92]
+            - link "timsfoodtruckdetroit@gmail.com" [ref=e93] [cursor=pointer]:
+              - /url: mailto:timsfoodtruckdetroit@gmail.com
+              - paragraph [ref=e94]: timsfoodtruckdetroit@gmail.com
+        - generic [ref=e96]:
+          - generic [ref=e98]: 
+          - generic [ref=e99]:
+            - heading "Phone Number" [level=6] [ref=e100]
+            - paragraph [ref=e101]:
+              - link "(248)-251-5781" [ref=e102] [cursor=pointer]:
+                - /url: tel:2482515781
+      - generic [ref=e104]:
+        - generic [ref=e106]:
+          - link "logo-img" [ref=e108] [cursor=pointer]:
+            - /url: "#"
+            - img "logo-img" [ref=e109]
+          - generic [ref=e111]:
+            - link "Facebook" [ref=e112] [cursor=pointer]:
+              - /url: https://www.facebook.com/Timsgourmetsliders/
+              - generic [ref=e113]: 
+            - link "Google" [ref=e114] [cursor=pointer]:
+              - /url: https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1
+              - generic [ref=e115]: 
+            - link "Instagram" [ref=e116] [cursor=pointer]:
+              - /url: https://www.instagram.com/timsgourmetsliders/
+              - generic [ref=e117]: 
+        - generic [ref=e119]:
+          - heading "Quick Links" [level=3] [ref=e121]
+          - list [ref=e122]:
+            - listitem [ref=e123]:
+              - link " Home" [ref=e124] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e125]: 
+                - text: Home
+            - listitem [ref=e126]:
+              - link " Catering" [ref=e127] [cursor=pointer]:
+                - /url: /catering
+                - generic [ref=e128]: 
+                - text: Catering
+            - listitem [ref=e129]:
+              - link " Menu" [ref=e130] [cursor=pointer]:
+                - /url: /menu
+                - generic [ref=e131]: 
+                - text: Menu
+            - listitem [ref=e132]:
+              - link " Meet Us" [ref=e133] [cursor=pointer]:
+                - /url: /meet-us
+                - generic [ref=e134]: 
+                - text: Meet Us
+            - listitem [ref=e135]:
+              - link " Reviews" [ref=e136] [cursor=pointer]:
+                - /url: /reviews
+                - generic [ref=e137]: 
+                - text: Reviews
+            - listitem [ref=e138]:
+              - link " Contact Us" [ref=e139] [cursor=pointer]:
+                - /url: /contact-us
+                - generic [ref=e140]: 
+                - text: Contact Us
+            - listitem [ref=e141]:
+              - link " Menu PDF" [ref=e142] [cursor=pointer]:
+                - /url: /menu-pdf
+                - generic [ref=e143]: 
+                - text: Menu PDF
+        - generic [ref=e145]:
+          - heading "Our Menu" [level=3] [ref=e147]
+          - list [ref=e148]:
+            - listitem [ref=e149]:
+              - link " Not! So Basic" [ref=e150] [cursor=pointer]:
+                - /url: /menu-item/not-so-basic
+                - generic [ref=e151]: 
+                - text: Not! So Basic
+            - listitem [ref=e152]:
+              - link " Black and Blue" [ref=e153] [cursor=pointer]:
+                - /url: /menu-item/black-and-blue
+                - generic [ref=e154]: 
+                - text: Black and Blue
+            - listitem [ref=e155]:
+              - link " Classic" [ref=e156] [cursor=pointer]:
+                - /url: /menu-item/classic
+                - generic [ref=e157]: 
+                - text: Classic
+            - listitem [ref=e158]:
+              - link " Tim's Famous Fried Chicken" [ref=e159] [cursor=pointer]:
+                - /url: /menu-item/famous-fried-chicken
+                - generic [ref=e160]: 
+                - text: Tim's Famous Fried Chicken
+            - listitem [ref=e161]:
+              - link " Extra Cheese Please" [ref=e162] [cursor=pointer]:
+                - /url: /menu-item/extra-cheese
+                - generic [ref=e163]: 
+                - text: Extra Cheese Please
+        - generic [ref=e165]:
+          - heading "Hours" [level=3] [ref=e167]
+          - list [ref=e168]:
+            - listitem [ref=e169]:
+              - text: "Monday – Saturday:"
+              - generic [ref=e170]: 10am – 9pm
+    - paragraph [ref=e174]:
+      - text: Website by
+      - link "Sync." [ref=e175] [cursor=pointer]:
+        - /url: https://syncgr.com

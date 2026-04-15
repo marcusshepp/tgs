@@ -28,6 +28,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 
     public form: FormGroup;
     public showSuccessMessage: boolean = false;
+    public showErrorMessage: boolean = false;
     public submittedName: string = '';
 
     private submitting: boolean = false;
@@ -263,10 +264,7 @@ timsgourmetsliders.com`
                 error: (err: any) => {
                     console.error('Failed to send email:', err);
 
-                    if (this.isBrowser) {
-                        alert('There was an error sending your request. Please try again.');
-                    }
-
+                    this.showErrorMessage = true;
                     this.submitting = false;
 
                     if (this.isBrowser && submitBtn) {

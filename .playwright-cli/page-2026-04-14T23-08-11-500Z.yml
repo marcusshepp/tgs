@@ -1,0 +1,210 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: T I M S G O U R M E T S L I D E R S
+      - paragraph [ref=e8]: Loading
+    - banner [ref=e9]:
+      - generic [ref=e11]:
+        - button "Toggle menu" [ref=e13] [cursor=pointer]
+        - navigation [ref=e17]:
+          - list [ref=e18]:
+            - listitem [ref=e19]:
+              - link "Home" [ref=e20] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e21]:
+              - link "Catering" [ref=e22] [cursor=pointer]:
+                - /url: /catering
+            - listitem [ref=e23]:
+              - link "Menu" [ref=e24] [cursor=pointer]:
+                - /url: /menu
+            - listitem [ref=e25]:
+              - link "Events" [ref=e26] [cursor=pointer]:
+                - /url: /special-events
+            - listitem [ref=e27]:
+              - link "Logo" [ref=e28] [cursor=pointer]:
+                - /url: /
+                - img "Logo" [ref=e29]
+            - listitem [ref=e30]:
+              - link "Meet Us" [ref=e31] [cursor=pointer]:
+                - /url: /meet-us
+            - listitem [ref=e32]:
+              - link "Reviews" [ref=e33] [cursor=pointer]:
+                - /url: /reviews
+            - listitem [ref=e34]:
+              - link "Contact Us" [ref=e35] [cursor=pointer]:
+                - /url: /contact-us
+        - link "Order now" [ref=e37] [cursor=pointer]:
+          - /url: /menu
+          - generic [ref=e38]: Menu
+          - img [ref=e39]
+  - main [ref=e41]:
+    - generic [ref=e45]:
+      - generic [ref=e47]:
+        - img "icon" [ref=e48]
+        - text: Special Events
+        - img "icon" [ref=e49]
+      - paragraph [ref=e51]: Catch Tim's Gourmet Sliders at these special events! We bring our signature sliders and special limited-time menus to venues across Michigan.
+      - generic [ref=e52]: Upcoming Events
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]: Upcoming
+          - heading "Campus Martius Pop-Up — Spring 2026" [level=2] [ref=e56]
+          - generic [ref=e57]:
+            - paragraph [ref=e58]:
+              - strong [ref=e59]: "Date:"
+              - text: Tuesday, April 28th, 2026
+            - paragraph [ref=e60]:
+              - strong [ref=e61]: "Time:"
+              - text: 5:00 PM – 7:00 PM
+            - paragraph [ref=e62]:
+              - strong [ref=e63]: "Location:"
+              - text: Campus Martius Park, Detroit, MI 48226
+        - generic [ref=e64]:
+          - paragraph [ref=e66]: Tim's Gourmet Sliders is popping up at Campus Martius Park this spring! Pre-order your sliders and pick up fresh off the truck. This is a QA/demo test event — limited menu, order-ahead only.
+          - generic [ref=e67]:
+            - generic [ref=e68]: Campus Martius Park, Detroit
+            - generic [ref=e69]: 5:00 PM – 7:00 PM
+            - generic [ref=e70]: Order-Ahead Only
+            - generic [ref=e71]: Limited Menu Available
+          - link "Order Now" [ref=e73] [cursor=pointer]:
+            - /url: /events/test-event-upcoming/order
+      - generic [ref=e74]: Past Events
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: Past Event
+          - heading "St. Patrick's Day at The Show" [level=2] [ref=e78]
+          - generic [ref=e79]:
+            - paragraph [ref=e80]:
+              - strong [ref=e81]: "Date:"
+              - text: Tuesday, March 17th, 2026
+            - paragraph [ref=e82]:
+              - strong [ref=e83]: "Time:"
+              - text: Opens at Noon
+            - paragraph [ref=e84]:
+              - strong [ref=e85]: "Location:"
+              - text: 14661 Eleven Mile, Oak Park, MI
+        - generic [ref=e86]:
+          - img "St. Patrick's Day at The Show" [ref=e88]
+          - paragraph [ref=e90]: Join us for St. Paddy's Day at The Show! Enjoy $5 pints of O'Guinymish Irish Stout & White Hart English Mild, a special menu from Tim's Gourmet Sliders, and live entertainment from the O'Kennedy Holland Irish Dance Academy.
+          - generic [ref=e91]:
+            - generic [ref=e92]: The Show, Oak Park
+            - generic [ref=e93]: Opens at Noon
+            - generic [ref=e94]: Special St. Patrick's Day Menu
+            - generic [ref=e95]: $5 pints of Irish Stout & English Mild
+            - generic [ref=e96]: Live Irish Dance Entertainment
+          - generic [ref=e97]:
+            - heading "St. Patrick's Day Special Menu" [level=3] [ref=e98]
+            - img "St. Patrick's Day Special Menu" [ref=e100]
+  - contentinfo [ref=e102]:
+    - generic [ref=e104]:
+      - generic [ref=e106]:
+        - generic [ref=e108]:
+          - generic [ref=e110]: 
+          - generic [ref=e111]:
+            - heading "Address" [level=6] [ref=e112]
+            - paragraph [ref=e113]: Redford, MI 48239
+        - generic [ref=e115]:
+          - generic [ref=e117]: 
+          - generic [ref=e118]:
+            - heading "Email" [level=6] [ref=e119]
+            - link "timsfoodtruckdetroit@gmail.com" [ref=e120] [cursor=pointer]:
+              - /url: mailto:timsfoodtruckdetroit@gmail.com
+              - paragraph [ref=e121]: timsfoodtruckdetroit@gmail.com
+        - generic [ref=e123]:
+          - generic [ref=e125]: 
+          - generic [ref=e126]:
+            - heading "Phone Number" [level=6] [ref=e127]
+            - paragraph [ref=e128]:
+              - link "(248)-251-5781" [ref=e129] [cursor=pointer]:
+                - /url: tel:2482515781
+      - generic [ref=e131]:
+        - generic [ref=e133]:
+          - link "logo-img" [ref=e135] [cursor=pointer]:
+            - /url: "#"
+            - img "logo-img"
+          - generic [ref=e137]:
+            - link "Facebook" [ref=e138] [cursor=pointer]:
+              - /url: https://www.facebook.com/Timsgourmetsliders/
+              - generic [ref=e139]: 
+            - link "Google" [ref=e140] [cursor=pointer]:
+              - /url: https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1
+              - generic [ref=e141]: 
+            - link "Instagram" [ref=e142] [cursor=pointer]:
+              - /url: https://www.instagram.com/timsgourmetsliders/
+              - generic [ref=e143]: 
+        - generic [ref=e145]:
+          - heading "Quick Links" [level=3] [ref=e147]
+          - list [ref=e148]:
+            - listitem [ref=e149]:
+              - link " Home" [ref=e150] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e151]: 
+                - text: Home
+            - listitem [ref=e152]:
+              - link " Catering" [ref=e153] [cursor=pointer]:
+                - /url: /catering
+                - generic [ref=e154]: 
+                - text: Catering
+            - listitem [ref=e155]:
+              - link " Menu" [ref=e156] [cursor=pointer]:
+                - /url: /menu
+                - generic [ref=e157]: 
+                - text: Menu
+            - listitem [ref=e158]:
+              - link " Meet Us" [ref=e159] [cursor=pointer]:
+                - /url: /meet-us
+                - generic [ref=e160]: 
+                - text: Meet Us
+            - listitem [ref=e161]:
+              - link " Reviews" [ref=e162] [cursor=pointer]:
+                - /url: /reviews
+                - generic [ref=e163]: 
+                - text: Reviews
+            - listitem [ref=e164]:
+              - link " Contact Us" [ref=e165] [cursor=pointer]:
+                - /url: /contact-us
+                - generic [ref=e166]: 
+                - text: Contact Us
+            - listitem [ref=e167]:
+              - link " Menu PDF" [ref=e168] [cursor=pointer]:
+                - /url: /menu-pdf
+                - generic [ref=e169]: 
+                - text: Menu PDF
+        - generic [ref=e171]:
+          - heading "Our Menu" [level=3] [ref=e173]
+          - list [ref=e174]:
+            - listitem [ref=e175]:
+              - link " Not! So Basic" [ref=e176] [cursor=pointer]:
+                - /url: /menu-item/not-so-basic
+                - generic [ref=e177]: 
+                - text: Not! So Basic
+            - listitem [ref=e178]:
+              - link " Black and Blue" [ref=e179] [cursor=pointer]:
+                - /url: /menu-item/black-and-blue
+                - generic [ref=e180]: 
+                - text: Black and Blue
+            - listitem [ref=e181]:
+              - link " Classic" [ref=e182] [cursor=pointer]:
+                - /url: /menu-item/classic
+                - generic [ref=e183]: 
+                - text: Classic
+            - listitem [ref=e184]:
+              - link " Tim's Famous Fried Chicken" [ref=e185] [cursor=pointer]:
+                - /url: /menu-item/famous-fried-chicken
+                - generic [ref=e186]: 
+                - text: Tim's Famous Fried Chicken
+            - listitem [ref=e187]:
+              - link " Extra Cheese Please" [ref=e188] [cursor=pointer]:
+                - /url: /menu-item/extra-cheese
+                - generic [ref=e189]: 
+                - text: Extra Cheese Please
+        - generic [ref=e191]:
+          - heading "Hours" [level=3] [ref=e193]
+          - list [ref=e194]:
+            - listitem [ref=e195]:
+              - text: "Monday – Saturday:"
+              - generic [ref=e196]: 10am – 9pm
+    - paragraph [ref=e200]:
+      - text: Website by
+      - link "Sync." [ref=e201] [cursor=pointer]:
+        - /url: https://syncgr.com

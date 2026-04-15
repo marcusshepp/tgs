@@ -1,0 +1,379 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: T I M S G O U R M E T S L I D E R S
+      - paragraph [ref=e8]: Loading
+    - banner [ref=e9]:
+      - generic [ref=e12]:
+        - button "Toggle menu" [ref=e13] [cursor=pointer]
+        - link "Logo" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img "Logo" [ref=e18]
+  - main [ref=e19]:
+    - generic [ref=e22]:
+      - generic "Detroit's Best Slider Menu" [ref=e24]:
+        - generic [ref=e26]:
+          - img "icon" [ref=e27]
+          - text: Detroit's Best Slider Menu
+          - img "icon" [ref=e28]
+      - generic [ref=e29]:
+        - generic [ref=e31]:
+          - textbox "Search by name or ingredients..." [ref=e32]
+          - img [ref=e34]
+        - generic [ref=e37]:
+          - generic [ref=e38]: "Filter by:"
+          - generic [ref=e39]:
+            - button "All" [ref=e40] [cursor=pointer]
+            - button "100% Halal Beef" [ref=e41] [cursor=pointer]
+            - button "Chicken" [ref=e42] [cursor=pointer]
+            - button "Vegetarian" [ref=e43] [cursor=pointer]
+            - button "Spicy" [ref=e44] [cursor=pointer]
+            - button "Popular" [ref=e45] [cursor=pointer]
+            - button "Sides" [ref=e46] [cursor=pointer]
+      - generic [ref=e47]:
+        - generic [ref=e49] [cursor=pointer]:
+          - img "Not! So Basic" [ref=e51]
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - heading "Not! So Basic" [level=3] [ref=e54]
+              - generic [ref=e55]: Beef
+            - paragraph [ref=e56]: Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato
+            - generic [ref=e58]:
+              - text: "Dietary:"
+              - generic [ref=e59]:
+                - generic [ref=e60]: Contains Dairy
+                - generic [ref=e61]: Contains Gluten
+          - generic [ref=e62]:
+            - generic [ref=e63]: $13
+            - generic [ref=e64]:
+              - text: View Details
+              - img [ref=e65]
+        - generic [ref=e68] [cursor=pointer]:
+          - img "Black and Blue" [ref=e70]
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - heading "Black and Blue" [level=3] [ref=e73]
+              - generic [ref=e74]: Beef
+            - paragraph [ref=e75]: Our prime beef sliders topped with gorgonzola aioli, smoked bacon, and caramelized onions
+            - generic [ref=e77]:
+              - text: "Dietary:"
+              - generic [ref=e78]:
+                - generic [ref=e79]: Contains Dairy
+                - generic [ref=e80]: Contains Gluten
+          - generic [ref=e81]:
+            - generic [ref=e82]: $15
+            - generic [ref=e83]:
+              - text: View Details
+              - img [ref=e84]
+        - generic [ref=e87] [cursor=pointer]:
+          - img "Classic" [ref=e89]
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - heading "Classic" [level=3] [ref=e92]
+              - generic [ref=e93]: Beef
+            - paragraph [ref=e94]: Our prime beef sliders topped with ketchup, mustard, American cheese, pickles, and caramelized onions
+            - generic [ref=e96]:
+              - text: "Dietary:"
+              - generic [ref=e97]:
+                - generic [ref=e98]: Contains Dairy
+                - generic [ref=e99]: Contains Gluten
+          - generic [ref=e100]:
+            - generic [ref=e101]: $13
+            - generic [ref=e102]:
+              - text: View Details
+              - img [ref=e103]
+        - generic [ref=e106] [cursor=pointer]:
+          - img "Tim's Famous Fried Chicken" [ref=e108]
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - heading "Tim's Famous Fried Chicken" [level=3] [ref=e111]
+              - generic [ref=e112]: Chicken
+            - paragraph [ref=e113]: Crispy fried chicken topped with pickles, our signature sauce and white American cheese
+            - generic [ref=e114]:
+              - generic [ref=e115]: "Spice:"
+              - generic [ref=e122]:
+                - text: "Dietary:"
+                - generic [ref=e123]:
+                  - generic [ref=e124]: Contains Dairy
+                  - generic [ref=e125]: Contains Gluten
+          - generic [ref=e126]:
+            - generic [ref=e127]: $15
+            - generic [ref=e128]:
+              - text: View Details
+              - img [ref=e129]
+        - generic [ref=e132] [cursor=pointer]:
+          - img "Extra Cheese Please" [ref=e134]
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - heading "Extra Cheese Please" [level=3] [ref=e137]
+              - generic [ref=e138]: Beef
+            - paragraph [ref=e139]: Our prime beef sliders topped with double the American cheese
+            - generic [ref=e141]:
+              - text: "Dietary:"
+              - generic [ref=e142]:
+                - generic [ref=e143]: Contains Dairy
+                - generic [ref=e144]: Contains Gluten
+          - generic [ref=e145]:
+            - generic [ref=e146]: $13
+            - generic [ref=e147]:
+              - text: View Details
+              - img [ref=e148]
+        - generic [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]:
+            - img "Whiskey" [ref=e153]
+            - generic [ref=e155]: Popular
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - heading "Whiskey" [level=3] [ref=e158]
+              - generic [ref=e159]: Beef
+            - paragraph [ref=e160]: Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce
+            - generic [ref=e161]:
+              - generic [ref=e162]: "Spice:"
+              - generic [ref=e169]:
+                - text: "Dietary:"
+                - generic [ref=e170]:
+                  - generic [ref=e171]: Contains Dairy
+                  - generic [ref=e172]: Contains Gluten
+          - generic [ref=e173]:
+            - generic [ref=e174]: $15
+            - generic [ref=e175]:
+              - text: View Details
+              - img [ref=e176]
+        - generic [ref=e179] [cursor=pointer]:
+          - generic [ref=e180]:
+            - img "Double Banger" [ref=e181]
+            - generic [ref=e183]: Popular
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - heading "Double Banger" [level=3] [ref=e186]
+              - generic [ref=e187]: Beef
+            - paragraph [ref=e188]: 4 prime beef patties with American cheese Add bacon for an additional $2
+            - generic [ref=e190]:
+              - text: "Dietary:"
+              - generic [ref=e191]:
+                - generic [ref=e192]: Contains Dairy
+                - generic [ref=e193]: Contains Gluten
+          - generic [ref=e194]:
+            - generic [ref=e195]: $18
+            - generic [ref=e196]:
+              - text: View Details
+              - img [ref=e197]
+        - generic [ref=e200] [cursor=pointer]:
+          - generic [ref=e201]:
+            - img "The Imposter" [ref=e202]
+            - generic [ref=e204]: Vegetarian
+          - generic [ref=e205]:
+            - generic [ref=e206]:
+              - heading "The Imposter" [level=3] [ref=e207]
+              - generic [ref=e208]: Vegetarian
+            - paragraph [ref=e209]: Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions
+            - generic [ref=e211]:
+              - text: "Dietary:"
+              - generic [ref=e212]:
+                - generic [ref=e213]: Vegetarian
+                - generic [ref=e214]: Contains Gluten
+          - generic [ref=e215]:
+            - generic [ref=e216]: $15
+            - generic [ref=e217]:
+              - text: View Details
+              - img [ref=e218]
+        - generic [ref=e221] [cursor=pointer]:
+          - img "Very Basic" [ref=e223]
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - heading "Very Basic" [level=3] [ref=e226]
+              - generic [ref=e227]: Beef
+            - paragraph [ref=e228]: Our prime beef sliders topped with American cheese and caramelized onions
+            - generic [ref=e230]:
+              - text: "Dietary:"
+              - generic [ref=e231]:
+                - generic [ref=e232]: Contains Dairy
+                - generic [ref=e233]: Contains Gluten
+          - generic [ref=e234]:
+            - generic [ref=e235]: $13
+            - generic [ref=e236]:
+              - text: View Details
+              - img [ref=e237]
+        - generic [ref=e240] [cursor=pointer]:
+          - generic [ref=e241]:
+            - img "Spicy Chicken" [ref=e242]
+            - generic [ref=e244]: Popular
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - heading "Spicy Chicken" [level=3] [ref=e247]
+              - generic [ref=e248]: Chicken
+            - paragraph [ref=e249]: Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo
+            - generic [ref=e250]:
+              - generic [ref=e251]: "Spice:"
+              - generic [ref=e258]:
+                - text: "Dietary:"
+                - generic [ref=e259]:
+                  - generic [ref=e260]: Contains Dairy
+                  - generic [ref=e261]: Contains Gluten
+          - generic [ref=e262]:
+            - generic [ref=e263]: $15
+            - generic [ref=e264]:
+              - text: View Details
+              - img [ref=e265]
+        - generic [ref=e268] [cursor=pointer]:
+          - img "Steak House" [ref=e270]
+          - generic [ref=e271]:
+            - generic [ref=e272]:
+              - heading "Steak House" [level=3] [ref=e273]
+              - generic [ref=e274]: Beef
+            - paragraph [ref=e275]: Our prime beef sliders topped with Swiss cheese, fried onions and garlic aioli
+            - generic [ref=e277]:
+              - text: "Dietary:"
+              - generic [ref=e278]:
+                - generic [ref=e279]: Contains Dairy
+                - generic [ref=e280]: Contains Gluten
+          - generic [ref=e281]:
+            - generic [ref=e282]: $13
+            - generic [ref=e283]:
+              - text: View Details
+              - img [ref=e284]
+        - generic [ref=e287] [cursor=pointer]:
+          - img "The Spud-Tacular Basket" [ref=e289]
+          - generic [ref=e290]:
+            - generic [ref=e291]:
+              - heading "The Spud-Tacular Basket" [level=3] [ref=e292]
+              - generic [ref=e293]: Other
+            - paragraph [ref=e294]: Our famous crispy fries served with our signature sauce.
+            - generic [ref=e296]:
+              - text: "Dietary:"
+              - generic [ref=e297]:
+                - generic [ref=e298]: Vegetarian
+                - generic [ref=e299]: Vegan
+          - generic [ref=e300]:
+            - generic [ref=e301]: $8
+            - generic [ref=e302]:
+              - text: View Details
+              - img [ref=e303]
+        - generic [ref=e306] [cursor=pointer]:
+          - img "Premium Chicken Tenders" [ref=e308]
+          - generic [ref=e309]:
+            - generic [ref=e310]:
+              - heading "Premium Chicken Tenders" [level=3] [ref=e311]
+              - generic [ref=e312]: Other
+            - paragraph [ref=e313]: Delicious crispy chicken paired with your choice of dipping sauce... ranch, bbq or our signature sauce. Served with our famous crispy fries
+            - generic [ref=e315]:
+              - text: "Dietary:"
+              - generic [ref=e317]: Contains Gluten
+          - generic [ref=e318]:
+            - generic [ref=e319]: $15
+            - generic [ref=e320]:
+              - text: View Details
+              - img [ref=e321]
+  - contentinfo [ref=e324]:
+    - generic [ref=e326]:
+      - generic [ref=e328]:
+        - generic [ref=e330]:
+          - generic [ref=e332]: 
+          - generic [ref=e333]:
+            - heading "Address" [level=6] [ref=e334]
+            - paragraph [ref=e335]: Redford, MI 48239
+        - generic [ref=e337]:
+          - generic [ref=e339]: 
+          - generic [ref=e340]:
+            - heading "Email" [level=6] [ref=e341]
+            - link "timsfoodtruckdetroit@gmail.com" [ref=e342] [cursor=pointer]:
+              - /url: mailto:timsfoodtruckdetroit@gmail.com
+              - paragraph [ref=e343]: timsfoodtruckdetroit@gmail.com
+        - generic [ref=e345]:
+          - generic [ref=e347]: 
+          - generic [ref=e348]:
+            - heading "Phone Number" [level=6] [ref=e349]
+            - paragraph [ref=e350]:
+              - link "(248)-251-5781" [ref=e351] [cursor=pointer]:
+                - /url: tel:2482515781
+      - generic [ref=e353]:
+        - generic [ref=e355]:
+          - link "logo-img" [ref=e357] [cursor=pointer]:
+            - /url: "#"
+            - img "logo-img"
+          - generic [ref=e359]:
+            - link "Facebook" [ref=e360] [cursor=pointer]:
+              - /url: https://www.facebook.com/Timsgourmetsliders/
+              - generic [ref=e361]: 
+            - link "Google" [ref=e362] [cursor=pointer]:
+              - /url: https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68?entry=tts&shorturl=1
+              - generic [ref=e363]: 
+            - link "Instagram" [ref=e364] [cursor=pointer]:
+              - /url: https://www.instagram.com/timsgourmetsliders/
+              - generic [ref=e365]: 
+        - generic [ref=e367]:
+          - heading "Quick Links" [level=3] [ref=e369]
+          - list [ref=e370]:
+            - listitem [ref=e371]:
+              - link " Home" [ref=e372] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e373]: 
+                - text: Home
+            - listitem [ref=e374]:
+              - link " Catering" [ref=e375] [cursor=pointer]:
+                - /url: /catering
+                - generic [ref=e376]: 
+                - text: Catering
+            - listitem [ref=e377]:
+              - link " Menu" [ref=e378] [cursor=pointer]:
+                - /url: /menu
+                - generic [ref=e379]: 
+                - text: Menu
+            - listitem [ref=e380]:
+              - link " Meet Us" [ref=e381] [cursor=pointer]:
+                - /url: /meet-us
+                - generic [ref=e382]: 
+                - text: Meet Us
+            - listitem [ref=e383]:
+              - link " Reviews" [ref=e384] [cursor=pointer]:
+                - /url: /reviews
+                - generic [ref=e385]: 
+                - text: Reviews
+            - listitem [ref=e386]:
+              - link " Contact Us" [ref=e387] [cursor=pointer]:
+                - /url: /contact-us
+                - generic [ref=e388]: 
+                - text: Contact Us
+            - listitem [ref=e389]:
+              - link " Menu PDF" [ref=e390] [cursor=pointer]:
+                - /url: /menu-pdf
+                - generic [ref=e391]: 
+                - text: Menu PDF
+        - generic [ref=e393]:
+          - heading "Our Menu" [level=3] [ref=e395]
+          - list [ref=e396]:
+            - listitem [ref=e397]:
+              - link " Not! So Basic" [ref=e398] [cursor=pointer]:
+                - /url: /menu-item/not-so-basic
+                - generic [ref=e399]: 
+                - text: Not! So Basic
+            - listitem [ref=e400]:
+              - link " Black and Blue" [ref=e401] [cursor=pointer]:
+                - /url: /menu-item/black-and-blue
+                - generic [ref=e402]: 
+                - text: Black and Blue
+            - listitem [ref=e403]:
+              - link " Classic" [ref=e404] [cursor=pointer]:
+                - /url: /menu-item/classic
+                - generic [ref=e405]: 
+                - text: Classic
+            - listitem [ref=e406]:
+              - link " Tim's Famous Fried Chicken" [ref=e407] [cursor=pointer]:
+                - /url: /menu-item/famous-fried-chicken
+                - generic [ref=e408]: 
+                - text: Tim's Famous Fried Chicken
+            - listitem [ref=e409]:
+              - link " Extra Cheese Please" [ref=e410] [cursor=pointer]:
+                - /url: /menu-item/extra-cheese
+                - generic [ref=e411]: 
+                - text: Extra Cheese Please
+        - generic [ref=e413]:
+          - heading "Hours" [level=3] [ref=e415]
+          - list [ref=e416]:
+            - listitem [ref=e417]:
+              - text: "Monday – Saturday:"
+              - generic [ref=e418]: 10am – 9pm
+    - paragraph [ref=e422]:
+      - text: Website by
+      - link "Sync." [ref=e423] [cursor=pointer]:
+        - /url: https://syncgr.com
