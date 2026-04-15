@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject, combineLatest } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
 import { CmsService } from '../services/cms.service';
 import { CmsMenuItem, CmsHomeMenuTeaser } from '../models/cms.types';
 import { PageTitleComponent } from '../page-title/page-title.component';
@@ -22,14 +22,18 @@ export class HomeMenuComponent implements OnInit, OnDestroy {
     constructor(private cms: CmsService) {}
 
     ngOnInit(): void {
-        this.cms.getHome().pipe(takeUntil(this.destroy$)).subscribe(home => {
-            this.teaser = home.homeMenuTeaser;
-            this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(all => {
+        combineLatest([this.cms.getHome(), this.cms.getMenuItems()]).pipe(
+            takeUntil(this.destroy$),
+            map(([home, all]) => {
                 const slugs = home.homeMenuTeaser.popularItemSlugs;
-                this.items = slugs
+                const items = slugs
                     .map(slug => all.find(i => i.slug === slug))
                     .filter((i): i is CmsMenuItem => !!i);
-            });
+                return { teaser: home.homeMenuTeaser, items };
+            }),
+        ).subscribe(({ teaser, items }) => {
+            this.teaser = teaser;
+            this.items = items;
         });
     }
 

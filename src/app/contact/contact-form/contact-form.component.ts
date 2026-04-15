@@ -204,35 +204,33 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
                 }
             }
 
-            // POST directly to sync API
             const apiUrl: string = 'https://api.syncgr.com/contact';
 
-            const formData: any = { ...this.form.value };
-            delete formData.honeypot;
-            delete formData.formToken;
-            delete formData.interactionScore;
+            const fullName: string = this.form.get('fullName')?.value ?? '';
+            const email: string = this.form.get('email')?.value ?? '';
+            const phoneNumber: string = this.form.get('phoneNumber')?.value ?? '';
+            const eventDate: string = this.form.get('eventDate')?.value ?? '';
+            const eventLocation: string = this.form.get('eventLocation')?.value ?? '';
+            const message: string = this.form.get('message')?.value ?? '';
 
-            // Build payload for sync contact API
             const payload = {
                 to: 'timsfoodtruckdetroit@gmail.com',
                 from: 'info@syncgr.com',
-                subject: `Tim's Gourmet Sliders - New Catering Inquiry from ${formData.fullName}`,
-                text: `Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phoneNumber || 'Not provided'}\nEvent Date: ${formData.eventDate || 'Not specified'}\nEvent Location: ${formData.eventLocation || 'Not specified'}\n\nMessage:\n${formData.message}`,
-                replyTo: formData.email,
-                // Lead tracking fields
+                subject: `Tim's Gourmet Sliders - New Catering Inquiry from ${fullName}`,
+                text: `Name: ${fullName}\nEmail: ${email}\nPhone: ${phoneNumber || 'Not provided'}\nEvent Date: ${eventDate || 'Not specified'}\nEvent Location: ${eventLocation || 'Not specified'}\n\nMessage:\n${message}`,
+                replyTo: email,
                 domain: 'timsgourmetsliders.com',
-                contactName: formData.fullName,
-                contactPhone: formData.phoneNumber || undefined,
-                contactMessage: formData.message,
-                // Auto-reply confirmation email
+                contactName: fullName,
+                contactPhone: phoneNumber || undefined,
+                contactMessage: message,
                 autoReply: {
                     enabled: true,
                     subject: "Thank you for your catering inquiry - Tim's Gourmet Sliders",
                     fromName: "Tim's Gourmet Sliders",
                     replyTo: 'timsfoodtruckdetroit@gmail.com',
-                    body: `Hi ${formData.fullName},
+                    body: `Hi ${fullName},
 
-Thank you for reaching out to Tim's Gourmet Sliders for your catering needs. We've received your inquiry and will get back to you within 24 hours with availability and pricing for your event on ${formData.eventDate}.
+Thank you for reaching out to Tim's Gourmet Sliders for your catering needs. We've received your inquiry and will get back to you within 24 hours with availability and pricing for your event on ${eventDate}.
 
 If you need immediate assistance, please call us at (248) 251-5781.
 
@@ -261,7 +259,7 @@ timsgourmetsliders.com`
                         submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ms-2"></i>';
                     }
                 },
-                error: (err: any) => {
+                error: (err: unknown) => {
                     console.error('Failed to send email:', err);
 
                     this.showErrorMessage = true;

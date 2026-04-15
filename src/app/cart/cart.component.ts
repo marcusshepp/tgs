@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -11,6 +11,7 @@ import { CartService, LineItem } from '../services/cart.service';
     imports: [CommonModule, RouterModule],
     templateUrl: './cart.component.html',
     styleUrl: './cart.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartComponent implements OnInit, OnDestroy {
     items: LineItem[] = [];
@@ -21,18 +22,22 @@ export class CartComponent implements OnInit, OnDestroy {
 
     constructor(
         public cartService: CartService,
+        private cdr: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private platformId: object,
     ) {}
 
     ngOnInit(): void {
         this.cartService.items$.pipe(takeUntil(this.destroy$)).subscribe(items => {
             this.items = items;
+            this.cdr.markForCheck();
         });
         this.cartService.totalQty$.pipe(takeUntil(this.destroy$)).subscribe(qty => {
             this.totalQty = qty;
+            this.cdr.markForCheck();
         });
         this.cartService.totalPrice$.pipe(takeUntil(this.destroy$)).subscribe(price => {
             this.totalPrice = price;
+            this.cdr.markForCheck();
         });
     }
 

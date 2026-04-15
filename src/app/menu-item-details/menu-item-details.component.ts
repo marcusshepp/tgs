@@ -80,13 +80,7 @@ export class MenuItemDetailsComponent implements OnInit, OnDestroy {
         }
     }
 
-    public addToCart(): void {
-        if (this.menuItem?.available) {
-            console.log(
-                `Adding ${this.quantity} of ${this.menuItem?.name} to cart`
-            );
-        }
-    }
+    public addToCart(): void {}
 
     public toggleNutrition(): void {
         this.nutritionVisible = !this.nutritionVisible;

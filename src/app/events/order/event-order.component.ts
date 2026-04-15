@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -16,6 +16,7 @@ type OrderWindowState = 'open' | 'closed' | 'notOpen';
     imports: [CommonModule, RouterModule],
     templateUrl: './event-order.component.html',
     styleUrl: './event-order.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventOrderComponent implements OnInit, OnDestroy {
     event: CmsEvent | null = null;
@@ -39,6 +40,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private cms: CmsService,
         public cartService: CartService,
+        private cdr: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private platformId: Object,
     ) {}
 
@@ -57,6 +59,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
             if (!event) {
                 this.eventNotFound = true;
                 this.isLoading = false;
+                this.cdr.markForCheck();
                 return;
             }
             this.event = event;
@@ -65,14 +68,17 @@ export class EventOrderComponent implements OnInit, OnDestroy {
 
         this.cartService.items$.pipe(takeUntil(this.destroy$)).subscribe(items => {
             this.cartItems = items;
+            this.cdr.markForCheck();
         });
 
         this.cartService.totalQty$.pipe(takeUntil(this.destroy$)).subscribe(qty => {
             this.totalQty = qty;
+            this.cdr.markForCheck();
         });
 
         this.cartService.totalPrice$.pipe(takeUntil(this.destroy$)).subscribe(price => {
             this.totalPrice = price;
+            this.cdr.markForCheck();
         });
     }
 
@@ -87,6 +93,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
                 ? items.filter(i => slugs.includes(i.slug))
                 : items;
             this.isLoading = false;
+            this.cdr.markForCheck();
         });
     }
 
@@ -201,6 +208,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
             this.cartService.clear();
             this.isConfirmed = true;
             this.isSubmitting = false;
+            this.cdr.markForCheck();
             if (isPlatformBrowser(this.platformId)) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }

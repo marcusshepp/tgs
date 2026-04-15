@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -19,6 +19,7 @@ export interface CustomerInfo {
     imports: [CommonModule, RouterModule, FormsModule],
     templateUrl: './checkout.component.html',
     styleUrl: './checkout.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
     items: LineItem[] = [];
@@ -40,18 +41,22 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     constructor(
         public cartService: CartService,
         private router: Router,
+        private cdr: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private platformId: object,
     ) {}
 
     ngOnInit(): void {
         this.cartService.items$.pipe(takeUntil(this.destroy$)).subscribe(items => {
             this.items = items;
+            this.cdr.markForCheck();
         });
         this.cartService.totalQty$.pipe(takeUntil(this.destroy$)).subscribe(qty => {
             this.totalQty = qty;
+            this.cdr.markForCheck();
         });
         this.cartService.totalPrice$.pipe(takeUntil(this.destroy$)).subscribe(price => {
             this.totalPrice = price;
+            this.cdr.markForCheck();
         });
     }
 
@@ -104,6 +109,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             }
             this.cartService.clear();
             this.isSubmitting = false;
+            this.cdr.markForCheck();
             this.router.navigate(['/order-confirmation']);
         }, 1500);
     }

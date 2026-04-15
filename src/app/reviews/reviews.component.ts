@@ -1,26 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BannerComponent } from '../banner/banner.component';
 import { PageTitleComponent } from '../page-title/page-title.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CmsService } from '../services/cms.service';
 import { CmsReview } from '../models/cms.types';
 
 @Component({
     selector: 'app-reviews',
     standalone: true,
-    imports: [CommonModule, BannerComponent, PageTitleComponent],
+    imports: [CommonModule, PageTitleComponent],
     templateUrl: './reviews.component.html',
     styleUrls: [`./reviews.component.scss`],
 })
-export class ReviewsComponent implements OnInit {
+export class ReviewsComponent implements OnInit, OnDestroy {
     reviews: CmsReview[] = [];
     loading = true;
     error = false;
 
+    private destroy$ = new Subject<void>();
+
     constructor(private cms: CmsService) {}
 
     ngOnInit(): void {
-        this.cms.getReviews().subscribe({
+        this.cms.getReviews().pipe(takeUntil(this.destroy$)).subscribe({
             next: (data) => {
                 this.reviews = data;
                 this.loading = false;
@@ -30,6 +33,11 @@ export class ReviewsComponent implements OnInit {
                 this.loading = false;
             },
         });
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 
     getStarArray(rating: number): number[] {

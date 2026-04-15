@@ -75,9 +75,9 @@ export class CateringMenuComponent implements OnInit, OnDestroy {
                 if (activeSection) {
                     const menuItems = activeSection.querySelectorAll('.menu-item');
                     menuItems.forEach((item) => {
-                        (item as any).style.opacity = '1';
-                        (item as any).style.transform = 'translateY(0)';
-                        (item as any).classList.add('animate-item');
+                        (item as HTMLElement).style.opacity = '1';
+                        (item as HTMLElement).style.transform = 'translateY(0)';
+                        (item as HTMLElement).classList.add('animate-item');
                     });
                 }
             }, 300);
@@ -135,11 +135,11 @@ export class CateringMenuComponent implements OnInit, OnDestroy {
         const menuItems = activeSection.querySelectorAll('.menu-item');
         menuItems.forEach((item) => {
             item.classList.remove('animate-item');
-            (item as any).style.opacity = '0';
-            (item as any).style.transform = 'translateY(20px)';
+            (item as HTMLElement).style.opacity = '0';
+            (item as HTMLElement).style.transform = 'translateY(20px)';
         });
 
-        void (activeSection as any).offsetWidth;
+        void (activeSection as HTMLElement).offsetWidth;
 
         setTimeout(() => {
             const activeSection = document.querySelector('.menu-section.visible');
@@ -148,9 +148,9 @@ export class CateringMenuComponent implements OnInit, OnDestroy {
             const menuItems = activeSection.querySelectorAll('.menu-item');
             menuItems.forEach((item, index) => {
                 setTimeout(() => {
-                    (item as any).style.opacity = '1';
-                    (item as any).style.transform = 'translateY(0)';
-                    item.classList.add('animate-item');
+                    (item as HTMLElement).style.opacity = '1';
+                    (item as HTMLElement).style.transform = 'translateY(0)';
+                    (item as HTMLElement).classList.add('animate-item');
                 }, index * 50);
             });
         }, 50);

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -24,6 +24,7 @@ interface PendingOrder {
     imports: [CommonModule, RouterModule],
     templateUrl: './order-confirmation.component.html',
     styleUrl: './order-confirmation.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderConfirmationComponent implements OnInit, OnDestroy {
     order: PendingOrder | null = null;
@@ -46,11 +47,13 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
         private router: Router,
         private cartService: CartService,
         private cms: CmsService,
+        private cdr: ChangeDetectorRef,
     ) {}
 
     ngOnInit(): void {
         this.cms.getOrderUi().pipe(takeUntil(this.destroy$)).subscribe(ui => {
             this.orderUi = ui;
+            this.cdr.markForCheck();
         });
 
         if (isPlatformBrowser(this.platformId)) {
@@ -69,6 +72,7 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
             this.order = parsed;
             this.cartService.clear();
             sessionStorage.removeItem('tgs-pending-order');
+            this.cdr.markForCheck();
 
             if (this.order.eventSlug) {
                 this.cms.getEventBySlug(this.order.eventSlug).pipe(
@@ -76,6 +80,7 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
                     catchError(() => of(null)),
                 ).subscribe(event => {
                     this.event = event;
+                    this.cdr.markForCheck();
                 });
             }
         }
