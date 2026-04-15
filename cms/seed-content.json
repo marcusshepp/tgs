@@ -8,11 +8,11 @@
     "pdfTagline": "Handcrafted Sliders | Fresh Ingredients | Unique Flavors",
     "menuPageTitle": "Detroit's Best Slider Menu",
     "siteUrl": "https://www.timsgourmetsliders.com",
-    "cloudinaryBaseUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/",
-    "footerLogoUrl": "/img/old/logo2.png",
-    "heroVideoPoster": "https://res.cloudinary.com/dy00ivhtt/video/upload/so_0,w_1280,q_auto,f_jpg/hero-video_b7nk2y.jpg",
-    "heroVideoWebm": "https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto,f_webm/hero-video_b7nk2y.webm",
-    "heroVideoMp4": "https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto/hero-video_b7nk2y.mp4",
+    "cloudinaryBaseUrl": "",
+    "footerLogoUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/3ff8d525-b0a2-4462-b9b5-27a79ee81928.png",
+    "heroVideoPoster": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/c648dc4b-d724-45c6-b7d1-036083222e12.jpg",
+    "heroVideoWebm": "",
+    "heroVideoMp4": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/568957c5-d038-4a81-85df-15474a8052d4.mp4",
     "socialUrls": {
       "facebook": "https://www.facebook.com/Timsgourmetsliders/",
       "instagram": "https://www.instagram.com/timsgourmetsliders/",
@@ -23,30 +23,34 @@
       "googleReviewLink": "https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m8!3m7!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!9m1!1b1!16s%2Fg%2F11thr41x68?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
     }
   },
-
   "contact": {
     "email": "timsfoodtruckdetroit@gmail.com",
     "phone": "(248)-251-5781",
     "phoneLink": "tel:2482515781",
     "address": "Redford, MI 48239",
-    "hours": "Monday – Saturday: 10am – 9pm",
+    "hours": "Monday \u2013 Saturday: 10am \u2013 9pm",
     "googleMapsUrl": "https://www.google.com/maps/place/Tims+Gourmet+Sliders/@42.2968295,-83.7662284,9z/data=!4m6!3m5!1s0xa7c008d1c0f95e31:0x470973e45f47cc2c!8m2!3d42.2968295!4d-83.7662284!16s%2Fg%2F11thr41x68",
     "serviceArea": "Detroit & Southeast Michigan",
     "serviceAreaNote": "Based in Redford, serving the entire metro area",
     "responseTime": "We respond within 24 hours",
     "sectionHeading": "Let's Connect",
-    "sideImageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/q_auto,f_auto,w_600/window_ghdagy.webp",
+    "sideImageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/d11ba089-59a5-4b3c-8fe2-29ca6b257716.webp",
     "pdfFooterLine": "Available for Catering | Visit us at timsgourmetsliders.com | (248) 251-5781",
     "inquiryEmailSubject": "Tim's Gourmet Sliders - New Catering Inquiry",
     "autoReplySubject": "Thank you for your catering inquiry - Tim's Gourmet Sliders",
     "autoReplyBody": "Thank you for reaching out to Tim's Gourmet Sliders! We received your inquiry and will get back to you within 24 hours. You can also reach us directly at (248) 251-5781.",
     "goodToKnow": [
-      { "text": "Book early — we fill up fast for weekends" },
-      { "text": "Custom menus available for large events" },
-      { "text": "We bring the full food truck experience" }
+      {
+        "text": "Book early \u2014 we fill up fast for weekends"
+      },
+      {
+        "text": "Custom menus available for large events"
+      },
+      {
+        "text": "We bring the full food truck experience"
+      }
     ]
   },
-
   "home": {
     "hero": {
       "ctaLabel": "View Our Menu",
@@ -54,9 +58,14 @@
     },
     "homeMenuTeaser": {
       "sectionTitle": "Popular Items",
-      "viewAllLabel": "View All Items →",
+      "viewAllLabel": "View All Items \u2192",
       "viewAllUrl": "/menu",
-      "popularItemSlugs": ["whiskey", "sweet-savory", "double-bacon", "spicy-chicken"]
+      "popularItemSlugs": [
+        "whiskey",
+        "sweet-savory",
+        "double-bacon",
+        "spicy-chicken"
+      ]
     },
     "servicesTeaser": {
       "sectionTitle": "Full-Service Catering",
@@ -75,35 +84,33 @@
     },
     "cta": {
       "heading": "Ready to Book Tim's for Your Event?",
-      "body": "Whether it's a corporate lunch, wedding reception, or neighborhood block party — we bring the sliders and the experience.",
+      "body": "Whether it's a corporate lunch, wedding reception, or neighborhood block party \u2014 we bring the sliders and the experience.",
       "ctaLabel": "Get in Touch",
       "ctaUrl": "/contact-us"
     }
   },
-
   "meet-us": {
     "title": "Meet Us",
     "storyHeading": "Our Story",
-    "body": "At Tim's Gourmet Sliders, we're not just flipping patties—we're crafting an experience. Tim's vision is to deliver sliders that pack a big punch, made with the finest ingredients and a dash of flair, all served with the kind of care you'd expect from a seasoned pro.\n\nOur team is dedicated, responsible, and downright excited to bring you sliders that elevate the everyday into something extraordinary. We're here to make your day delicious—one gourmet bite at a time!",
-    "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/truck9-1_tzbsih.webp",
+    "body": "At Tim's Gourmet Sliders, we're not just flipping patties\u2014we're crafting an experience. Tim's vision is to deliver sliders that pack a big punch, made with the finest ingredients and a dash of flair, all served with the kind of care you'd expect from a seasoned pro.\n\nOur team is dedicated, responsible, and downright excited to bring you sliders that elevate the everyday into something extraordinary. We're here to make your day delicious\u2014one gourmet bite at a time!",
+    "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/f9d60f5b-3107-4b91-a0dc-a622ca556b90.webp",
     "teamMembers": [
       {
         "name": "Tim",
         "role": "Owner/Chef",
-        "photoUrl": "/img/new/tim.jpg",
+        "photoUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/6c2da955-1a23-4384-a91a-556d05497e89.webp",
         "photoAlt": "Tim - Owner/Chef",
-        "bio": "Tim has been a lifelong foodie with a deep-rooted passion for exceptional flavors and top-notch service. With years of experience in both fine dining and casual dining, he's honed his craft as a culinary pro, working in kitchens where quality and creativity reign supreme.\n\nAfter traveling far and wide, tasting burgers from coast to coast, Tim noticed a gap in the food scene—there simply wasn't a slider that lived up to his gourmet standards. So, he decided to change the game.\n\n\"We chose to focus on sliders because we want to put a high-end meal in the palm of your hand. Everyone loves burgers, so we decided to put our gourmet touch and creativity on the classic slider.\""
+        "bio": "Tim has been a lifelong foodie with a deep-rooted passion for exceptional flavors and top-notch service. With years of experience in both fine dining and casual dining, he's honed his craft as a culinary pro, working in kitchens where quality and creativity reign supreme.\n\nAfter traveling far and wide, tasting burgers from coast to coast, Tim noticed a gap in the food scene\u2014there simply wasn't a slider that lived up to his gourmet standards. So, he decided to change the game.\n\n\"We chose to focus on sliders because we want to put a high-end meal in the palm of your hand. Everyone loves burgers, so we decided to put our gourmet touch and creativity on the classic slider.\""
       },
       {
         "name": "Christey",
         "role": "Event Coordinator",
-        "photoUrl": "/img/new/c.jpg",
+        "photoUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/82f8296b-30f4-4288-87aa-6f90926d4c1e.webp",
         "photoAlt": "Christey - Event Coordinator",
         "bio": "As our dedicated Event Coordinator, Christey ensures every catering experience with Tim's Gourmet Sliders exceeds expectations. With her meticulous attention to detail and passion for creating memorable food experiences, she works closely with clients to customize menus and coordinate flawless service.\n\nChristey brings warmth and professionalism to every interaction, making the planning process as enjoyable as the sliders themselves. Her expertise in event management means your gathering will run smoothly from setup to cleanup.\n\nWhether you're planning a corporate function, wedding reception, or backyard celebration, Christey will help bring your vision to life with Tim's Gourmet Sliders as the highlight of your event."
       }
     ]
   },
-
   "services": {
     "sectionTitle": "Why Choose Tim's",
     "items": [
@@ -139,44 +146,91 @@
       }
     ]
   },
-
   "trusted-by": {
     "sectionTitle": "Trusted By",
     "items": [
-      { "name": "Ford Motor Company", "logoUrl": "", "url": "" },
-      { "name": "General Motors", "logoUrl": "", "url": "" },
-      { "name": "Chrysler", "logoUrl": "", "url": "" },
-      { "name": "Frito-Lay", "logoUrl": "", "url": "" },
-      { "name": "Republic Services", "logoUrl": "", "url": "" },
-      { "name": "Cleary University", "logoUrl": "", "url": "" },
-      { "name": "University of Michigan", "logoUrl": "", "url": "" },
-      { "name": "Community Choice Credit Union", "logoUrl": "", "url": "" }
+      {
+        "name": "Ford Motor Company",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "General Motors",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "Chrysler",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "Frito-Lay",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "Republic Services",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "Cleary University",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "University of Michigan",
+        "logoUrl": "",
+        "url": ""
+      },
+      {
+        "name": "Community Choice Credit Union",
+        "logoUrl": "",
+        "url": ""
+      }
     ]
   },
-
   "footer": {
-    "copyright": "© Copyright Tim's Gourmet Sliders. All Rights Reserved.",
-    "hoursLabel": "Monday – Saturday:",
-    "hoursValue": "10am – 9pm",
+    "copyright": "\u00a9 Copyright Tim's Gourmet Sliders. All Rights Reserved.",
+    "hoursLabel": "Monday \u2013 Saturday:",
+    "hoursValue": "10am \u2013 9pm",
     "quickLinksHeading": "Quick Links",
     "menuColumnHeading": "Our Menu",
     "hoursColumnHeading": "Hours"
   },
-
   "catering": {
     "pageKicker": "Detroit's Premier Slider Catering Service",
     "introParagraph": "Tim's Gourmet Sliders brings the restaurant experience directly to your event with our full-service catering options. From corporate gatherings to weddings and celebrations, we deliver fresh, made-to-order sliders your guests will love.",
-    "weddingPhotoUrl": "/img/wedding-catering.jpg",
+    "weddingPhotoUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/1ec69323-71be-4824-a509-a1e896e8d0a6.jpg",
     "packagesHeading": "Catering Packages",
     "packageIncludesNote": "All catering packages include napkins, plasticware, condiments, and bluetooth music streaming with service",
     "glutenFreeNote": "Gluten Free Option Available! Contact us for more details",
     "features": [
-      { "heading": "Professional Staff", "body": "Experienced team dedicated to excellent service" },
-      { "heading": "Full Mobile Kitchen", "body": "Complete cooking setup at your location" },
-      { "heading": "High Quality Ingredients", "body": "Fresh, locally sourced premium ingredients" },
-      { "heading": "Customizable Menus", "body": "Flexible options to suit your event" },
-      { "heading": "Licensed and Insured", "body": "Fully compliant with all regulations" },
-      { "heading": "30 Years Experience", "body": "Decades of culinary excellence" }
+      {
+        "heading": "Professional Staff",
+        "body": "Experienced team dedicated to excellent service"
+      },
+      {
+        "heading": "Full Mobile Kitchen",
+        "body": "Complete cooking setup at your location"
+      },
+      {
+        "heading": "High Quality Ingredients",
+        "body": "Fresh, locally sourced premium ingredients"
+      },
+      {
+        "heading": "Customizable Menus",
+        "body": "Flexible options to suit your event"
+      },
+      {
+        "heading": "Licensed and Insured",
+        "body": "Fully compliant with all regulations"
+      },
+      {
+        "heading": "30 Years Experience",
+        "body": "Decades of culinary excellence"
+      }
     ],
     "packages": [
       {
@@ -208,295 +262,568 @@
         "popularTag": "",
         "bullets": [
           "5 slider options",
-          "Spudtacular Loaded Fries — Seasoned ground beef, truck made cheese sauce, sour cream, green onions, jalapeño",
+          "Spudtacular Loaded Fries \u2014 Seasoned ground beef, truck made cheese sauce, sour cream, green onions, jalape\u00f1o",
           "Assorted beverages",
           "Choose BBQ seasoning or Tim's signature seasoning for fries"
         ]
       }
     ],
     "goodToKnow": [
-      { "text": "Food truck fee will apply" },
-      { "text": "Catering contract and deposit required to hold" },
-      { "text": "Our trucks are licensed and insured, and are held to a high standard of cleanliness and sanitation. We aim to exceed the local and state requirements and provide our guests an outstanding experience" },
-      { "text": "Looking to stream your favorite playlist during the event? Let us know and we will be delighted to stream your playlist on our Bluetooth speakers" }
+      {
+        "text": "Food truck fee will apply"
+      },
+      {
+        "text": "Catering contract and deposit required to hold"
+      },
+      {
+        "text": "Our trucks are licensed and insured, and are held to a high standard of cleanliness and sanitation. We aim to exceed the local and state requirements and provide our guests an outstanding experience"
+      },
+      {
+        "text": "Looking to stream your favorite playlist during the event? Let us know and we will be delighted to stream your playlist on our Bluetooth speakers"
+      }
     ]
   },
-
   "reviews-page": {
     "pageTitle": "What Our Customers Are Saying",
     "reviewLinkText": "Leave us a review on Google"
   },
-
   "order-ui": {
     "eventsListTitle": "Order Ahead for Upcoming Events",
-    "noUpcomingEventsMessage": "No upcoming events — check back soon!",
+    "noUpcomingEventsMessage": "No upcoming events \u2014 check back soon!",
     "orderPageHeading": "Place Your Order",
     "cartEmptyMessage": "Your cart is empty. Add some sliders!",
     "checkoutHeading": "Complete Your Order",
     "submitButtonLabel": "Submit Order",
     "confirmationHeading": "Order Confirmed!",
-    "confirmationMessage": "Order confirmed — this is a demo. Your order has been received! Tim's team will reach out to confirm pickup details."
+    "confirmationMessage": "Order confirmed \u2014 this is a demo. Your order has been received! Tim's team will reach out to confirm pickup details."
   },
-
   "menu-items": [
     {
       "slug": "not-so-basic",
       "name": "Not! So Basic",
       "description": "Our prime beef sliders topped with American cheese, grilled onions, our signature sauce, lettuce and tomato",
       "price": 13,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/not-so-basic_fiqbf8.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/5c9cb107-ec5e-4ceb-871a-d670d7d4cb33.webp",
       "category": "beef",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "American Cheese", "Caramelized Onions", "Lettuce", "Tomato", "NOT! So Basic Sauce", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 450, "protein": "22g", "carbs": "35g", "fat": "25g", "sodium": "780mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "American Cheese",
+        "Caramelized Onions",
+        "Lettuce",
+        "Tomato",
+        "NOT! So Basic Sauce",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 450,
+        "protein": "22g",
+        "carbs": "35g",
+        "fat": "25g",
+        "sodium": "780mg"
+      }
     },
     {
       "slug": "bbq-bacon-cheese",
       "name": "BBQ Bacon Cheese",
       "description": "Our prime beef sliders topped with chipotle BBQ sauce, bacon, and American cheese",
       "price": 14,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/bbq-bacon-cheese_pahhpv.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/fda1d8c1-52ed-44b8-b425-5bc83e0bcd56.webp",
       "category": "beef",
       "popular": false,
       "available": false,
       "spiceLevel": 1,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "BBQ Sauce", "Applewood Smoked Bacon", "American Cheese", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 520, "protein": "24g", "carbs": "38g", "fat": "28g", "sodium": "920mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "BBQ Sauce",
+        "Applewood Smoked Bacon",
+        "American Cheese",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 520,
+        "protein": "24g",
+        "carbs": "38g",
+        "fat": "28g",
+        "sodium": "920mg"
+      }
     },
     {
       "slug": "black-and-blue",
       "name": "Black and Blue",
       "description": "Our prime beef sliders topped with gorgonzola aioli, smoked bacon, and caramelized onions",
       "price": 15,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/black-and-blue_gzuzos.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/67ddf8eb-3891-4697-9d08-8e05c7ac993b.webp",
       "category": "beef",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "Gorgonzola Aioli", "Smoked Bacon", "Caramelized Onions", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 490, "protein": "23g", "carbs": "32g", "fat": "29g", "sodium": "840mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "Gorgonzola Aioli",
+        "Smoked Bacon",
+        "Caramelized Onions",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 490,
+        "protein": "23g",
+        "carbs": "32g",
+        "fat": "29g",
+        "sodium": "840mg"
+      }
     },
     {
       "slug": "classic",
       "name": "Classic",
       "description": "Our prime beef sliders topped with ketchup, mustard, American cheese, pickles, and caramelized onions",
       "price": 13,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/classic_mz6jzy.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/19e9d5d2-7bf4-4374-b53e-d92df6bf196e.webp",
       "category": "beef",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "Lettuce", "Tomato", "Pickle", "Signature Sauce", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 420, "protein": "21g", "carbs": "30g", "fat": "22g", "sodium": "680mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "Lettuce",
+        "Tomato",
+        "Pickle",
+        "Signature Sauce",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 420,
+        "protein": "21g",
+        "carbs": "30g",
+        "fat": "22g",
+        "sodium": "680mg"
+      }
     },
     {
       "slug": "famous-fried-chicken",
       "name": "Tim's Famous Fried Chicken",
       "description": "Crispy fried chicken topped with pickles, our signature sauce and white American cheese",
       "price": 15,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/famous-fried-chicken_ggfvk7.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/f03557b1-733a-4dcf-963e-7ee82d1e3a80.webp",
       "category": "chicken",
       "popular": false,
       "available": true,
       "spiceLevel": 1,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Hand-Breaded Chicken", "Pickles", "Our Signature Sauce", "White American Cheese", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten", "Egg"],
-      "nutritionInfo": { "calories": 480, "protein": "24g", "carbs": "42g", "fat": "24g", "sodium": "760mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Hand-Breaded Chicken",
+        "Pickles",
+        "Our Signature Sauce",
+        "White American Cheese",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten",
+        "Egg"
+      ],
+      "nutritionInfo": {
+        "calories": 480,
+        "protein": "24g",
+        "carbs": "42g",
+        "fat": "24g",
+        "sodium": "760mg"
+      }
     },
     {
       "slug": "sweet-savory",
       "name": "Sweet and Savory",
       "description": "Our prime beef sliders topped with Swiss cheese, truck made pepper bacon jam and caramelized onions",
       "price": 14,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/sweet-savory2_iof3t7.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/4c7a506c-922d-447c-b0da-e6c2392226cb.webp",
       "category": "beef",
       "popular": true,
       "available": false,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "Swiss Cheese", "Caramelized Onion", "Bacon Pepper Jam", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 530, "protein": "24g", "carbs": "40g", "fat": "30g", "sodium": "790mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "Swiss Cheese",
+        "Caramelized Onion",
+        "Bacon Pepper Jam",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 530,
+        "protein": "24g",
+        "carbs": "40g",
+        "fat": "30g",
+        "sodium": "790mg"
+      }
     },
     {
       "slug": "extra-cheese",
       "name": "Extra Cheese Please",
       "description": "Our prime beef sliders topped with double the American cheese",
       "price": 13,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/extra-cheese-please_kagia5.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/51046a49-1cad-494c-a3cc-0749ee12c8bb.webp",
       "category": "beef",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "Double American Cheese", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 480, "protein": "23g", "carbs": "30g", "fat": "30g", "sodium": "920mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "Double American Cheese",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 480,
+        "protein": "23g",
+        "carbs": "30g",
+        "fat": "30g",
+        "sodium": "920mg"
+      }
     },
     {
       "slug": "whiskey",
       "name": "Whiskey",
       "description": "Our prime beef sliders topped with American cheese, smoked bacon, fried onions, and truck made whiskey sauce",
       "price": 15,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/whiskey_zbkelp.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/56b1ee7e-e3e3-4f0a-9988-2166d4cd832a.webp",
       "category": "beef",
       "popular": true,
       "available": true,
       "spiceLevel": 1,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "American Cheese", "Applewood Bacon", "Fried Onion", "Whiskey Sauce", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 550, "protein": "25g", "carbs": "40g", "fat": "32g", "sodium": "880mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "American Cheese",
+        "Applewood Bacon",
+        "Fried Onion",
+        "Whiskey Sauce",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 550,
+        "protein": "25g",
+        "carbs": "40g",
+        "fat": "32g",
+        "sodium": "880mg"
+      }
     },
     {
       "slug": "double-bacon",
       "name": "Double Banger",
       "description": "4 prime beef patties with American cheese\nAdd bacon for an additional $2",
       "price": 18,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/double-bacon_i4crrj.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/333387be-6b75-4305-886b-b8885663890c.webp",
       "category": "beef",
       "popular": true,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Double Prime Beef Patty", "Double Smoked Bacon", "Double American Cheese", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 780, "protein": "45g", "carbs": "40g", "fat": "50g", "sodium": "1250mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Double Prime Beef Patty",
+        "Double Smoked Bacon",
+        "Double American Cheese",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 780,
+        "protein": "45g",
+        "carbs": "40g",
+        "fat": "50g",
+        "sodium": "1250mg"
+      }
     },
     {
       "slug": "vegetarian",
       "name": "The Imposter",
       "description": "Plant based protein patty topped with garlic aioli, grilled wild mushrooms, Swiss cheese, and caramelized onions",
       "price": 15,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/impossible-slider_jigkrl.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/b9a0ede1-1e14-4317-9ab0-e3c90074d39c.webp",
       "category": "vegetarian",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": true,
-      "dietaryInfo": ["Vegetarian", "Contains Gluten"],
-      "ingredients": ["Impossible Patty", "Your Choice of Toppings", "Brioche Bun"],
-      "allergens": ["Gluten"],
-      "nutritionInfo": { "calories": 420, "protein": "19g", "carbs": "38g", "fat": "20g", "sodium": "580mg" }
+      "dietaryInfo": [
+        "Vegetarian",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Impossible Patty",
+        "Your Choice of Toppings",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 420,
+        "protein": "19g",
+        "carbs": "38g",
+        "fat": "20g",
+        "sodium": "580mg"
+      }
     },
     {
       "slug": "very-basic",
       "name": "Very Basic",
       "description": "Our prime beef sliders topped with American cheese and caramelized onions",
       "price": 13,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/very-basic_mplsma.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/24e6d9ed-d3c9-41aa-9afa-333714db3f9a.webp",
       "category": "beef",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "American Cheese", "Caramelized Onions", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 380, "protein": "18g", "carbs": "28g", "fat": "22g", "sodium": "650mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "American Cheese",
+        "Caramelized Onions",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 380,
+        "protein": "18g",
+        "carbs": "28g",
+        "fat": "22g",
+        "sodium": "650mg"
+      }
     },
     {
       "slug": "spicy-chicken",
       "name": "Spicy Chicken",
       "description": "Hand battered crispy chicken topped with white American cheese, pickles and chipotle mayo",
       "price": 15,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/spicy-chicken2_xydqkj.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/11c1de5d-609e-4ac1-93c0-6cfe71062c38.webp",
       "category": "chicken",
       "popular": true,
       "available": true,
       "spiceLevel": 3,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Hand Breaded Crispy Chicken", "White American Cheese", "Chipotle Mayonnaise", "Pickle", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten", "Egg"],
-      "nutritionInfo": { "calories": 510, "protein": "26g", "carbs": "42g", "fat": "26g", "sodium": "820mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Hand Breaded Crispy Chicken",
+        "White American Cheese",
+        "Chipotle Mayonnaise",
+        "Pickle",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten",
+        "Egg"
+      ],
+      "nutritionInfo": {
+        "calories": 510,
+        "protein": "26g",
+        "carbs": "42g",
+        "fat": "26g",
+        "sodium": "820mg"
+      }
     },
     {
       "slug": "honey-mustard",
       "name": "Honey Mustard Chicken",
       "description": "Hand battered crispy chicken topped with honey mustard sauce, lettuce, and tomato",
       "price": 14,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/honey-mustard_ixdy9c.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/33e48a49-9c17-41f2-bdaa-e4eef4d9302a.webp",
       "category": "chicken",
       "popular": false,
       "available": false,
       "spiceLevel": 1,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Gluten"],
-      "ingredients": ["Crispy Chicken", "Honey Mustard Sauce", "Brioche Bun"],
-      "allergens": ["Gluten", "Egg"],
-      "nutritionInfo": { "calories": 490, "protein": "25g", "carbs": "44g", "fat": "23g", "sodium": "780mg" }
+      "dietaryInfo": [
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Crispy Chicken",
+        "Honey Mustard Sauce",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Gluten",
+        "Egg"
+      ],
+      "nutritionInfo": {
+        "calories": 490,
+        "protein": "25g",
+        "carbs": "44g",
+        "fat": "23g",
+        "sodium": "780mg"
+      }
     },
     {
       "slug": "steak-house",
       "name": "Steak House",
       "description": "Our prime beef sliders topped with Swiss cheese, fried onions and garlic aioli",
       "price": 13,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/steak-house_gqlko1.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/7967bc3b-d7a6-4a85-8f75-6c4f668c5733.webp",
       "category": "beef",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Dairy", "Contains Gluten"],
-      "ingredients": ["Prime Beef Patty", "Swiss Cheese", "Fried Onions", "Garlic Aioli", "Brioche Bun"],
-      "allergens": ["Dairy", "Gluten"],
-      "nutritionInfo": { "calories": 320, "protein": "4g", "carbs": "42g", "fat": "16g", "sodium": "380mg" }
+      "dietaryInfo": [
+        "Contains Dairy",
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "Swiss Cheese",
+        "Fried Onions",
+        "Garlic Aioli",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Dairy",
+        "Gluten"
+      ],
+      "nutritionInfo": {
+        "calories": 320,
+        "protein": "4g",
+        "carbs": "42g",
+        "fat": "16g",
+        "sodium": "380mg"
+      }
     },
     {
       "slug": "fries",
       "name": "The Spud-Tacular Basket",
       "description": "Our famous crispy fries served with our signature sauce.",
       "price": 8,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/fries_hzklhc.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/f149e83c-5551-4dd9-b72d-ba100b741870.webp",
       "category": "other",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Vegetarian", "Vegan"],
-      "ingredients": ["Idaho Potatoes", "House Seasoning", "Sea Salt"],
+      "dietaryInfo": [
+        "Vegetarian",
+        "Vegan"
+      ],
+      "ingredients": [
+        "Idaho Potatoes",
+        "House Seasoning",
+        "Sea Salt"
+      ],
       "allergens": [],
-      "nutritionInfo": { "calories": 320, "protein": "4g", "carbs": "42g", "fat": "16g", "sodium": "380mg" }
+      "nutritionInfo": {
+        "calories": 320,
+        "protein": "4g",
+        "carbs": "42g",
+        "fat": "16g",
+        "sodium": "380mg"
+      }
     },
     {
       "slug": "chicken-tenders",
       "name": "Premium Chicken Tenders",
       "description": "Delicious crispy chicken paired with your choice of dipping sauce... ranch, bbq or our signature sauce. Served with our famous crispy fries",
       "price": 15,
-      "imageUrl": "https://res.cloudinary.com/dy00ivhtt/image/upload/tenders_uyrp48.webp",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/6c4af853-fcbb-4707-a68f-ccc7c2611cac.webp",
       "category": "other",
       "popular": false,
       "available": true,
       "spiceLevel": 0,
       "isVegetarianOption": false,
-      "dietaryInfo": ["Contains Gluten"],
-      "ingredients": ["Crispy Chicken Tenders", "Dipping Sauce", "Crispy Fries"],
-      "allergens": ["Gluten"],
+      "dietaryInfo": [
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Crispy Chicken Tenders",
+        "Dipping Sauce",
+        "Crispy Fries"
+      ],
+      "allergens": [
+        "Gluten"
+      ],
       "nutritionInfo": {}
     }
   ],
-
   "catering-items": [
     {
       "slug": "catering-classic-sliders",
@@ -667,7 +994,6 @@
       "additionalCharge": true
     }
   ],
-
   "events": [
     {
       "slug": "st-patricks-day-the-show-2026",
@@ -678,7 +1004,7 @@
       "location": "14661 Eleven Mile, Oak Park, MI",
       "locationLabel": "The Show",
       "description": "Join us for St. Paddy's Day at The Show! Enjoy $5 pints of O'Guinymish Irish Stout & White Hart English Mild, a special menu from Tim's Gourmet Sliders, and live entertainment from the O'Kennedy Holland Irish Dance Academy.",
-      "coverImage": "/img/events/st-patricks-flyer.jpg",
+      "coverImage": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/603c168b-4c3e-42a9-996d-dcd5d276010f.jpg",
       "badge": "Past Event",
       "highlights": [
         "The Show, Oak Park",
@@ -687,7 +1013,7 @@
         "$5 pints of Irish Stout & English Mild",
         "Live Irish Dance Entertainment"
       ],
-      "menuImageUrl": "/img/events/stpatricks-menu.jpg",
+      "menuImageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/ffc551ae-1f68-4aec-881a-3ea46743d24a.jpg",
       "menuPdfUrl": "/img/events/stpatricks-menu.pdf",
       "specialMenuHeading": "St. Patrick's Day Special Menu",
       "status": "past",
@@ -701,18 +1027,18 @@
     },
     {
       "slug": "test-event-upcoming",
-      "name": "Campus Martius Pop-Up — Spring 2026",
+      "name": "Campus Martius Pop-Up \u2014 Spring 2026",
       "date": "Tuesday, April 28th, 2026",
       "startTime": "5:00 PM",
       "endTime": "7:00 PM",
       "location": "Campus Martius Park, Detroit, MI 48226",
       "locationLabel": "Campus Martius Park, Detroit",
-      "description": "Tim's Gourmet Sliders is popping up at Campus Martius Park this spring! Pre-order your sliders and pick up fresh off the truck. This is a QA/demo test event — limited menu, order-ahead only.",
+      "description": "Tim's Gourmet Sliders is popping up at Campus Martius Park this spring! Pre-order your sliders and pick up fresh off the truck. This is a QA/demo test event \u2014 limited menu, order-ahead only.",
       "coverImage": "",
       "badge": "Upcoming",
       "highlights": [
         "Campus Martius Park, Detroit",
-        "5:00 PM – 7:00 PM",
+        "5:00 PM \u2013 7:00 PM",
         "Order-Ahead Only",
         "Limited Menu Available"
       ],
@@ -736,7 +1062,6 @@
       ]
     }
   ],
-
   "reviews": [
     {
       "slug": "google-rd-d-2025-12",

@@ -13,13 +13,12 @@
             playsinline
             [muted]="true"
             preload="metadata"
-            [attr.poster]="brand?.heroVideoPoster || 'https://res.cloudinary.com/dy00ivhtt/video/upload/so_0,w_1280,q_auto,f_jpg/hero-video_b7nk2y.jpg'"
+            [attr.poster]="brand?.heroVideoPoster || 'https://cdn.syncgr.com/domains/timsgourmetsliders.com/c648dc4b-d724-45c6-b7d1-036083222e12.jpg'"
             (canplaythrough)="onVideoReady()"
             (playing)="onVideoReady()"
             #heroVideo
         >
-            <source [attr.src]="brand?.heroVideoWebm || 'https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto,f_webm/hero-video_b7nk2y.webm'" type="video/webm" />
-            <source [attr.src]="brand?.heroVideoMp4 || 'https://res.cloudinary.com/dy00ivhtt/video/upload/q_auto/hero-video_b7nk2y.mp4'" type="video/mp4" />
+            <source [attr.src]="brand?.heroVideoMp4 || 'https://cdn.syncgr.com/domains/timsgourmetsliders.com/568957c5-d038-4a81-85df-15474a8052d4.mp4'" type="video/mp4" />
         </video>
         <div class="hero__overlay"></div>
     </div>
