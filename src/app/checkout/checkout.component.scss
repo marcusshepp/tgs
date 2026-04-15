@@ -1,14 +1,14 @@
 :host {
-    --co-bg: #0d0905;
-    --co-bg-alt: #1a0f07;
-    --co-surface: #231308;
-    --co-surface-hover: #2e1a0a;
+    --co-bg: #ffffff;
+    --co-bg-alt: #faf6ee;
+    --co-surface: #faf6ee;
+    --co-surface-hover: #f0e8d7;
     --co-amber: #e8a020;
     --co-orange: #e06400;
-    --co-cream: #f5ede0;
-    --co-muted: #a08060;
-    --co-border: rgba(232, 160, 32, 0.10);
-    --co-border-strong: rgba(232, 160, 32, 0.40);
+    --co-cream: #1a0f07;
+    --co-muted: #6b5a45;
+    --co-border: rgba(232, 160, 32, 0.35);
+    --co-border-strong: rgba(232, 160, 32, 0.60);
     --co-error: #ef4444;
     --co-error-bg: rgba(239, 68, 68, 0.06);
     --co-error-border: rgba(239, 68, 68, 0.30);
@@ -206,7 +206,7 @@
 .field-error {
     margin-top: 0.35rem;
     font-size: 0.8rem;
-    color: #fca5a5;
+    color: #b91c1c;
     font-weight: 500;
 }
 

@@ -1,15 +1,15 @@
 // Order page custom properties (scoped)
 :host {
-    --order-bg: #0d0905;
-    --order-bg-alt: #1a0f07;
-    --order-surface: #231308;
-    --order-surface-hover: #2e1a0a;
+    --order-bg: #ffffff;
+    --order-bg-alt: #faf6ee;
+    --order-surface: #faf6ee;
+    --order-surface-hover: #f0e8d7;
     --order-amber: #e8a020;
     --order-orange: #e06400;
-    --order-cream: #f5ede0;
-    --order-muted: #a08060;
-    --order-border: rgba(232, 160, 32, 0.10);
-    --order-border-strong: rgba(232, 160, 32, 0.22);
+    --order-cream: #1a0f07;
+    --order-muted: #6b5a45;
+    --order-border: rgba(232, 160, 32, 0.35);
+    --order-border-strong: rgba(232, 160, 32, 0.60);
     --order-success: #4a9e6a;
     --order-error: #ef4444;
 
@@ -207,7 +207,7 @@
 .order-status-closed {
     background: rgba(239, 68, 68, 0.08);
     border-bottom: 1px solid rgba(239, 68, 68, 0.25);
-    color: #fca5a5;
+    color: #b91c1c;
 }
 
 .order-status-future {
@@ -743,7 +743,8 @@
     left: 0;
     right: 0;
     z-index: 50;
-    background: linear-gradient(to top, rgba(13, 9, 5, 0.99) 65%, transparent);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.99) 65%, rgba(255, 255, 255, 0));
+    border-top: 1px solid var(--order-border);
     padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
     padding-top: 1.5rem;
 
