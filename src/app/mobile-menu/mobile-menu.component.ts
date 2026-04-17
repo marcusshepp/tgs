@@ -3,11 +3,11 @@ import {
     OnInit,
     OnDestroy,
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-import { SOCIAL_MEDIA } from '../data/social-media.model';
-import { CONTACT } from '../data/contact-info.model';
 import { MobileMenuService } from '../services/mobile-menu.service';
+import { CmsService } from '../services/cms.service';
+import { CmsBrand } from '../models/cms.types';
 import { Subject } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 
@@ -19,17 +19,19 @@ import { takeUntil, filter } from 'rxjs/operators';
     styleUrl: './mobile-menu.component.scss',
 })
 export class MobileMenuComponent implements OnInit, OnDestroy {
-    public socials = SOCIAL_MEDIA;
-    public contact = CONTACT;
+    public brand: CmsBrand | null = null;
     public isOpen = false;
     private destroy$ = new Subject<void>();
 
     constructor(
         private mobileMenuService: MobileMenuService,
         private router: Router,
+        private cms: CmsService,
     ) {}
 
     ngOnInit(): void {
+        this.cms.getBrand().pipe(takeUntil(this.destroy$)).subscribe(b => { this.brand = b; });
+
         this.mobileMenuService.isOpen$
             .pipe(takeUntil(this.destroy$))
             .subscribe((isOpen) => {

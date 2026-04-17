@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
+import { HomeMenuComponent } from '../home-menu/home-menu.component';
 import { PopularFoodItemsComponent } from '../popular-food-items/popular-food-items.component';
 import { TrustedByComponent } from '../trusted-by/trusted-by.component';
+import { ServicesComponent } from '../services/services.component';
 import { ContactFormComponent } from '../contact/contact-form/contact-form.component';
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [HeroComponent, PopularFoodItemsComponent, TrustedByComponent, ContactFormComponent],
+    imports: [HeroComponent, HomeMenuComponent, PopularFoodItemsComponent, TrustedByComponent, ServicesComponent, ContactFormComponent],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
 })

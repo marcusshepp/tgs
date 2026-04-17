@@ -19,10 +19,10 @@
         <!-- Header -->
         <div class="menu-header">
             <div class="logo-row">
-                <img src="/img/logo-no-bg.png" alt="Tim's Gourmet Sliders" class="menu-logo" />
+                <img src="https://cdn.syncgr.com/domains/timsgourmetsliders.com/abbbfea1-c11b-43de-b796-05559b9a7a10.png" alt="Tim's Gourmet Sliders" class="menu-logo" />
             </div>
             <p class="tagline">Professional Catering | Weddings | Corporate Events | Parties</p>
-            <p class="contact">{{ contact.phone }} | {{ contact.email }}</p>
+            <p class="contact">{{ contactPhone }} | {{ contactEmail }}</p>
         </div>
 
         <!-- Menu Grid -->
@@ -34,7 +34,7 @@
                         @for (item of section.items; track $index) {
                             <div class="menu-item">
                                 <div class="item-header">
-                                    <span class="item-name">{{ item.title }}@if (item.additionalCharge) {*}</span>
+                                    <span class="item-name">{{ item.name }}@if (item.additionalCharge) {*}</span>
                                 </div>
                                 @if (item.description) {
                                     <p class="item-description">{{ item.description }}</p>

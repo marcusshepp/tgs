@@ -1,0 +1,77 @@
+<div class="confirm-page">
+
+  @if (order) {
+    <div class="confirm-inner">
+
+      <!-- Animated checkmark -->
+      <div class="checkmark-wrap" aria-label="Order placed successfully" role="img">
+        <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke-width="2.5"/>
+          <path class="checkmark-path" d="M14 26l9 9 15-16" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1 class="confirm-headline">{{ orderUi.confirmationHeading || 'Order confirmed — this is a demo' }}</h1>
+      <p class="confirm-order-id">{{ order.orderId }}</p>
+
+      @if (orderUi.confirmationMessage) {
+        <p class="confirm-subheading">{{ orderUi.confirmationMessage }}</p>
+      }
+
+      <!-- Summary card -->
+      <div class="confirm-card">
+
+        <p class="confirm-name-row">For {{ order.customer.name }}</p>
+
+        <div class="confirm-items">
+          @for (item of order.items; track item.slug) {
+            <div class="confirm-line-item">
+              <span class="confirm-item-name">{{ item.quantity }}× {{ item.name }}</span>
+              <span class="confirm-item-price">{{ lineTotal(item) }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="confirm-total-row">
+          <span>Total</span>
+          <span class="confirm-total-amount">{{ formatPrice(order.total) }}</span>
+        </div>
+
+        @if (event) {
+          <div class="confirm-pickup">
+            <p class="confirm-pickup-label">Pickup details</p>
+            <p class="confirm-pickup-location">{{ event.pickupLocation || event.location }}</p>
+            @if (event.date) {
+              <p class="confirm-pickup-time">{{ formatEventDate(event.date) }}</p>
+            }
+            @if (event.pickupStartAt && event.pickupEndAt) {
+              <p class="confirm-pickup-time">{{ formatPickupTime(event.pickupStartAt) }} – {{ formatPickupTime(event.pickupEndAt) }}</p>
+            }
+          </div>
+        }
+
+        @if (order.customer.pickupInstructions) {
+          <div class="confirm-instructions">
+            <p class="confirm-instructions-label">Pickup notes</p>
+            <p class="confirm-instructions-text">{{ order.customer.pickupInstructions }}</p>
+          </div>
+        }
+
+      </div>
+
+      <!-- Actions -->
+      <div class="confirm-actions">
+        <a routerLink="/special-events" class="btn-primary">Back to Events</a>
+        <a routerLink="/menu" class="btn-ghost">See Full Menu</a>
+      </div>
+
+      <!-- Demo mode banner -->
+      <div class="demo-banner" role="alert">
+        <span class="demo-banner-icon" aria-hidden="true">⚠</span>
+        <span class="demo-banner-text">This is a demo — no real order was placed and no payment was charged.</span>
+      </div>
+
+    </div>
+  }
+
+</div>

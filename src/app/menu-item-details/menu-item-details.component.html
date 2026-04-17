@@ -14,7 +14,7 @@
                     <div class="menu-item-image">
                         <img
                             [src]="menuItem?.imageUrl ?  menuItem?.imageUrl : '/img/dishes/default.png'"
-                            [alt]="menuItem?.title"
+                            [alt]="menuItem?.name"
                             class="product-img"
                             width="800"
                             height="500"
@@ -28,7 +28,7 @@
                         <div class="category-badge">
                             {{ menuItem?.category }}
                         </div>
-                        <h2 class="item-title">{{ menuItem?.title }}</h2>
+                        <h2 class="item-title">{{ menuItem?.name }}</h2>
                         <div class="price-tag" *ngIf="menuItem?.price">${{menuItem?.price}}</div>
                         <p class="item-description">
                             {{ menuItem?.description }}
@@ -76,15 +76,15 @@
                         <div class="card-img">
                             <img
                                 [src]="item.imageUrl ? item.imageUrl : '/img/dishes/default.png'"
-                                [alt]="item.title"
+                                [alt]="item.name"
                                 class="related-image"
                                 loading="lazy"
                             />
                         </div>
                         <div class="card-content">
-                            <h4 class="item-name">{{ item.title }}</h4>
+                            <h4 class="item-name">{{ item.name }}</h4>
                             <a
-                                [routerLink]="['/menu-item', item.id]"
+                                [routerLink]="['/menu-item', item.slug]"
                                 class="view-btn"
                                 >View Item</a
                             >
@@ -98,7 +98,7 @@
             <h3 class="section-title">How We Prepare It</h3>
             <div class="prep-content">
                 <p>
-                    Our {{ menuItem?.title }} is made with the freshest
+                    Our {{ menuItem?.name }} is made with the freshest
                     ingredients. We prepare each order from scratch when you place your order to
                     ensure maximum flavor and quality.
                 </p>

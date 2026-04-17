@@ -1,3 +1,4 @@
+<ng-container *ngIf="!loading && brand && contact && footer; else footerLoading">
 <footer class="footer-section">
     <div class="footer-widgets-wrapper">
         <div class="container">
@@ -10,7 +11,7 @@
                             </div>
                             <div class="contact-info">
                                 <h6>Address</h6>
-                                <p>{{contact.ADDRESS}}</p>
+                                <p>{{ contact.address }}</p>
                             </div>
                         </div>
                     </div>
@@ -22,8 +23,8 @@
                             </div>
                             <div class="contact-info">
                                 <h6>Email</h6>
-                                <a href="mailto:{{ contact.EMAIL }}">
-                                    <p>{{ contact.EMAIL }}</p>
+                                <a href="mailto:{{ contact.email }}">
+                                    <p>{{ contact.email }}</p>
                                 </a>
                             </div>
                         </div>
@@ -38,10 +39,10 @@
                                 <h6>Phone Number</h6>
                                 <p>
                                     <a
-                                        [href]="contact.PHONE_LINK"
+                                        [href]="contact.phoneLink"
                                         itemprop="telephone"
                                     >
-                                        {{ contact.PHONE }}
+                                        {{ contact.phone }}
                                     </a>
                                 </p>
                             </div>
@@ -55,9 +56,9 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="single-footer-widget">
                             <div class="widget-head">
-                                <a href="#" class="footer-logo">
+                                <a routerLink="/" class="footer-logo">
                                     <img
-                                        src="/img/old/logo2.png"
+                                        [src]="brand.footerLogoUrl"
                                         class="logo-img"
                                         alt="logo-img"
                                         loading="lazy"
@@ -67,24 +68,27 @@
                             <div class="footer-content">
                                 <div class="social-icon-container">
                                     <a
+                                        *ngIf="brand.socialUrls.facebook"
                                         target="_blank"
-                                        [href]="socials.FACEBOOK"
+                                        [href]="brand.socialUrls.facebook"
                                         aria-label="Facebook"
                                         class="social-icon facebook"
                                     >
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                     <a
+                                        *ngIf="brand.socialUrls.google"
                                         target="_blank"
-                                        [href]="socials.GOOGLE"
+                                        [href]="brand.socialUrls.google"
                                         aria-label="Google"
                                         class="social-icon google"
                                     >
                                         <i class="fab fa-google"></i>
                                     </a>
                                     <a
+                                        *ngIf="brand.socialUrls.instagram"
                                         target="_blank"
-                                        [href]="socials.INSTAGRAM"
+                                        [href]="brand.socialUrls.instagram"
                                         aria-label="Instagram"
                                         class="social-icon instagram"
                                     >
@@ -97,7 +101,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="single-footer-widget">
                             <div class="widget-head">
-                                <h3>Quick Links</h3>
+                                <h3>{{ footer.quickLinksHeading }}</h3>
                             </div>
                             <ul class="list-area">
                                 <li>
@@ -162,15 +166,15 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="single-footer-widget">
                             <div class="widget-head">
-                                <h3>Our Menu</h3>
+                                <h3>{{ footer.menuColumnHeading }}</h3>
                             </div>
                             <ul class="list-area">
-                                <li *ngFor="let item of menu">
-                                    <a [routerLink]="['menu-item', item.id]">
+                                <li *ngFor="let item of menuItems">
+                                    <a [routerLink]="['menu-item', item.slug]">
                                         <i
                                             class="fa-solid fa-chevron-right"
                                         ></i>
-                                        {{ item.title }}
+                                        {{ item.name }}
                                     </a>
                                 </li>
                             </ul>
@@ -179,12 +183,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="single-footer-widget">
                             <div class="widget-head">
-                                <h3>Hours</h3>
+                                <h3>{{ footer.hoursColumnHeading }}</h3>
                             </div>
                             <ul class="list-area">
                                 <li class="mb-2">
-                                    Monday – Saturday:
-                                    <span class="hours-text"> 10am – 9pm </span>
+                                    {{ footer.hoursLabel }}
+                                    <span class="hours-text"> {{ footer.hoursValue }} </span>
                                 </li>
                             </ul>
                         </div>
@@ -203,3 +207,19 @@
         </div>
     </div>
 </footer>
+</ng-container>
+<ng-template #footerLoading>
+    <footer class="footer-section footer-section--loading">
+        <div class="footer-widgets-wrapper">
+            <div class="container">
+                <div class="footer-content-section">
+                    <div class="row">
+                        <div class="col-12 text-center py-4">
+                            <span class="visually-hidden">Loading footer…</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</ng-template>

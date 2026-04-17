@@ -121,6 +121,11 @@
                 <i class="fas fa-paper-plane ms-2"></i>
             </button>
         </div>
+        <div *ngIf="showErrorMessage" class="col-12">
+            <div class="submit-error-msg">
+                Unable to send right now. Please call us at <a href="tel:2482515781">(248) 251-5781</a> or email <a href="mailto:timsfoodtruckdetroit&#64;gmail.com">timsfoodtruckdetroit&#64;gmail.com</a> directly.
+            </div>
+        </div>
     </form>
 
     <!-- Success Message Section -->

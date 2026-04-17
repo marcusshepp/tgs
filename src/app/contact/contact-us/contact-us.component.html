@@ -7,8 +7,8 @@
 
                 <!-- Mobile-only image -->
                 <div class="info-image-mobile">
-                    <img 
-                        src="https://res.cloudinary.com/dy00ivhtt/image/upload/q_auto,f_auto,w_600/window_ghdagy.webp" 
+                    <img
+                        [src]="contact.sideImageUrl || 'https://cdn.syncgr.com/domains/timsgourmetsliders.com/d11ba089-59a5-4b3c-8fe2-29ca6b257716.webp'"
                         alt="Tim's Gourmet Sliders Food Truck"
                         loading="lazy"
                     />
@@ -18,24 +18,24 @@
             <!-- Info Section -->
             <div class="contact-info-section">
                 <div class="info-image">
-                    <img 
-                        src="https://res.cloudinary.com/dy00ivhtt/image/upload/q_auto,f_auto,w_600/window_ghdagy.webp" 
+                    <img
+                        [src]="contact.sideImageUrl || 'https://cdn.syncgr.com/domains/timsgourmetsliders.com/d11ba089-59a5-4b3c-8fe2-29ca6b257716.webp'"
                         alt="Tim's Gourmet Sliders Food Truck"
                         loading="lazy"
                     />
                 </div>
 
                 <div class="info-card">
-                    <h2>Let's Connect</h2>
-                    
+                    <h2>{{ contact.sectionHeading }}</h2>
+
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div class="info-content">
                             <h3>Service Area</h3>
-                            <p>Detroit & Southeast Michigan</p>
-                            <span class="info-note">Based in Redford, serving the entire metro area</span>
+                            <p>{{ contact.serviceArea }}</p>
+                            <span class="info-note">{{ contact.serviceAreaNote }}</span>
                         </div>
                     </div>
 
@@ -45,8 +45,8 @@
                         </div>
                         <div class="info-content">
                             <h3>Call Us</h3>
-                            <a [href]="contact.PHONE_LINK">{{ contact.PHONE }}</a>
-                            <span class="info-note">We respond within 24 hours</span>
+                            <a [href]="contact.phoneLink">{{ contact.phone }}</a>
+                            <span class="info-note">{{ contact.responseTime }}</span>
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@
                         </div>
                         <div class="info-content">
                             <h3>Email</h3>
-                            <a href="mailto:{{ contact.EMAIL }}">{{ contact.EMAIL }}</a>
+                            <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
                         </div>
                     </div>
                 </div>
@@ -64,17 +64,9 @@
                 <div class="info-card rules-card">
                     <h3>Good to Know</h3>
                     <ul class="rules-list">
-                        <li>
-                            <span class="rule-number">01</span>
-                            <span>Book early — we fill up fast for weekends</span>
-                        </li>
-                        <li>
-                            <span class="rule-number">02</span>
-                            <span>Custom menus available for large events</span>
-                        </li>
-                        <li>
-                            <span class="rule-number">03</span>
-                            <span>We bring the full food truck experience</span>
+                        <li *ngFor="let item of contact.goodToKnow; let i = index">
+                            <span class="rule-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                            <span>{{ item.text }}</span>
                         </li>
                     </ul>
                 </div>

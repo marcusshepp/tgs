@@ -1,1 +1,29 @@
-<p>home-menu works!</p>
+<section class="home-menu-section" *ngIf="teaser && items.length">
+    <div class="container">
+        <div class="row mb-4">
+            <app-page-title [title]="teaser.sectionTitle"></app-page-title>
+        </div>
+
+        <div class="home-menu-grid">
+            <a
+                *ngFor="let item of items; let i = index"
+                class="home-menu-card"
+                [routerLink]="['/menu-item', item.slug]"
+                [style.animation-delay]="(0.15 * (i + 1)) + 's'"
+            >
+                <div class="home-menu-card__img-wrap">
+                    <img [src]="item.imageUrl" [alt]="item.name" loading="lazy" />
+                </div>
+                <div class="home-menu-card__body">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <span class="home-menu-card__price">${{ item.price }}</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="home-menu-cta">
+            <a class="theme-btn" [routerLink]="teaser.viewAllUrl">{{ teaser.viewAllLabel }}</a>
+        </div>
+    </div>
+</section>

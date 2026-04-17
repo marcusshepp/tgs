@@ -1,7 +1,10 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MENU_ITEMS, MenuItem } from '../../data/public-menu.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { CmsService } from '../../services/cms.service';
+import { CmsMenuItem, CmsMenuItemCategory } from '../../models/cms.types';
 
 @Component({
     selector: 'app-menu-pdf-public',
@@ -10,21 +13,18 @@ import { MENU_ITEMS, MenuItem } from '../../data/public-menu.model';
     templateUrl: './menu-pdf-public.component.html',
     styleUrl: './menu-pdf-public.component.scss',
 })
-export class MenuPdfPublicComponent implements OnInit {
-    menuItems: MenuItem[] = [];
-    categories = [
-        { id: 'beef', label: 'Beef Sliders' },
-        { id: 'chicken', label: 'Chicken Sliders' },
-        { id: 'pork', label: 'Pork Sliders' },
-        { id: 'vegetarian', label: 'Vegetarian' },
-        { id: 'other', label: 'Sides & More' },
-    ];
+export class MenuPdfPublicComponent implements OnInit, OnDestroy {
+    menuItems: CmsMenuItem[] = [];
 
     isIOS = false;
     showIOSHint = false;
     private isBrowser = false;
+    private destroy$ = new Subject<void>();
 
-    constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    constructor(
+        private cms: CmsService,
+        @Inject(PLATFORM_ID) platformId: Object
+    ) {
         this.isBrowser = isPlatformBrowser(platformId);
         if (this.isBrowser) {
             this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -32,10 +32,17 @@ export class MenuPdfPublicComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.menuItems = MENU_ITEMS.filter(item => item.active);
+        this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
+            this.menuItems = items.filter(item => item.available);
+        });
     }
 
-    getItemsByCategory(categoryId: string): MenuItem[] {
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
+
+    getItemsByCategory(categoryId: CmsMenuItemCategory): CmsMenuItem[] {
         return this.menuItems.filter(item => item.category === categoryId);
     }
 

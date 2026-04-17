@@ -112,4 +112,45 @@ export const routes: Routes = [
                 "Tim's Gourmet Sliders QR code for marketing materials.",
         },
     },
+    {
+        path: 'order',
+        redirectTo: 'special-events',
+        pathMatch: 'full',
+    },
+    {
+        path: 'events/:slug/order',
+        loadComponent: () => import('./events/order/event-order.component').then(m => m.EventOrderComponent),
+        data: {
+            title: 'Order Sliders',
+            description:
+                "Pre-order sliders from Tim's Gourmet Sliders for this event. Pick up fresh off the truck.",
+        },
+    },
+    {
+        path: 'cart',
+        loadComponent: () => import('./cart/cart.component').then(m => m.CartComponent),
+        data: {
+            title: 'Your Cart',
+            description:
+                "Review your Tim's Gourmet Sliders order before checkout. Adjust quantities or remove items.",
+        },
+    },
+    {
+        path: 'checkout',
+        loadComponent: () => import('./checkout/checkout.component').then(m => m.CheckoutComponent),
+        data: {
+            title: 'Checkout',
+            description:
+                "Complete your Tim's Gourmet Sliders order. Enter your contact info for pickup.",
+        },
+    },
+    {
+        path: 'order-confirmation',
+        loadComponent: () => import('./order-confirmation/order-confirmation.component').then(m => m.OrderConfirmationComponent),
+        data: {
+            title: 'Order Confirmed',
+            description:
+                "Your Tim's Gourmet Sliders order has been placed. See you at pickup!",
+        },
+    },
 ];

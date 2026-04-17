@@ -1,0 +1,22 @@
+<section class="services-section" *ngIf="services && teaser">
+    <div class="container">
+        <div class="services-header">
+            <h2 class="services-title">{{ teaser.sectionTitle }}</h2>
+            <p class="services-body">{{ teaser.sectionBody }}</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="services-item" *ngFor="let item of services.items">
+                <div class="services-item__icon">
+                    <i [class]="item.icon"></i>
+                </div>
+                <h3 class="services-item__title">{{ item.title }}</h3>
+                <p class="services-item__desc">{{ item.description }}</p>
+            </div>
+        </div>
+
+        <div class="services-cta">
+            <a class="theme-btn" [routerLink]="teaser.ctaUrl">{{ teaser.ctaLabel }}</a>
+        </div>
+    </div>
+</section>

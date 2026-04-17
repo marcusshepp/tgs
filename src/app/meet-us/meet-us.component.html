@@ -1,100 +1,54 @@
-<section class="meet-us-section">
+<section class="meet-us-section" *ngIf="meetUs">
     <div class="container">
-        <app-page-title title="Meet Us"></app-page-title>
+        <app-page-title [title]="meetUs.title"></app-page-title>
 
-        <div class="row align-items-center mb-5">
-            <div class="col-lg-6">
-                <div class="team-member-image">
-                    <img
-                        src="img/new/tim.jpg"
-                        alt="Tim - Owner/Chef"
-                        class="img-fluid rounded"
-                    />
+        <ng-container *ngFor="let member of meetUs.teamMembers; let i = index">
+            <!-- Even index: image left, text right -->
+            <div class="row align-items-center mb-5" *ngIf="i % 2 === 0">
+                <div class="col-lg-6">
+                    <div class="team-member-image">
+                        <img
+                            [src]="member.photoUrl"
+                            [alt]="member.photoAlt"
+                            class="img-fluid rounded"
+                        />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="team-member-info">
+                        <h2 class="mb-3">{{ member.name }}</h2>
+                        <h4 class="mb-4">{{ member.role }}</h4>
+                        <p *ngFor="let para of getBioParagraphs(member.bio)">{{ para }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="team-member-info">
-                    <h2 class="mb-3">Tim</h2>
-                    <h4 class="mb-4">Owner/Chef</h4>
-                    <p>
-                        Tim has been a lifelong foodie with a deep-rooted
-                        passion for exceptional flavors and top-notch service.
-                        With years of experience in both fine dining and casual
-                        dining, he's honed his craft as a culinary pro, working
-                        in kitchens where quality and creativity reign supreme.
-                    </p>
-                    <p>
-                        After traveling far and wide, tasting burgers from coast
-                        to coast, Tim noticed a gap in the food scene—there
-                        simply wasn't a slider that lived up to his gourmet
-                        standards. So, he decided to change the game.
-                    </p>
-                    <p>
-                        "We chose to focus on sliders because we want to put a
-                        high-end meal in the palm of your hand. Everyone loves
-                        burgers, so we decided to put our gourmet touch and
-                        creativity on the classic slider."
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row align-items-center mb-5">
-            <div class="col-lg-6">
-                <div class="team-member-info">
-                    <h2 class="mb-3">Christey</h2>
-                    <h4 class="mb-4">Event Coordinator</h4>
-                    <p>
-                        As our dedicated Event Coordinator, Christey ensures
-                        every catering experience with Tim's Gourmet Sliders
-                        exceeds expectations. With her meticulous attention to
-                        detail and passion for creating memorable food
-                        experiences, she works closely with clients to customize
-                        menus and coordinate flawless service.
-                    </p>
-                    <p>
-                        Christey brings warmth and professionalism to every
-                        interaction, making the planning process as enjoyable as
-                        the sliders themselves. Her expertise in event
-                        management means your gathering will run smoothly from
-                        setup to cleanup.
-                    </p>
-                    <p>
-                        Whether you're planning a corporate function, wedding
-                        reception, or backyard celebration, Christey will help
-                        bring your vision to life with Tim's Gourmet Sliders as
-                        the highlight of your event.
-                    </p>
+            <!-- Odd index: text left, image right -->
+            <div class="row align-items-center mb-5" *ngIf="i % 2 !== 0">
+                <div class="col-lg-6">
+                    <div class="team-member-info">
+                        <h2 class="mb-3">{{ member.name }}</h2>
+                        <h4 class="mb-4">{{ member.role }}</h4>
+                        <p *ngFor="let para of getBioParagraphs(member.bio)">{{ para }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="team-member-image">
+                        <img
+                            [src]="member.photoUrl"
+                            [alt]="member.photoAlt"
+                            class="img-fluid rounded"
+                        />
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="team-member-image">
-                    <img
-                        src="img/new/c.jpg"
-                        alt="Christey - Event Coordinator"
-                        class="img-fluid rounded"
-                    />
-                </div>
-            </div>
-        </div>
+        </ng-container>
 
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
                 <div class="our-story">
-                    <h2 class="mb-4">Our Story</h2>
-                    <p>
-                        At Tim's Gourmet Sliders, we're not just flipping
-                        patties—we're crafting an experience. Tim's vision is to
-                        deliver sliders that pack a big punch, made with the
-                        finest ingredients and a dash of flair, all served with
-                        the kind of care you'd expect from a seasoned pro.
-                    </p>
-                    <p>
-                        Our team is dedicated, responsible, and downright
-                        excited to bring you sliders that elevate the everyday
-                        into something extraordinary. We're here to make your
-                        day delicious—one gourmet bite at a time!
-                    </p>
+                    <h2 class="mb-4">{{ meetUs.storyHeading }}</h2>
+                    <p *ngFor="let para of getStoryParagraphs()">{{ para }}</p>
                 </div>
             </div>
         </div>
@@ -103,7 +57,7 @@
             <div class="col-12">
                 <div class="food-truck-showcase">
                     <img
-                        [src]="cloudinaryUrl + 'truck9-1_tzbsih.webp'"
+                        [src]="meetUs.imageUrl"
                         alt="Tim's Gourmet Sliders Food Truck"
                         class="img-fluid rounded"
                     />

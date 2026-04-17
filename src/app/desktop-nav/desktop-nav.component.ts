@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CmsService } from '../services/cms.service';
 
 @Component({
   selector: 'app-desktop-nav',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './desktop-nav.component.scss'
 })
 export class DesktopNavComponent {
-
+    constructor(private cms: CmsService) {}
 }

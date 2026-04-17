@@ -1,9 +1,13 @@
-import { Component, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../contact/contact-form/contact-form.component';
 import { RouterModule } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { BannerComponent } from '../banner/banner.component';
 import { CateringMenuComponent } from './menu/catering-menu.component';
+import { CmsService } from '../services/cms.service';
+import { CmsCatering } from '../models/cms.types';
 
 @Component({
     selector: 'app-catering',
@@ -18,17 +22,31 @@ import { CateringMenuComponent } from './menu/catering-menu.component';
     templateUrl: './catering.component.html',
     styleUrl: './catering.component.scss',
 })
-export class CateringComponent {
+export class CateringComponent implements OnInit, OnDestroy {
     isBrowser: boolean;
+    catering: CmsCatering | null = null;
+    private destroy$ = new Subject<void>();
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    constructor(
+        private cms: CmsService,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
     }
 
     ngOnInit() {
+        this.cms.getCatering().pipe(takeUntil(this.destroy$)).subscribe(data => {
+            this.catering = data;
+        });
+
         if (this.isBrowser) {
             this.initAnimations();
         }
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 
     private initAnimations() {

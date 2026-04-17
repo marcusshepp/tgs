@@ -1,0 +1,337 @@
+:host {
+    --oc-bg: #ffffff;
+    --oc-surface: #faf6ee;
+    --oc-amber: #e8a020;
+    --oc-orange: #e06400;
+    --oc-cream: #1a0f07;
+    --oc-muted: #6b5a45;
+    --oc-border: rgba(232, 160, 32, 0.35);
+    --oc-bg-alt: #faf6ee;
+
+    display: block;
+    min-height: 100dvh;
+    background: var(--oc-bg);
+    color: var(--oc-cream);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+// ── Main confirmation ──────────────────────────────────
+.confirm-page {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+}
+
+.confirm-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+}
+
+// ── Demo mode banner ───────────────────────────────────
+.demo-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    width: 100%;
+    background: #e8a020;
+    color: #0d0905;
+    border-radius: 0.625rem;
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-align: left;
+    animation: fade-up 300ms 100ms ease-out both;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+.demo-banner-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.demo-banner-text {
+    flex: 1;
+}
+
+// ── Animated checkmark ────────────────────────────────
+.checkmark-wrap {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 12px rgba(232, 160, 32, 0.45));
+}
+
+.checkmark-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.checkmark-circle {
+    stroke: var(--oc-amber);
+    fill: none;
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    animation: draw-circle 600ms ease-out forwards;
+}
+
+.checkmark-path {
+    stroke: var(--oc-amber);
+    fill: none;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: draw-check 400ms 450ms ease-out forwards;
+}
+
+@keyframes draw-circle {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-check {
+    to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .checkmark-circle,
+    .checkmark-path {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}
+
+// ── Confirm headlines ─────────────────────────────────
+.confirm-headline {
+    font-family: 'Alfa Slab One', serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.5rem);
+    color: var(--oc-cream);
+    letter-spacing: -0.01em;
+    margin: 0;
+    animation: fade-up 400ms 200ms ease-out both;
+}
+
+.confirm-order-id {
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 1.2rem;
+    color: var(--oc-amber);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin: 0;
+    animation: fade-up 400ms 300ms ease-out both;
+}
+
+.confirm-subheading {
+    color: var(--oc-muted);
+    font-size: 0.9rem;
+    max-width: 36rem;
+    line-height: 1.55;
+    margin: 0;
+    animation: fade-up 400ms 350ms ease-out both;
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .confirm-headline,
+    .confirm-order-id,
+    .confirm-subheading { animation: none; }
+}
+
+// ── Confirm card ──────────────────────────────────────
+.confirm-card {
+    width: 100%;
+    background: var(--oc-surface);
+    border: 1px solid var(--oc-border);
+    border-radius: 0.875rem;
+    padding: 1.25rem;
+    text-align: left;
+    animation: fade-up 400ms 400ms ease-out both;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+.confirm-name-row {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oc-muted);
+    margin: 0 0 0.875rem;
+    border-left: 2px solid var(--oc-amber);
+    padding-left: 0.5rem;
+}
+
+.confirm-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0.875rem;
+}
+
+.confirm-line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.875rem;
+    gap: 0.5rem;
+}
+
+.confirm-item-name {
+    color: var(--oc-cream);
+    flex: 1;
+}
+
+.confirm-item-price {
+    color: var(--oc-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+}
+
+.confirm-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--oc-border);
+    font-size: 0.9rem;
+    color: var(--oc-muted);
+}
+
+.confirm-total-amount {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 1.25rem;
+    color: var(--oc-amber);
+    font-variant-numeric: tabular-nums;
+}
+
+// ── Pickup details ────────────────────────────────────
+.confirm-pickup {
+    margin-top: 0.875rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--oc-border);
+}
+
+.confirm-pickup-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oc-muted);
+    margin: 0 0 0.3rem;
+}
+
+.confirm-pickup-location {
+    font-size: 0.875rem;
+    color: var(--oc-cream);
+    font-weight: 600;
+    margin: 0 0 0.2rem;
+}
+
+.confirm-pickup-time {
+    font-size: 0.875rem;
+    color: var(--oc-muted);
+    margin: 0;
+}
+
+// ── Pickup notes ──────────────────────────────────────
+.confirm-instructions {
+    margin-top: 0.875rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--oc-border);
+}
+
+.confirm-instructions-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oc-muted);
+    margin: 0 0 0.3rem;
+}
+
+.confirm-instructions-text {
+    font-size: 0.875rem;
+    color: var(--oc-cream);
+    margin: 0;
+    line-height: 1.5;
+}
+
+// ── Actions ───────────────────────────────────────────
+.confirm-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    animation: fade-up 400ms 550ms ease-out both;
+
+    @media (min-width: 480px) {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--oc-amber);
+    color: #0d0905;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 150ms ease-in-out, transform 150ms ease-in-out;
+    min-height: 48px;
+    touch-action: manipulation;
+
+    &:hover {
+        background: var(--oc-orange);
+        transform: translateY(-1px);
+    }
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--oc-muted);
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    border: 1px solid var(--oc-border);
+    cursor: pointer;
+    transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
+    min-height: 48px;
+    touch-action: manipulation;
+
+    &:hover {
+        color: var(--oc-cream);
+        border-color: rgba(232, 160, 32, 0.22);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary,
+    .btn-ghost { transition: none; }
+}

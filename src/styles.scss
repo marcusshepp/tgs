@@ -1,7 +1,20 @@
 // * {
 //     font-family: 'Alfa Slab One' !important;
 // }
-$cloudinary-base: 'https://res.cloudinary.com/dy00ivhtt/image/upload';
+
+// ── TGS Order Flow custom properties ─────────────────
+:root {
+    --tgs-order-bg: #0d0905;
+    --tgs-order-bg-alt: #1a0f07;
+    --tgs-order-surface: #231308;
+    --tgs-order-surface-hover: #2e1a0a;
+    --tgs-order-amber: #e8a020;
+    --tgs-order-orange: #e06400;
+    --tgs-order-cream: #f5ede0;
+    --tgs-order-muted: #a08060;
+    --tgs-order-border: rgba(232, 160, 32, 0.10);
+    --tgs-order-border-strong: rgba(232, 160, 32, 0.22);
+}
 
 .breadcumb-wrapper::before {
     background-color: transparent !important;
@@ -9,22 +22,21 @@ $cloudinary-base: 'https://res.cloudinary.com/dy00ivhtt/image/upload';
 
 .breadcumb-wrapper {
     position: relative;
-    background-image: url('#{$cloudinary-base}/truck2-1_eqwzgl.webp');
+    background-image: url('https://cdn.syncgr.com/domains/timsgourmetsliders.com/ca299ac0-cf87-4be9-8598-53edb5f0f373.webp');
     background-size: cover;
     background-position: center;
 }
 
 .breadcumb-wrapper.truck-name {
-    background-image: url('#{$cloudinary-base}/truck999-1_etwedg.webp');
+    background-image: url('https://cdn.syncgr.com/domains/timsgourmetsliders.com/1fa2d59c-10b1-472d-9534-6bd6cfb7d0f7.webp');
 }
 
 .breadcumb-wrapper.truck-9 {
-    background-image: url('#{$cloudinary-base}/window_ghdagy.webp');
+    background-image: url('https://cdn.syncgr.com/domains/timsgourmetsliders.com/d11ba089-59a5-4b3c-8fe2-29ca6b257716.webp');
 }
 
 .breadcumb-wrapper.full-menu {
-    // background-image: url('/img/old/truck99.png');
-    background-image: url('#{$cloudinary-base}/multi-yellow-lower_ux1n6t.webp');
+    background-image: url('https://cdn.syncgr.com/domains/timsgourmetsliders.com/a1186997-6a68-493c-95c3-e6f568a54a0c.webp');
 }
 
 .breadcumb-wrapper:before {

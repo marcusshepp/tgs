@@ -107,38 +107,6 @@
     }
 }
 
-.chili-decoration {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    width: 150px;
-    height: 200px;
-    background-image: url('/assets/images/chili.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.leaf-decoration {
-    position: absolute;
-    left: 0;
-    bottom: 50px;
-    width: 150px;
-    height: 150px;
-    background-image: url('/assets/images/leaf.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.mushroom-decoration {
-    position: absolute;
-    left: 50px;
-    bottom: 0;
-    width: 80px;
-    height: 80px;
-    background-image: url('/assets/images/mushroom.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
 @keyframes fadeInUp {
     to {
@@ -164,19 +132,10 @@
     .dishes-card {
         width: 45%;
     }
-
-    .chili-decoration,
-    .leaf-decoration {
-        display: none;
-    }
 }
 
 @media (max-width: 576px) {
     .dishes-card {
         width: 100%;
-    }
-
-    .mushroom-decoration {
-        display: none;
     }
 }

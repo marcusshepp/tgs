@@ -1,0 +1,207 @@
+<div class="checkout-page">
+
+  <div class="checkout-body">
+
+    <!-- Page header -->
+    <header class="checkout-header">
+      <a routerLink="/cart" class="back-link" aria-label="Back to cart">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+          <path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to cart
+      </a>
+      <p class="checkout-kicker">Almost there</p>
+      <h1 class="checkout-title">Checkout</h1>
+    </header>
+
+    <div class="checkout-layout">
+
+      <!-- Customer info form -->
+      <main class="checkout-form-column" role="main">
+        <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)" novalidate>
+
+          <div class="form-section">
+            <p class="section-label">Your information</p>
+
+            <!-- Name -->
+            <div class="field-group" [class.field-group--error]="isFieldInvalid(checkoutForm, 'name')">
+              <label class="field-label" for="name">
+                Full Name <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                class="field-input"
+                placeholder="Tim Johnson"
+                autocomplete="name"
+                autocapitalize="words"
+                required
+                [(ngModel)]="customer.name"
+                #nameField="ngModel"
+                [attr.aria-invalid]="isFieldInvalid(checkoutForm, 'name') ? 'true' : null"
+                aria-describedby="name-error"
+                aria-required="true"
+              />
+              @if (isFieldInvalid(checkoutForm, 'name')) {
+                <p id="name-error" class="field-error" role="alert">{{ getFieldError(checkoutForm, 'name') }}</p>
+              }
+            </div>
+
+            <!-- Phone -->
+            <div class="field-group" [class.field-group--error]="isFieldInvalid(checkoutForm, 'phone')">
+              <label class="field-label" for="phone">
+                Phone Number <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                class="field-input"
+                placeholder="(313) 555-0123"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+                pattern="[0-9+\-\(\)\s]{7,20}"
+                [(ngModel)]="customer.phone"
+                #phoneField="ngModel"
+                [attr.aria-invalid]="isFieldInvalid(checkoutForm, 'phone') ? 'true' : null"
+                aria-describedby="phone-error"
+                aria-required="true"
+              />
+              @if (isFieldInvalid(checkoutForm, 'phone')) {
+                <p id="phone-error" class="field-error" role="alert">{{ getFieldError(checkoutForm, 'phone') }}</p>
+              }
+            </div>
+
+            <!-- Email -->
+            <div class="field-group" [class.field-group--error]="isFieldInvalid(checkoutForm, 'email')">
+              <label class="field-label" for="email">
+                Email Address <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                class="field-input"
+                placeholder="tim@example.com"
+                autocomplete="email"
+                inputmode="email"
+                autocorrect="off"
+                autocapitalize="off"
+                required
+                email
+                [(ngModel)]="customer.email"
+                #emailField="ngModel"
+                [attr.aria-invalid]="isFieldInvalid(checkoutForm, 'email') ? 'true' : null"
+                aria-describedby="email-error"
+                aria-required="true"
+              />
+              @if (isFieldInvalid(checkoutForm, 'email')) {
+                <p id="email-error" class="field-error" role="alert">{{ getFieldError(checkoutForm, 'email') }}</p>
+              }
+            </div>
+
+            <!-- Pickup instructions (optional) -->
+            <div class="field-group">
+              <label class="field-label" for="pickupInstructions">
+                Pickup Instructions
+                <span class="field-hint">(optional)</span>
+              </label>
+              <textarea
+                id="pickupInstructions"
+                name="pickupInstructions"
+                class="field-textarea"
+                placeholder="Any special notes for pickup…"
+                rows="3"
+                autocomplete="off"
+                [(ngModel)]="customer.pickupInstructions"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Mobile: order summary shown here -->
+          <div class="mobile-summary">
+            <p class="section-label">Order Summary</p>
+
+            @if (items.length === 0) {
+              <p class="summary-empty">No items in cart.</p>
+            } @else {
+              <ul class="summary-item-list">
+                @for (item of items; track item.slug) {
+                  <li class="summary-item">
+                    <span class="summary-item-qty">{{ item.quantity }}×</span>
+                    <span class="summary-item-name">{{ item.name }}</span>
+                    <span class="summary-item-price">{{ lineTotal(item) }}</span>
+                  </li>
+                }
+              </ul>
+              <div class="summary-total-row">
+                <span class="summary-total-label">Total</span>
+                <span class="summary-total-amount">{{ formatPrice(orderTotal) }}</span>
+              </div>
+            }
+          </div>
+
+          <!-- Submit (sticky on mobile) -->
+          <div class="submit-wrap">
+            <button
+              type="submit"
+              class="submit-btn"
+              [class.submit-btn--loading]="isSubmitting"
+              [disabled]="isSubmitting || totalQty === 0"
+              aria-label="Place my order"
+            >
+              @if (isSubmitting) {
+                <span class="btn-spinner" aria-hidden="true"></span>
+                Placing order…
+              } @else {
+                Place My Order
+              }
+            </button>
+
+            <p class="demo-note">Demo only — no real order is placed.</p>
+          </div>
+
+        </form>
+      </main>
+
+      <!-- Desktop order summary sidebar -->
+      <aside class="checkout-summary" role="region" aria-label="Order summary">
+        <div class="summary-card">
+          <p class="section-label">Order Summary</p>
+
+          @if (items.length === 0) {
+            <p class="summary-empty">No items in cart.</p>
+          } @else {
+            <ul class="summary-item-list">
+              @for (item of items; track item.slug) {
+                <li class="summary-item">
+                  <span class="summary-item-qty">{{ item.quantity }}×</span>
+                  <span class="summary-item-name">{{ item.name }}</span>
+                  <span class="summary-item-price">{{ lineTotal(item) }}</span>
+                </li>
+              }
+            </ul>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-lines">
+              <div class="summary-line">
+                <span>Subtotal</span>
+                <span class="summary-value">{{ formatPrice(subtotal) }}</span>
+              </div>
+            </div>
+
+            <div class="summary-total-row">
+              <span class="summary-total-label">Total</span>
+              <span class="summary-total-amount">{{ formatPrice(orderTotal) }}</span>
+            </div>
+          }
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</div>

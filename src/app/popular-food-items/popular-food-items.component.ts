@@ -1,16 +1,11 @@
-import { Component } from '@angular/core';
-import { MENU_ITEMS } from '../data/public-menu.model';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { CmsService } from '../services/cms.service';
+import { CmsMenuItem, CmsHomeMenuTeaser } from '../models/cms.types';
 import { PageTitleComponent } from '../page-title/page-title.component';
-
-interface MenuItem {
-    id: number;
-    title: string;
-    description: string;
-    imageUrl: string;
-    price?: number;
-}
 
 @Component({
     selector: 'app-popular-food-items',
@@ -19,17 +14,24 @@ interface MenuItem {
     templateUrl: './popular-food-items.component.html',
     styleUrls: ['./popular-food-items.component.scss'],
 })
-export class PopularFoodItemsComponent {
-    public menu = MENU_ITEMS.filter(item =>
-        item.id === 'whiskey' ||
-        item.id === 'sweet-savory' ||
-        item.id === 'double-bacon' ||
-        item.id === 'spicy-chicken'
-    );
+export class PopularFoodItemsComponent implements OnInit, OnDestroy {
+    public menu: CmsMenuItem[] = [];
+    public teaser: CmsHomeMenuTeaser | null = null;
+    private destroy$ = new Subject<void>();
 
-    public selectedDish: MenuItem | null = null;
+    constructor(private cms: CmsService) {}
 
-    public openModal(dish: MenuItem): void {
-        this.selectedDish = dish;
+    ngOnInit(): void {
+        this.cms.getHome().pipe(takeUntil(this.destroy$)).subscribe(home => {
+            this.teaser = home.homeMenuTeaser;
+        });
+        this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
+            this.menu = items.filter(i => i.popular).slice(0, 4);
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 }

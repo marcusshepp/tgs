@@ -19,7 +19,7 @@
         <!-- Header -->
         <div class="menu-header">
             <div class="logo-row">
-                <img src="/img/logo-no-bg.png" alt="Tim's Gourmet Sliders" class="menu-logo" />
+                <img src="https://cdn.syncgr.com/domains/timsgourmetsliders.com/abbbfea1-c11b-43de-b796-05559b9a7a10.png" alt="Tim's Gourmet Sliders" class="menu-logo" />
             </div>
             <p class="tagline">Handcrafted Sliders | Fresh Ingredients | Unique Flavors</p>
             <p class="contact">Each entree includes 2 identical sliders and fries</p>
@@ -29,10 +29,10 @@
         <div class="section-box">
             <h2 class="category-title">100% Halal Beef Sliders</h2>
             <div class="items-grid">
-                @for (item of getItemsByCategory('beef'); track item.id) {
+                @for (item of getItemsByCategory('beef'); track item.slug) {
                     <div class="menu-item">
                         <div class="item-header">
-                            <span class="item-name">{{ item.title }}</span>
+                            <span class="item-name">{{ item.name }}</span>
                             @if (item.price) {
                                 <span class="item-price">${{ item.price }}</span>
                             }
@@ -50,10 +50,10 @@
                 <div class="category-column">
                     <h2 class="category-title">Chicken Sliders</h2>
                     <div class="items">
-                        @for (item of getItemsByCategory('chicken'); track item.id) {
+                        @for (item of getItemsByCategory('chicken'); track item.slug) {
                             <div class="menu-item">
                                 <div class="item-header">
-                                    <span class="item-name">{{ item.title }}</span>
+                                    <span class="item-name">{{ item.name }}</span>
                                     @if (item.price) {
                                         <span class="item-price">${{ item.price }}</span>
                                     }
@@ -68,10 +68,10 @@
                 <div class="category-column">
                     <h2 class="category-title">Vegetarian</h2>
                     <div class="items">
-                        @for (item of getItemsByCategory('vegetarian'); track item.id) {
+                        @for (item of getItemsByCategory('vegetarian'); track item.slug) {
                             <div class="menu-item">
                                 <div class="item-header">
-                                    <span class="item-name">{{ item.title }}</span>
+                                    <span class="item-name">{{ item.name }}</span>
                                     @if (item.price) {
                                         <span class="item-price">${{ item.price }}</span>
                                     }
@@ -86,10 +86,10 @@
                 <div class="category-column">
                     <h2 class="category-title">Sides & More</h2>
                     <div class="items">
-                        @for (item of getItemsByCategory('other'); track item.id) {
+                        @for (item of getItemsByCategory('other'); track item.slug) {
                             <div class="menu-item">
                                 <div class="item-header">
-                                    <span class="item-name">{{ item.title }}</span>
+                                    <span class="item-name">{{ item.name }}</span>
                                     @if (item.price) {
                                         <span class="item-price">${{ item.price }}</span>
                                     }

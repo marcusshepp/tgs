@@ -176,6 +176,83 @@
     }
 }
 
+.events-group-heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a7a1a;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(26, 122, 26, 0.2);
+
+    &.past {
+        color: #555;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.past-event {
+    opacity: 0.85;
+
+    .event-header::before {
+        background: linear-gradient(to right, #777, #aaa);
+    }
+}
+
+.event-cover-image {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.event-order-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.order-now-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #1a7a1a;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #1a7a1a;
+
+    &:hover {
+        background: transparent;
+        color: #1a7a1a;
+    }
+}
+
+.ordering-opens-note {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    margin: 0;
+}
+
+.no-events {
+    text-align: center;
+    padding: 3rem 0;
+
+    p {
+        font-size: 1.1rem;
+        color: #777;
+    }
+}
+
 .download-area {
     text-align: center;
     margin-top: 1.5rem;
@@ -237,6 +314,11 @@
         .sub-title {
             font-size: 1.5rem;
         }
+    }
+
+    .events-group-heading {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
     }
 
     .intro-text {

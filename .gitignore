@@ -129,3 +129,11 @@ out/
 
 # Notes directory
 notes/
+
+# Playwright CLI trace artifacts
+.playwright-cli/
+
+# Agent QA artifacts left in repo root
+/*.png
+/code-review.md
+/setup.md

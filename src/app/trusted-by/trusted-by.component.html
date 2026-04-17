@@ -1,17 +1,17 @@
-<section class="trusted-by-section">
-    <h2 class="section-title">Trusted By</h2>
+<section class="trusted-by-section" *ngIf="trustedBy">
+    <h2 class="section-title">{{ trustedBy.sectionTitle }}</h2>
 
     <div class="marquee-track">
         <div class="marquee-content marquee-left">
-            <span *ngFor="let client of clients" class="marquee-item">{{ client }}</span>
-            <span *ngFor="let client of clients" class="marquee-item">{{ client }}</span>
+            <span *ngFor="let item of trustedBy.items" class="marquee-item">{{ item.name }}</span>
+            <span *ngFor="let item of trustedBy.items" class="marquee-item">{{ item.name }}</span>
         </div>
     </div>
 
     <div class="marquee-track">
         <div class="marquee-content marquee-right">
-            <span *ngFor="let client of clients" class="marquee-item">{{ client }}</span>
-            <span *ngFor="let client of clients" class="marquee-item">{{ client }}</span>
+            <span *ngFor="let item of trustedBy.items" class="marquee-item">{{ item.name }}</span>
+            <span *ngFor="let item of trustedBy.items" class="marquee-item">{{ item.name }}</span>
         </div>
     </div>
 </section>

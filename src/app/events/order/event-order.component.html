@@ -1,0 +1,319 @@
+<div class="order-page">
+
+  <!-- CONFIRMATION STATE -->
+  @if (isConfirmed) {
+    <div class="confirmation-overlay">
+      <div class="confirmation-inner">
+        <div class="checkmark-wrap" aria-label="Order placed successfully" role="img">
+          <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke-width="2"/>
+            <path class="checkmark-path" d="M14 26l9 9 15-16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h1 class="confirmation-headline">Order's In!</h1>
+        <p class="confirmation-subline">{{ fakeOrderId }}</p>
+
+        <div class="confirmation-summary-card">
+          <p class="confirmation-event-name">{{ event?.name }}</p>
+          <div class="confirmation-items">
+            @for (item of confirmedOrderItems; track item.slug) {
+              <div class="confirmation-line-item">
+                <span class="item-name-qty">{{ item.quantity }}× {{ item.name }}</span>
+                <span class="item-line-price">{{ formatConfirmedItemPrice(item) }}</span>
+              </div>
+            }
+          </div>
+          <div class="confirmation-total-row">
+            <span>Total</span>
+            <span class="confirmation-total-amount">{{ confirmedFormattedTotal() }}</span>
+          </div>
+
+          <div class="demo-disclaimer">
+            This is a demo. No real order was placed and no payment was charged.
+          </div>
+        </div>
+
+        <div class="confirmation-actions">
+          <a routerLink="/special-events" class="btn-primary">Back to Events</a>
+          <a routerLink="/menu" class="btn-ghost">See Full Menu</a>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- MAIN CONTENT -->
+  @if (!isConfirmed) {
+
+    <!-- LOADING -->
+    @if (isLoading) {
+      <div class="state-center" aria-busy="true">
+        <div class="loading-spinner"></div>
+        <p class="state-muted">Loading event…</p>
+      </div>
+    }
+
+    <!-- EVENT NOT FOUND -->
+    @if (!isLoading && eventNotFound) {
+      <div class="state-center">
+        <p class="state-eyebrow">404</p>
+        <h1 class="state-heading">We lost that one.</h1>
+        <p class="state-body">This event doesn't exist or the link may have changed.</p>
+        <a routerLink="/special-events" class="btn-primary">See All Events →</a>
+      </div>
+    }
+
+    <!-- MAIN EVENT PAGE -->
+    @if (!isLoading && event && !eventNotFound) {
+
+      <!-- EVENT CONTEXT BAR -->
+      <div class="event-context-bar" role="banner">
+        <div class="context-bar-inner">
+          <span class="context-event-name">{{ event.name }}</span>
+          <span class="context-pickup">
+            Pickup {{ pickupTimeWindow }}
+            @if (event.pickupLocation) {
+              <span class="context-location"> · {{ event.pickupLocation }}</span>
+            }
+          </span>
+          @if (countdownLabel) {
+            <span class="countdown-chip" aria-live="polite">⏰ {{ countdownLabel }}</span>
+          }
+        </div>
+      </div>
+
+      <!-- ORDER CLOSED BANNER -->
+      @if (showOrderClosedBanner) {
+        <div class="order-status-banner order-status-closed" role="alert">
+          <strong>Ordering's closed for this one.</strong>
+          <span>Orders for {{ event.name }} closed {{ formatDate(event.orderClosesAt) }}.</span>
+          <a routerLink="/special-events">See upcoming events →</a>
+        </div>
+      }
+
+      <!-- ORDER NOT OPEN BANNER -->
+      @if (showOrderNotOpenBanner) {
+        <div class="order-status-banner order-status-future" role="status">
+          <strong>Not open yet.</strong>
+          <span>Ordering opens {{ formatDate(event.orderOpensAt) }}. Check back soon.</span>
+        </div>
+      }
+
+      <!-- PAGE BODY -->
+      <div class="order-body">
+
+        <!-- EVENT HEADER -->
+        <header class="event-header">
+          @if (event.coverImage) {
+            <div class="event-cover-wrap">
+              <img [src]="event.coverImage" [alt]="event.name" class="event-cover-img"/>
+            </div>
+          }
+          <div class="event-header-info">
+            <p class="event-kicker">Special Event</p>
+            <h1 class="event-title">{{ event.name }}</h1>
+            <div class="event-meta">
+              <span class="event-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                {{ event.date }}
+              </span>
+              @if (pickupTimeWindow) {
+                <span class="event-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Pickup {{ pickupTimeWindow }}
+                </span>
+              }
+              @if (event.pickupLocation) {
+                <span class="event-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  {{ event.pickupLocation }}
+                </span>
+              }
+            </div>
+          </div>
+        </header>
+
+        <!-- TWO-COLUMN LAYOUT -->
+        <div class="order-layout">
+
+          <!-- MENU COLUMN -->
+          <main class="menu-column" role="main">
+
+            @if (noLinkedItems) {
+              <div class="empty-menu-notice">
+                <p>Menu not published yet — check back closer to the event.</p>
+              </div>
+            }
+
+            @if (!noLinkedItems) {
+              <div class="menu-section-label" role="heading" aria-level="2">
+                <span>Menu</span>
+              </div>
+
+              <div class="menu-grid">
+                @for (item of menuItems; track item.slug) {
+                  <article
+                    class="menu-card"
+                    [class.menu-card--in-cart]="getItemQty(item.slug) > 0"
+                    [class.menu-card--unavailable]="!item.available"
+                    [attr.aria-label]="!item.available ? item.name + ' — unavailable' : item.name"
+                  >
+
+                    <!-- Card image -->
+                    @if (item.imageUrl) {
+                      <div class="card-image-wrap">
+                        <img [src]="item.imageUrl" [alt]="item.name" class="card-image" loading="lazy"/>
+                      </div>
+                    } @else {
+                      <div class="card-image-placeholder" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                          <circle cx="32" cy="28" r="16" stroke="currentColor" stroke-width="2"/>
+                          <path d="M16 44 Q32 36 48 44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M22 28 Q32 20 42 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                      </div>
+                    }
+
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="card-info">
+                        <h3 class="card-name">{{ item.name }}</h3>
+                        <p class="card-description">{{ item.description }}</p>
+                        @if (item.dietaryInfo && item.dietaryInfo.length > 0) {
+                          <div class="dietary-pills">
+                            @for (tag of item.dietaryInfo; track tag) {
+                              <span class="dietary-pill">{{ tag }}</span>
+                            }
+                          </div>
+                        }
+                      </div>
+
+                      <div class="card-controls">
+                        <span class="card-price">{{ formatPrice(item.price) }}</span>
+
+                        @if (!item.available) {
+                          <span class="unavailable-label" aria-label="Unavailable">Unavailable</span>
+                        } @else if (isOrderingDisabled) {
+                          <span class="add-btn add-btn--disabled" aria-disabled="true">Add</span>
+                        } @else if (getItemQty(item.slug) === 0) {
+                          <button
+                            class="add-btn"
+                            (click)="addItem(item)"
+                            [attr.aria-label]="'Add ' + item.name + ' to order'"
+                          >Add</button>
+                        } @else {
+                          <div class="stepper" role="group" [attr.aria-label]="item.name + ' quantity'">
+                            <button
+                              class="stepper-btn"
+                              (click)="decrementItem(item)"
+                              [attr.aria-label]="'Remove one ' + item.name"
+                            >−</button>
+                            <span class="stepper-count" aria-live="polite">{{ getItemQty(item.slug) }}</span>
+                            <button
+                              class="stepper-btn stepper-btn--plus"
+                              (click)="incrementItem(item)"
+                              [attr.aria-label]="'Add another ' + item.name"
+                            >+</button>
+                          </div>
+                        }
+                      </div>
+                    </div>
+
+                  </article>
+                }
+              </div>
+            }
+          </main>
+
+          <!-- DESKTOP CART SIDEBAR -->
+          <aside class="cart-sidebar" role="region" aria-label="Order summary">
+            @if (totalQty === 0) {
+              <div class="cart-empty-state">
+                <svg class="truck-icon" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="64" height="48">
+                  <rect x="2" y="12" width="44" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M46 20h10l6 10v10H46V20z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  <circle cx="14" cy="42" r="4" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="50" cy="42" r="4" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="8" y1="24" x2="38" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="8" y1="30" x2="32" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <p class="empty-heading">Nothing yet.</p>
+                <p class="empty-subline">Pick a slider or two. Or five.</p>
+              </div>
+            } @else {
+              <div class="sidebar-cart">
+                <p class="sidebar-section-label">Your Order</p>
+                <ul class="sidebar-item-list">
+                  @for (item of cartItems; track item.slug) {
+                    <li class="sidebar-item">
+                      <span class="sidebar-item-qty">{{ item.quantity }}×</span>
+                      <span class="sidebar-item-name">{{ item.name }}</span>
+                      <span class="sidebar-item-price">{{ formatConfirmedItemPrice(item) }}</span>
+                    </li>
+                  }
+                </ul>
+                <div class="sidebar-total-row">
+                  <span>Total</span>
+                  <span class="sidebar-total-amount">{{ formattedTotal }}</span>
+                </div>
+                <button
+                  class="submit-btn"
+                  [class.submit-btn--loading]="isSubmitting"
+                  [disabled]="totalQty === 0 || isSubmitting || isOrderingDisabled"
+                  (click)="submitOrder()"
+                  aria-label="Place my order"
+                >
+                  @if (isSubmitting) {
+                    <span class="btn-spinner" aria-hidden="true"></span>
+                    Placing order…
+                  } @else {
+                    Place My Order
+                  }
+                </button>
+                <p class="sidebar-demo-note">Demo only — no real order placed.</p>
+              </div>
+            }
+          </aside>
+
+        </div>
+      </div>
+
+      <!-- MOBILE CART BAR -->
+      <div
+        class="mobile-cart-bar"
+        role="region"
+        aria-label="Order summary"
+        [class.mobile-cart-bar--active]="totalQty > 0"
+      >
+        <div class="mobile-bar-inner">
+          @if (totalQty === 0) {
+            <p class="mobile-bar-empty">Add items to start your order</p>
+          } @else {
+            <div class="mobile-bar-summary">
+              <span class="mobile-bar-badge" [attr.aria-label]="totalQty + ' items'">{{ totalQty }}</span>
+              <span class="mobile-bar-text">{{ cartSummaryText }}</span>
+            </div>
+            <span class="mobile-bar-total">{{ formattedTotal }}</span>
+          }
+        </div>
+        @if (totalQty > 0) {
+          <button
+            class="submit-btn submit-btn--mobile"
+            [class.submit-btn--loading]="isSubmitting"
+            [disabled]="isSubmitting || isOrderingDisabled"
+            (click)="submitOrder()"
+            aria-label="Place my order"
+          >
+            @if (isSubmitting) {
+              <span class="btn-spinner" aria-hidden="true"></span>
+              Placing order…
+            } @else {
+              Place My Order
+            }
+          </button>
+        }
+      </div>
+    }
+  }
+
+</div>

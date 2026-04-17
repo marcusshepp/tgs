@@ -39,7 +39,10 @@
                     "configurations": {
                         "production": {
                             "server": "src/main.server.ts",
-                            "prerender": true,
+                            "prerender": {
+                                "discoverRoutes": true,
+                                "routesFile": "prerender-routes.txt"
+                            },
                             "ssr": false,
                             "fileReplacements": [
                                 {
@@ -93,6 +96,7 @@
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
+                        "karmaConfig": "karma.conf.cjs",
                         "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",

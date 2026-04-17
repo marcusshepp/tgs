@@ -1,36 +1,32 @@
 <section class="popular-dishes-section">
     <div class="popular-dishes-wrapper">
-        <div class="chili-decoration"></div>
-        <div class="leaf-decoration"></div>
-        <div class="mushroom-decoration"></div>
-
         <div class="container">
             <div class="row mb-5">
-                <app-page-title title="Popular Items"></app-page-title>
+                <app-page-title [title]="teaser?.sectionTitle || 'Popular Items'"></app-page-title>
             </div>
 
             <div class="dishes-card-wrap">
                 <div
-                    *ngFor="let dish of menu.slice(0, 4); let i = index"
+                    *ngFor="let dish of menu; let i = index"
                     class="dishes-card"
                     [ngClass]="{'animate': true}"
                     [style.animation-delay]="(0.2 * (i + 1)) + 's'"
                 >
                     <a
                         class="dishes-thumb"
-                        [routerLink]="['/menu-item', dish.id]"
+                        [routerLink]="['/menu-item', dish.slug]"
                     >
-                        <img [src]="dish.imageUrl" [alt]="dish.title" loading="lazy" />
+                        <img [src]="dish.imageUrl" [alt]="dish.name" loading="lazy" />
                     </a>
-                    <a [routerLink]="['/menu-item', dish.id]">
-                        <h3>{{ dish.title }}</h3>
+                    <a [routerLink]="['/menu-item', dish.slug]">
+                        <h3>{{ dish.name }}</h3>
                     </a>
                     <p>{{ dish.description }}</p>
                 </div>
             </div>
 
             <div class="btn-wrapper">
-                <a class="theme-btn" routerLink="/menu">View All Items →</a>
+                <a class="theme-btn" [routerLink]="teaser?.viewAllUrl || '/menu'">{{ teaser?.viewAllLabel || 'View All Items →' }}</a>
             </div>
         </div>
     </div>

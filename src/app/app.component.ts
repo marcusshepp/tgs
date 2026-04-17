@@ -27,7 +27,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
     private readonly siteName = "Tim's Gourmet Sliders";
     private readonly siteUrl = 'https://www.timsgourmetsliders.com';
-    private readonly defaultImage = '/img/new/whiskey.jpg';
+    private readonly defaultImage = 'https://cdn.syncgr.com/domains/timsgourmetsliders.com/d903fce5-2b7b-4cc8-9117-d9ff9dc07036.jpg';
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,

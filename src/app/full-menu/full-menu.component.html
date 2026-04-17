@@ -4,169 +4,173 @@
             <app-page-title title="Detroit's Best Slider Menu"></app-page-title>
         </div>
 
-        <div class="filter-container mb-5">
-            <div class="search-bar">
-                <div class="search-input-wrapper">
-                    <input
-                        type="text"
-                        class="search-input"
-                        placeholder="Search by name or ingredients..."
-                        [(ngModel)]="searchTerm"
-                        (input)="applyFilters()"
-                    >
-                    <span class="search-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-
-            <div class="filter-options">
-                <div class="filter-title">Filter by:</div>
-                <div class="filter-buttons">
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'all'"
-                        (click)="applyFilter('all')">
-                        All
-                    </button>
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'beef'"
-                        (click)="applyFilter('beef')">
-                        100% Halal Beef
-                    </button>
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'chicken'"
-                        (click)="applyFilter('chicken')">
-                        Chicken
-                    </button>
-                    <!--<button-->
-                    <!--    class="filter-btn"-->
-                    <!--    [class.active]="activeFilter === 'pork'"-->
-                    <!--    (click)="applyFilter('pork')">-->
-                    <!--    Pork-->
-                    <!--</button>-->
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'vegetarian'"
-                        (click)="applyFilter('vegetarian')">
-                        Vegetarian
-                    </button>
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'spicy'"
-                        (click)="applyFilter('spicy')">
-                        Spicy
-                    </button>
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'popular'"
-                        (click)="applyFilter('popular')">
-                        Popular
-                    </button>
-                    <button
-                        class="filter-btn"
-                        [class.active]="activeFilter === 'sides'"
-                        (click)="applyFilter('sides')">
-                        Sides
-                    </button>
-                </div>
-            </div>
+        <div *ngIf="loading" class="text-center py-5">
+            <p>Loading menu...</p>
         </div>
 
-        <div class="results-count mb-4" *ngIf="filteredMenu.length !== menu.length && filteredMenu.length > 0">
-            <p>Showing {{filteredMenu.length}} of {{menu.length}} items</p>
-        </div>
-
-        <div class="no-results" *ngIf="filteredMenu.length === 0">
-            <div class="no-results-content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <h3>No items found</h3>
-                <p>Try adjusting your search or filters</p>
-                <button class="reset-btn" (click)="resetFilters()">Reset Filters</button>
-            </div>
-        </div>
-
-        <div class="menu-grid" *ngIf="filteredMenu.length > 0">
-            <div
-                *ngFor="let item of filteredMenu; let $index = index"
-                class="menu-card"
-                [attr.data-index]="$index"
-                @fadeIn
-                [routerLink]="['/menu-item', item.id]"
-            >
-                <div class="card shadow-sm h-100">
-                    <div class="menu-image-wrapper">
-                        <img
-                            [src]="item.imageUrl || '/img/menu/default.png'"
-                            [alt]="item.title"
-                            class="menu-image"
-                            loading="lazy"
-                        />
-                        <div class="tag-container">
-                            <span class="item-tag" *ngIf="item.popular">Popular</span>
-                            <span class="item-tag vegetarian" *ngIf="item.isVegetarianOption">Vegetarian</span>
-                        </div>
+        <ng-container *ngIf="!loading">
+            <div class="filter-container mb-5">
+                <div class="search-bar">
+                    <div class="search-input-wrapper">
+                        <input
+                            type="text"
+                            class="search-input"
+                            placeholder="Search by name or ingredients..."
+                            [(ngModel)]="searchTerm"
+                            (input)="applyFilters()"
+                        >
+                        <span class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3 class="card-title">{{item.title}}</h3>
-                            <div class="category-badge">{{item.category | titlecase}}</div>
-                        </div>
-                        <p class="card-text">{{item.description}}</p>
+                </div>
 
-                        <div class="item-details">
-                            <div class="spice-level" *ngIf="item.spiceLevel && item.spiceLevel > 0">
-                                <span class="detail-label">Spice:</span>
-                                <span class="spice-indicator">
-                                    <span
-                                        class="spice-dot"
-                                        *ngFor="let dot of [1,2,3,4,5]"
-                                        [ngClass]="{'active': dot <= item.spiceLevel}"
-                                    ></span>
-                                </span>
+                <div class="filter-options">
+                    <div class="filter-title">Filter by:</div>
+                    <div class="filter-buttons">
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'all'"
+                            (click)="applyFilter('all')">
+                            All
+                        </button>
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'beef'"
+                            (click)="applyFilter('beef')">
+                            100% Halal Beef
+                        </button>
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'chicken'"
+                            (click)="applyFilter('chicken')">
+                            Chicken
+                        </button>
+                        <!--<button-->
+                        <!--    class="filter-btn"-->
+                        <!--    [class.active]="activeFilter === 'pork'"-->
+                        <!--    (click)="applyFilter('pork')">-->
+                        <!--    Pork-->
+                        <!--</button>-->
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'vegetarian'"
+                            (click)="applyFilter('vegetarian')">
+                            Vegetarian
+                        </button>
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'spicy'"
+                            (click)="applyFilter('spicy')">
+                            Spicy
+                        </button>
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'popular'"
+                            (click)="applyFilter('popular')">
+                            Popular
+                        </button>
+                        <button
+                            class="filter-btn"
+                            [class.active]="activeFilter === 'sides'"
+                            (click)="applyFilter('sides')">
+                            Sides
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-count mb-4" *ngIf="filteredMenu.length !== menu.length && filteredMenu.length > 0">
+                <p>Showing {{filteredMenu.length}} of {{menu.length}} items</p>
+            </div>
+
+            <div class="no-results" *ngIf="filteredMenu.length === 0">
+                <div class="no-results-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <h3>No items found</h3>
+                    <p>Try adjusting your search or filters</p>
+                    <button class="reset-btn" (click)="resetFilters()">Reset Filters</button>
+                </div>
+            </div>
+
+            <div class="menu-grid" *ngIf="filteredMenu.length > 0">
+                <div
+                    *ngFor="let item of filteredMenu; let $index = index"
+                    class="menu-card"
+                    [attr.data-index]="$index"
+                    @fadeIn
+                    [routerLink]="['/menu-item', item.slug]"
+                >
+                    <div class="card shadow-sm h-100">
+                        <div class="menu-image-wrapper">
+                            <img
+                                [src]="item.imageUrl || '/img/menu/default.png'"
+                                [alt]="item.name"
+                                class="menu-image"
+                                loading="lazy"
+                            />
+                            <div class="tag-container">
+                                <span class="item-tag" *ngIf="item.popular">Popular</span>
+                                <span class="item-tag vegetarian" *ngIf="item.isVegetarianOption">Vegetarian</span>
                             </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header">
+                                <h3 class="card-title">{{item.name}}</h3>
+                                <div class="category-badge">{{item.category | titlecase}}</div>
+                            </div>
+                            <p class="card-text">{{item.description}}</p>
 
-                            <div class="dietary-info" *ngIf="item.dietaryInfo && item.dietaryInfo.length > 0">
-                                <span class="detail-label">Dietary:</span>
-                                <div class="dietary-tags">
-                                    <span
-                                        class="dietary-tag"
-                                        *ngFor="let tag of item.dietaryInfo"
-                                    >{{tag}}</span>
+                            <div class="item-details">
+                                <div class="spice-level" *ngIf="item.spiceLevel && item.spiceLevel > 0">
+                                    <span class="detail-label">Spice:</span>
+                                    <span class="spice-indicator">
+                                        <span
+                                            class="spice-dot"
+                                            *ngFor="let dot of [1,2,3,4,5]"
+                                            [ngClass]="{'active': dot <= item.spiceLevel}"
+                                        ></span>
+                                    </span>
+                                </div>
+
+                                <div class="dietary-info" *ngIf="item.dietaryInfo && item.dietaryInfo.length > 0">
+                                    <span class="detail-label">Dietary:</span>
+                                    <div class="dietary-tags">
+                                        <span
+                                            class="dietary-tag"
+                                            *ngFor="let tag of item.dietaryInfo"
+                                        >{{tag}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer"><span class="item-price" *ngIf="item.price">${{item.price}}</span><div class="view-details">
-                            View Details
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
+                        <div class="card-footer"><span class="item-price" *ngIf="item.price">${{item.price}}</span><div class="view-details">
+                                View Details
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
     </div>
 </section>
-
-

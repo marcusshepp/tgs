@@ -8,10 +8,11 @@ import {
     ElementRef,
     AfterViewInit,
 } from '@angular/core';
-import { CONTACT } from '../data/contact-info.model';
-import { SOCIAL_MEDIA } from '../data/social-media.model';
 import { MobileService } from '../services/mobile.service';
-import { Observable } from 'rxjs';
+import { CmsService } from '../services/cms.service';
+import { CmsBrand, CmsContact, CmsHome } from '../models/cms.types';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -23,21 +24,28 @@ import { RouterModule } from '@angular/router';
     styleUrl: './hero.component.scss',
 })
 export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
-    public contact = CONTACT;
-    public socials = SOCIAL_MEDIA;
+    public brand: CmsBrand | null = null;
+    public contact: CmsContact | null = null;
+    public hero: CmsHome['hero'] | null = null;
     public isHandset$: Observable<boolean>;
     public videoLoaded = false;
+    private destroy$ = new Subject<void>();
 
     @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
-        private mobileService: MobileService
+        private mobileService: MobileService,
+        private cms: CmsService,
     ) {
         this.isHandset$ = this.mobileService.isMobile$;
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.cms.getBrand().pipe(takeUntil(this.destroy$)).subscribe(b => { this.brand = b; });
+        this.cms.getContact().pipe(takeUntil(this.destroy$)).subscribe(c => { this.contact = c; });
+        this.cms.getHome().pipe(takeUntil(this.destroy$)).subscribe(h => { this.hero = h.hero; });
+    }
 
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId) && this.heroVideo?.nativeElement) {
@@ -51,5 +59,8 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
         this.videoLoaded = true;
     }
 
-    ngOnDestroy(): void {}
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
 }
