@@ -2,7 +2,7 @@ import { Injectable, PLATFORM_ID, Inject, makeStateKey, TransferState } from '@a
 import { HttpClient } from '@angular/common/http';
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import seedContent from '../../../cms/seed-content.json';
 import {
@@ -141,7 +141,8 @@ export class CmsService {
             return of(cached);
         }
 
-        return this.http.get<T>(`${this.apiBase}/${sectionKey}`).pipe(
+        return this.http.get<{ content: T }>(`${this.apiBase}/${sectionKey}`).pipe(
+            map(res => res.content),
             tap(data => {
                 if (isPlatformServer(this.platformId)) {
                     this.transferState.set(stateKey, data);
@@ -167,7 +168,8 @@ export class CmsService {
             return of(cached);
         }
 
-        return this.http.get<T[]>(`${this.collectionBase}/${collectionKey}`).pipe(
+        return this.http.get<{ items: Array<{ content: T }> }>(`${this.collectionBase}/${collectionKey}`).pipe(
+            map(res => res.items.map(i => i.content)),
             tap(data => {
                 if (isPlatformServer(this.platformId)) {
                     this.transferState.set(stateKey, data);
@@ -201,7 +203,8 @@ export class CmsService {
             return of(cached);
         }
 
-        return this.http.get<T>(`${this.collectionBase}/${collectionKey}/${slug}`).pipe(
+        return this.http.get<{ content: T }>(`${this.collectionBase}/${collectionKey}/${slug}`).pipe(
+            map(res => res.content),
             tap(data => {
                 if (isPlatformServer(this.platformId)) {
                     this.transferState.set(stateKey, data);
