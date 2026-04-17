@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { MobileService } from '../services/mobile.service';
 import { CmsService } from '../services/cms.service';
-import { CmsBrand, CmsContact, CmsHome } from '../models/cms.types';
+import { CmsBrand, CmsContact, CmsHomeHero } from '../models/cms.types';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
@@ -26,7 +26,7 @@ import { RouterModule } from '@angular/router';
 export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
     public brand: CmsBrand | null = null;
     public contact: CmsContact | null = null;
-    public hero: CmsHome['hero'] | null = null;
+    public hero: CmsHomeHero | null = null;
     public isHandset$: Observable<boolean>;
     public videoLoaded = false;
     private destroy$ = new Subject<void>();
@@ -44,7 +44,7 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
     ngOnInit(): void {
         this.cms.getBrand().pipe(takeUntil(this.destroy$)).subscribe(b => { this.brand = b; });
         this.cms.getContact().pipe(takeUntil(this.destroy$)).subscribe(c => { this.contact = c; });
-        this.cms.getHome().pipe(takeUntil(this.destroy$)).subscribe(h => { this.hero = h.hero; });
+        this.cms.getHero().pipe(takeUntil(this.destroy$)).subscribe(h => { this.hero = h; });
     }
 
     ngAfterViewInit(): void {

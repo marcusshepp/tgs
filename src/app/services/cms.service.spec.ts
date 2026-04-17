@@ -22,10 +22,10 @@ describe('CmsService (fixture mode)', () => {
         expect(service).toBeTruthy();
     });
 
-    it('getHome() returns hero ctaLabel from fixture', (done: DoneFn) => {
-        service.getHome().subscribe(home => {
-            expect(home).toBeTruthy();
-            expect(home.hero.ctaLabel.length).toBeGreaterThan(0);
+    it('getHero() returns hero ctaLabel from fixture', (done: DoneFn) => {
+        service.getHero().subscribe(hero => {
+            expect(hero).toBeTruthy();
+            expect(hero.ctaLabel.length).toBeGreaterThan(0);
             done();
         });
     });

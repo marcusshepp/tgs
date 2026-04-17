@@ -1,5 +1,4 @@
-<ng-container *ngIf="!loading && brand && contact && footer; else footerLoading">
-<footer class="footer-section">
+<footer class="footer-section" *ngIf="brand && contact && footer">
     <div class="footer-widgets-wrapper">
         <div class="container">
             <div class="contact-section">
@@ -207,19 +206,3 @@
         </div>
     </div>
 </footer>
-</ng-container>
-<ng-template #footerLoading>
-    <footer class="footer-section footer-section--loading">
-        <div class="footer-widgets-wrapper">
-            <div class="container">
-                <div class="footer-content-section">
-                    <div class="row">
-                        <div class="col-12 text-center py-4">
-                            <span class="visually-hidden">Loading footer…</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</ng-template>

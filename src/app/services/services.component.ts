@@ -24,8 +24,8 @@ export class ServicesComponent implements OnInit, OnDestroy {
         this.cms.getServices().pipe(takeUntil(this.destroy$)).subscribe(data => {
             this.services = data;
         });
-        this.cms.getHome().pipe(takeUntil(this.destroy$)).subscribe(home => {
-            this.teaser = home.servicesTeaser;
+        this.cms.getServicesTeaser().pipe(takeUntil(this.destroy$)).subscribe(teaser => {
+            this.teaser = teaser;
         });
     }
 

@@ -22,14 +22,14 @@ export class HomeMenuComponent implements OnInit, OnDestroy {
     constructor(private cms: CmsService) {}
 
     ngOnInit(): void {
-        combineLatest([this.cms.getHome(), this.cms.getMenuItems()]).pipe(
+        combineLatest([this.cms.getHomeMenuTeaser(), this.cms.getMenuItems()]).pipe(
             takeUntil(this.destroy$),
-            map(([home, all]) => {
-                const slugs = home.homeMenuTeaser.popularItemSlugs;
+            map(([teaser, all]) => {
+                const slugs = teaser.popularItemSlugs;
                 const items = slugs
                     .map(slug => all.find(i => i.slug === slug))
                     .filter((i): i is CmsMenuItem => !!i);
-                return { teaser: home.homeMenuTeaser, items };
+                return { teaser, items };
             }),
         ).subscribe(({ teaser, items }) => {
             this.teaser = teaser;

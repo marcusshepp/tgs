@@ -18,29 +18,21 @@ export class FooterComponent implements OnInit, OnDestroy {
     public contact: CmsContact | null = null;
     public footer: CmsFooter | null = null;
     public menuItems: CmsMenuItem[] = [];
-    public loading = true;
     private destroy$ = new Subject<void>();
 
     constructor(private cms: CmsService) {}
 
     ngOnInit(): void {
-        this.cms.getBrand().pipe(takeUntil(this.destroy$)).subscribe(b => { this.brand = b; this.checkLoaded(); });
-        this.cms.getContact().pipe(takeUntil(this.destroy$)).subscribe(c => { this.contact = c; this.checkLoaded(); });
-        this.cms.getFooter().pipe(takeUntil(this.destroy$)).subscribe(f => { this.footer = f; this.checkLoaded(); });
+        this.cms.getBrand().pipe(takeUntil(this.destroy$)).subscribe(b => { this.brand = b; });
+        this.cms.getContact().pipe(takeUntil(this.destroy$)).subscribe(c => { this.contact = c; });
+        this.cms.getFooter().pipe(takeUntil(this.destroy$)).subscribe(f => { this.footer = f; });
         this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
             this.menuItems = items.filter(i => i.available).slice(0, 5);
-            this.checkLoaded();
         });
     }
 
     ngOnDestroy(): void {
         this.destroy$.next();
         this.destroy$.complete();
-    }
-
-    private checkLoaded(): void {
-        if (this.brand && this.contact && this.footer) {
-            this.loading = false;
-        }
     }
 }

@@ -22,8 +22,8 @@ export class PopularFoodItemsComponent implements OnInit, OnDestroy {
     constructor(private cms: CmsService) {}
 
     ngOnInit(): void {
-        this.cms.getHome().pipe(takeUntil(this.destroy$)).subscribe(home => {
-            this.teaser = home.homeMenuTeaser;
+        this.cms.getHomeMenuTeaser().pipe(takeUntil(this.destroy$)).subscribe(teaser => {
+            this.teaser = teaser;
         });
         this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
             this.menu = items.filter(i => i.popular).slice(0, 4);

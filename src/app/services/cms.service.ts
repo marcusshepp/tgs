@@ -12,7 +12,11 @@ import {
     CmsContact,
     CmsEvent,
     CmsFooter,
-    CmsHome,
+    CmsHomeCta,
+    CmsHomeHero,
+    CmsHomeMenuTeaser,
+    CmsHomeSection,
+    CmsHomeTrustedBy,
     CmsMeetUs,
     CmsMenuItem,
     CmsOrderUi,
@@ -61,14 +65,11 @@ const EMPTY_CONTACT: CmsContact = {
     goodToKnow: [],
 };
 
-const EMPTY_HOME: CmsHome = {
-    hero: { ctaLabel: '', ctaUrl: '' },
-    homeMenuTeaser: { sectionTitle: '', viewAllLabel: '', viewAllUrl: '', popularItemSlugs: [] },
-    servicesTeaser: { sectionTitle: '', sectionBody: '', ctaLabel: '', ctaUrl: '' },
-    meetUsTeaser: { sectionTitle: '', sectionBody: '', ctaLabel: '', ctaUrl: '' },
-    trustedBy: { sectionTitle: '' },
-    cta: { heading: '', body: '', ctaLabel: '', ctaUrl: '' },
-};
+const EMPTY_HERO: CmsHomeHero = { ctaLabel: '', ctaUrl: '' };
+const EMPTY_HOME_MENU_TEASER: CmsHomeMenuTeaser = { sectionTitle: '', viewAllLabel: '', viewAllUrl: '', popularItemSlugs: [] };
+const EMPTY_HOME_SECTION: CmsHomeSection = { sectionTitle: '', sectionBody: '', ctaLabel: '', ctaUrl: '' };
+const EMPTY_HOME_TRUSTED_BY: CmsHomeTrustedBy = { sectionTitle: '' };
+const EMPTY_HOME_CTA: CmsHomeCta = { heading: '', body: '', ctaLabel: '', ctaUrl: '' };
 
 const EMPTY_MEET_US: CmsMeetUs = {
     title: '',
@@ -225,12 +226,32 @@ export class CmsService {
         return this.fetchSection('contact', fixture.contact ?? EMPTY_CONTACT);
     }
 
-    getHome(): Observable<CmsHome> {
-        return this.fetchSection('home', fixture.home ?? EMPTY_HOME);
+    getHero(): Observable<CmsHomeHero> {
+        return this.fetchSection('hero', fixture.home?.hero ?? EMPTY_HERO);
+    }
+
+    getHomeMenuTeaser(): Observable<CmsHomeMenuTeaser> {
+        return this.fetchSection('homeMenuTeaser', fixture.home?.homeMenuTeaser ?? EMPTY_HOME_MENU_TEASER);
+    }
+
+    getServicesTeaser(): Observable<CmsHomeSection> {
+        return this.fetchSection('servicesTeaser', fixture.home?.servicesTeaser ?? EMPTY_HOME_SECTION);
+    }
+
+    getMeetUsTeaser(): Observable<CmsHomeSection> {
+        return this.fetchSection('meetUsTeaser', fixture.home?.meetUsTeaser ?? EMPTY_HOME_SECTION);
+    }
+
+    getHomeTrustedBy(): Observable<CmsHomeTrustedBy> {
+        return this.fetchSection('homeTrustedBy', fixture.home?.trustedBy ?? EMPTY_HOME_TRUSTED_BY);
+    }
+
+    getCta(): Observable<CmsHomeCta> {
+        return this.fetchSection('cta', fixture.home?.cta ?? EMPTY_HOME_CTA);
     }
 
     getMeetUs(): Observable<CmsMeetUs> {
-        return this.fetchSection('meet-us', fixture['meet-us'] ?? EMPTY_MEET_US);
+        return this.fetchSection('meetUs', fixture['meet-us'] ?? EMPTY_MEET_US);
     }
 
     getServices(): Observable<CmsServices> {
@@ -238,7 +259,7 @@ export class CmsService {
     }
 
     getTrustedBy(): Observable<CmsTrustedBy> {
-        return this.fetchSection('trusted-by', fixture['trusted-by'] ?? EMPTY_TRUSTED_BY);
+        return this.fetchSection('trustedBy', fixture['trusted-by'] ?? EMPTY_TRUSTED_BY);
     }
 
     getFooter(): Observable<CmsFooter> {
@@ -250,23 +271,23 @@ export class CmsService {
     }
 
     getReviewsPage(): Observable<CmsReviewsPage> {
-        return this.fetchSection('reviews-page', fixture['reviews-page'] ?? EMPTY_REVIEWS_PAGE);
+        return this.fetchSection('reviewsPage', fixture['reviews-page'] ?? EMPTY_REVIEWS_PAGE);
     }
 
     getOrderUi(): Observable<CmsOrderUi> {
-        return this.fetchSection('order-ui', fixture['order-ui'] ?? EMPTY_ORDER_UI);
+        return this.fetchSection('orderUi', fixture['order-ui'] ?? EMPTY_ORDER_UI);
     }
 
     getMenuItems(): Observable<CmsMenuItem[]> {
-        return this.fetchCollection<CmsMenuItem>('menu-items', fixture['menu-items'] ?? []);
+        return this.fetchCollection<CmsMenuItem>('menuItems', fixture['menu-items'] ?? []);
     }
 
     getMenuItemBySlug(slug: string): Observable<CmsMenuItem> {
-        return this.fetchCollectionItem<CmsMenuItem>('menu-items', slug, fixture['menu-items'] ?? []);
+        return this.fetchCollectionItem<CmsMenuItem>('menuItems', slug, fixture['menu-items'] ?? []);
     }
 
     getCateringItems(): Observable<CmsCateringItem[]> {
-        return this.fetchCollection<CmsCateringItem>('catering-items', fixture['catering-items'] ?? []);
+        return this.fetchCollection<CmsCateringItem>('cateringItems', fixture['catering-items'] ?? []);
     }
 
     getEvents(): Observable<CmsEvent[]> {
