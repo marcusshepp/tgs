@@ -129,3 +129,6 @@ out/
 
 # Notes directory
 notes/
+
+# Playwright CLI trace artifacts
+.playwright-cli/
