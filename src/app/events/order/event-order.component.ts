@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterModule, ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -23,11 +23,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
     menuItems: CmsMenuItem[] = [];
     isLoading = true;
     eventNotFound = false;
-    isConfirmed = false;
     isSubmitting = false;
-    fakeOrderId = '';
-    confirmedOrderItems: LineItem[] = [];
-    confirmedTotal = 0;
 
     cartItems: LineItem[] = [];
     totalQty = 0;
@@ -38,6 +34,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private cms: CmsService,
         public cartService: CartService,
         private cdr: ChangeDetectorRef,
@@ -201,26 +198,7 @@ export class EventOrderComponent implements OnInit, OnDestroy {
     submitOrder(): void {
         if (this.totalQty === 0 || this.isSubmitting || this.isOrderingDisabled) return;
         this.isSubmitting = true;
-        this.confirmedOrderItems = [...this.cartItems];
-        this.confirmedTotal = this.totalPrice;
-        this.fakeOrderId = `#TGS-${Math.floor(1000 + Math.random() * 9000)}`;
-        setTimeout(() => {
-            this.cartService.clear();
-            this.isConfirmed = true;
-            this.isSubmitting = false;
-            this.cdr.markForCheck();
-            if (isPlatformBrowser(this.platformId)) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }, 800);
-    }
-
-    orderAgain(): void {
-        this.isConfirmed = false;
-    }
-
-    confirmedFormattedTotal(): string {
-        return `$${this.confirmedTotal.toFixed(2)}`;
+        this.router.navigate(['/checkout']);
     }
 
     formatConfirmedItemPrice(item: LineItem): string {

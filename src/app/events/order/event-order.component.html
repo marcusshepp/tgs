@@ -1,50 +1,5 @@
 <div class="order-page">
 
-  <!-- CONFIRMATION STATE -->
-  @if (isConfirmed) {
-    <div class="confirmation-overlay">
-      <div class="confirmation-inner">
-        <div class="checkmark-wrap" aria-label="Order placed successfully" role="img">
-          <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke-width="2"/>
-            <path class="checkmark-path" d="M14 26l9 9 15-16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-
-        <h1 class="confirmation-headline">Order's In!</h1>
-        <p class="confirmation-subline">{{ fakeOrderId }}</p>
-
-        <div class="confirmation-summary-card">
-          <p class="confirmation-event-name">{{ event?.name }}</p>
-          <div class="confirmation-items">
-            @for (item of confirmedOrderItems; track item.slug) {
-              <div class="confirmation-line-item">
-                <span class="item-name-qty">{{ item.quantity }}× {{ item.name }}</span>
-                <span class="item-line-price">{{ formatConfirmedItemPrice(item) }}</span>
-              </div>
-            }
-          </div>
-          <div class="confirmation-total-row">
-            <span>Total</span>
-            <span class="confirmation-total-amount">{{ confirmedFormattedTotal() }}</span>
-          </div>
-
-          <div class="demo-disclaimer">
-            This is a demo. No real order was placed and no payment was charged.
-          </div>
-        </div>
-
-        <div class="confirmation-actions">
-          <a routerLink="/special-events" class="btn-primary">Back to Events</a>
-          <a routerLink="/menu" class="btn-ghost">See Full Menu</a>
-        </div>
-      </div>
-    </div>
-  }
-
-  <!-- MAIN CONTENT -->
-  @if (!isConfirmed) {
-
     <!-- LOADING -->
     @if (isLoading) {
       <div class="state-center" aria-busy="true">
@@ -261,16 +216,15 @@
                   [class.submit-btn--loading]="isSubmitting"
                   [disabled]="totalQty === 0 || isSubmitting || isOrderingDisabled"
                   (click)="submitOrder()"
-                  aria-label="Place my order"
+                  aria-label="Checkout"
                 >
                   @if (isSubmitting) {
                     <span class="btn-spinner" aria-hidden="true"></span>
-                    Placing order…
+                    Loading checkout…
                   } @else {
-                    Place My Order
+                    Checkout
                   }
                 </button>
-                <p class="sidebar-demo-note">Demo only — no real order placed.</p>
               </div>
             }
           </aside>
@@ -302,18 +256,17 @@
             [class.submit-btn--loading]="isSubmitting"
             [disabled]="isSubmitting || isOrderingDisabled"
             (click)="submitOrder()"
-            aria-label="Place my order"
+            aria-label="Checkout"
           >
             @if (isSubmitting) {
               <span class="btn-spinner" aria-hidden="true"></span>
-              Placing order…
+              Loading checkout…
             } @else {
-              Place My Order
+              Checkout
             }
           </button>
         }
       </div>
     }
-  }
 
 </div>

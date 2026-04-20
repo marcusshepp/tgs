@@ -145,6 +145,10 @@
 
           <!-- Submit (sticky on mobile) -->
           <div class="submit-wrap">
+            @if (checkoutError) {
+              <p class="checkout-error" role="alert">{{ checkoutError }}</p>
+            }
+
             <button
               type="submit"
               class="submit-btn"
@@ -154,13 +158,13 @@
             >
               @if (isSubmitting) {
                 <span class="btn-spinner" aria-hidden="true"></span>
-                Placing order…
+                Starting secure checkout…
               } @else {
                 Place My Order
               }
             </button>
 
-            <p class="demo-note">Demo only — no real order is placed.</p>
+            <p class="demo-note">You'll complete payment on Stripe's secure checkout.</p>
           </div>
 
         </form>

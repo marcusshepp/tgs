@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -40,11 +40,14 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
         confirmationMessage: '',
     };
 
+    sessionId: string | null = null;
+
     private destroy$ = new Subject<void>();
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: object,
         private router: Router,
+        private route: ActivatedRoute,
         private cartService: CartService,
         private cms: CmsService,
         private cdr: ChangeDetectorRef,
@@ -56,25 +59,28 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
             this.cdr.markForCheck();
         });
 
-        if (isPlatformBrowser(this.platformId)) {
-            const raw = sessionStorage.getItem('tgs-pending-order');
-            if (!raw) {
-                this.router.navigate(['/']);
-                return;
-            }
-            let parsed: PendingOrder | null = null;
+        if (!isPlatformBrowser(this.platformId)) {
+            return;
+        }
+
+        // Stripe appends ?session_id=cs_... on successful checkout redirects.
+        // The sessionStorage pending-order was written by the checkout component
+        // right before the redirect; we use it to render line items while the
+        // Stripe webhook asynchronously writes the authoritative order record.
+        this.sessionId = this.route.snapshot.queryParamMap.get('session_id');
+
+        const raw = sessionStorage.getItem('tgs-pending-order');
+        if (raw) {
             try {
-                parsed = JSON.parse(raw) as PendingOrder;
+                this.order = JSON.parse(raw) as PendingOrder;
             } catch {
-                this.router.navigate(['/']);
-                return;
+                this.order = null;
             }
-            this.order = parsed;
             this.cartService.clear();
             sessionStorage.removeItem('tgs-pending-order');
             this.cdr.markForCheck();
 
-            if (this.order.eventSlug) {
+            if (this.order?.eventSlug) {
                 this.cms.getEventBySlug(this.order.eventSlug).pipe(
                     takeUntil(this.destroy$),
                     catchError(() => of(null)),
@@ -83,6 +89,13 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
                     this.cdr.markForCheck();
                 });
             }
+            return;
+        }
+
+        // No pending order in sessionStorage. If we at least have a Stripe
+        // session_id, show a generic confirmation instead of bouncing to home.
+        if (!this.sessionId) {
+            this.router.navigate(['/']);
         }
     }
 
