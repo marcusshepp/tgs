@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CmsService } from '../services/cms.service';
-import { CmsEvent } from '../models/cms.types';
+import { CmsEvent, CmsEventHighlight } from '../models/cms.types';
 
 @Component({
     selector: 'app-special-events',
@@ -78,5 +78,11 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
             return `${event.startTime} – ${event.endTime}`;
         }
         return event.startTime;
+    }
+
+    highlightText(h: CmsEventHighlight): string {
+        if (typeof h === 'string') return h;
+        if (h && typeof h === 'object' && typeof h.value === 'string') return h.value;
+        return '';
     }
 }

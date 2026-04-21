@@ -398,7 +398,7 @@
         "key": "status",
         "type": "select",
         "label": "Status",
-        "options": ["upcoming", "active", "past"],
+        "options": ["upcoming", "past"],
         "required": true,
         "order": 3
       },

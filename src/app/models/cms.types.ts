@@ -214,7 +214,9 @@ export interface CmsCateringItem {
     additionalCharge: boolean;
 }
 
-export type CmsEventStatus = 'upcoming' | 'active' | 'past';
+export type CmsEventStatus = 'upcoming' | 'past';
+
+export type CmsEventHighlight = string | { value: string };
 
 export interface CmsEvent {
     slug: string;
@@ -226,7 +228,7 @@ export interface CmsEvent {
     description: string;
     coverImage: string;
     badge: string;
-    highlights: string[];
+    highlights: CmsEventHighlight[];
     menuImageUrl: string;
     specialMenuHeading: string;
     status: CmsEventStatus;

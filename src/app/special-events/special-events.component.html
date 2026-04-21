@@ -54,13 +54,13 @@
                             }
 
                             <div class="event-description">
-                                <p>{{ event.description }}</p>
+                                <div [innerHTML]="event.description"></div>
                             </div>
 
                             @if (event.highlights.length > 0) {
                                 <div class="event-highlights">
-                                    @for (h of event.highlights; track h) {
-                                        <div class="highlight-item">{{ h }}</div>
+                                    @for (h of event.highlights; track $index) {
+                                        <div class="highlight-item">{{ highlightText(h) }}</div>
                                     }
                                 </div>
                             }
@@ -111,13 +111,13 @@
                             }
 
                             <div class="event-description">
-                                <p>{{ event.description }}</p>
+                                <div [innerHTML]="event.description"></div>
                             </div>
 
                             @if (event.highlights.length > 0) {
                                 <div class="event-highlights">
-                                    @for (h of event.highlights; track h) {
-                                        <div class="highlight-item">{{ h }}</div>
+                                    @for (h of event.highlights; track $index) {
+                                        <div class="highlight-item">{{ highlightText(h) }}</div>
                                     }
                                 </div>
                             }
