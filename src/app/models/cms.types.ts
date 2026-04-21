@@ -223,13 +223,11 @@ export interface CmsEvent {
     startTime: string;
     endTime: string;
     location: string;
-    locationLabel: string;
     description: string;
     coverImage: string;
     badge: string;
     highlights: string[];
     menuImageUrl: string;
-    menuPdfUrl: string;
     specialMenuHeading: string;
     status: CmsEventStatus;
     orderOpensAt: string;

@@ -392,44 +392,45 @@
     "description": "Special events with optional ordering window. One document per event.",
     "slugField": "slug",
     "fields": [
-      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true },
-      { "key": "name", "type": "text", "label": "Event Name", "required": true },
-      { "key": "date", "type": "text", "label": "Date Display (e.g. Friday, March 13th, 2026)" },
-      { "key": "startTime", "type": "text", "label": "Start Time (e.g. 4:30 PM)" },
-      { "key": "endTime", "type": "text", "label": "End Time (e.g. 7:30 PM)" },
-      { "key": "location", "type": "text", "label": "Street Address" },
-      { "key": "locationLabel", "type": "text", "label": "Location Label (neighborhood / venue name)" },
-      { "key": "description", "type": "richtext", "label": "Event Description" },
-      { "key": "coverImage", "type": "image", "label": "Cover / Flyer Image" },
-      { "key": "badge", "type": "text", "label": "Badge Label (e.g. This Friday!, Upcoming)" },
-      {
-        "key": "highlights",
-        "type": "array",
-        "label": "Highlight Bullets",
-        "itemType": "text"
-      },
-      { "key": "menuImageUrl", "type": "image", "label": "Special Menu Image (optional)" },
-      { "key": "menuPdfUrl", "type": "link", "label": "Special Menu PDF URL (optional)" },
-      { "key": "specialMenuHeading", "type": "text", "label": "Special Menu Section Heading" },
+      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true, "order": 1 },
+      { "key": "name", "type": "text", "label": "Event Name", "required": true, "order": 2 },
       {
         "key": "status",
         "type": "select",
         "label": "Status",
         "options": ["upcoming", "active", "past"],
-        "required": true
+        "required": true,
+        "order": 3
       },
-      { "key": "orderOpensAt", "type": "text", "label": "Order Opens At (ISO 8601 datetime)" },
-      { "key": "orderClosesAt", "type": "text", "label": "Order Closes At (ISO 8601 datetime)" },
-      { "key": "pickupLocation", "type": "text", "label": "Pickup Location (address or description)" },
-      { "key": "pickupStartAt", "type": "text", "label": "Pickup Window Start (ISO 8601 datetime)" },
-      { "key": "pickupEndAt", "type": "text", "label": "Pickup Window End (ISO 8601 datetime)" },
-      { "key": "maxOrders", "type": "number", "label": "Max Orders (0 = unlimited)" },
+      { "key": "badge", "type": "text", "label": "Badge Label (e.g. This Friday!, Upcoming)", "order": 4 },
+      { "key": "date", "type": "text", "label": "Date (display text, e.g. \"Friday, April 28th, 2026\")", "order": 5 },
+      { "key": "startTime", "type": "text", "label": "Start Time (display text, e.g. \"5:00 PM\")", "order": 6 },
+      { "key": "endTime", "type": "text", "label": "End Time (display text, e.g. \"7:00 PM\")", "order": 7 },
+      { "key": "location", "type": "text", "label": "Street Address", "order": 8 },
+      { "key": "coverImage", "type": "image", "label": "Cover / Flyer Image", "order": 9 },
+      { "key": "description", "type": "richtext", "label": "Event Description", "order": 10 },
+      {
+        "key": "highlights",
+        "type": "array",
+        "label": "Highlight Bullets",
+        "itemType": "text",
+        "order": 11
+      },
+      { "key": "orderOpensAt", "type": "datetime", "label": "Order Opens At", "order": 12 },
+      { "key": "orderClosesAt", "type": "datetime", "label": "Order Closes At", "order": 13 },
+      { "key": "maxOrders", "type": "number", "label": "Max Orders (0 = unlimited)", "order": 14 },
       {
         "key": "linkedMenuItemSlugs",
         "type": "array",
         "label": "Linked Menu Item Slugs (for ordering — leave empty to use full menu)",
-        "itemType": "text"
-      }
+        "itemType": "text",
+        "order": 15
+      },
+      { "key": "pickupLocation", "type": "text", "label": "Pickup Location (address or description)", "order": 16 },
+      { "key": "pickupStartAt", "type": "datetime", "label": "Pickup Window Start", "order": 17 },
+      { "key": "pickupEndAt", "type": "datetime", "label": "Pickup Window End", "order": 18 },
+      { "key": "specialMenuHeading", "type": "text", "label": "Special Menu Section Heading", "order": 19 },
+      { "key": "menuImageUrl", "type": "image", "label": "Special Menu Image (optional)", "order": 20 }
     ]
   },
 
@@ -450,7 +451,7 @@
         "label": "Review Source",
         "options": ["google", "yelp", "facebook", "direct"]
       },
-      { "key": "date", "type": "text", "label": "Date (ISO 8601 or Unix timestamp as string)" },
+      { "key": "date", "type": "datetime", "label": "Review Date" },
       { "key": "profilePhotoUrl", "type": "image", "label": "Author Profile Photo (optional)" }
     ]
   }

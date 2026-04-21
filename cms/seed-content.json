@@ -1002,7 +1002,6 @@
       "startTime": "Opens at Noon",
       "endTime": "",
       "location": "14661 Eleven Mile, Oak Park, MI",
-      "locationLabel": "The Show",
       "description": "Join us for St. Paddy's Day at The Show! Enjoy $5 pints of O'Guinymish Irish Stout & White Hart English Mild, a special menu from Tim's Gourmet Sliders, and live entertainment from the O'Kennedy Holland Irish Dance Academy.",
       "coverImage": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/603c168b-4c3e-42a9-996d-dcd5d276010f.jpg",
       "badge": "Past Event",
@@ -1014,7 +1013,6 @@
         "Live Irish Dance Entertainment"
       ],
       "menuImageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/ffc551ae-1f68-4aec-881a-3ea46743d24a.jpg",
-      "menuPdfUrl": "/img/events/stpatricks-menu.pdf",
       "specialMenuHeading": "St. Patrick's Day Special Menu",
       "status": "past",
       "orderOpensAt": "",
@@ -1032,7 +1030,6 @@
       "startTime": "5:00 PM",
       "endTime": "7:00 PM",
       "location": "Campus Martius Park, Detroit, MI 48226",
-      "locationLabel": "Campus Martius Park, Detroit",
       "description": "Tim's Gourmet Sliders is popping up at Campus Martius Park this spring! Pre-order your sliders and pick up fresh off the truck. This is a QA/demo test event \u2014 limited menu, order-ahead only.",
       "coverImage": "",
       "badge": "Upcoming",
@@ -1043,7 +1040,6 @@
         "Limited Menu Available"
       ],
       "menuImageUrl": "",
-      "menuPdfUrl": "",
       "specialMenuHeading": "",
       "status": "upcoming",
       "orderOpensAt": "2026-04-14T00:00:00Z",
