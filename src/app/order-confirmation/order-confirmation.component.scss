@@ -1,18 +1,9 @@
 :host {
-    --oc-bg: #ffffff;
-    --oc-surface: #faf6ee;
-    --oc-amber: #e8a020;
-    --oc-orange: #e06400;
-    --oc-cream: #1a0f07;
-    --oc-muted: #6b5a45;
-    --oc-border: rgba(232, 160, 32, 0.35);
-    --oc-bg-alt: #faf6ee;
-
     display: block;
     min-height: 100dvh;
-    background: var(--oc-bg);
-    color: var(--oc-cream);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--tgs-bg);
+    color: var(--tgs-text);
+    font-family: var(--tgs-font-body);
 }
 
 // ── Main confirmation ──────────────────────────────────
@@ -41,7 +32,7 @@
     gap: 0.6rem;
     width: 100%;
     background: #e8a020;
-    color: #0d0905;
+    color: var(--tgs-text);
     border-radius: 0.625rem;
     padding: 0.875rem 1rem;
     font-size: 0.875rem;
@@ -80,7 +71,7 @@
 }
 
 .checkmark-circle {
-    stroke: var(--oc-amber);
+    stroke: var(--tgs-amber);
     fill: none;
     stroke-dasharray: 170;
     stroke-dashoffset: 170;
@@ -88,7 +79,7 @@
 }
 
 .checkmark-path {
-    stroke: var(--oc-amber);
+    stroke: var(--tgs-amber);
     fill: none;
     stroke-dasharray: 50;
     stroke-dashoffset: 50;
@@ -115,7 +106,7 @@
 .confirm-headline {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(1.75rem, 5.5vw, 2.5rem);
-    color: var(--oc-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     margin: 0;
     animation: fade-up 400ms 200ms ease-out both;
@@ -124,7 +115,7 @@
 .confirm-order-id {
     font-family: 'Courier New', 'Courier', monospace;
     font-size: 1.2rem;
-    color: var(--oc-amber);
+    color: var(--tgs-amber);
     font-weight: 700;
     letter-spacing: 0.06em;
     margin: 0;
@@ -132,7 +123,7 @@
 }
 
 .confirm-subheading {
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     font-size: 0.9rem;
     max-width: 36rem;
     line-height: 1.55;
@@ -154,8 +145,8 @@
 // ── Confirm card ──────────────────────────────────────
 .confirm-card {
     width: 100%;
-    background: var(--oc-surface);
-    border: 1px solid var(--oc-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.875rem;
     padding: 1.25rem;
     text-align: left;
@@ -170,9 +161,9 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     margin: 0 0 0.875rem;
-    border-left: 2px solid var(--oc-amber);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
 }
 
@@ -192,12 +183,12 @@
 }
 
 .confirm-item-name {
-    color: var(--oc-cream);
+    color: var(--tgs-text);
     flex: 1;
 }
 
 .confirm-item-price {
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     font-variant-numeric: tabular-nums;
     flex-shrink: 0;
 }
@@ -207,15 +198,15 @@
     justify-content: space-between;
     align-items: baseline;
     padding-top: 0.75rem;
-    border-top: 1px solid var(--oc-border);
+    border-top: 1px solid var(--tgs-border);
     font-size: 0.9rem;
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
 }
 
 .confirm-total-amount {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.25rem;
-    color: var(--oc-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
 }
 
@@ -223,27 +214,27 @@
 .confirm-pickup {
     margin-top: 0.875rem;
     padding-top: 0.875rem;
-    border-top: 1px solid var(--oc-border);
+    border-top: 1px solid var(--tgs-border);
 }
 
 .confirm-pickup-label {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     margin: 0 0 0.3rem;
 }
 
 .confirm-pickup-location {
     font-size: 0.875rem;
-    color: var(--oc-cream);
+    color: var(--tgs-text);
     font-weight: 600;
     margin: 0 0 0.2rem;
 }
 
 .confirm-pickup-time {
     font-size: 0.875rem;
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     margin: 0;
 }
 
@@ -251,20 +242,20 @@
 .confirm-instructions {
     margin-top: 0.875rem;
     padding-top: 0.875rem;
-    border-top: 1px solid var(--oc-border);
+    border-top: 1px solid var(--tgs-border);
 }
 
 .confirm-instructions-label {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     margin: 0 0 0.3rem;
 }
 
 .confirm-instructions-text {
     font-size: 0.875rem;
-    color: var(--oc-cream);
+    color: var(--tgs-text);
     margin: 0;
     line-height: 1.5;
 }
@@ -291,8 +282,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--oc-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 1rem;
     padding: 0.75rem 1.75rem;
@@ -305,7 +296,7 @@
     touch-action: manipulation;
 
     &:hover {
-        background: var(--oc-orange);
+        background: var(--tgs-orange);
         transform: translateY(-1px);
     }
 }
@@ -314,19 +305,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--oc-muted);
+    color: var(--tgs-text-muted);
     font-size: 0.95rem;
     padding: 0.75rem 1.25rem;
     border-radius: 9999px;
     text-decoration: none;
-    border: 1px solid var(--oc-border);
+    border: 1px solid var(--tgs-border);
     cursor: pointer;
     transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
     min-height: 48px;
     touch-action: manipulation;
 
     &:hover {
-        color: var(--oc-cream);
+        color: var(--tgs-text);
         border-color: rgba(232, 160, 32, 0.22);
     }
 }

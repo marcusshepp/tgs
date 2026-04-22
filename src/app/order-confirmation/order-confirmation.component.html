@@ -1,9 +1,28 @@
 <div class="confirm-page">
 
-  @if (order) {
+  @if (isLoading && !view) {
+    <div class="confirm-inner">
+      <div class="confirm-loading">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="confirm-loading-text">Finalizing your order…</p>
+      </div>
+    </div>
+  }
+
+  @if (hasError && !view) {
+    <div class="confirm-inner">
+      <h1 class="confirm-headline">We couldn't find that order.</h1>
+      <p class="confirm-subheading">It may still be processing. Try refreshing in a minute, or contact us if it doesn't appear.</p>
+      <div class="confirm-actions">
+        <a routerLink="/special-events" class="btn-primary">Back to Events</a>
+        <a routerLink="/contact-us" class="btn-ghost">Contact Us</a>
+      </div>
+    </div>
+  }
+
+  @if (view) {
     <div class="confirm-inner">
 
-      <!-- Animated checkmark -->
       <div class="checkmark-wrap" aria-label="Order placed successfully" role="img">
         <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke-width="2.5"/>
@@ -11,64 +30,63 @@
         </svg>
       </div>
 
-      <h1 class="confirm-headline">{{ orderUi.confirmationHeading || 'Order confirmed — this is a demo' }}</h1>
-      <p class="confirm-order-id">{{ order.orderId }}</p>
+      <h1 class="confirm-headline">{{ orderUi.confirmationHeading || "Order's In!" }}</h1>
+      <p class="confirm-order-id">Order #{{ view.orderId }}</p>
 
       @if (orderUi.confirmationMessage) {
         <p class="confirm-subheading">{{ orderUi.confirmationMessage }}</p>
       }
 
-      <!-- Summary card -->
       <div class="confirm-card">
 
-        <p class="confirm-name-row">For {{ order.customer.name }}</p>
+        @if (view.customerName) {
+          <p class="confirm-name-row">For {{ view.customerName }}</p>
+        }
 
         <div class="confirm-items">
-          @for (item of order.items; track item.slug) {
+          @for (item of view.items; track $index) {
             <div class="confirm-line-item">
               <span class="confirm-item-name">{{ item.quantity }}× {{ item.name }}</span>
-              <span class="confirm-item-price">{{ lineTotal(item) }}</span>
+              <span class="confirm-item-price">{{ lineTotalOf(item) }}</span>
             </div>
           }
         </div>
 
         <div class="confirm-total-row">
           <span>Total</span>
-          <span class="confirm-total-amount">{{ formatPrice(order.total) }}</span>
+          <span class="confirm-total-amount">{{ formatPrice(view.total) }}</span>
         </div>
 
-        @if (event) {
+        @if (view.eventName || view.pickupLocation || pickupWindow) {
           <div class="confirm-pickup">
             <p class="confirm-pickup-label">Pickup details</p>
-            <p class="confirm-pickup-location">{{ event.pickupLocation || event.location }}</p>
-            @if (event.date) {
-              <p class="confirm-pickup-time">{{ formatEventDate(event.date) }}</p>
+            @if (view.eventName) {
+              <p class="confirm-pickup-event">{{ view.eventName }}</p>
             }
-            @if (event.pickupStartAt && event.pickupEndAt) {
-              <p class="confirm-pickup-time">{{ formatPickupTime(event.pickupStartAt) }} – {{ formatPickupTime(event.pickupEndAt) }}</p>
+            @if (view.pickupLocation) {
+              <p class="confirm-pickup-location">{{ view.pickupLocation }}</p>
+            }
+            @if (view.eventDate) {
+              <p class="confirm-pickup-time">{{ formatEventDate(view.eventDate) }}</p>
+            }
+            @if (pickupWindow) {
+              <p class="confirm-pickup-time">{{ pickupWindow }}</p>
             }
           </div>
         }
 
-        @if (order.customer.pickupInstructions) {
+        @if (view.pickupInstructions) {
           <div class="confirm-instructions">
             <p class="confirm-instructions-label">Pickup notes</p>
-            <p class="confirm-instructions-text">{{ order.customer.pickupInstructions }}</p>
+            <p class="confirm-instructions-text">{{ view.pickupInstructions }}</p>
           </div>
         }
 
       </div>
 
-      <!-- Actions -->
       <div class="confirm-actions">
         <a routerLink="/special-events" class="btn-primary">Back to Events</a>
         <a routerLink="/menu" class="btn-ghost">See Full Menu</a>
-      </div>
-
-      <!-- Demo mode banner -->
-      <div class="demo-banner" role="alert">
-        <span class="demo-banner-icon" aria-hidden="true">⚠</span>
-        <span class="demo-banner-text">This is a demo — no real order was placed and no payment was charged.</span>
       </div>
 
     </div>

@@ -1,19 +1,31 @@
-// * {
-//     font-family: 'Alfa Slab One' !important;
-// }
-
-// ── TGS Order Flow custom properties ─────────────────
+// ── TGS Ordering + Events design tokens ─────────────
+// Single source of truth. Previously four components each kept their own
+// copy under :host (--order-*, --cart-*, --co-*, --oc-*). All of those now
+// alias these globals. Font is Poppins to match the rest of the site template;
+// Alfa Slab One is reserved for brand/display headings.
 :root {
-    --tgs-order-bg: #0d0905;
-    --tgs-order-bg-alt: #1a0f07;
-    --tgs-order-surface: #231308;
-    --tgs-order-surface-hover: #2e1a0a;
-    --tgs-order-amber: #e8a020;
-    --tgs-order-orange: #e06400;
-    --tgs-order-cream: #f5ede0;
-    --tgs-order-muted: #a08060;
-    --tgs-order-border: rgba(232, 160, 32, 0.10);
-    --tgs-order-border-strong: rgba(232, 160, 32, 0.22);
+    --tgs-bg: #ffffff;
+    --tgs-bg-alt: #faf6ee;
+    --tgs-surface: #faf6ee;
+    --tgs-surface-hover: #f0e8d7;
+    --tgs-amber: #e8a020;
+    --tgs-orange: #e06400;
+    --tgs-text: #1a0f07;
+    --tgs-text-muted: #6b5a45;
+    --tgs-border: rgba(232, 160, 32, 0.35);
+    --tgs-border-strong: rgba(232, 160, 32, 0.60);
+    --tgs-error: #ef4444;
+    --tgs-error-bg: rgba(239, 68, 68, 0.06);
+    --tgs-error-border: rgba(239, 68, 68, 0.30);
+    --tgs-success: #4a9e6a;
+
+    --tgs-card-radius: 12px;
+    --tgs-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --tgs-card-border: 1px solid #f0f0f0;
+    --tgs-pill-radius: 50px;
+
+    --tgs-font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --tgs-font-display: 'Alfa Slab One', 'Poppins', serif;
 }
 
 .breadcumb-wrapper::before {

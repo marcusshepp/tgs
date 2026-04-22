@@ -1,23 +1,9 @@
 :host {
-    --co-bg: #ffffff;
-    --co-bg-alt: #faf6ee;
-    --co-surface: #faf6ee;
-    --co-surface-hover: #f0e8d7;
-    --co-amber: #e8a020;
-    --co-orange: #e06400;
-    --co-cream: #1a0f07;
-    --co-muted: #6b5a45;
-    --co-border: rgba(232, 160, 32, 0.35);
-    --co-border-strong: rgba(232, 160, 32, 0.60);
-    --co-error: #ef4444;
-    --co-error-bg: rgba(239, 68, 68, 0.06);
-    --co-error-border: rgba(239, 68, 68, 0.30);
-
     display: block;
     min-height: 100dvh;
-    background: var(--co-bg);
-    color: var(--co-cream);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--tgs-bg);
+    color: var(--tgs-text);
+    font-family: var(--tgs-font-body);
 }
 
 // ── Page body ──────────────────────────────────────────
@@ -41,13 +27,13 @@
     align-items: center;
     gap: 0.35rem;
     font-size: 0.85rem;
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
     text-decoration: none;
     margin-bottom: 1.25rem;
     transition: color 150ms ease-in-out;
 
     &:hover {
-        color: var(--co-cream);
+        color: var(--tgs-text);
     }
 
     svg {
@@ -59,8 +45,8 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--co-muted);
-    border-left: 2px solid var(--co-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -68,7 +54,7 @@
 .checkout-title {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(1.8rem, 5vw, 2.8rem);
-    color: var(--co-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     line-height: 1.1;
     margin: 0;
@@ -95,16 +81,16 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--co-muted);
-    border-left: 2px solid var(--co-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 1rem;
 }
 
 // ── Form ──────────────────────────────────────────────
 .form-section {
-    background: var(--co-surface);
-    border: 1px solid var(--co-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.875rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -122,11 +108,11 @@
     &--error {
         .field-input,
         .field-textarea {
-            border-color: var(--co-error-border);
-            background: var(--co-error-bg);
+            border-color: var(--tgs-error-border);
+            background: var(--tgs-error-bg);
 
             &:focus {
-                border-color: var(--co-error);
+                border-color: var(--tgs-error);
                 outline-color: rgba(239, 68, 68, 0.25);
             }
         }
@@ -137,69 +123,69 @@
     display: block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--co-cream);
+    color: var(--tgs-text);
     margin-bottom: 0.4rem;
 }
 
 .required-mark {
-    color: var(--co-amber);
+    color: var(--tgs-amber);
     margin-left: 0.15rem;
 }
 
 .field-hint {
     font-size: 0.78rem;
     font-weight: 400;
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
     margin-left: 0.35rem;
 }
 
 .field-input {
     display: block;
     width: 100%;
-    background: var(--co-bg-alt);
-    border: 1.5px solid var(--co-border-strong);
+    background: var(--tgs-bg-alt);
+    border: 1.5px solid var(--tgs-border-strong);
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
     font-size: 1rem;
-    color: var(--co-cream);
+    color: var(--tgs-text);
     transition: border-color 150ms ease-in-out, outline 150ms ease-in-out;
     min-height: 48px;
 
     &::placeholder {
-        color: var(--co-muted);
+        color: var(--tgs-text-muted);
         opacity: 0.6;
     }
 
     &:focus {
         outline: 2px solid rgba(232, 160, 32, 0.35);
         outline-offset: 0;
-        border-color: var(--co-amber);
+        border-color: var(--tgs-amber);
     }
 }
 
 .field-textarea {
     display: block;
     width: 100%;
-    background: var(--co-bg-alt);
-    border: 1.5px solid var(--co-border-strong);
+    background: var(--tgs-bg-alt);
+    border: 1.5px solid var(--tgs-border-strong);
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
     font-size: 1rem;
-    color: var(--co-cream);
+    color: var(--tgs-text);
     transition: border-color 150ms ease-in-out;
     resize: vertical;
     min-height: 96px;
     line-height: 1.5;
 
     &::placeholder {
-        color: var(--co-muted);
+        color: var(--tgs-text-muted);
         opacity: 0.6;
     }
 
     &:focus {
         outline: 2px solid rgba(232, 160, 32, 0.35);
         outline-offset: 0;
-        border-color: var(--co-amber);
+        border-color: var(--tgs-amber);
     }
 }
 
@@ -212,8 +198,8 @@
 
 // ── Mobile summary ────────────────────────────────────
 .mobile-summary {
-    background: var(--co-surface);
-    border: 1px solid var(--co-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.875rem;
     padding: 1.25rem;
     margin-bottom: 1.5rem;
@@ -235,8 +221,8 @@
 }
 
 .summary-card {
-    background: var(--co-surface);
-    border: 1px solid var(--co-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.875rem;
     padding: 1.25rem;
 }
@@ -244,7 +230,7 @@
 // ── Summary items ─────────────────────────────────────
 .summary-empty {
     font-size: 0.875rem;
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
     margin: 0;
 }
 
@@ -265,7 +251,7 @@
 }
 
 .summary-item-qty {
-    color: var(--co-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
     font-weight: 600;
     flex-shrink: 0;
@@ -273,14 +259,14 @@
 
 .summary-item-name {
     flex: 1;
-    color: var(--co-cream);
+    color: var(--tgs-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .summary-item-price {
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
     font-variant-numeric: tabular-nums;
     font-size: 0.82rem;
     flex-shrink: 0;
@@ -288,7 +274,7 @@
 
 .summary-divider {
     height: 1px;
-    background: var(--co-border);
+    background: var(--tgs-border);
     margin: 0 0 0.875rem;
 }
 
@@ -303,12 +289,12 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.875rem;
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
 }
 
 .summary-value {
     font-variant-numeric: tabular-nums;
-    color: var(--co-cream);
+    color: var(--tgs-text);
 }
 
 .summary-total-row {
@@ -316,18 +302,18 @@
     justify-content: space-between;
     align-items: baseline;
     padding-top: 0.75rem;
-    border-top: 1px solid var(--co-border);
+    border-top: 1px solid var(--tgs-border);
 }
 
 .summary-total-label {
     font-size: 0.9rem;
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
 }
 
 .summary-total-amount {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.4rem;
-    color: var(--co-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
 }
 
@@ -336,7 +322,7 @@
     @media (max-width: 767px) {
         position: sticky;
         bottom: 0;
-        background: linear-gradient(to top, var(--co-bg) 70%, transparent);
+        background: linear-gradient(to top, var(--tgs-bg) 70%, transparent);
         padding: 1rem 0 calc(1rem + env(safe-area-inset-bottom, 0px));
         margin: 0 -1.25rem -5rem;
         padding-left: 1.25rem;
@@ -352,8 +338,8 @@
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
-    background: var(--co-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 1rem;
     border: none;
@@ -365,7 +351,7 @@
     margin-bottom: 0.75rem;
 
     &:hover:not(:disabled) {
-        background: var(--co-orange);
+        background: var(--tgs-orange);
     }
 
     &:disabled {
@@ -383,7 +369,7 @@
     width: 16px;
     height: 16px;
     border: 2px solid rgba(13, 9, 5, 0.3);
-    border-top-color: #0d0905;
+    border-top-color: var(--tgs-text);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
     flex-shrink: 0;
@@ -404,7 +390,7 @@
 // ── Demo note ─────────────────────────────────────────
 .demo-note {
     font-size: 0.75rem;
-    color: var(--co-muted);
+    color: var(--tgs-text-muted);
     text-align: center;
     margin: 0;
 }

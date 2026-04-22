@@ -35,6 +35,31 @@ export interface CheckoutResponse {
     sessionId: string;
 }
 
+export interface OrderBySessionItem {
+    slug: string | null;
+    name: string | null;
+    quantity: number;
+    lineTotalCents: number;
+}
+
+export interface OrderBySessionResponse {
+    order: {
+        orderId: string;
+        status: string;
+        items: OrderBySessionItem[];
+        subtotal: number | null;
+        total: number;
+        currency: string;
+        eventSlug: string | null;
+        eventName: string | null;
+        eventDate: string | null;
+        pickupLocation: string | null;
+        pickupStartAt: string | null;
+        pickupEndAt: string | null;
+        pickupInstructions: string | null;
+    };
+}
+
 @Injectable({ providedIn: 'root' })
 export class StoreService {
     private readonly base = environment.storeApiBase;
@@ -65,6 +90,23 @@ export class StoreService {
         if (!res.ok) {
             const detail = await this.safeReadError(res);
             throw new Error(`checkout failed: ${res.status} ${detail}`);
+        }
+        return res.json();
+    }
+
+    // Returns null when the order hasn't been written yet (webhook lag, 404 with
+    // pending=true). Throws only on unexpected failures so callers can retry
+    // distinctly from surfacing an error.
+    async getOrderBySession(sessionId: string): Promise<OrderBySessionResponse | null> {
+        const params = new URLSearchParams({
+            domain: this.domain,
+            sessionId,
+        });
+        const res = await fetch(`${this.base}/orders/by-session?${params.toString()}`);
+        if (res.status === 404) return null;
+        if (!res.ok) {
+            const detail = await this.safeReadError(res);
+            throw new Error(`order lookup failed: ${res.status} ${detail}`);
         }
         return res.json();
     }

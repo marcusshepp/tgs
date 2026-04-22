@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CmsService } from '../services/cms.service';
 import { CmsEvent, CmsEventHighlight } from '../models/cms.types';
@@ -15,7 +15,8 @@ import { CmsEvent, CmsEventHighlight } from '../models/cms.types';
 })
 export class SpecialEventsComponent implements OnInit, OnDestroy {
     isBrowser: boolean;
-    upcomingEvents: CmsEvent[] = [];
+    featuredEvent: CmsEvent | null = null;
+    otherUpcoming: CmsEvent[] = [];
     pastEvents: CmsEvent[] = [];
     now: Date = new Date();
     private destroy$ = new Subject<void>();
@@ -29,14 +30,25 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.now = new Date();
+
         this.cms.getEvents().pipe(takeUntil(this.destroy$)).subscribe(events => {
-            this.upcomingEvents = events
+            const upcoming = events
                 .filter(e => e.status === 'upcoming')
                 .sort((a, b) => this.parseEventDate(a.date).getTime() - this.parseEventDate(b.date).getTime());
+            this.featuredEvent = upcoming[0] || null;
+            this.otherUpcoming = upcoming.slice(1);
             this.pastEvents = events
                 .filter(e => e.status === 'past')
-                .sort((a, b) => this.parseEventDate(b.date).getTime() - this.parseEventDate(a.date).getTime());
+                .sort((a, b) => this.parseEventDate(b.date).getTime() - this.parseEventDate(a.date).getTime())
+                .slice(0, 6);
         });
+
+        // Keep order window state + countdown chip accurate without re-fetching.
+        if (this.isBrowser) {
+            interval(30_000).pipe(takeUntil(this.destroy$)).subscribe(() => {
+                this.now = new Date();
+            });
+        }
     }
 
     ngOnDestroy(): void {
@@ -70,7 +82,34 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
         if (!isoDate) return '';
         const d = new Date(isoDate);
         if (isNaN(d.getTime())) return isoDate;
-        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        return d.toLocaleDateString('en-US', {
+            timeZone: 'America/Detroit',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+        });
+    }
+
+    formatPickupWindow(event: CmsEvent): string {
+        if (!event.pickupStartAt || !event.pickupEndAt) {
+            return this.getEventTime(event);
+        }
+        const start = this.formatPickupTime(event.pickupStartAt);
+        const end = this.formatPickupTime(event.pickupEndAt);
+        if (start && end) return `${start} – ${end}`;
+        return start || end;
+    }
+
+    private formatPickupTime(iso: string): string {
+        if (!iso) return '';
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return '';
+        return d.toLocaleTimeString('en-US', {
+            timeZone: 'America/Detroit',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        });
     }
 
     getEventTime(event: CmsEvent): string {
@@ -84,5 +123,15 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
         if (typeof h === 'string') return h;
         if (h && typeof h === 'object' && typeof h.value === 'string') return h.value;
         return '';
+    }
+
+    countdownLabel(event: CmsEvent): string | null {
+        if (!event.orderClosesAt) return null;
+        const closes = new Date(event.orderClosesAt);
+        const diffMs = closes.getTime() - this.now.getTime();
+        if (diffMs <= 0 || diffMs > 24 * 60 * 60 * 1000) return null;
+        const hours = Math.floor(diffMs / (60 * 60 * 1000));
+        const mins = Math.floor((diffMs % (60 * 60 * 1000)) / (60 * 1000));
+        return `Ordering closes in ${hours}h ${mins}m`;
     }
 }

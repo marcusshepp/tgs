@@ -1,24 +1,10 @@
-// Order page custom properties (scoped)
 :host {
-    --order-bg: #ffffff;
-    --order-bg-alt: #faf6ee;
-    --order-surface: #faf6ee;
-    --order-surface-hover: #f0e8d7;
-    --order-amber: #e8a020;
-    --order-orange: #e06400;
-    --order-cream: #1a0f07;
-    --order-muted: #6b5a45;
-    --order-border: rgba(232, 160, 32, 0.35);
-    --order-border-strong: rgba(232, 160, 32, 0.60);
-    --order-success: #4a9e6a;
-    --order-error: #ef4444;
-
     display: block;
     min-height: 100dvh;
     overflow-x: hidden;
-    background: var(--order-bg);
-    color: var(--order-cream);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--tgs-bg);
+    color: var(--tgs-text);
+    font-family: var(--tgs-font-body);
 }
 
 // ── Utility ─────────────────────────────────────────
@@ -37,33 +23,33 @@
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
 }
 
 .state-heading {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--order-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     margin: 0;
 }
 
 .state-body {
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     font-size: 1rem;
     max-width: 28rem;
 }
 
 .state-muted {
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     font-size: 0.9rem;
 }
 
 .loading-spinner {
     width: 36px;
     height: 36px;
-    border: 3px solid var(--order-border-strong);
-    border-top-color: var(--order-amber);
+    border: 3px solid var(--tgs-border-strong);
+    border-top-color: var(--tgs-amber);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
@@ -73,14 +59,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .loading-spinner { animation: none; border-top-color: var(--order-amber); }
+    .loading-spinner { animation: none; border-top-color: var(--tgs-amber); }
 }
 
 // ── Buttons ──────────────────────────────────────────
 .btn-primary {
     display: inline-block;
-    background: var(--order-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 1rem;
     padding: 0.75rem 1.75rem;
@@ -93,27 +79,27 @@
     min-width: 44px;
 
     &:hover {
-        background: var(--order-orange);
+        background: var(--tgs-orange);
         transform: translateY(-1px);
     }
 }
 
 .btn-ghost {
     display: inline-block;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     font-size: 0.95rem;
     padding: 0.75rem 1.25rem;
     border-radius: 9999px;
     text-decoration: none;
-    border: 1px solid var(--order-border);
+    border: 1px solid var(--tgs-border);
     cursor: pointer;
     transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
     min-height: 48px;
     min-width: 44px;
 
     &:hover {
-        color: var(--order-cream);
-        border-color: var(--order-border-strong);
+        color: var(--tgs-text);
+        border-color: var(--tgs-border-strong);
     }
 }
 
@@ -141,7 +127,7 @@
 .context-event-name {
     font-family: 'Alfa Slab One', serif;
     font-size: 0.85rem;
-    color: #0d0905;
+    color: var(--tgs-text);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -170,7 +156,7 @@
     flex-shrink: 0;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #0d0905;
+    color: var(--tgs-text);
     background: rgba(0, 0, 0, 0.12);
     padding: 0.2rem 0.6rem;
     border-radius: 9999px;
@@ -192,7 +178,7 @@
     }
 
     a {
-        color: var(--order-amber);
+        color: var(--tgs-amber);
         text-decoration: underline;
     }
 
@@ -212,8 +198,8 @@
 
 .order-status-future {
     background: rgba(232, 160, 32, 0.06);
-    border-bottom: 1px solid var(--order-border);
-    color: var(--order-muted);
+    border-bottom: 1px solid var(--tgs-border);
+    color: var(--tgs-text-muted);
 }
 
 // ── Page Body ─────────────────────────────────────────
@@ -255,8 +241,8 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--order-muted);
-    border-left: 2px solid var(--order-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -264,7 +250,7 @@
 .event-title {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
-    color: var(--order-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     line-height: 1.15;
     margin: 0 0 0.75rem;
@@ -281,7 +267,7 @@
     align-items: center;
     gap: 0.35rem;
     font-size: 0.875rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
 
     svg {
         flex-shrink: 0;
@@ -312,8 +298,8 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--order-muted);
-    border-left: 2px solid var(--order-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -325,28 +311,28 @@
 }
 
 .empty-menu-notice {
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     font-size: 0.9rem;
     padding: 1.5rem 0;
-    border-top: 1px solid var(--order-border);
+    border-top: 1px solid var(--tgs-border);
 }
 
 // ── Menu Card ─────────────────────────────────────────
 .menu-card {
     display: flex;
     gap: 0;
-    background: var(--order-surface);
-    border: 1px solid var(--order-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.75rem;
     overflow: hidden;
     transition: border-color 200ms ease-in-out, background 150ms ease-in-out;
 
     &:hover {
-        background: var(--order-surface-hover);
+        background: var(--tgs-surface-hover);
     }
 
     &--in-cart {
-        border-color: var(--order-border-strong);
+        border-color: var(--tgs-border-strong);
         animation: card-pulse 200ms ease-out;
     }
 
@@ -372,7 +358,7 @@
 .card-image-wrap {
     width: 100px;
     flex-shrink: 0;
-    background: var(--order-bg-alt, #1a0f07);
+    background: var(--tgs-bg-alt);
 
     @media (min-width: 480px) {
         width: 120px;
@@ -391,11 +377,11 @@
     width: 100px;
     height: 100%;
     min-height: 80px;
-    background: linear-gradient(135deg, var(--order-surface) 0%, var(--order-surface-hover) 100%);
+    background: linear-gradient(135deg, var(--tgs-surface) 0%, var(--tgs-surface-hover) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     flex-shrink: 0;
 
     @media (min-width: 480px) {
@@ -422,7 +408,7 @@
 .card-name {
     font-family: 'Alfa Slab One', serif;
     font-size: 0.95rem;
-    color: var(--order-cream);
+    color: var(--tgs-text);
     margin: 0 0 0.25rem;
     overflow: hidden;
     display: -webkit-box;
@@ -433,7 +419,7 @@
 
 .card-description {
     font-size: 0.8rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     margin: 0 0 0.35rem;
     line-height: 1.45;
     overflow: hidden;
@@ -451,8 +437,8 @@
 
 .dietary-pill {
     font-size: 0.65rem;
-    color: var(--order-muted);
-    border: 1px solid var(--order-border);
+    color: var(--tgs-text-muted);
+    border: 1px solid var(--tgs-border);
     border-radius: 9999px;
     padding: 0.1rem 0.4rem;
     white-space: nowrap;
@@ -469,19 +455,19 @@
 .card-price {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
 }
 
 .unavailable-label {
     font-size: 0.75rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
 }
 
 .add-btn {
-    background: var(--order-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 0.85rem;
     border: none;
@@ -494,7 +480,7 @@
     white-space: nowrap;
 
     &:hover {
-        background: var(--order-orange);
+        background: var(--tgs-orange);
         transform: scale(1.04);
     }
 
@@ -503,8 +489,8 @@
     }
 
     &--disabled {
-        background: var(--order-surface-hover);
-        color: var(--order-muted);
+        background: var(--tgs-surface-hover);
+        color: var(--tgs-text-muted);
         cursor: not-allowed;
         display: inline-flex;
         align-items: center;
@@ -523,7 +509,7 @@
     display: flex;
     align-items: center;
     gap: 0;
-    border: 1.5px solid var(--order-border-strong);
+    border: 1.5px solid var(--tgs-border-strong);
     border-radius: 9999px;
     overflow: hidden;
     background: transparent;
@@ -531,7 +517,7 @@
 
 .stepper-btn {
     background: transparent;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
@@ -546,11 +532,11 @@
     transition: background 120ms ease-in-out;
 
     &:hover {
-        background: var(--order-border);
+        background: var(--tgs-border);
     }
 
     &--plus {
-        color: var(--order-amber);
+        color: var(--tgs-amber);
     }
 }
 
@@ -558,7 +544,7 @@
     font-variant-numeric: tabular-nums;
     font-weight: 700;
     font-size: 0.9rem;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     min-width: 24px;
     text-align: center;
 }
@@ -571,8 +557,8 @@
         display: block;
         position: sticky;
         top: 68px;
-        background: var(--order-surface);
-        border: 1px solid var(--order-border);
+        background: var(--tgs-surface);
+        border: 1px solid var(--tgs-border);
         border-radius: 0.875rem;
         padding: 1.25rem;
         min-height: 200px;
@@ -586,12 +572,12 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 2rem 1rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     text-align: center;
 }
 
 .truck-icon {
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     opacity: 0.5;
     margin-bottom: 0.25rem;
 }
@@ -599,13 +585,13 @@
 .empty-heading {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.1rem;
-    color: var(--order-cream);
+    color: var(--tgs-text);
     margin: 0;
 }
 
 .empty-subline {
     font-size: 0.85rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     margin: 0;
 }
 
@@ -614,8 +600,8 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--order-muted);
-    border-left: 2px solid var(--order-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 0.875rem;
 }
@@ -637,7 +623,7 @@
 }
 
 .sidebar-item-qty {
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
     flex-shrink: 0;
     font-weight: 600;
@@ -645,14 +631,14 @@
 
 .sidebar-item-name {
     flex: 1;
-    color: var(--order-cream);
+    color: var(--tgs-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .sidebar-item-price {
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     font-variant-numeric: tabular-nums;
     flex-shrink: 0;
     font-size: 0.82rem;
@@ -663,22 +649,22 @@
     justify-content: space-between;
     align-items: baseline;
     padding-top: 0.75rem;
-    border-top: 1px solid var(--order-border);
+    border-top: 1px solid var(--tgs-border);
     font-size: 0.9rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     margin-bottom: 1rem;
 }
 
 .sidebar-total-amount {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.25rem;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
 }
 
 .sidebar-demo-note {
     font-size: 0.7rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     text-align: center;
     margin-top: 0.625rem;
 }
@@ -690,8 +676,8 @@
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
-    background: var(--order-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 1rem;
     border: none;
@@ -702,7 +688,7 @@
     transition: background 150ms ease-in-out, opacity 150ms ease-in-out;
 
     &:hover:not(:disabled) {
-        background: var(--order-orange);
+        background: var(--tgs-orange);
     }
 
     &:disabled {
@@ -725,7 +711,7 @@
     width: 16px;
     height: 16px;
     border: 2px solid rgba(13, 9, 5, 0.3);
-    border-top-color: #0d0905;
+    border-top-color: var(--tgs-text);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
     flex-shrink: 0;
@@ -744,7 +730,7 @@
     right: 0;
     z-index: 50;
     background: linear-gradient(to top, rgba(255, 255, 255, 0.99) 65%, rgba(255, 255, 255, 0));
-    border-top: 1px solid var(--order-border);
+    border-top: 1px solid var(--tgs-border);
     padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
     padding-top: 1.5rem;
 
@@ -762,7 +748,7 @@
 
 .mobile-bar-empty {
     font-size: 0.875rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     margin: 0 auto;
     text-align: center;
     width: 100%;
@@ -777,8 +763,8 @@
 }
 
 .mobile-bar-badge {
-    background: var(--order-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 0.75rem;
     width: 24px;
@@ -792,7 +778,7 @@
 
 .mobile-bar-text {
     font-size: 0.8rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -801,7 +787,7 @@
 .mobile-bar-total {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.2rem;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
     flex-shrink: 0;
 }
@@ -838,7 +824,7 @@
 }
 
 .checkmark-circle {
-    stroke: var(--order-amber);
+    stroke: var(--tgs-amber);
     fill: none;
     stroke-dasharray: 170;
     stroke-dashoffset: 170;
@@ -846,7 +832,7 @@
 }
 
 .checkmark-path {
-    stroke: var(--order-amber);
+    stroke: var(--tgs-amber);
     fill: none;
     stroke-dasharray: 50;
     stroke-dashoffset: 50;
@@ -872,7 +858,7 @@
 .confirmation-headline {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(2rem, 6vw, 2.8rem);
-    color: var(--order-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     margin: 0;
     animation: fade-up 400ms 200ms ease-out both;
@@ -881,7 +867,7 @@
 .confirmation-subline {
     font-family: 'Courier New', 'Courier', monospace;
     font-size: 1.2rem;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     font-weight: 700;
     letter-spacing: 0.06em;
     margin: 0;
@@ -900,8 +886,8 @@
 
 .confirmation-summary-card {
     width: 100%;
-    background: var(--order-surface);
-    border: 1px solid var(--order-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.875rem;
     padding: 1.25rem;
     text-align: left;
@@ -916,9 +902,9 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     margin: 0 0 0.75rem;
-    border-left: 2px solid var(--order-amber);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
 }
 
@@ -938,12 +924,12 @@
 }
 
 .item-name-qty {
-    color: var(--order-cream);
+    color: var(--tgs-text);
     flex: 1;
 }
 
 .item-line-price {
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     font-variant-numeric: tabular-nums;
     flex-shrink: 0;
 }
@@ -953,26 +939,26 @@
     justify-content: space-between;
     align-items: baseline;
     padding-top: 0.75rem;
-    border-top: 1px solid var(--order-border);
+    border-top: 1px solid var(--tgs-border);
     font-size: 0.9rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
 }
 
 .confirmation-total-amount {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.25rem;
-    color: var(--order-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
 }
 
 .demo-disclaimer {
     margin-top: 1rem;
     padding: 0.75rem;
-    background: var(--order-bg-alt, #1a0f07);
-    border: 1px solid var(--order-border);
+    background: var(--tgs-bg-alt);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.5rem;
     font-size: 0.78rem;
-    color: var(--order-muted);
+    color: var(--tgs-text-muted);
     line-height: 1.5;
     text-align: center;
 }

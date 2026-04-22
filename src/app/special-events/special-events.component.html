@@ -1,151 +1,151 @@
 <section class="events-section">
     <div class="container">
         <div class="events-content">
+
+            <!-- Page header -->
             <div class="title-area">
                 <div class="sub-title text-center" [class.animate]="isBrowser">
-                    <img
-                        class="me-1"
-                        src="/img/icon/titleIcon.svg"
-                        alt="icon"
-                    />
+                    <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon" />
                     Special Events
-                    <img
-                        class="ms-1"
-                        src="/img/icon/titleIcon.svg"
-                        alt="icon"
-                    />
+                    <img class="ms-1" src="/img/icon/titleIcon.svg" alt="icon" />
                 </div>
             </div>
 
             <div class="intro-text">
                 <p>
-                    Catch Tim's Gourmet Sliders at these special events!
-                    We bring our signature sliders and special limited-time menus
-                    to venues across Michigan.
+                    Catch Tim's Gourmet Sliders at events across Michigan —
+                    signature sliders, limited menus, pre-order for pickup.
                 </p>
             </div>
 
-            @if (upcomingEvents.length > 0) {
-                <div class="events-group-heading">Upcoming Events</div>
+            <!-- FEATURED EVENT — next upcoming -->
+            @if (featuredEvent) {
+                <article class="featured-event" [attr.aria-label]="'Featured event: ' + featuredEvent.name">
+                    @if (featuredEvent.coverImage) {
+                        <div class="featured-cover">
+                            <img
+                                [src]="featuredEvent.coverImage"
+                                [alt]="featuredEvent.name"
+                                loading="eager"
+                            />
+                            <span class="featured-badge">{{ featuredEvent.badge || 'Next Up' }}</span>
+                        </div>
+                    }
 
-                @for (event of upcomingEvents; track event.slug) {
-                    <div class="event-card">
-                        <div class="event-header">
-                            <span class="event-badge">{{ event.badge || 'Upcoming' }}</span>
-                            <h2>{{ event.name }}</h2>
-                            <div class="event-details">
-                                <p><strong>Date:</strong> {{ event.date }}</p>
-                                @if (getEventTime(event)) {
-                                    <p><strong>Time:</strong> {{ getEventTime(event) }}</p>
-                                }
-                                <p><strong>Location:</strong> {{ event.location }}</p>
-                            </div>
+                    <div class="featured-body">
+                        <h2 class="featured-title">{{ featuredEvent.name }}</h2>
+
+                        <div class="featured-meta">
+                            <span class="meta-chip">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                {{ featuredEvent.date }}
+                            </span>
+                            @if (formatPickupWindow(featuredEvent)) {
+                                <span class="meta-chip">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    {{ formatPickupWindow(featuredEvent) }}
+                                </span>
+                            }
+                            @if (featuredEvent.pickupLocation || featuredEvent.location) {
+                                <span class="meta-chip">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    {{ featuredEvent.pickupLocation || featuredEvent.location }}
+                                </span>
+                            }
                         </div>
 
-                        <div class="event-body">
-                            @if (event.coverImage) {
-                                <div class="event-cover-image">
-                                    <img
-                                        [src]="event.coverImage"
-                                        [alt]="event.name"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            }
+                        @if (countdownLabel(featuredEvent); as cd) {
+                            <div class="countdown-chip" aria-live="polite">⏰ {{ cd }}</div>
+                        }
 
-                            <div class="event-description">
-                                <div [innerHTML]="event.description"></div>
+                        @if (featuredEvent.description) {
+                            <div class="featured-description" [innerHTML]="featuredEvent.description"></div>
+                        }
+
+                        @if (featuredEvent.highlights.length > 0) {
+                            <div class="highlight-row">
+                                @for (h of featuredEvent.highlights; track $index) {
+                                    <span class="highlight-pill">{{ highlightText(h) }}</span>
+                                }
                             </div>
+                        }
 
-                            @if (event.highlights.length > 0) {
-                                <div class="event-highlights">
-                                    @for (h of event.highlights; track $index) {
-                                        <div class="highlight-item">{{ highlightText(h) }}</div>
-                                    }
+                        <div class="featured-cta-row">
+                            @if (isOrderingOpen(featuredEvent)) {
+                                <a
+                                    [routerLink]="['/events', featuredEvent.slug, 'order']"
+                                    class="cta-primary"
+                                >Order Now →</a>
+                            } @else if (isOrderingFuture(featuredEvent)) {
+                                <p class="cta-note">
+                                    Ordering opens {{ formatOrderOpensDate(featuredEvent.orderOpensAt) }}
+                                </p>
+                            } @else {
+                                <p class="cta-note">Ordering closed</p>
+                            }
+                        </div>
+                    </div>
+                </article>
+            }
+
+            <!-- OTHER UPCOMING — compact cards -->
+            @if (otherUpcoming.length > 0) {
+                <h3 class="section-heading">More Upcoming</h3>
+                <div class="upcoming-grid">
+                    @for (event of otherUpcoming; track event.slug) {
+                        <article class="event-card">
+                            @if (event.coverImage) {
+                                <div class="event-card-cover">
+                                    <img [src]="event.coverImage" [alt]="event.name" loading="lazy" />
                                 </div>
                             }
-
-                            <div class="event-order-cta">
+                            <div class="event-card-body">
+                                <h4 class="event-card-title">{{ event.name }}</h4>
+                                <p class="event-card-date">{{ event.date }}</p>
+                                @if (event.pickupLocation || event.location) {
+                                    <p class="event-card-location">{{ event.pickupLocation || event.location }}</p>
+                                }
                                 @if (isOrderingOpen(event)) {
                                     <a
                                         [routerLink]="['/events', event.slug, 'order']"
-                                        class="order-now-btn"
-                                    >Order Now</a>
+                                        class="cta-secondary"
+                                    >Order →</a>
                                 } @else if (isOrderingFuture(event)) {
-                                    <p class="ordering-opens-note">
-                                        Ordering opens {{ formatOrderOpensDate(event.orderOpensAt) }}
-                                    </p>
+                                    <p class="cta-note-small">Opens {{ formatOrderOpensDate(event.orderOpensAt) }}</p>
                                 }
                             </div>
-                        </div>
-                    </div>
-                }
-            }
-
-            @if (pastEvents.length > 0) {
-                <div class="events-group-heading past">Past Events</div>
-
-                @for (event of pastEvents; track event.slug) {
-                    <div class="event-card past-event">
-                        <div class="event-header">
-                            <span class="event-badge past">{{ event.badge || 'Past Event' }}</span>
-                            <h2>{{ event.name }}</h2>
-                            <div class="event-details">
-                                <p><strong>Date:</strong> {{ event.date }}</p>
-                                @if (getEventTime(event)) {
-                                    <p><strong>Time:</strong> {{ getEventTime(event) }}</p>
-                                }
-                                <p><strong>Location:</strong> {{ event.location }}</p>
-                            </div>
-                        </div>
-
-                        <div class="event-body">
-                            @if (event.coverImage) {
-                                <div class="event-cover-image">
-                                    <img
-                                        [src]="event.coverImage"
-                                        [alt]="event.name"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            }
-
-                            <div class="event-description">
-                                <div [innerHTML]="event.description"></div>
-                            </div>
-
-                            @if (event.highlights.length > 0) {
-                                <div class="event-highlights">
-                                    @for (h of event.highlights; track $index) {
-                                        <div class="highlight-item">{{ highlightText(h) }}</div>
-                                    }
-                                </div>
-                            }
-
-                            @if (event.menuImageUrl) {
-                                <div class="event-menu">
-                                    @if (event.specialMenuHeading) {
-                                        <h3>{{ event.specialMenuHeading }}</h3>
-                                    }
-                                    <div class="event-flyer">
-                                        <img
-                                            [src]="event.menuImageUrl"
-                                            [alt]="event.specialMenuHeading || event.name + ' menu'"
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                }
-            }
-
-            @if (upcomingEvents.length === 0 && pastEvents.length === 0) {
-                <div class="no-events">
-                    <p>No events at this time. Check back soon!</p>
+                        </article>
+                    }
                 </div>
             }
+
+            <!-- PAST EVENTS — small thumbnails -->
+            @if (pastEvents.length > 0) {
+                <h3 class="section-heading past">Previous Events</h3>
+                <div class="past-grid">
+                    @for (event of pastEvents; track event.slug) {
+                        <article class="past-card">
+                            @if (event.coverImage) {
+                                <div class="past-card-cover">
+                                    <img [src]="event.coverImage" [alt]="event.name" loading="lazy" />
+                                </div>
+                            }
+                            <div class="past-card-body">
+                                <h5 class="past-card-title">{{ event.name }}</h5>
+                                <p class="past-card-date">{{ event.date }}</p>
+                            </div>
+                        </article>
+                    }
+                </div>
+            }
+
+            <!-- Empty state -->
+            @if (!featuredEvent && otherUpcoming.length === 0 && pastEvents.length === 0) {
+                <div class="no-events">
+                    <p>No events yet — check back soon!</p>
+                </div>
+            }
+
         </div>
     </div>
 </section>

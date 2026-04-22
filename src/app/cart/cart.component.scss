@@ -1,21 +1,9 @@
 :host {
-    --cart-bg: #ffffff;
-    --cart-bg-alt: #faf6ee;
-    --cart-surface: #faf6ee;
-    --cart-surface-hover: #f0e8d7;
-    --cart-amber: #e8a020;
-    --cart-orange: #e06400;
-    --cart-cream: #1a0f07;
-    --cart-muted: #6b5a45;
-    --cart-border: rgba(232, 160, 32, 0.35);
-    --cart-border-strong: rgba(232, 160, 32, 0.60);
-    --cart-error: #ef4444;
-
     display: block;
     min-height: 100dvh;
-    background: var(--cart-bg);
-    color: var(--cart-cream);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--tgs-bg);
+    color: var(--tgs-text);
+    font-family: var(--tgs-font-body);
 }
 
 // ── Screen reader only ─────────────────────────────────
@@ -44,7 +32,7 @@
 }
 
 .cart-empty-icon {
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
     opacity: 0.5;
     margin-bottom: 0.5rem;
 }
@@ -52,13 +40,13 @@
 .cart-empty-heading {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(1.6rem, 4vw, 2.2rem);
-    color: var(--cart-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     margin: 0;
 }
 
 .cart-empty-body {
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
     font-size: 1rem;
     max-width: 24rem;
     margin: 0;
@@ -84,8 +72,8 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--cart-muted);
-    border-left: 2px solid var(--cart-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -93,7 +81,7 @@
 .cart-title {
     font-family: 'Alfa Slab One', serif;
     font-size: clamp(1.8rem, 5vw, 2.8rem);
-    color: var(--cart-cream);
+    color: var(--tgs-text);
     letter-spacing: -0.01em;
     line-height: 1.1;
     margin: 0;
@@ -120,8 +108,8 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--cart-muted);
-    border-left: 2px solid var(--cart-amber);
+    color: var(--tgs-text-muted);
+    border-left: 2px solid var(--tgs-amber);
     padding-left: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -140,8 +128,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: var(--cart-surface);
-    border: 1px solid var(--cart-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.75rem;
     padding: 1rem 1.125rem;
     transition: border-color 200ms ease-in-out;
@@ -153,7 +141,7 @@
     }
 
     &:hover {
-        border-color: var(--cart-border-strong);
+        border-color: var(--tgs-border-strong);
     }
 }
 
@@ -165,7 +153,7 @@
 .item-name {
     font-family: 'Alfa Slab One', serif;
     font-size: 0.95rem;
-    color: var(--cart-cream);
+    color: var(--tgs-text);
     margin: 0 0 0.2rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -174,13 +162,13 @@
 
 .item-unit-price {
     font-size: 0.8rem;
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
     margin: 0;
 }
 
 .item-customization {
     font-size: 0.75rem;
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
     margin: 0.15rem 0 0;
     font-style: italic;
 }
@@ -195,7 +183,7 @@
 .item-line-total {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--cart-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
     min-width: 3.5rem;
     text-align: right;
@@ -206,7 +194,7 @@
     display: flex;
     align-items: center;
     gap: 0;
-    border: 1.5px solid var(--cart-border-strong);
+    border: 1.5px solid var(--tgs-border-strong);
     border-radius: 9999px;
     overflow: hidden;
     background: transparent;
@@ -214,7 +202,7 @@
 
 .stepper-btn {
     background: transparent;
-    color: var(--cart-amber);
+    color: var(--tgs-amber);
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
@@ -229,7 +217,7 @@
     transition: background 120ms ease-in-out;
 
     &:hover {
-        background: var(--cart-border);
+        background: var(--tgs-border);
     }
 }
 
@@ -237,7 +225,7 @@
     font-variant-numeric: tabular-nums;
     font-weight: 700;
     font-size: 0.9rem;
-    color: var(--cart-amber);
+    color: var(--tgs-amber);
     min-width: 24px;
     text-align: center;
 }
@@ -246,7 +234,7 @@
 .remove-btn {
     background: transparent;
     border: none;
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
     cursor: pointer;
     padding: 0.375rem;
     border-radius: 0.375rem;
@@ -258,7 +246,7 @@
     transition: color 150ms ease-in-out, background 150ms ease-in-out;
 
     &:hover {
-        color: var(--cart-error);
+        color: var(--tgs-error);
         background: rgba(239, 68, 68, 0.08);
     }
 }
@@ -272,8 +260,8 @@
 }
 
 .summary-card {
-    background: var(--cart-surface);
-    border: 1px solid var(--cart-border);
+    background: var(--tgs-surface);
+    border: 1px solid var(--tgs-border);
     border-radius: 0.875rem;
     padding: 1.25rem;
 }
@@ -284,7 +272,7 @@
     gap: 0.5rem;
     margin-bottom: 0.875rem;
     padding-bottom: 0.875rem;
-    border-bottom: 1px solid var(--cart-border);
+    border-bottom: 1px solid var(--tgs-border);
 }
 
 .summary-line {
@@ -292,12 +280,12 @@
     justify-content: space-between;
     align-items: baseline;
     font-size: 0.875rem;
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
 }
 
 .summary-value {
     font-variant-numeric: tabular-nums;
-    color: var(--cart-cream);
+    color: var(--tgs-text);
 }
 
 .summary-total-row {
@@ -309,13 +297,13 @@
 
 .summary-total-label {
     font-size: 0.9rem;
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
 }
 
 .summary-total-amount {
     font-family: 'Alfa Slab One', serif;
     font-size: 1.5rem;
-    color: var(--cart-amber);
+    color: var(--tgs-amber);
     font-variant-numeric: tabular-nums;
 }
 
@@ -325,8 +313,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background: var(--cart-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 1rem;
     border: none;
@@ -339,7 +327,7 @@
     margin-bottom: 0.875rem;
 
     &:hover {
-        background: var(--cart-orange);
+        background: var(--tgs-orange);
         transform: translateY(-1px);
     }
 
@@ -355,21 +343,21 @@
     display: block;
     text-align: center;
     font-size: 0.875rem;
-    color: var(--cart-muted);
+    color: var(--tgs-text-muted);
     text-decoration: none;
     padding: 0.25rem;
     transition: color 150ms ease-in-out;
 
     &:hover {
-        color: var(--cart-cream);
+        color: var(--tgs-text);
     }
 }
 
 // ── Buttons (shared) ──────────────────────────────────
 .btn-primary {
     display: inline-block;
-    background: var(--cart-amber);
-    color: #0d0905;
+    background: var(--tgs-amber);
+    color: var(--tgs-text);
     font-weight: 700;
     font-size: 1rem;
     padding: 0.75rem 1.75rem;
@@ -381,7 +369,7 @@
     min-height: 48px;
 
     &:hover {
-        background: var(--cart-orange);
+        background: var(--tgs-orange);
         transform: translateY(-1px);
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, interval } from 'rxjs';
 import { takeUntil, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CmsService } from '../../services/cms.service';
@@ -43,6 +43,15 @@ export class EventOrderComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.now = new Date();
+
+        // Keep orderWindowState + countdown chip accurate without a full re-fetch.
+        // 30s is fine for a food-truck close-time countdown; cheaper than 1s.
+        if (isPlatformBrowser(this.platformId)) {
+            interval(30_000).pipe(takeUntil(this.destroy$)).subscribe(() => {
+                this.now = new Date();
+                this.cdr.markForCheck();
+            });
+        }
 
         this.route.paramMap.pipe(
             takeUntil(this.destroy$),
@@ -148,14 +157,24 @@ export class EventOrderComponent implements OnInit, OnDestroy {
         if (!isoDate) return '';
         const d = new Date(isoDate);
         if (isNaN(d.getTime())) return isoDate;
-        return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+        return d.toLocaleTimeString('en-US', {
+            timeZone: 'America/Detroit',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        });
     }
 
     formatDate(isoDate: string): string {
         if (!isoDate) return '';
         const d = new Date(isoDate);
         if (isNaN(d.getTime())) return isoDate;
-        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        return d.toLocaleDateString('en-US', {
+            timeZone: 'America/Detroit',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+        });
     }
 
     formatPrice(price: number): string {
