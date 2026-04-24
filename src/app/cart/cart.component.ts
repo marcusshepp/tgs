@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CartService, LineItem } from '../services/cart.service';
+import { CartService, LineItem, PricingBreakdown, PricingBreakdownLine } from '../services/cart.service';
 
 @Component({
     selector: 'app-cart',
@@ -17,6 +17,13 @@ export class CartComponent implements OnInit, OnDestroy {
     items: LineItem[] = [];
     totalQty = 0;
     totalPrice = 0;
+    breakdown: PricingBreakdown = {
+        subtotalCents: 0,
+        feeCents: 0,
+        taxCents: 0,
+        totalCents: 0,
+        lines: [],
+    };
 
     private destroy$ = new Subject<void>();
 
@@ -39,6 +46,10 @@ export class CartComponent implements OnInit, OnDestroy {
             this.totalPrice = price;
             this.cdr.markForCheck();
         });
+        this.cartService.breakdown$.pipe(takeUntil(this.destroy$)).subscribe(b => {
+            this.breakdown = b;
+            this.cdr.markForCheck();
+        });
     }
 
     ngOnDestroy(): void {
@@ -47,19 +58,23 @@ export class CartComponent implements OnInit, OnDestroy {
     }
 
     get subtotal(): number {
-        return this.totalPrice;
-    }
-
-    get tax(): number {
-        return 0;
+        return this.breakdown.subtotalCents / 100;
     }
 
     get orderTotal(): number {
-        return this.subtotal + this.tax;
+        return this.breakdown.totalCents / 100;
     }
 
     get isEmpty(): boolean {
         return this.totalQty === 0;
+    }
+
+    formatCents(cents: number): string {
+        return this.formatPrice(cents / 100);
+    }
+
+    trackLine(_index: number, line: PricingBreakdownLine): string {
+        return line.type;
     }
 
     increment(item: LineItem): void {

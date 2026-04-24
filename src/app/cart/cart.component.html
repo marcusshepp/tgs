@@ -95,6 +95,12 @@
                 <span>Subtotal</span>
                 <span class="summary-value">{{ formatPrice(subtotal) }}</span>
               </div>
+              @for (line of breakdown.lines; track trackLine($index, line)) {
+                <div class="summary-line">
+                  <span>{{ line.label }}</span>
+                  <span class="summary-value">{{ formatCents(line.amountCents) }}</span>
+                </div>
+              }
             </div>
 
             <div class="summary-total-row">

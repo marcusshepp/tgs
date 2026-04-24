@@ -1,9 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { PLATFORM_ID } from '@angular/core';
 import { CartService, LineItem } from './cart.service';
+import { StoreService } from './store.service';
 import { CmsMenuItem, CmsMenuItemCategory } from '../models/cms.types';
 
 const STORAGE_KEY = 'tgs_order_cart_v1';
+
+// Minimal stub — tests in this file don't exercise the pricing path.
+// `getPricing()` returns null which makes the breakdown degrade to
+// subtotal-only, matching legacy behavior.
+const storeServiceStub: Pick<StoreService, 'getPricing'> = {
+    getPricing: async () => null,
+};
+
+function makeFreshCartService(platformId: object): CartService {
+    return new CartService(platformId, storeServiceStub as StoreService);
+}
 
 function makeMenuItem(slug: string, price: number, name?: string): CmsMenuItem {
     return {
@@ -33,6 +45,7 @@ describe('CartService', () => {
             providers: [
                 CartService,
                 { provide: PLATFORM_ID, useValue: 'browser' },
+                { provide: StoreService, useValue: storeServiceStub },
             ],
         });
         service = TestBed.inject(CartService);
@@ -255,7 +268,7 @@ describe('CartService', () => {
             service.addItem(makeMenuItem('classic', 8), 'spring-fest');
 
             const platformId = TestBed.inject(PLATFORM_ID);
-            const freshService = new CartService(platformId);
+            const freshService = makeFreshCartService(platformId);
 
             freshService.getItems().subscribe((items: LineItem[]) => {
                 expect(items.length).toBe(1);
@@ -268,7 +281,7 @@ describe('CartService', () => {
         it('clears localStorage on corrupted JSON', () => {
             localStorage.setItem(STORAGE_KEY, 'not-valid-json{{{');
             const platformId = TestBed.inject(PLATFORM_ID);
-            const freshService = new CartService(platformId);
+            const freshService = makeFreshCartService(platformId);
             expect(freshService.getEventSlug()).toBeNull();
             expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
         });
@@ -276,14 +289,14 @@ describe('CartService', () => {
         it('clears localStorage on structurally invalid data', () => {
             localStorage.setItem(STORAGE_KEY, JSON.stringify([1, 2, 3]));
             const platformId = TestBed.inject(PLATFORM_ID);
-            const freshService = new CartService(platformId);
+            const freshService = makeFreshCartService(platformId);
             expect(freshService.getEventSlug()).toBeNull();
             expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
         });
 
         it('starts fresh when localStorage is empty', (done: DoneFn) => {
             const platformId = TestBed.inject(PLATFORM_ID);
-            const freshService = new CartService(platformId);
+            const freshService = makeFreshCartService(platformId);
             freshService.getItems().subscribe((items: LineItem[]) => {
                 expect(items.length).toBe(0);
                 done();
@@ -332,7 +345,7 @@ describe('CartService', () => {
             service.addItem(makeMenuItem('classic', 8), 'event-a');
 
             const platformId = TestBed.inject(PLATFORM_ID);
-            const freshService = new CartService(platformId);
+            const freshService = makeFreshCartService(platformId);
 
             freshService.addItem(makeMenuItem('bbq', 10), 'event-b');
             freshService.getItems().subscribe(items => {

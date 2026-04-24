@@ -1,8 +1,9 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import { CmsMenuItem } from '../models/cms.types';
+import { StoreService, PricingResponse } from './store.service';
 
 export interface LineItem {
     itemId: string;
@@ -19,6 +20,20 @@ export interface CartState {
     items: Record<string, LineItem>;
 }
 
+export interface PricingBreakdownLine {
+    type: 'fee' | 'tax';
+    label: string;
+    amountCents: number;
+}
+
+export interface PricingBreakdown {
+    subtotalCents: number;
+    feeCents: number;
+    taxCents: number;
+    totalCents: number;
+    lines: PricingBreakdownLine[];
+}
+
 interface StoredData {
     currentSlug: string | null;
     carts: Record<string, Record<string, LineItem>>;
@@ -26,6 +41,40 @@ interface StoredData {
 
 const STORAGE_KEY = 'tgs_order_cart_v1';
 const MAX_QTY = 99;
+
+// Pure integer-math pricing — MUST match the Lambda implementation at
+// sync.infra/lambda/portal/store/index.js `computePricing`. Duplicated
+// intentionally (no shared runtime). If this formula diverges from the
+// server, the cart preview and Stripe charge drift, which breaks customer
+// trust. Covered by the fixtures in cart.service.spec.ts.
+export function computePricing(
+    subtotalCents: number,
+    pricing: PricingResponse | null,
+): { feeCents: number; taxCents: number; totalCents: number } {
+    if (!pricing) {
+        return { feeCents: 0, taxCents: 0, totalCents: subtotalCents };
+    }
+    const fee = pricing.onlineFee;
+    const tax = pricing.salesTax;
+
+    let feeCents = 0;
+    if (fee.enabled) {
+        feeCents = Math.round((subtotalCents * fee.percentBps) / 10000) + fee.flatCents;
+    }
+
+    let taxCents = 0;
+    if (tax.enabled) {
+        const taxBase =
+            subtotalCents + (fee.enabled && fee.taxable ? feeCents : 0);
+        taxCents = Math.round((taxBase * tax.percentBps) / 10000);
+    }
+
+    return {
+        feeCents,
+        taxCents,
+        totalCents: subtotalCents + feeCents + taxCents,
+    };
+}
 
 function isValidStoredData(value: unknown): value is StoredData {
     if (!value || typeof value !== 'object' || Array.isArray(value)) {
@@ -63,8 +112,62 @@ export class CartService {
         map(qty => qty === 0),
     );
 
-    constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    // Pricing config (tax + fee) fetched on browser init. Null until the
+    // first successful /store/pricing response. UI renders just the
+    // subtotal/total rows while null — same degraded state used when the
+    // tenant has both disabled.
+    private readonly pricing$ = new BehaviorSubject<PricingResponse | null>(null);
+
+    readonly breakdown$: Observable<PricingBreakdown> = combineLatest([
+        this.totalPrice$,
+        this.pricing$,
+    ]).pipe(
+        map(([totalDollars, pricing]) => {
+            const subtotalCents = Math.round(totalDollars * 100);
+            const { feeCents, taxCents, totalCents } = computePricing(
+                subtotalCents,
+                pricing,
+            );
+            const lines: PricingBreakdownLine[] = [];
+            if (pricing?.onlineFee.enabled && feeCents > 0) {
+                lines.push({
+                    type: 'fee',
+                    label: pricing.onlineFee.label,
+                    amountCents: feeCents,
+                });
+            }
+            if (pricing?.salesTax.enabled && taxCents > 0) {
+                lines.push({
+                    type: 'tax',
+                    label: pricing.salesTax.label,
+                    amountCents: taxCents,
+                });
+            }
+            return { subtotalCents, feeCents, taxCents, totalCents, lines };
+        }),
+    );
+
+    constructor(
+        @Inject(PLATFORM_ID) private platformId: object,
+        private storeService: StoreService,
+    ) {
         this.loadFromStorage();
+        // Fetch pricing config on init. Server-side render skips — there's no
+        // fetch() there. First real pricing fetch happens when the component
+        // hydrates in the browser.
+        if (isPlatformBrowser(this.platformId)) {
+            void this.fetchPricing();
+        }
+    }
+
+    private async fetchPricing(): Promise<void> {
+        try {
+            const pricing = await this.storeService.getPricing();
+            this.pricing$.next(pricing);
+        } catch (err) {
+            console.warn('[cart.service] pricing fetch failed', err);
+            // Leave pricing$ as null → cart falls back to subtotal-only.
+        }
     }
 
     private loadFromStorage(): void {

@@ -42,13 +42,22 @@ export interface OrderBySessionItem {
     lineTotalCents: number;
 }
 
+export interface OrderPricingLine {
+    type: string;
+    label: string;
+    amount: number;
+}
+
 export interface OrderBySessionResponse {
     order: {
         orderId: string;
         status: string;
         items: OrderBySessionItem[];
         subtotal: number | null;
+        tax: number | null;
+        fee: number | null;
         total: number;
+        pricingLines: OrderPricingLine[];
         currency: string;
         eventSlug: string | null;
         eventName: string | null;
@@ -58,6 +67,26 @@ export interface OrderBySessionResponse {
         pickupEndAt: string | null;
         pickupInstructions: string | null;
     };
+}
+
+export interface SalesTaxConfigResponse {
+    enabled: true;
+    label: string;
+    percentBps: number;
+}
+
+export interface OnlineFeeConfigResponse {
+    enabled: true;
+    label: string;
+    percentBps: number;
+    flatCents: number;
+    taxable: boolean;
+}
+
+export interface PricingResponse {
+    currency: string;
+    salesTax: SalesTaxConfigResponse | { enabled: false };
+    onlineFee: OnlineFeeConfigResponse | { enabled: false };
 }
 
 @Injectable({ providedIn: 'root' })
@@ -92,6 +121,23 @@ export class StoreService {
             throw new Error(`checkout failed: ${res.status} ${detail}`);
         }
         return res.json();
+    }
+
+    // Fetch the tenant's sales tax + online ordering fee config. Cart/checkout/
+    // event-order pages call this on init so they can render the breakdown
+    // before the customer even starts adding items. Server responds with
+    // `Cache-Control: no-store` so kill-switch changes propagate within one
+    // reload. Returns null on any failure — caller falls back to showing
+    // just the subtotal + total (no tax/fee rows).
+    async getPricing(): Promise<PricingResponse | null> {
+        try {
+            const params = new URLSearchParams({ domain: this.domain });
+            const res = await fetch(`${this.base}/pricing?${params.toString()}`);
+            if (!res.ok) return null;
+            return (await res.json()) as PricingResponse;
+        } catch {
+            return null;
+        }
     }
 
     // Returns null when the order hasn't been written yet (webhook lag, 404 with
