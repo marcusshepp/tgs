@@ -207,6 +207,20 @@
                     </li>
                   }
                 </ul>
+                @if (breakdown.lines.length > 0) {
+                  <div class="sidebar-breakdown">
+                    <div class="sidebar-breakdown-row">
+                      <span>Subtotal</span>
+                      <span>{{ formattedSubtotal }}</span>
+                    </div>
+                    @for (line of breakdown.lines; track trackBreakdownLine($index, line)) {
+                      <div class="sidebar-breakdown-row">
+                        <span>{{ line.label }}</span>
+                        <span>{{ formatCents(line.amountCents) }}</span>
+                      </div>
+                    }
+                  </div>
+                }
                 <div class="sidebar-total-row">
                   <span>Total</span>
                   <span class="sidebar-total-amount">{{ formattedTotal }}</span>

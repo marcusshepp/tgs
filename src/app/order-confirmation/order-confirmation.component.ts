@@ -4,19 +4,16 @@ import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { LineItem, CartService } from '../services/cart.service';
+import { CartService } from '../services/cart.service';
 import { CmsService } from '../services/cms.service';
 import { StoreService, OrderBySessionResponse } from '../services/store.service';
 import { CmsOrderUi, CmsEvent } from '../models/cms.types';
-import { CustomerInfo } from '../checkout/checkout.component';
+import { PendingOrderSnapshot } from '../checkout/checkout.component';
 
-interface PendingOrder {
-    orderId: string;
-    items: LineItem[];
-    total: number;
-    customer: CustomerInfo;
-    eventSlug: string | null;
-    placedAt: string;
+interface ConfirmationPricingLine {
+    type: string;
+    label: string;
+    amount: number;
 }
 
 // Unified view for the template — either branch (sessionStorage or API)
@@ -24,7 +21,9 @@ interface PendingOrder {
 interface ConfirmationView {
     orderId: string;
     items: Array<{ name: string; quantity: number; lineTotal: number }>;
+    subtotal: number | null;
     total: number;
+    pricingLines: ConfirmationPricingLine[];
     customerName: string | null;
     pickupInstructions: string | null;
     eventName: string | null;
@@ -91,7 +90,7 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
         const raw = sessionStorage.getItem('tgs-pending-order');
         if (raw) {
             try {
-                const pending = JSON.parse(raw) as PendingOrder;
+                const pending = JSON.parse(raw) as PendingOrderSnapshot;
                 this.view = this.fromPending(pending);
                 this.cartService.clear();
                 sessionStorage.removeItem('tgs-pending-order');
@@ -132,7 +131,7 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
         this.destroy$.complete();
     }
 
-    private fromPending(p: PendingOrder): ConfirmationView {
+    private fromPending(p: PendingOrderSnapshot): ConfirmationView {
         return {
             orderId: p.orderId,
             items: p.items.map(i => ({
@@ -140,7 +139,11 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
                 quantity: i.quantity,
                 lineTotal: i.unitPrice * i.quantity,
             })),
+            subtotal: typeof p.subtotal === 'number' ? p.subtotal : null,
             total: p.total,
+            pricingLines: Array.isArray(p.pricingLines)
+                ? p.pricingLines.map(l => ({ type: l.type, label: l.label, amount: l.amount }))
+                : [],
             customerName: p.customer.name || null,
             pickupInstructions: p.customer.pickupInstructions || null,
             eventName: null,
@@ -171,7 +174,13 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
                 quantity: i.quantity,
                 lineTotal: i.lineTotalCents / 100,
             })),
+            subtotal: o.subtotal,
             total: o.total,
+            // Snapshotted labels per-order — always prefer server over pending
+            // since the server record is authoritative after webhook lands.
+            pricingLines: Array.isArray(o.pricingLines)
+                ? o.pricingLines.map(l => ({ type: l.type, label: l.label, amount: l.amount }))
+                : [],
             customerName: null,
             pickupInstructions: o.pickupInstructions,
             eventName: o.eventName,
@@ -180,6 +189,10 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
             pickupStartAt: o.pickupStartAt,
             pickupEndAt: o.pickupEndAt,
         };
+    }
+
+    trackPricingLine(_index: number, line: ConfirmationPricingLine): string {
+        return line.type;
     }
 
     private async hydrateFromServer(sessionId: string, attempt: number): Promise<void> {

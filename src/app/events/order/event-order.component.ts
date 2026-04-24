@@ -5,7 +5,7 @@ import { Subject, interval } from 'rxjs';
 import { takeUntil, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CmsService } from '../../services/cms.service';
-import { CartService, LineItem } from '../../services/cart.service';
+import { CartService, LineItem, PricingBreakdown, PricingBreakdownLine } from '../../services/cart.service';
 import { CmsEvent, CmsMenuItem } from '../../models/cms.types';
 
 type OrderWindowState = 'open' | 'closed' | 'notOpen';
@@ -28,6 +28,13 @@ export class EventOrderComponent implements OnInit, OnDestroy {
     cartItems: LineItem[] = [];
     totalQty = 0;
     totalPrice = 0;
+    breakdown: PricingBreakdown = {
+        subtotalCents: 0,
+        feeCents: 0,
+        taxCents: 0,
+        totalCents: 0,
+        lines: [],
+    };
 
     private destroy$ = new Subject<void>();
     private now = new Date();
@@ -86,6 +93,20 @@ export class EventOrderComponent implements OnInit, OnDestroy {
             this.totalPrice = price;
             this.cdr.markForCheck();
         });
+
+        this.cartService.breakdown$.pipe(takeUntil(this.destroy$)).subscribe(b => {
+            this.breakdown = b;
+            this.cdr.markForCheck();
+        });
+    }
+
+    trackBreakdownLine(_index: number, line: PricingBreakdownLine): string {
+        return line.type;
+    }
+
+    formatCents(cents: number): string {
+        const dollars = cents / 100;
+        return dollars % 1 === 0 ? `$${dollars}` : `$${dollars.toFixed(2)}`;
     }
 
     ngOnDestroy(): void {
@@ -211,7 +232,17 @@ export class EventOrderComponent implements OnInit, OnDestroy {
     }
 
     get formattedTotal(): string {
-        return this.totalPrice % 1 === 0 ? `$${this.totalPrice}` : `$${this.totalPrice.toFixed(2)}`;
+        // Authoritative total = subtotal + fee + tax when breakdown is live;
+        // falls back to raw subtotal when pricing hasn't loaded yet or the
+        // tenant has tax+fee disabled (breakdown.totalCents === subtotalCents).
+        const cents = this.breakdown.totalCents || Math.round(this.totalPrice * 100);
+        const dollars = cents / 100;
+        return dollars % 1 === 0 ? `$${dollars}` : `$${dollars.toFixed(2)}`;
+    }
+
+    get formattedSubtotal(): string {
+        const dollars = this.breakdown.subtotalCents / 100;
+        return dollars % 1 === 0 ? `$${dollars}` : `$${dollars.toFixed(2)}`;
     }
 
     submitOrder(): void {

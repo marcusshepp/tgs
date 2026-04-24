@@ -644,6 +644,24 @@
     font-size: 0.82rem;
 }
 
+.sidebar-breakdown {
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--tgs-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sidebar-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.82rem;
+    color: var(--tgs-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
 .sidebar-total-row {
     display: flex;
     justify-content: space-between;

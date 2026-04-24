@@ -52,6 +52,21 @@
           }
         </div>
 
+        @if (view.pricingLines.length > 0 && view.subtotal !== null) {
+          <div class="confirm-breakdown">
+            <div class="confirm-breakdown-row">
+              <span>Subtotal</span>
+              <span>{{ formatPrice(view.subtotal) }}</span>
+            </div>
+            @for (line of view.pricingLines; track trackPricingLine($index, line)) {
+              <div class="confirm-breakdown-row">
+                <span>{{ line.label }}</span>
+                <span>{{ formatPrice(line.amount) }}</span>
+              </div>
+            }
+          </div>
+        }
+
         <div class="confirm-total-row">
           <span>Total</span>
           <span class="confirm-total-amount">{{ formatPrice(view.total) }}</span>

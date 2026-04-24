@@ -4,7 +4,7 @@ import { RouterModule, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CartService, LineItem } from '../services/cart.service';
+import { CartService, LineItem, PricingBreakdown, PricingBreakdownLine } from '../services/cart.service';
 import { StoreService } from '../services/store.service';
 
 export interface CustomerInfo {
@@ -12,6 +12,28 @@ export interface CustomerInfo {
     phone: string;
     email: string;
     pickupInstructions: string;
+}
+
+export interface PendingOrderPricingLine {
+    type: string;
+    label: string;
+    amount: number; // dollars, to match server-side order record
+}
+
+// Stored under sessionStorage['tgs-pending-order'] so the confirmation
+// page can render line items + breakdown while the webhook catches up.
+export interface PendingOrderSnapshot {
+    orderId: 'pending';
+    items: LineItem[];
+    subtotal: number;
+    tax: number;
+    fee: number;
+    total: number;
+    currency: string;
+    pricingLines: PendingOrderPricingLine[];
+    customer: CustomerInfo;
+    eventSlug: string | null;
+    placedAt: string;
 }
 
 @Component({
@@ -26,6 +48,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     items: LineItem[] = [];
     totalQty = 0;
     totalPrice = 0;
+    breakdown: PricingBreakdown = {
+        subtotalCents: 0,
+        feeCents: 0,
+        taxCents: 0,
+        totalCents: 0,
+        lines: [],
+    };
 
     customer: CustomerInfo = {
         name: '',
@@ -61,6 +90,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.totalPrice = price;
             this.cdr.markForCheck();
         });
+        this.cartService.breakdown$.pipe(takeUntil(this.destroy$)).subscribe(b => {
+            this.breakdown = b;
+            this.cdr.markForCheck();
+        });
     }
 
     ngOnDestroy(): void {
@@ -69,19 +102,23 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     }
 
     get subtotal(): number {
-        return this.totalPrice;
-    }
-
-    get tax(): number {
-        return 0;
+        return this.breakdown.subtotalCents / 100;
     }
 
     get orderTotal(): number {
-        return this.subtotal + this.tax;
+        return this.breakdown.totalCents / 100;
     }
 
     formatPrice(price: number): string {
         return `$${price.toFixed(2)}`;
+    }
+
+    formatCents(cents: number): string {
+        return this.formatPrice(cents / 100);
+    }
+
+    trackLine(_index: number, line: PricingBreakdownLine): string {
+        return line.type;
     }
 
     lineTotal(item: LineItem): string {
@@ -125,13 +162,24 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             }
 
             // 2. Persist a client-side copy of the pending order so the
-            //    confirmation page can render line items while the webhook
-            //    catches up and writes the authoritative order record.
+            //    confirmation page can render line items + pricing breakdown
+            //    while the webhook catches up and writes the authoritative
+            //    order record. The breakdown here must match the Stripe charge
+            //    exactly — `computePricing` is the single source of truth.
             const eventSlug = this.cartService.getEventSlug();
-            const pendingOrder = {
+            const pendingOrder: PendingOrderSnapshot = {
                 orderId: 'pending',
                 items: [...this.items],
-                total: this.orderTotal,
+                subtotal: this.breakdown.subtotalCents / 100,
+                tax: this.breakdown.taxCents / 100,
+                fee: this.breakdown.feeCents / 100,
+                total: this.breakdown.totalCents / 100,
+                currency: 'usd',
+                pricingLines: this.breakdown.lines.map(l => ({
+                    type: l.type,
+                    label: l.label,
+                    amount: l.amountCents / 100,
+                })),
                 customer: { ...this.customer },
                 eventSlug,
                 placedAt: new Date().toISOString(),

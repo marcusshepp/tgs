@@ -193,6 +193,24 @@
     flex-shrink: 0;
 }
 
+.confirm-breakdown {
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--tgs-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.confirm-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.9rem;
+    color: var(--tgs-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
 .confirm-total-row {
     display: flex;
     justify-content: space-between;
