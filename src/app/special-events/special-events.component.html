@@ -70,20 +70,6 @@
                             </div>
                         }
 
-                        <div class="featured-cta-row">
-                            @if (isOrderingOpen(featuredEvent)) {
-                                <a
-                                    [routerLink]="['/events', featuredEvent.slug, 'order']"
-                                    class="cta-primary"
-                                >Order Now →</a>
-                            } @else if (isOrderingFuture(featuredEvent)) {
-                                <p class="cta-note">
-                                    Ordering opens {{ formatOrderOpensDate(featuredEvent.orderOpensAt) }}
-                                </p>
-                            } @else {
-                                <p class="cta-note">Ordering closed</p>
-                            }
-                        </div>
                     </div>
                 </article>
             }
@@ -104,14 +90,6 @@
                                 <p class="event-card-date">{{ event.date }}</p>
                                 @if (event.pickupLocation || event.location) {
                                     <p class="event-card-location">{{ event.pickupLocation || event.location }}</p>
-                                }
-                                @if (isOrderingOpen(event)) {
-                                    <a
-                                        [routerLink]="['/events', event.slug, 'order']"
-                                        class="cta-secondary"
-                                    >Order →</a>
-                                } @else if (isOrderingFuture(event)) {
-                                    <p class="cta-note-small">Opens {{ formatOrderOpensDate(event.orderOpensAt) }}</p>
                                 }
                             </div>
                         </article>
