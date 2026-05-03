@@ -232,6 +232,7 @@ export interface CmsEvent {
     menuImageUrl: string;
     specialMenuHeading: string;
     status: CmsEventStatus;
+    orderingActive?: boolean;
     orderOpensAt: string;
     orderClosesAt: string;
     pickupLocation: string;

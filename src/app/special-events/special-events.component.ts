@@ -66,6 +66,8 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
     }
 
     isOrderingOpen(event: CmsEvent): boolean {
+        if (event.orderingActive === false) return false;
+        if (event.orderingActive === true) return true;
         if (!event.orderOpensAt || !event.orderClosesAt) return false;
         const opens = new Date(event.orderOpensAt);
         const closes = new Date(event.orderClosesAt);

@@ -402,35 +402,36 @@
         "required": true,
         "order": 3
       },
-      { "key": "badge", "type": "text", "label": "Badge Label (e.g. This Friday!, Upcoming)", "order": 4 },
-      { "key": "date", "type": "text", "label": "Date (display text, e.g. \"Friday, April 28th, 2026\")", "order": 5 },
-      { "key": "startTime", "type": "text", "label": "Start Time (display text, e.g. \"5:00 PM\")", "order": 6 },
-      { "key": "endTime", "type": "text", "label": "End Time (display text, e.g. \"7:00 PM\")", "order": 7 },
-      { "key": "location", "type": "text", "label": "Street Address", "order": 8 },
-      { "key": "coverImage", "type": "image", "label": "Cover / Flyer Image", "order": 9 },
-      { "key": "description", "type": "richtext", "label": "Event Description", "order": 10 },
+      { "key": "orderingActive", "type": "boolean", "label": "Ordering Active (master switch — when on, Order Now button shows)", "order": 4 },
+      { "key": "badge", "type": "text", "label": "Badge Label (e.g. This Friday!, Upcoming)", "order": 5 },
+      { "key": "date", "type": "text", "label": "Date (display text, e.g. \"Friday, April 28th, 2026\")", "order": 6 },
+      { "key": "startTime", "type": "text", "label": "Start Time (display text, e.g. \"5:00 PM\")", "order": 7 },
+      { "key": "endTime", "type": "text", "label": "End Time (display text, e.g. \"7:00 PM\")", "order": 8 },
+      { "key": "location", "type": "text", "label": "Street Address", "order": 9 },
+      { "key": "coverImage", "type": "image", "label": "Cover / Flyer Image", "order": 10 },
+      { "key": "description", "type": "richtext", "label": "Event Description", "order": 11 },
       {
         "key": "highlights",
         "type": "array",
         "label": "Highlight Bullets",
         "itemType": "text",
-        "order": 11
+        "order": 12
       },
-      { "key": "orderOpensAt", "type": "datetime", "label": "Order Opens At", "order": 12 },
-      { "key": "orderClosesAt", "type": "datetime", "label": "Order Closes At", "order": 13 },
-      { "key": "maxOrders", "type": "number", "label": "Max Orders (0 = unlimited)", "order": 14 },
+      { "key": "orderOpensAt", "type": "datetime", "label": "Order Opens At", "order": 13 },
+      { "key": "orderClosesAt", "type": "datetime", "label": "Order Closes At", "order": 14 },
+      { "key": "maxOrders", "type": "number", "label": "Max Orders (0 = unlimited)", "order": 15 },
       {
         "key": "linkedMenuItemSlugs",
         "type": "array",
         "label": "Linked Menu Item Slugs (for ordering — leave empty to use full menu)",
         "itemType": "text",
-        "order": 15
+        "order": 16
       },
-      { "key": "pickupLocation", "type": "text", "label": "Pickup Location (address or description)", "order": 16 },
-      { "key": "pickupStartAt", "type": "datetime", "label": "Pickup Window Start", "order": 17 },
-      { "key": "pickupEndAt", "type": "datetime", "label": "Pickup Window End", "order": 18 },
-      { "key": "specialMenuHeading", "type": "text", "label": "Special Menu Section Heading", "order": 19 },
-      { "key": "menuImageUrl", "type": "image", "label": "Special Menu Image (optional)", "order": 20 }
+      { "key": "pickupLocation", "type": "text", "label": "Pickup Location (address or description)", "order": 17 },
+      { "key": "pickupStartAt", "type": "datetime", "label": "Pickup Window Start", "order": 18 },
+      { "key": "pickupEndAt", "type": "datetime", "label": "Pickup Window End", "order": 19 },
+      { "key": "specialMenuHeading", "type": "text", "label": "Special Menu Section Heading", "order": 20 },
+      { "key": "menuImageUrl", "type": "image", "label": "Special Menu Image (optional)", "order": 21 }
     ]
   },
 

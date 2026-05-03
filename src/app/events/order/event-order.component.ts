@@ -126,6 +126,8 @@ export class EventOrderComponent implements OnInit, OnDestroy {
 
     get orderWindowState(): OrderWindowState {
         if (!this.event) return 'open';
+        if (this.event.orderingActive === false) return 'closed';
+        if (this.event.orderingActive === true) return 'open';
         const { orderOpensAt, orderClosesAt } = this.event;
         if (!orderOpensAt || !orderClosesAt) return 'open';
         const opens = new Date(orderOpensAt);
