@@ -6,7 +6,7 @@ import { takeUntil, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CmsService } from '../../services/cms.service';
 import { CartService, LineItem, PricingBreakdown, PricingBreakdownLine } from '../../services/cart.service';
-import { CmsEvent, CmsMenuItem } from '../../models/cms.types';
+import { CmsEvent, CmsEventLinkedSlug, CmsMenuItem } from '../../models/cms.types';
 
 type OrderWindowState = 'open' | 'closed' | 'notOpen';
 
@@ -114,10 +114,13 @@ export class EventOrderComponent implements OnInit, OnDestroy {
         this.destroy$.complete();
     }
 
-    private loadMenuItems(slugs: string[]): void {
+    private loadMenuItems(slugs: CmsEventLinkedSlug[]): void {
+        const normalized = (slugs ?? [])
+            .map(s => (typeof s === 'string' ? s : s?.value ?? ''))
+            .filter(s => s.length > 0);
         this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
-            this.menuItems = slugs.length
-                ? items.filter(i => slugs.includes(i.slug))
+            this.menuItems = normalized.length
+                ? items.filter(i => normalized.includes(i.slug))
                 : items;
             this.isLoading = false;
             this.cdr.markForCheck();

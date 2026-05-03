@@ -217,6 +217,7 @@ export interface CmsCateringItem {
 export type CmsEventStatus = 'upcoming' | 'past';
 
 export type CmsEventHighlight = string | { value: string };
+export type CmsEventLinkedSlug = string | { value: string };
 
 export interface CmsEvent {
     slug: string;
@@ -239,7 +240,7 @@ export interface CmsEvent {
     pickupStartAt: string;
     pickupEndAt: string;
     maxOrders: number;
-    linkedMenuItemSlugs: string[];
+    linkedMenuItemSlugs: CmsEventLinkedSlug[];
 }
 
 export type CmsReviewSource = 'google' | 'yelp' | 'facebook' | 'direct';
