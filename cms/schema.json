@@ -393,8 +393,8 @@
     "slugField": "slug",
     "slugSourceField": "name",
     "fields": [
-      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true, "order": 1 },
-      { "key": "name", "type": "text", "label": "Event Name", "required": true, "order": 2 },
+      { "key": "name", "type": "text", "label": "Event Name", "required": true, "order": 1 },
+      { "key": "slug", "type": "text", "label": "Slug (URL-safe, unique)", "required": true, "order": 2 },
       {
         "key": "status",
         "type": "select",
