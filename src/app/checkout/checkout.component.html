@@ -102,17 +102,17 @@
               }
             </div>
 
-            <!-- Pickup instructions (optional) -->
+            <!-- Special instructions (optional) -->
             <div class="field-group">
               <label class="field-label" for="pickupInstructions">
-                Pickup Instructions
-                <span class="field-hint">(optional)</span>
+                Special Instructions
+                <span class="field-hint">(e.g. no pickles)</span>
               </label>
               <textarea
                 id="pickupInstructions"
                 name="pickupInstructions"
                 class="field-textarea"
-                placeholder="Any special notes for pickup…"
+                placeholder="e.g. no pickles, extra sauce, gluten-free bun"
                 rows="3"
                 autocomplete="off"
                 [(ngModel)]="customer.pickupInstructions"
