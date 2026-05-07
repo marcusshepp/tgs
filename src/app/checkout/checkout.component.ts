@@ -2,10 +2,11 @@ import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectionStrat
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, firstValueFrom } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CartService, LineItem, PricingBreakdown, PricingBreakdownLine } from '../services/cart.service';
 import { StoreService } from '../services/store.service';
+import { CmsService } from '../services/cms.service';
 
 export interface CustomerInfo {
     name: string;
@@ -66,6 +67,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     isSubmitting = false;
     submitAttempted = false;
     checkoutError: string | null = null;
+    isCheckingEvent = false;
 
     private destroy$ = new Subject<void>();
 
@@ -74,10 +76,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         private router: Router,
         private cdr: ChangeDetectorRef,
         private storeService: StoreService,
+        private cmsService: CmsService,
         @Inject(PLATFORM_ID) private platformId: object,
     ) {}
 
     ngOnInit(): void {
+        if (isPlatformBrowser(this.platformId)) {
+            void this.guardEventOrderingActive();
+        }
+
         this.cartService.items$.pipe(takeUntil(this.destroy$)).subscribe(items => {
             this.items = items;
             this.cdr.markForCheck();
@@ -161,6 +168,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
                 return;
             }
 
+            // Pull a fresh pricing config so the snapshot we persist (and the
+            // breakdown the customer sees on the Place Order button) match the
+            // Stripe charge even if Tim flipped a kill-switch mid-session.
+            // Failures don't block — server is the authority on the charge.
+            await this.cartService.refreshPricing();
+            const breakdown = await firstValueFrom(this.cartService.breakdown$);
+
             // 2. Persist a client-side copy of the pending order so the
             //    confirmation page can render line items + pricing breakdown
             //    while the webhook catches up and writes the authoritative
@@ -170,12 +184,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             const pendingOrder: PendingOrderSnapshot = {
                 orderId: 'pending',
                 items: [...this.items],
-                subtotal: this.breakdown.subtotalCents / 100,
-                tax: this.breakdown.taxCents / 100,
-                fee: this.breakdown.feeCents / 100,
-                total: this.breakdown.totalCents / 100,
+                subtotal: breakdown.subtotalCents / 100,
+                tax: breakdown.taxCents / 100,
+                fee: breakdown.feeCents / 100,
+                total: breakdown.totalCents / 100,
                 currency: 'usd',
-                pricingLines: this.breakdown.lines.map(l => ({
+                pricingLines: breakdown.lines.map(l => ({
                     type: l.type,
                     label: l.label,
                     amount: l.amountCents / 100,
@@ -217,6 +231,47 @@ export class CheckoutComponent implements OnInit, OnDestroy {
             this.isSubmitting = false;
             this.cdr.markForCheck();
         }
+    }
+
+    private async guardEventOrderingActive(): Promise<void> {
+        const eventSlug = this.cartService.getEventSlug();
+        if (!eventSlug) {
+            this.cartService.clearCart();
+            void this.router.navigate(['/special-events'], {
+                queryParams: { closed: '1' },
+            });
+            return;
+        }
+
+        this.isCheckingEvent = true;
+        this.cdr.markForCheck();
+        try {
+            const event = await firstValueFrom(this.cmsService.getEventBySlug(eventSlug));
+            if (!this.isOrderingActive(event)) {
+                this.cartService.clearCart();
+                void this.router.navigate(['/special-events'], {
+                    queryParams: { closed: '1', event: eventSlug },
+                });
+                return;
+            }
+        } catch {
+            // CMS fetch failed — don't strand the customer; let them through.
+            // The server will reject at create-checkout-session if the event
+            // is truly closed.
+        } finally {
+            this.isCheckingEvent = false;
+            this.cdr.markForCheck();
+        }
+    }
+
+    private isOrderingActive(event: { orderingActive?: boolean; orderOpensAt?: string; orderClosesAt?: string }): boolean {
+        if (event.orderingActive === false) return false;
+        if (event.orderingActive === true) return true;
+        if (!event.orderOpensAt || !event.orderClosesAt) return false;
+        const opens = new Date(event.orderOpensAt);
+        const closes = new Date(event.orderClosesAt);
+        const now = new Date();
+        return now >= opens && now <= closes;
     }
 
     isFieldInvalid(form: NgForm, fieldName: string): boolean {

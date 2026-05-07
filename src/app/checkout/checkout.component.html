@@ -14,6 +14,11 @@
       <h1 class="checkout-title">Checkout</h1>
     </header>
 
+    @if (isCheckingEvent) {
+      <div class="checkout-checking" role="status" aria-live="polite">
+        <p>Checking event availability…</p>
+      </div>
+    } @else {
     <div class="checkout-layout">
 
       <!-- Customer info form -->
@@ -226,6 +231,7 @@
       </aside>
 
     </div>
+    }
   </div>
 
 </div>

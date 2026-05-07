@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { CmsService } from '../../services/cms.service';
 import { CartService, LineItem, PricingBreakdown, PricingBreakdownLine } from '../../services/cart.service';
 import { CmsEvent, CmsEventLinkedSlug, CmsMenuItem } from '../../models/cms.types';
+import { parseCmsDateTime } from '../../utils/datetime';
 
 type OrderWindowState = 'open' | 'closed' | 'notOpen';
 
@@ -131,10 +132,9 @@ export class EventOrderComponent implements OnInit, OnDestroy {
         if (!this.event) return 'open';
         if (this.event.orderingActive === false) return 'closed';
         if (this.event.orderingActive === true) return 'open';
-        const { orderOpensAt, orderClosesAt } = this.event;
-        if (!orderOpensAt || !orderClosesAt) return 'open';
-        const opens = new Date(orderOpensAt);
-        const closes = new Date(orderClosesAt);
+        const opens = parseCmsDateTime(this.event.orderOpensAt);
+        const closes = parseCmsDateTime(this.event.orderClosesAt);
+        if (!opens || !closes) return 'open';
         if (this.now > closes) return 'closed';
         if (this.now < opens) return 'notOpen';
         return 'open';
@@ -220,8 +220,8 @@ export class EventOrderComponent implements OnInit, OnDestroy {
     }
 
     get countdownLabel(): string | null {
-        if (!this.event?.orderClosesAt) return null;
-        const closes = new Date(this.event.orderClosesAt);
+        const closes = parseCmsDateTime(this.event?.orderClosesAt ?? '');
+        if (!closes) return null;
         const diffMs = closes.getTime() - this.now.getTime();
         if (diffMs <= 0 || diffMs > 24 * 60 * 60 * 1000) return null;
         const hours = Math.floor(diffMs / (60 * 60 * 1000));

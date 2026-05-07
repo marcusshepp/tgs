@@ -5,6 +5,7 @@ import { Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CmsService } from '../services/cms.service';
 import { CmsEvent, CmsEventHighlight } from '../models/cms.types';
+import { parseCmsDateTime } from '../utils/datetime';
 
 @Component({
     selector: 'app-special-events',
@@ -68,15 +69,15 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
     isOrderingOpen(event: CmsEvent): boolean {
         if (event.orderingActive === false) return false;
         if (event.orderingActive === true) return true;
-        if (!event.orderOpensAt || !event.orderClosesAt) return false;
-        const opens = new Date(event.orderOpensAt);
-        const closes = new Date(event.orderClosesAt);
+        const opens = parseCmsDateTime(event.orderOpensAt);
+        const closes = parseCmsDateTime(event.orderClosesAt);
+        if (!opens || !closes) return false;
         return this.now >= opens && this.now <= closes;
     }
 
     isOrderingFuture(event: CmsEvent): boolean {
-        if (!event.orderOpensAt) return false;
-        const opens = new Date(event.orderOpensAt);
+        const opens = parseCmsDateTime(event.orderOpensAt);
+        if (!opens) return false;
         return this.now < opens;
     }
 
@@ -128,8 +129,8 @@ export class SpecialEventsComponent implements OnInit, OnDestroy {
     }
 
     countdownLabel(event: CmsEvent): string | null {
-        if (!event.orderClosesAt) return null;
-        const closes = new Date(event.orderClosesAt);
+        const closes = parseCmsDateTime(event.orderClosesAt);
+        if (!closes) return null;
         const diffMs = closes.getTime() - this.now.getTime();
         if (diffMs <= 0 || diffMs > 24 * 60 * 60 * 1000) return null;
         const hours = Math.floor(diffMs / (60 * 60 * 1000));

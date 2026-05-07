@@ -211,11 +211,11 @@ export class CmsService {
                 }
             }),
             catchError(err => {
+                // No bundled-fixture fallback here: the slug may have been deleted, renamed,
+                // or typo'd, and seed-content is frozen at build time. Falling back would
+                // resurrect dead events with stale orderingActive/dates and defeat the
+                // CMS kill-switch. Propagate so callers can show a not-found state.
                 console.error(`CmsService: item fetch failed for "${collectionKey}/${slug}"`, err);
-                const fallbackItem = fixtureItems.find(i => i.slug === slug);
-                if (fallbackItem) {
-                    return of(fallbackItem);
-                }
                 return throwError(() => err);
             }),
         );

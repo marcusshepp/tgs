@@ -170,6 +170,18 @@ export class CartService {
         }
     }
 
+    // Force-refresh the pricing config. Called at checkout submit so the
+    // displayed breakdown matches the Stripe charge even if Tim flipped a
+    // kill-switch mid-session. Never throws — failures are logged and the
+    // existing cached config stays in effect (server is the authority).
+    async refreshPricing(): Promise<void> {
+        await this.fetchPricing();
+    }
+
+    clearCart(): void {
+        this.clear();
+    }
+
     private loadFromStorage(): void {
         if (!isPlatformBrowser(this.platformId)) {
             return;

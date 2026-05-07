@@ -84,16 +84,18 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
 
         this.sessionId = this.route.snapshot.queryParamMap.get('session_id');
 
-        // Preferred path: the checkout component wrote a pending-order snapshot to
-        // sessionStorage right before the Stripe redirect. This lets us render
-        // immediately without waiting for the webhook.
+        // Pull the sessionStorage snapshot for use as a temporary placeholder
+        // while we poll the server. The snapshot reflects the breakdown the
+        // customer saw at the Place Order button, but Stripe + the webhook are
+        // the only authoritative source for the final order — keep polling
+        // until the server responds (or we exhaust retries).
+        let pending: PendingOrderSnapshot | null = null;
         const raw = sessionStorage.getItem('tgs-pending-order');
         if (raw) {
             try {
-                const pending = JSON.parse(raw) as PendingOrderSnapshot;
+                pending = JSON.parse(raw) as PendingOrderSnapshot;
                 this.view = this.fromPending(pending);
                 this.cartService.clear();
-                sessionStorage.removeItem('tgs-pending-order');
                 this.cdr.markForCheck();
 
                 // Hydrate pickup details from CMS since the snapshot only has
@@ -103,27 +105,26 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
                         takeUntil(this.destroy$),
                         catchError(() => of(null)),
                     ).subscribe(event => {
-                        if (event && this.view) {
+                        if (event && this.view && this.view.orderId === 'pending') {
                             this.view = this.mergeEvent(this.view, event);
                             this.cdr.markForCheck();
                         }
                     });
                 }
-                return;
             } catch {
                 sessionStorage.removeItem('tgs-pending-order');
             }
         }
 
-        // Fallback path: no sessionStorage (customer refreshed, returned on
-        // another device, etc). If Stripe redirected us with a session_id we
-        // can hydrate from the server webhook once it catches up.
         if (this.sessionId) {
             this.hydrateFromServer(this.sessionId, 0);
             return;
         }
 
-        this.router.navigate(['/']);
+        // No session_id and no snapshot → nothing to show. Send them home.
+        if (!pending) {
+            this.router.navigate(['/']);
+        }
     }
 
     ngOnDestroy(): void {
@@ -197,20 +198,31 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
 
     private async hydrateFromServer(sessionId: string, attempt: number): Promise<void> {
         if (this.destroy$.closed) return;
-        this.isLoading = true;
-        this.cdr.markForCheck();
+        // Only flip the loading spinner when we have nothing to show. If the
+        // sessionStorage snapshot is already rendered, keep it visible while
+        // the server catches up.
+        if (!this.view) {
+            this.isLoading = true;
+            this.cdr.markForCheck();
+        }
 
         try {
             const resp = await this.store.getOrderBySession(sessionId);
             if (resp) {
                 this.view = this.fromServer(resp);
                 this.isLoading = false;
+                sessionStorage.removeItem('tgs-pending-order');
                 this.cdr.markForCheck();
                 return;
             }
         } catch {
             if (attempt >= POLL_DELAYS_MS.length - 1) {
-                this.hasError = true;
+                // If we have a snapshot, keep showing it rather than the
+                // generic error screen — the order was placed, we just can't
+                // confirm server-side yet.
+                if (!this.view) {
+                    this.hasError = true;
+                }
                 this.isLoading = false;
                 this.cdr.markForCheck();
                 return;
@@ -219,7 +231,9 @@ export class OrderConfirmationComponent implements OnInit, OnDestroy {
 
         // Null/404 means the webhook hasn't landed yet. Back off and retry.
         if (attempt >= POLL_DELAYS_MS.length - 1) {
-            this.hasError = true;
+            if (!this.view) {
+                this.hasError = true;
+            }
             this.isLoading = false;
             this.cdr.markForCheck();
             return;

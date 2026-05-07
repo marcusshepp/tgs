@@ -31,7 +31,11 @@
       </div>
 
       <h1 class="confirm-headline">{{ orderUi.confirmationHeading || "Order's In!" }}</h1>
-      <p class="confirm-order-id">Order #{{ view.orderId }}</p>
+      @if (view.orderId === 'pending') {
+        <p class="confirm-order-id" aria-live="polite">Confirming your order…</p>
+      } @else {
+        <p class="confirm-order-id">Order #{{ view.orderId }}</p>
+      }
 
       @if (orderUi.confirmationMessage) {
         <p class="confirm-subheading">{{ orderUi.confirmationMessage }}</p>
