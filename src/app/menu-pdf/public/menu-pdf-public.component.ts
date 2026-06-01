@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CmsService } from '../../services/cms.service';
 import { CmsMenuItem, CmsMenuItemCategory } from '../../models/cms.types';
+import { PUBLIC_MENU_HIDDEN_SLUGS } from '../../models/public-menu.constants';
 
 @Component({
     selector: 'app-menu-pdf-public',
@@ -33,7 +34,7 @@ export class MenuPdfPublicComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
-            this.menuItems = items.filter(item => item.available);
+            this.menuItems = items.filter(item => item.available && !PUBLIC_MENU_HIDDEN_SLUGS.has(item.slug));
         });
     }
 

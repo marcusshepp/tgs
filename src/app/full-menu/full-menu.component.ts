@@ -17,6 +17,7 @@ import { takeUntil } from 'rxjs/operators';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CmsService } from '../services/cms.service';
 import { CmsMenuItem } from '../models/cms.types';
+import { PUBLIC_MENU_HIDDEN_SLUGS } from '../models/public-menu.constants';
 import { BannerComponent } from '../banner/banner.component';
 import { PageTitleComponent } from '../page-title/page-title.component';
 
@@ -80,7 +81,7 @@ export class FullMenuComponent implements OnInit, OnDestroy {
         }
 
         this.cms.getMenuItems().pipe(takeUntil(this.destroy$)).subscribe(items => {
-            this.menu = items.filter(item => item.available);
+            this.menu = items.filter(item => item.available && !PUBLIC_MENU_HIDDEN_SLUGS.has(item.slug));
             this.filteredMenu = [...this.menu];
             this.loading = false;
             if (this.isBrowser) {
