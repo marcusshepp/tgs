@@ -67,21 +67,6 @@ export class CateringMenuComponent implements OnInit, OnDestroy {
             this.contactPhone = contact.phone;
         });
 
-        if (this.isBrowser) {
-            this.initAnimations();
-
-            setTimeout(() => {
-                const activeSection = document.querySelector('.menu-section.visible');
-                if (activeSection) {
-                    const menuItems = activeSection.querySelectorAll('.menu-item');
-                    menuItems.forEach((item) => {
-                        (item as HTMLElement).style.opacity = '1';
-                        (item as HTMLElement).style.transform = 'translateY(0)';
-                        (item as HTMLElement).classList.add('animate-item');
-                    });
-                }
-            }, 300);
-        }
     }
 
     ngOnDestroy(): void {
@@ -92,38 +77,6 @@ export class CateringMenuComponent implements OnInit, OnDestroy {
     setActiveTab(tabName: string): void {
         this.activeTab = tabName;
         this.animateMenuItems();
-    }
-
-    private initAnimations() {
-        setTimeout(() => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1,
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            const animatedElements = document.querySelectorAll(
-                '.feature-item, .package-card'
-            );
-            animatedElements.forEach((el) => observer.observe(el));
-
-            const subTitles = document.querySelectorAll('.sub-title');
-            subTitles.forEach((el) => observer.observe(el));
-
-            const menuContainer = document.querySelector('.menu-container');
-            if (menuContainer) {
-                observer.observe(menuContainer);
-            }
-        }, 100);
     }
 
     private animateMenuItems(): void {

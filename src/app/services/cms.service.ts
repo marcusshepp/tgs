@@ -2,7 +2,7 @@ import { Injectable, PLATFORM_ID, Inject, makeStateKey, TransferState } from '@a
 import { HttpClient } from '@angular/common/http';
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import seedContent from '../../../cms/seed-content.json';
 import {
@@ -122,6 +122,12 @@ export class CmsService {
     private readonly apiBase = `${environment.cmsApiBase}/content/${environment.cmsTenant}`;
     private readonly collectionBase = `${environment.cmsApiBase}/collection/${environment.cmsTenant}`;
 
+    // Memoize each section/collection so multiple components share one fetch.
+    // Without this, the first subscriber consumes (and removes) the TransferState
+    // key, forcing every later subscriber into a live network re-fetch.
+    private readonly sectionCache = new Map<string, Observable<unknown>>();
+    private readonly collectionCache = new Map<string, Observable<unknown[]>>();
+
     constructor(
         private http: HttpClient,
         private transferState: TransferState,
@@ -133,26 +139,36 @@ export class CmsService {
             return of(fallback);
         }
 
+        const existing = this.sectionCache.get(sectionKey);
+        if (existing) {
+            return existing as Observable<T>;
+        }
+
         const stateKey = makeStateKey<T>(`cms_section_${sectionKey}`);
+        let source$: Observable<T>;
 
         if (isPlatformBrowser(this.platformId) && this.transferState.hasKey(stateKey)) {
             const cached = this.transferState.get(stateKey, fallback);
             this.transferState.remove(stateKey);
-            return of(cached);
+            source$ = of(cached);
+        } else {
+            source$ = this.http.get<{ content: T }>(`${this.apiBase}/${sectionKey}`).pipe(
+                map(res => res.content),
+                tap(data => {
+                    if (isPlatformServer(this.platformId)) {
+                        this.transferState.set(stateKey, data);
+                    }
+                }),
+                catchError(err => {
+                    console.error(`CmsService: section fetch failed for "${sectionKey}"`, err);
+                    return of(fallback);
+                }),
+            );
         }
 
-        return this.http.get<{ content: T }>(`${this.apiBase}/${sectionKey}`).pipe(
-            map(res => res.content),
-            tap(data => {
-                if (isPlatformServer(this.platformId)) {
-                    this.transferState.set(stateKey, data);
-                }
-            }),
-            catchError(err => {
-                console.error(`CmsService: section fetch failed for "${sectionKey}"`, err);
-                return of(fallback);
-            }),
-        );
+        const shared$ = source$.pipe(shareReplay({ bufferSize: 1, refCount: false }));
+        this.sectionCache.set(sectionKey, shared$);
+        return shared$;
     }
 
     private fetchCollection<T>(collectionKey: string, fallback: T[]): Observable<T[]> {
@@ -160,26 +176,36 @@ export class CmsService {
             return of(fallback);
         }
 
+        const existing = this.collectionCache.get(collectionKey);
+        if (existing) {
+            return existing as Observable<T[]>;
+        }
+
         const stateKey = makeStateKey<T[]>(`cms_collection_${collectionKey}`);
+        let source$: Observable<T[]>;
 
         if (isPlatformBrowser(this.platformId) && this.transferState.hasKey(stateKey)) {
             const cached = this.transferState.get(stateKey, fallback);
             this.transferState.remove(stateKey);
-            return of(cached);
+            source$ = of(cached);
+        } else {
+            source$ = this.http.get<{ items: Array<{ content: T }> }>(`${this.collectionBase}/${collectionKey}`).pipe(
+                map(res => res.items.map(i => i.content)),
+                tap(data => {
+                    if (isPlatformServer(this.platformId)) {
+                        this.transferState.set(stateKey, data);
+                    }
+                }),
+                catchError(err => {
+                    console.error(`CmsService: collection fetch failed for "${collectionKey}"`, err);
+                    return of(fallback);
+                }),
+            );
         }
 
-        return this.http.get<{ items: Array<{ content: T }> }>(`${this.collectionBase}/${collectionKey}`).pipe(
-            map(res => res.items.map(i => i.content)),
-            tap(data => {
-                if (isPlatformServer(this.platformId)) {
-                    this.transferState.set(stateKey, data);
-                }
-            }),
-            catchError(err => {
-                console.error(`CmsService: collection fetch failed for "${collectionKey}"`, err);
-                return of(fallback);
-            }),
-        );
+        const shared$ = source$.pipe(shareReplay({ bufferSize: 1, refCount: false }));
+        this.collectionCache.set(collectionKey, shared$);
+        return shared$;
     }
 
     private fetchCollectionItem<T extends { slug: string }>(

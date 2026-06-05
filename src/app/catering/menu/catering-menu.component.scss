@@ -5,16 +5,11 @@
 
 .menu-container {
     margin-bottom: 3rem;
-    transition: opacity 0.5s ease;
-    opacity: 0;
+    opacity: 1;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-
-    &.animate {
-        opacity: 1;
-    }
 }
 
 .menu-tabs {
@@ -129,8 +124,8 @@
         box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
         border: 1px solid #f0f0f0;
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: translateY(0);
 
         &.animate-item {
             animation: fadeItemIn 0.5s forwards;

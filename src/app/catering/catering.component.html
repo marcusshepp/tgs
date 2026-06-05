@@ -2,7 +2,7 @@
     <div class="container">
         <div class="catering-content">
             <div class="title-area">
-                <div class="sub-title text-center" [class.animate]="isBrowser">
+                <div class="sub-title text-center">
                     <img
                         class="me-1"
                         src="/img/icon/titleIcon.svg"
@@ -29,7 +29,7 @@
                 />
             </div>
 
-            <div class="features-list" [class.animate]="isBrowser">
+            <div class="features-list">
                 <div class="row">
                     <div class="col-lg-4 col-md-6" *ngFor="let feature of catering?.features">
                         <div class="feature-item">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="title-area package-heading">
-                <div class="sub-title text-center" [class.animate]="isBrowser">
+                <div class="sub-title text-center">
                     <img
                         class="me-1"
                         src="/img/icon/titleIcon.svg"
@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <div class="package-container" [class.animate]="isBrowser">
+            <div class="package-container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6" *ngFor="let pkg of catering?.packages">
                         <div class="package-card" [class.popular]="pkg.popularTag">
@@ -81,7 +81,7 @@
             </div>
 
             <div class="title-area menu-heading">
-                <div class="sub-title text-center" [class.animate]="isBrowser">
+                <div class="sub-title text-center">
                     <img
                         class="me-1"
                         src="/img/icon/titleIcon.svg"

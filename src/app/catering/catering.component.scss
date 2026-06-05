@@ -114,16 +114,8 @@
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        transition:
-            transform 0.5s ease,
-            opacity 0.5s ease;
-        opacity: 0;
-        transform: translateY(20px);
-
-        &.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        opacity: 1;
+        transform: translateY(0);
 
         img {
             height: 24px;
@@ -160,12 +152,7 @@
 
 .features-list {
     margin-bottom: 4rem;
-    transition: opacity 0.5s ease;
-    opacity: 0;
-
-    &.animate {
-        opacity: 1;
-    }
+    opacity: 1;
 
     .row {
         row-gap: 2rem;
@@ -180,13 +167,9 @@
         height: 100%;
         transition: all 0.5s ease;
         border: 1px solid #f0f0f0;
-        opacity: 0;
-        transform: translateY(30px);
-
-        &.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        opacity: 1;
+        transform: translateY(0);
+        animation: fadeIn 0.6s ease both;
 
         &:hover {
             transform: translateY(-10px);
@@ -229,12 +212,7 @@
 
 .package-container {
     margin-bottom: 3rem;
-    transition: opacity 0.5s ease;
-    opacity: 0;
-
-    &.animate {
-        opacity: 1;
-    }
+    opacity: 1;
 
     .row {
         row-gap: 2rem;
@@ -250,14 +228,10 @@
     height: 100%;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 1px solid #f0f0f0;
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.6s ease both;
     font-size: 0.95rem; // Slightly reduced font size
-
-    &.animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
 
     &:hover {
         transform: translateY(-10px);
