@@ -438,6 +438,32 @@
       }
     },
     {
+      "slug": "the-comeback-sliders",
+      "name": "The Comeback Sliders",
+      "description": "Prime beef, signature sauce, pickles, and caramelized onions",
+      "price": 13,
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/19e9d5d2-7bf4-4374-b53e-d92df6bf196e.webp",
+      "category": "beef",
+      "popular": false,
+      "available": true,
+      "spiceLevel": 0,
+      "isVegetarianOption": false,
+      "dietaryInfo": [
+        "Contains Gluten"
+      ],
+      "ingredients": [
+        "Prime Beef Patty",
+        "Signature Sauce",
+        "Pickles",
+        "Caramelized Onions",
+        "Brioche Bun"
+      ],
+      "allergens": [
+        "Gluten"
+      ],
+      "nutritionInfo": {}
+    },
+    {
       "slug": "famous-fried-chicken",
       "name": "Tim's Famous Fried Chicken",
       "description": "Crispy fried chicken topped with pickles, our signature sauce and white American cheese",
@@ -829,6 +855,14 @@
       "slug": "catering-classic-sliders",
       "name": "Classic Sliders",
       "description": "Our prime beef sliders topped with ketchup, mustard, American cheese, caramelized onions and pickles",
+      "category": "beef",
+      "additionalCharge": false
+    },
+    {
+      "slug": "catering-the-comeback-sliders",
+      "name": "The Comeback Sliders",
+      "description": "Prime beef, signature sauce, pickles, and caramelized onions",
+      "price": 13,
       "category": "beef",
       "additionalCharge": false
     },

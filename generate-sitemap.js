@@ -6,6 +6,7 @@ const menuItemIds = [
     'bbq-bacon-cheese',
     'black-and-blue',
     'classic',
+    'the-comeback-sliders',
     'famous-fried-chicken',
     'sweet-savory',
     'extra-cheese',
