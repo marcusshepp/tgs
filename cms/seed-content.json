@@ -439,7 +439,7 @@
     },
     {
       "slug": "the-comeback-sliders",
-      "name": "The Comeback Sliders",
+      "name": "The Comeback",
       "description": "Prime beef, signature sauce, pickles, and caramelized onions",
       "price": 13,
       "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/19e9d5d2-7bf4-4374-b53e-d92df6bf196e.webp",
@@ -860,7 +860,7 @@
     },
     {
       "slug": "catering-the-comeback-sliders",
-      "name": "The Comeback Sliders",
+      "name": "The Comeback",
       "description": "Prime beef, signature sauce, pickles, and caramelized onions",
       "category": "beef",
       "additionalCharge": false
