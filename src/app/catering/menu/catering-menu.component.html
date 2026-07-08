@@ -13,7 +13,10 @@
                 <h3 class="menu-category">{{ section.label }}</h3>
                 <div class="menu-items" [class.side-items]="section.id === 'sides'">
                     <div class="menu-item" *ngFor="let item of section.items">
-                        <h4>{{ item.name }}</h4>
+                        <h4>
+                            <span>{{ item.name }}</span>
+                            <span class="menu-item-price" *ngIf="item.price">${{ item.price }}</span>
+                        </h4>
                         <p *ngIf="item.description">
                             {{ item.description }}
                             <span class="additional-charge" *ngIf="item.additionalCharge">(additional charge)</span>

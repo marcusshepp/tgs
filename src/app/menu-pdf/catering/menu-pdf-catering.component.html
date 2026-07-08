@@ -35,6 +35,9 @@
                             <div class="menu-item">
                                 <div class="item-header">
                                     <span class="item-name">{{ item.name }}@if (item.additionalCharge) {*}</span>
+                                    @if (item.price) {
+                                        <span class="item-price">${{ item.price }}</span>
+                                    }
                                 </div>
                                 @if (item.description) {
                                     <p class="item-description">{{ item.description }}</p>
