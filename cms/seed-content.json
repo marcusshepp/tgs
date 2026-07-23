@@ -440,7 +440,7 @@
     {
       "slug": "the-comeback-sliders",
       "name": "The Comeback",
-      "description": "Prime beef, signature sauce, pickles, and caramelized onions",
+      "description": "Prime beef, American cheese, signature sauce, pickles, and caramelized onions",
       "price": 13,
       "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/c1c8ab11-bc1a-430b-b132-85251bb6ccef.webp",
       "category": "beef",
@@ -449,16 +449,19 @@
       "spiceLevel": 0,
       "isVegetarianOption": false,
       "dietaryInfo": [
+        "Contains Dairy",
         "Contains Gluten"
       ],
       "ingredients": [
         "Prime Beef Patty",
+        "American Cheese",
         "Signature Sauce",
         "Pickles",
         "Caramelized Onions",
         "Brioche Bun"
       ],
       "allergens": [
+        "Dairy",
         "Gluten"
       ],
       "nutritionInfo": {}
