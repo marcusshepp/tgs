@@ -11,10 +11,11 @@
 
 import { readFileSync } from "fs";
 import { join } from "path";
+import { fileURLToPath } from "url";
 
 const BASE_URL = "https://cms-api.syncgr.com";
 const TENANT = "timsgourmetsliders.com";
-const JWT = process.env.PORTAL_JWT;
+const JWT = process.env["PORTAL_JWT"];
 
 if (!JWT) {
   console.error("❌  PORTAL_JWT environment variable is not set.");
@@ -27,7 +28,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const seedPath = join(import.meta.dir, "../cms/seed-content.json");
+const seedPath = join(fileURLToPath(new URL(".", import.meta.url)), "../cms/seed-content.json");
 const seed = JSON.parse(readFileSync(seedPath, "utf-8"));
 
 let totalSeeded = 0;
