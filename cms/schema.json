@@ -151,7 +151,7 @@
     "fields": [
       { "key": "title", "type": "text", "label": "Page Title" },
       { "key": "storyHeading", "type": "text", "label": "Our Story Section Heading" },
-      { "key": "body", "type": "richtext", "label": "Our Story Body" },
+      { "key": "body", "type": "richtext", "format": "markdown", "label": "Our Story Body" },
       { "key": "imageUrl", "type": "image", "label": "Feature / Truck Image" },
       {
         "key": "teamMembers",
@@ -163,7 +163,7 @@
           { "key": "role", "type": "text", "label": "Role / Title" },
           { "key": "photoUrl", "type": "image", "label": "Photo" },
           { "key": "photoAlt", "type": "text", "label": "Photo Alt Text" },
-          { "key": "bio", "type": "richtext", "label": "Bio" }
+          { "key": "bio", "type": "richtext", "format": "markdown", "label": "Bio" }
         ]
       }
     ]
@@ -233,7 +233,7 @@
     "description": "Catering page prose, feature highlights, and package descriptions.",
     "fields": [
       { "key": "pageKicker", "type": "text", "label": "Page Kicker / Eyebrow" },
-      { "key": "introParagraph", "type": "richtext", "label": "Intro Paragraph" },
+      { "key": "introParagraph", "type": "richtext", "format": "markdown", "label": "Intro Paragraph" },
       { "key": "weddingPhotoUrl", "type": "image", "label": "Intro Photo" },
       { "key": "packagesHeading", "type": "text", "label": "Packages Section Heading" },
       { "key": "packageIncludesNote", "type": "text", "label": "Package Includes Note" },
@@ -408,7 +408,7 @@
       { "key": "endTime", "type": "text", "label": "End Time (display text, e.g. \"7:00 PM\")", "order": 7 },
       { "key": "location", "type": "text", "label": "Street Address", "order": 8 },
       { "key": "coverImage", "type": "image", "label": "Cover / Flyer Image", "order": 9 },
-      { "key": "description", "type": "richtext", "label": "Event Description", "order": 10 },
+      { "key": "description", "type": "richtext", "format": "html", "label": "Event Description", "order": 10 },
       {
         "key": "highlights",
         "type": "array",
