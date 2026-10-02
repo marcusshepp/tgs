@@ -605,7 +605,7 @@
       "name": "Smoke and Fire Royale",
       "description": "Prime beef, American cheese, jalapeño relish, crispy onions, barbecue sauce",
       "price": 14,
-      "imageUrl": "",
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/a2f768a1-0c9c-4afe-8afd-0ce574a0fc8b.webp",
       "category": "beef",
       "popular": true,
       "available": true,
@@ -624,6 +624,31 @@
         "Gluten"
       ],
       "dietaryInfo": []
+    },
+    {
+      "isVegetarianOption": false,
+      "visible": true,
+      "available": true,
+      "description": "Delicious crispy chicken paired with your choice of dipping sauce... ranch, bbq or our signature sauce. Served with our famous crispy fries...",
+      "dietaryInfo": [
+        "Contains Gluten"
+      ],
+      "allergens": [
+        "Gluten"
+      ],
+      "nutritionInfo": {},
+      "price": 15,
+      "imageUrl": "https://cdn.syncgr.com/domains/timsgourmetsliders.com/6c4af853-fcbb-4707-a68f-ccc7c2611cac.webp",
+      "name": "Premium Chicken Tenders with Fries",
+      "ingredients": [
+        "Crispy Chicken Tenders",
+        "Dipping Sauce",
+        "Crispy Fries"
+      ],
+      "spiceLevel": 0,
+      "category": "other",
+      "popular": false,
+      "slug": "chicken-tenders"
     }
   ],
   "catering-items": [
