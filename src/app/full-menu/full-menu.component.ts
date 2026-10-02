@@ -76,7 +76,7 @@ export class FullMenuComponent implements OnInit, OnDestroy {
             this.meta.updateTag({
                 name: 'description',
                 content:
-                    'Explore our delicious menu of freshly prepared Detroit-style sliders. From our famous NOT! So Basic to the Black And Blue steakhouse classic.',
+                    'Explore our delicious menu of freshly prepared Detroit-style sliders. From our Smoke and Fire Royale to the Black and Blue classic.',
             });
         }
 

@@ -59,6 +59,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             ],
             email: ['', [Validators.required, Validators.email]],
             eventDate: ['', Validators.required],
+            eventTime: ['', Validators.required],
             eventLocation: ['', Validators.required],
             message: ['', [Validators.required, Validators.minLength(10)]],
             honeypot: ['', this.honeyPotValidator],
@@ -210,6 +211,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             const email: string = this.form.get('email')?.value ?? '';
             const phoneNumber: string = this.form.get('phoneNumber')?.value ?? '';
             const eventDate: string = this.form.get('eventDate')?.value ?? '';
+            const eventTime: string = this.form.get('eventTime')?.value ?? '';
             const eventLocation: string = this.form.get('eventLocation')?.value ?? '';
             const message: string = this.form.get('message')?.value ?? '';
 
@@ -217,12 +219,13 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
                 to: 'timsfoodtruckdetroit@gmail.com',
                 from: 'info@syncgr.com',
                 subject: `Tim's Gourmet Sliders - New Catering Inquiry from ${fullName}`,
-                text: `Name: ${fullName}\nEmail: ${email}\nPhone: ${phoneNumber || 'Not provided'}\nEvent Date: ${eventDate || 'Not specified'}\nEvent Location: ${eventLocation || 'Not specified'}\n\nMessage:\n${message}`,
+                text: `Name: ${fullName}\nEmail: ${email}\nPhone: ${phoneNumber || 'Not provided'}\nEvent Date: ${eventDate || 'Not specified'}\nStart Time: ${eventTime}\nEvent Location: ${eventLocation || 'Not specified'}\n\nMessage:\n${message}`,
                 replyTo: email,
                 domain: 'timsgourmetsliders.com',
                 contactName: fullName,
                 contactPhone: phoneNumber || undefined,
-                contactMessage: message,
+                contactMessage: `Event date: ${eventDate}\nStart time: ${eventTime}\n${message}`,
+                requestedFor: `${eventDate} ${eventTime}`,
                 autoReply: {
                     enabled: true,
                     subject: "Thank you for your catering inquiry - Tim's Gourmet Sliders",

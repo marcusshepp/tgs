@@ -1,25 +1,8 @@
 import * as fs from 'fs';
 
 
-const menuItemIds = [
-    'not-so-basic',
-    'bbq-bacon-cheese',
-    'black-and-blue',
-    'classic',
-    'the-comeback-sliders',
-    'famous-fried-chicken',
-    'sweet-savory',
-    'extra-cheese',
-    'whiskey',
-    'double-bacon',
-    'vegetarian',
-    'very-basic',
-    'spicy-chicken',
-    'honey-mustard',
-    'steak-house',
-    'fries',
-    'chicken-tenders'
-];
+const seed = JSON.parse(fs.readFileSync('cms/seed-content.json', 'utf8'));
+const menuItemIds = seed['menu-items'].filter(item => item.available && item.visible !== false).map(item => item.slug);
 
 const baseUrl = 'https://timsgourmetsliders.com';
 

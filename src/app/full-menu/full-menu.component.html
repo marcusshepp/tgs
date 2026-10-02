@@ -43,12 +43,6 @@
                             (click)="applyFilter('beef')">
                             100% Halal Beef
                         </button>
-                        <button
-                            class="filter-btn"
-                            [class.active]="activeFilter === 'chicken'"
-                            (click)="applyFilter('chicken')">
-                            Chicken
-                        </button>
                         <!--<button-->
                         <!--    class="filter-btn"-->
                         <!--    [class.active]="activeFilter === 'pork'"-->
@@ -110,7 +104,7 @@
                     <div class="card shadow-sm h-100">
                         <div class="menu-image-wrapper">
                             <img
-                                [src]="item.imageUrl || '/img/menu/default.png'"
+                                [src]="item.imageUrl || '/img/logo-no-bg.png'"
                                 [alt]="item.name"
                                 class="menu-image"
                                 loading="lazy"

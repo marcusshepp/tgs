@@ -190,7 +190,7 @@ export class CmsService {
             source$ = of(cached);
         } else {
             source$ = this.http.get<{ items: Array<{ content: T }> }>(`${this.collectionBase}/${collectionKey}`).pipe(
-                map(res => res.items.map(i => i.content)),
+                map(res => res.items.filter(i => (i.content as { visible?: boolean }).visible !== false).map(i => i.content)),
                 tap(data => {
                     if (isPlatformServer(this.platformId)) {
                         this.transferState.set(stateKey, data);
@@ -230,7 +230,10 @@ export class CmsService {
         }
 
         return this.http.get<{ content: T }>(`${this.collectionBase}/${collectionKey}/${slug}`).pipe(
-            map(res => res.content),
+            map(res => {
+                if ((res.content as { visible?: boolean }).visible === false) throw new Error('Menu item is no longer available');
+                return res.content;
+            }),
             tap(data => {
                 if (isPlatformServer(this.platformId)) {
                     this.transferState.set(stateKey, data);

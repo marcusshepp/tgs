@@ -13,6 +13,7 @@
                 <h3 class="menu-category">{{ section.label }}</h3>
                 <div class="menu-items" [class.side-items]="section.id === 'sides'">
                     <div class="menu-item" *ngFor="let item of section.items">
+                        <img *ngIf="item.imageUrl" [src]="item.imageUrl" [alt]="item.name" loading="lazy" class="catering-item-photo" />
                         <h4>{{ item.name }}</h4>
                         <p *ngIf="item.description">
                             {{ item.description }}

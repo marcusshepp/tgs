@@ -79,6 +79,11 @@
                 Event Date is required.
             </div>
         </div>
+        <div class="col-md-6">
+            <label for="eventTime" class="form-label">Start Time</label>
+            <input type="time" id="eventTime" class="form-control" formControlName="eventTime" required (blur)="form.get('eventTime')?.markAsTouched()" />
+            <div class="text-danger mt-1" *ngIf="shouldShowError('eventTime')">Start Time is required.</div>
+        </div>
         <div class="col-12">
             <label for="eventLocation" class="form-label">Location of Event</label>
             <div class="input-wrapper">

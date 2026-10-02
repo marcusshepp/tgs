@@ -1,1 +1,11 @@
-/events/test-event-upcoming/order
+/menu-item/classic
+/menu-item/the-comeback-sliders
+/menu-item/fries
+/menu-item/black-and-blue
+/menu-item/very-basic
+/menu-item/whiskey
+/menu-item/steak-house
+/menu-item/vegetarian
+/menu-item/double-bacon
+/menu-item/cheeseburger
+/menu-item/smoke-and-fire-royale
