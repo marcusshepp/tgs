@@ -47,6 +47,7 @@
         <div class="section-box">
             <div class="categories-row">
                 <!-- Chicken -->
+                @if (getItemsByCategory('chicken').length > 0) {
                 <div class="category-column">
                     <h2 class="category-title">Chicken Sliders</h2>
                     <div class="items">
@@ -63,6 +64,7 @@
                         }
                     </div>
                 </div>
+                }
 
                 <!-- Vegetarian -->
                 <div class="category-column">
