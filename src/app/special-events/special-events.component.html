@@ -62,7 +62,7 @@
                             <div class="featured-description" [innerHTML]="featuredEvent.description"></div>
                         }
 
-                        @if (featuredEvent.highlights.length > 0) {
+                        @if (featuredEvent.highlights?.length > 0) {
                             <div class="highlight-row">
                                 @for (h of featuredEvent.highlights; track $index) {
                                     <span class="highlight-pill">{{ highlightText(h) }}</span>

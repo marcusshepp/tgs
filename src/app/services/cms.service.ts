@@ -291,7 +291,9 @@ export class CmsService {
     }
 
     getTrustedBy(): Observable<CmsTrustedBy> {
-        return this.fetchSection('trustedBy', fixture['trusted-by'] ?? EMPTY_TRUSTED_BY);
+        return this.fetchSection('trustedBy', fixture['trusted-by'] ?? EMPTY_TRUSTED_BY).pipe(
+            map(data => ({ ...data, items: data.items ?? [] })),
+        );
     }
 
     getFooter(): Observable<CmsFooter> {
